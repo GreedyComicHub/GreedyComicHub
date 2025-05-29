@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GreedyComicHub - Comic</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f4f4f4; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .chapter-list { 
+            margin: 20px 0; 
+        }
+        .chapter { 
+            margin: 10px 0; 
+        }
+        .chapter a { 
+            color: #007bff; 
+            text-decoration: none; 
+        }
+        .chapter a:hover { 
+            text-decoration: underline; 
+        }
+        .pages { 
+            margin-top: 20px; 
+        }
+        .pages img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 10px 0; 
+        }
+        #error-message { 
+            color: red; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="comic-title">Loading...</h1>
+        <div id="chapter-list" class="chapter-list"></div>
+        <div id="pages" class="pages"></div>
+        <div id="error-message"></div>
+    </div>
+    <script>
+        console.log("Comic page JavaScript started running...");
+
+        // Ambil comicId dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const comicId = urlParams.get('comic');
+
+        if (!comicId) {
+            document.getElementById('error-message').innerHTML = '<p>No comic specified in URL.</p>';
+            console.error("No comic specified in URL");
+            throw new Error("No comic specified in URL");
+        }
+
+        // Ambil data komik dari comicId.json
+        fetch(`${comicId}.json`)
+            .then(response => {
+                console.log("Fetch comic data response:", response);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(comicData => {
+                console.log("Comic data loaded:", comicData);
+                const titleElement = document.getElementById('comic-title');
+                const chapterList = document.getElementById('chapter-list');
+                const pagesDiv = document.getElementById('pages');
+
+                titleElement.textContent = comicData.title;
+
+                // Tampilkan daftar chapter
+                if (!comicData.chapters || Object.keys(comicData.chapters).length === 0) {
+                    chapterList.innerHTML = '<p>No chapters available.</p>';
+                    console.log("No chapters available");
+                    return;
+                }
+
+                for (const chapterNum in comicData.chapters) {
+                    const chapter = comicData.chapters[chapterNum];
+                    const div = document.createElement('div');
+                    div.className = 'chapter';
+                    div.innerHTML = `<a href="#" onclick="loadChapter('${comicId}', ${chapterNum}); return false;">Chapter ${chapterNum}</a>`;
+                    chapterList.appendChild(div);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading comic data:', error);
+                document.getElementById('error-message').innerHTML = `<p>Error loading comic data: ${error.message}</p>`;
+            });
+
+        // Fungsi untuk load chapter
+        function loadChapter(comicId, chapterNum) {
+            console.log(`Loading chapter ${chapterNum} for ${comicId}...`);
+            fetch(`${comicId}.json`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(comicData => {
+                    const pagesDiv = document.getElementById('pages');
+                    pagesDiv.innerHTML = ''; // Kosongkan halaman sebelumnya
+
+                    const chapter = comicData.chapters[chapterNum];
+                    if (!chapter || !chapter.pages || chapter.pages.length === 0) {
+                        pagesDiv.innerHTML = '<p>No pages available for this chapter.</p>';
+                        console.log("No pages available for this chapter");
+                        return;
+                    }
+
+                    chapter.pages.forEach(pageUrl => {
+                        const img = document.createElement('img');
+                        img.src = pageUrl;
+                        pagesDiv.appendChild(img);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading chapter:', error);
+                    document.getElementById('pages').innerHTML = `<p>Error loading chapter: ${error.message}</p>`;
+                });
+        }
+    </script>
+</body>
+</html>
