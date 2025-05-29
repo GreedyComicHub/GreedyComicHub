@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GreedyComicHub</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f4f4f4; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .comic-list { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        .comic { 
+            border: 1px solid #ddd; 
+            padding: 10px; 
+            background: white; 
+            border-radius: 5px; 
+        }
+        .comic img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
+        }
+        .comic h2 { 
+            font-size: 1.2em; 
+            margin: 10px 0; 
+        }
+        .comic p { 
+            font-size: 0.9em; 
+            color: #555; 
+        }
+        .comic a { 
+            color: #007bff; 
+            text-decoration: none; 
+        }
+        .comic a:hover { 
+            text-decoration: underline; 
+        }
+        #error-message { 
+            color: red; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GreedyComicHub</h1>
+        <div id="comics-list" class="comic-list"></div>
+        <div id="error-message"></div>
+    </div>
+    <script>
+        console.log("JavaScript started running...");
+
+        fetch('index.json')
+            .then(response => {
+                console.log("Fetch response:", response);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Data loaded:", data);
+                const list = document.getElementById('comics-list');
+                const errorDiv = document.getElementById('error-message');
+
+                if (!data || Object.keys(data).length === 0) {
+                    errorDiv.innerHTML = '<p>No comics found in index.json.</p>';
+                    console.log("No comics found in index.json");
+                    return;
+                }
+
+                for (const comicId in data) {
+                    const comic = data[comicId];
+                    const div = document.createElement('div');
+                    div.className = 'comic';
+                    div.innerHTML = `
+                        <h2>${comic.title}</h2>
+                        ${comic.cover ? `<img src="${comic.cover}" alt="${comic.title} cover">` : '<p>No cover available</p>'}
+                        <p>${comic.synopsis}</p>
+                        <p><strong>Author:</strong> ${comic.author}</p>
+                        <p><strong>Total Chapters:</strong> ${comic.total_chapters}</p>
+                        <p><a href="comic.html?comic=${comicId}">Read Now</a></p>
+                    `;
+                    list.appendChild(div);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading comics:', error);
+                document.getElementById('error-message').innerHTML = `<p>Error loading comics: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
