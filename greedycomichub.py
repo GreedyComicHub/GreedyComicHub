@@ -111,6 +111,44 @@ def fetch_page(url, retries=3, delay=2):
                 return None
     return None
 
+def paraphrase_synopsis(original_synopsis):
+    """Parafrase sinopsis biar beda kalimat tapi makna sama."""
+    if not original_synopsis or original_synopsis == "No synopsis available.":
+        return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
+
+    # Dictionary untuk mapping kata/phrase biar lebih variatif
+    phrase_map = {
+        "perjalanan": ["petualangan", "kisah", "cerita"],
+        "sihir": ["magis", "kekuatan ajaib", "ilmu sihir"],
+        "kekuasaan": ["ambisi", "dominasi", "kuasa"],
+        "intrik politik": ["konspirasi politik", "persaingan politik", "intrik kekuasaan"],
+        "fantasi": ["dunia imajiner", "alam fantasi", "dunia ajaib"],
+        "menghadapi": ["melawan", "berhadapan dengan", "menantang"]
+    }
+
+    # Split kalimat jadi kata-kata
+    words = original_synopsis.lower().split()
+    paraphrased = []
+    for word in words:
+        # Ganti kata/phrase kalo ada di mapping
+        new_word = phrase_map.get(word, word)
+        if isinstance(new_word, list):
+            new_word = new_word[0]  # Ambil variasi pertama
+        paraphrased.append(new_word)
+
+    # Gabungkan kata-kata jadi kalimat
+    new_synopsis = " ".join(paraphrased).capitalize()
+
+    # Tambah variasi kalimat
+    if "perjalanan" in original_synopsis.lower() or "petualangan" in new_synopsis.lower():
+        new_synopsis = f"Seorang penyihir legendaris memulai {new_synopsis} yang mendebarkan."
+    elif "intrik" in original_synopsis.lower() or "konspirasi" in new_synopsis.lower():
+        new_synopsis = f"{new_synopsis} di tengah dunia yang penuh dengan rahasia dan bahaya."
+
+    logging.info(f"Sinopsis asli: {original_synopsis}")
+    logging.info(f"Sinopsis setelah parafrase: {new_synopsis}")
+    return new_synopsis
+
 def scrape_comic_details(url):
     """Scrape detail komik dari halaman utama."""
     html = fetch_page(url)
@@ -162,7 +200,9 @@ def scrape_comic_details(url):
         meta_desc = soup.find("meta", attrs={"name": "description"})
         if meta_desc and meta_desc.get("content"):
             synopsis = meta_desc["content"].strip()
-    logging.info(f"Sinopsis ditemukan: {synopsis}")
+    
+    # Parafrase sinopsis
+    synopsis = paraphrase_synopsis(synopsis)
 
     # Ambil cover
     cover_url = None
@@ -304,7 +344,7 @@ def update_comic(url, start_chapter, end_chapter):
         "author": author,
         "synopsis": synopsis,
         "cover": cover_url,
-        "genre": genre,  # Tambah genre
+        "genre": genre,
         "chapters": {}
     }
 
