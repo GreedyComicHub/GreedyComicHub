@@ -1,0 +1,68 @@
+/* style.css: Styling untuk index.html, comic.html, chapter.html */
+/* Ubah style nggak ngaruh ke script Python, cuma ke tampilan */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+.comic-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.comic-card img {
+    max-width: 150px;
+    height: auto;
+}
+
+.chapter-link {
+    margin: 10px 0;
+}
+
+.chapter-link a {
+    display: block;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.chapter-link a:hover {
+    background: #0056b3;
+}
+
+.chapter-nav {
+    margin-bottom: 20px;
+}
+
+.chapter-nav a {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.chapter-nav a:hover {
+    background: #0056b3;
+}
+
+.chapter-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    display: block;
+}
