@@ -339,20 +339,32 @@ def update_comic(url, start_chapter, end_chapter):
         logging.error("Tidak ada chapter yang ditemukan. Proses dihentikan.")
         return
 
+    # Pastiin semua field ada
     comic_data = {
-        "title": title,
-        "author": author,
-        "synopsis": synopsis,
-        "cover": cover_url,
-        "genre": genre,
+        "title": title if title else "Unknown Title",
+        "author": author if author else "Unknown Author",
+        "synopsis": synopsis if synopsis else "No synopsis available.",
+        "cover": cover_url if cover_url else "",
+        "genre": genre if genre else "Fantasy",
         "chapters": {}
     }
+
+    # Log semua field buat debug
+    logging.info(f"Comic Data sebelum load file lama: {json.dumps(comic_data, indent=2)}")
 
     # Load data komik yang sudah ada
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if os.path.exists(comic_file):
         with open(comic_file, "r", encoding="utf-8") as f:
-            comic_data = json.load(f)
+            existing_data = json.load(f)
+            # Pastiin semua field ada, kalo nggak ada di file lama, ambil dari data baru
+            comic_data["title"] = existing_data.get("title", comic_data["title"])
+            comic_data["author"] = existing_data.get("author", comic_data["author"])
+            comic_data["synopsis"] = existing_data.get("synopsis", comic_data["synopsis"])
+            comic_data["cover"] = existing_data.get("cover", comic_data["cover"])
+            comic_data["genre"] = existing_data.get("genre", comic_data["genre"])
+            comic_data["chapters"] = existing_data.get("chapters", {})
+        logging.info(f"Loaded existing comic data from {comic_file}")
 
     # Update chapter yang diminta
     first_image_url = None
@@ -382,6 +394,9 @@ def update_comic(url, start_chapter, end_chapter):
     if first_image_url and (not comic_data["cover"] or fetch_page(comic_data["cover"]) is None):
         logging.info(f"Cover asli gagal load, ganti dengan gambar pertama: {first_image_url}")
         comic_data["cover"] = first_image_url
+
+    # Log comic_data sebelum disimpan
+    logging.info(f"Comic Data sebelum disimpan: {json.dumps(comic_data, indent=2)}")
 
     # Simpan data komik
     with open(comic_file, "w", encoding="utf-8") as f:
@@ -424,6 +439,9 @@ def update_index(comic_id, comic_data):
         "total_chapters": len(comic_data["chapters"])
     }
     index_data[comic_id] = comic_entry
+
+    # Log index_data sebelum disimpan
+    logging.info(f"Index Data sebelum disimpan: {json.dumps(index_data, indent=2)}")
 
     # Simpan index.json
     with open(index_file, "w", encoding="utf-8") as f:
