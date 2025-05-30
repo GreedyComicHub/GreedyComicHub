@@ -115,24 +115,56 @@ def scrape_comic_details(url):
     """Scrape detail komik dari halaman utama."""
     html = fetch_page(url)
     if not html:
-        return None, None, None, None, None
+        return None, None, None, None, None, None
 
     soup = BeautifulSoup(html, "html.parser")
     
+    # Ambil judul
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
 
+    # Ambil author
     author = "Unknown Author"
+    # Pendekatan 1: Cari span yang berisi "Author"
     author_element = soup.find("span", string=lambda text: "Author" in text if text else False)
     if author_element:
         author = author_element.find_next("span").text.strip() if author_element.find_next("span") else "Unknown Author"
+    else:
+        # Pendekatan 2: Cari di tabel info komik
+        info_table = soup.find("table", class_="info-komik")
+        if info_table:
+            author_row = info_table.find("td", string=lambda text: "Author" in text if text else False)
+            if author_row:
+                author = author_row.find_next("td").text.strip() if author_row.find_next("td") else "Unknown Author"
+    logging.info(f"Author ditemukan: {author}")
 
+    # Ambil genre
+    genre = "Fantasy"  # Default
+    genre_element = soup.find("span", string=lambda text: "Genre" in text if text else False)
+    if genre_element:
+        genre = genre_element.find_next("span").text.strip() if genre_element.find_next("span") else "Fantasy"
+    else:
+        # Pendekatan 2: Cari di tabel info komik
+        if info_table:
+            genre_row = info_table.find("td", string=lambda text: "Genre" in text if text else False)
+            if genre_row:
+                genre = genre_row.find_next("td").text.strip() if genre_row.find_next("td") else "Fantasy"
+    logging.info(f"Genre ditemukan: {genre}")
+
+    # Ambil sinopsis
     synopsis = "No synopsis available."
     synopsis_element = soup.find("div", class_="desc")
     if synopsis_element:
         synopsis = synopsis_element.text.strip()
+    else:
+        # Fallback: Cari di meta description
+        meta_desc = soup.find("meta", attrs={"name": "description"})
+        if meta_desc and meta_desc.get("content"):
+            synopsis = meta_desc["content"].strip()
+    logging.info(f"Sinopsis ditemukan: {synopsis}")
 
+    # Ambil cover
     cover_url = None
     cover_selectors = [
         'meta[property="og:image"]',
@@ -151,7 +183,7 @@ def scrape_comic_details(url):
         logging.warning("Cover image tidak ditemukan.")
         cover_url = ""
 
-    return title, author, synopsis, cover_url, soup
+    return title, author, synopsis, cover_url, soup, genre
 
 def scrape_chapter_list(url, soup):
     """Scrape daftar chapter dari halaman utama komik."""
@@ -257,7 +289,7 @@ def update_comic(url, start_chapter, end_chapter):
     logging.info(f"Mulai update komik: {url}")
 
     comic_id, display_name = get_comic_id_and_display_name(url)
-    title, author, synopsis, cover_url, soup = scrape_comic_details(url)
+    title, author, synopsis, cover_url, soup, genre = scrape_comic_details(url)
     if not title:
         logging.error("Gagal mendapatkan detail komik. Proses dihentikan.")
         return
@@ -272,6 +304,7 @@ def update_comic(url, start_chapter, end_chapter):
         "author": author,
         "synopsis": synopsis,
         "cover": cover_url,
+        "genre": genre,  # Tambah genre
         "chapters": {}
     }
 
@@ -302,7 +335,7 @@ def update_comic(url, start_chapter, end_chapter):
                     first_image_url = uploaded_url
 
             comic_data["chapters"][str(chapter_num)] = {
-                "pages": uploaded_urls  # Balik ke format lama
+                "pages": uploaded_urls  # Format lama
             }
 
     # Kalo cover dari Komiku gagal, ganti pake gambar pertama dari chapter
@@ -343,10 +376,9 @@ def update_index(comic_id, comic_data):
     else:
         logging.info("index.json tidak ditemukan. Membuat baru.")
 
-    # Perbarui atau tambah entri komik (format lama)
+    # Perbarui atau tambah entri komik (format lama, tanpa author)
     comic_entry = {
         "title": comic_data["title"],
-        "author": comic_data["author"],
         "synopsis": comic_data["synopsis"],
         "cover": comic_data["cover"],
         "total_chapters": len(comic_data["chapters"])
