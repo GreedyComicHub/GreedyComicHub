@@ -140,20 +140,17 @@ def scrape_komiku_details(url, soup):
     # Title
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
+    # Bersihkan "Komik" dari judul
+    title = title.replace("Komik ", "").replace("komik ", "").strip()
     logging.info(f"Nama komik dari <h1>: {title}")
 
     # Author
     author = "Unknown Author"
     selectors = [
-        # Prioritas 1: <table class="inftable">
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Pengarang" in t if t else False)),
-        # Fallback: Span
         (soup.find, "span", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("span")),
-        # Fallback: Tabel lain
         (soup.find, "td", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("td")),
-        # Fallback: Div meta
         (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Author" in t if t else False)),
-        # Fallback: Semua span
         (soup.find_all, "span", {}, lambda x: x if "Author" in x.text else None)
     ]
     for find_method, tag, attrs, next_step in selectors:
@@ -178,7 +175,6 @@ def scrape_komiku_details(url, soup):
                     author = element.find_next_sibling(text=True).strip()
                     if author and author != "Unknown Author":
                         break
-    # Bersihkan karakter aneh
     author = author.replace("~", "").strip() if author else "Unknown Author"
     logging.info(f"Author ditemukan: {author}")
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.html: Tampilkan daftar komik dari data/index.json -->
+<!-- index.html: Halaman utama menampilkan semua komik dari data/index.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,20 +18,23 @@
             })
             .then(data => {
                 const comicList = document.getElementById('comic-list');
-                for (let comicId in data) {
+                Object.keys(data).forEach(comicId => {
                     const comic = data[comicId];
                     const card = document.createElement('div');
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comicId}">
-                            <img src="${comic.cover}" alt="${comic.title}">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title}">
                             <h2>${comic.title}</h2>
                         </a>
                     `;
                     comicList.appendChild(card);
-                }
+                });
             })
-            .catch(err => console.error('Error loading comics:', err));
+            .catch(err => {
+                console.error('Error loading comics:', err);
+                document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+            });
     </script>
 </body>
 </html>
