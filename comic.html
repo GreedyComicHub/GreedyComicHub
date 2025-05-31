@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!-- comic.html: Tampilkan detail komik dari data/<comic>.json -->
-<!-- Render cover, judul, genre, author, sinopsis, daftar chapter -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,18 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="index.html">Back to Home</a>
+    <a href="index.html" class="back-link">Back to Home</a>
     <div id="comic-detail">
-        <img id="cover" src="" alt="Comic Cover">
-        <h1 id="comic-title"></h1>
-        <p id="genre"></p>
-        <p id="author"></p>
+        <div class="comic-header">
+            <img id="cover" src="" alt="Comic Cover">
+            <div class="comic-info">
+                <h1 id="comic-title"></h1>
+                <p id="genre"></p>
+                <p id="author"></p>
+            </div>
+        </div>
         <p id="synopsis"></p>
         <h3>Chapters</h3>
         <div id="chapter-list"></div>
     </div>
     <script>
-        // Ambil comic ID dari URL
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
         if (comicId) {
