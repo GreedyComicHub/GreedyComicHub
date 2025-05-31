@@ -20,7 +20,6 @@
             </div>
         </div>
         <p id="synopsis"></p>
-        <div id="start-button"></div>
         <h3>Chapters</h3>
         <div id="chapter-list" class="chapter-scroll"></div>
     </div>
@@ -43,15 +42,9 @@
                     document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
                     document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
                     
-                    // Tombol Mulai Chapter 1
-                    const startButton = document.getElementById('start-button');
-                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
-                    if (chapters.includes('1')) {
-                        startButton.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=1" class="start-chapter">Mulai Chapter 1</a>`;
-                    }
-
                     // Daftar Chapter
                     const chapterList = document.getElementById('chapter-list');
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b); // Chapter 1 di atas
                     if (chapters.length === 0) {
                         chapterList.innerHTML = '<p>No chapters available.</p>';
                     } else {
