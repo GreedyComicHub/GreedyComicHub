@@ -8,55 +8,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="chapter-nav">
-        <a id="back-link">Back to Chapters</a>
-        <a id="prev-link" style="display: none;">Previous Chapter</a>
-        <a id="next-link" style="display: none;">Next Chapter</a>
+    <div id="chapter-content">
+        <div class="chapter-nav">
+            <a id="prev-chapter" href="#">Previous</a>
+            <a id="next-chapter" href="#">Next</a>
+            <a id="back-to-comic" href="#">Back to Comic</a>
+        </div>
+        <div id="chapter-images"></div>
     </div>
-    <h1 id="chapter-title"></h1>
-    <div id="chapter-images"></div>
     <script>
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
-        const chapter = params.get('chapter');
-        if (comicId && chapter) {
+        const chapterNum = params.get('chapter');
+        if (comicId && chapterNum) {
             fetch(`data/${comicId}.json`)
                 .then(res => {
                     if (!res.ok) throw new Error(`Failed to load ${comicId}.json`);
                     return res.json();
                 })
                 .then(data => {
-                    document.getElementById('chapter-title').textContent = `${data.title || 'Unknown Comic'} Chapter ${chapter}`;
-                    document.getElementById('back-link').href = `comic.html?comic=${comicId}`;
                     const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
-                    const currentIdx = chapters.indexOf(chapter);
-                    if (currentIdx > 0) {
-                        document.getElementById('prev-link').href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIdx - 1]}`;
-                        document.getElementById('prev-link').style.display = 'inline';
-                    }
-                    if (currentIdx < chapters.length - 1) {
-                        document.getElementById('next-link').href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIdx + 1]}`;
-                        document.getElementById('next-link').style.display = 'inline';
-                    }
-                    const imageList = document.getElementById('chapter-images');
-                    const pages = data.chapters[chapter]?.pages || [];
-                    if (pages.length === 0) {
-                        imageList.innerHTML = '<p>No images available for this chapter.</p>';
-                    } else {
-                        pages.forEach(url => {
+                    const chapterImages = document.getElementById('chapter-images');
+                    const chapterData = data.chapters[chapterNum];
+                    if (chapterData && chapterData.pages) {
+                        chapterData.pages.forEach(imgSrc => {
                             const img = document.createElement('img');
-                            img.src = url;
+                            img.src = imgSrc;
                             img.className = 'chapter-image';
-                            imageList.appendChild(img);
+                            chapterImages.appendChild(img);
                         });
+                    } else {
+                        chapterImages.innerHTML = '<p>Chapter not found.</p>';
+                    }
+                    const currentIndex = chapters.indexOf(chapterNum);
+                    const prevLink = document.getElementById('prev-chapter');
+                    const nextLink = document.getElementById('next-chapter');
+                    const backLink = document.getElementById('back-to-comic');
+                    backLink.href = `comic.html?comic=${comicId}`;
+                    if (currentIndex > 0) {
+                        prevLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex - 1]}`;
+                    } else {
+                        prevLink.style.display = 'none';
+                    }
+                    if (currentIndex < chapters.length - 1) {
+                        nextLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex + 1]}`;
+                    } else {
+                        nextLink.style.display = 'none';
                     }
                 })
                 .catch(err => {
                     console.error('Error loading chapter:', err);
-                    document.getElementById('chapter-images').innerHTML = '<p>Error loading chapter images.</p>';
+                    document.getElementById('chapter-content').innerHTML = '<p>Error loading chapter.</p>';
                 });
         } else {
-            document.getElementById('chapter-images').innerHTML = '<p>Invalid comic or chapter.</p>';
+            document.getElementById('chapter-content').innerHTML = '<p>Invalid comic or chapter.</p>';
         }
     </script>
 </body>
