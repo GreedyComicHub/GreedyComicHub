@@ -181,14 +181,14 @@ h1 {
 .image-frame {
     max-width: 800px; /* Lebar maksimal container */
     width: 100%; /* Ambil lebar penuh parent */
-    margin: 10px auto; /* Tengah */
-    box-sizing: border-box; /* Pastikan padding/margin nggak nambah lebar */
+    margin: 0; /* Hapus margin biar nyatu */
+    box-sizing: border-box;
 }
 
 .chapter-image {
     width: 100%; /* Ikut lebar container */
     height: auto; /* Jaga rasio */
     display: block;
-    border-radius: 8px;
+    border-radius: 0; /* Hapus border-radius biar nyatu */
     image-rendering: auto; /* Pastikan kualitas nggak turun */
 }
