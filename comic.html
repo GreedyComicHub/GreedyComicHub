@@ -15,12 +15,13 @@
             <div class="comic-info">
                 <h1 id="comic-title"></h1>
                 <p id="genre"></p>
+                <p id="type"></p>
                 <p id="author"></p>
             </div>
         </div>
         <p id="synopsis"></p>
         <h3>Chapters</h3>
-        <div id="chapter-list"></div>
+        <div id="chapter-list" class="chapter-scroll"></div>
     </div>
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -37,10 +38,11 @@
                     const genreElement = document.getElementById('genre');
                     const genre = data.genre || 'Unknown Genre';
                     genreElement.innerHTML = `Genre: <a href="genre.html?genre=${encodeURIComponent(genre)}">${genre}</a>`;
+                    document.getElementById('type').textContent = `Type: ${data.type || 'Unknown Type'}`;
                     document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
                     document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
                     const chapterList = document.getElementById('chapter-list');
-                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => b - a);
                     if (chapters.length === 0) {
                         chapterList.innerHTML = '<p>No chapters available.</p>';
                     } else {

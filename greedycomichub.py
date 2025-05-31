@@ -75,8 +75,6 @@ HEADERS = {
     "Referer": "https://komiku.org/"
 }
 
-BASE_URL = "https://komiku.org"
-
 def get_comic_id_and_display_name(url):
     path = urlparse(url).path
     comic_id = path.split("/")[-2] if path.endswith("/") else path.split("/")[-1]
@@ -103,6 +101,17 @@ def fetch_page(url, retries=3, delay=2):
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
+    # Filter teks promosi
+    promo_phrases = [
+        "baca komik", "bahasa indonesia", "di komiku", "komiku", "baca manga",
+        "baca manhua", "baca manhwa", "selengkapnya", "klik di sini"
+    ]
+    filtered_synopsis = original_synopsis.lower()
+    for phrase in promo_phrases:
+        filtered_synopsis = filtered_synopsis.replace(phrase, "").strip()
+    if not filtered_synopsis:
+        return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
+    # Parafrase
     phrase_map = {
         "perjalanan": ["petualangan", "kisah", "cerita"],
         "sihir": ["magis", "kekuatan ajaib", "ilmu sihir"],
@@ -111,72 +120,94 @@ def paraphrase_synopsis(original_synopsis):
         "fantasi": ["dunia imajiner", "alam fantasi", "dunia ajaib"],
         "menghadapi": ["melawan", "berhadapan dengan", "menantang"]
     }
-    words = original_synopsis.lower().split()
+    words = filtered_synopsis.split()
     paraphrased = []
     for word in words:
-        new_word = phrase_map.get(word, word)
+        new_word = phrase_map.get(word.lower(), word)
         if isinstance(new_word, list):
             new_word = new_word[0]
         paraphrased.append(new_word)
     new_synopsis = " ".join(paraphrased).capitalize()
-    if "perjalanan" in original_synopsis.lower() or "petualangan" in new_synopsis.lower():
+    if "petualangan" in new_synopsis.lower():
         new_synopsis = f"Seorang penyihir legendaris memulai {new_synopsis} yang mendebarkan."
-    elif "intrik" in original_synopsis.lower() or "konspirasi" in new_synopsis.lower():
+    elif "konspirasi" in new_synopsis.lower():
         new_synopsis = f"{new_synopsis} di tengah dunia yang penuh dengan rahasia dan bahaya."
     logging.info(f"Sinopsis asli: {original_synopsis}")
     logging.info(f"Sinopsis setelah parafrase: {new_synopsis}")
     return new_synopsis
 
-def scrape_comic_details(url):
-    html = fetch_page(url)
-    if not html:
-        return None, None, None, None, None, None
-    soup = BeautifulSoup(html, "html.parser")
+def scrape_komiku_details(url, soup):
+    # Title
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
 
-    # Author scraping
+    # Author
     author = "Unknown Author"
-    # Coba selector utama
-    author_element = soup.find("span", string=lambda text: "Author" in text if text else False)
-    if author_element:
-        next_span = author_element.find_next("span")
-        author = next_span.text.strip() if next_span else "Unknown Author"
-    # Fallback ke tabel
-    if author == "Unknown Author":
-        info_table = soup.find("table", class_="info-komik")
-        if info_table:
-            author_row = info_table.find("td", string=lambda text: "Author" in text if text else False)
-            if author_row:
-                author = author_row.find_next("td").text.strip() if author_row.find_next("td") else "Unknown Author"
-    # Fallback tambahan: cek div atau p yang mungkin punya author
-    if author == "Unknown Author":
-        author_alt = soup.find("div", class_="komik_info-content-meta")
-        if author_alt:
-            author_text = author_alt.find("span", string=lambda text: "Author" in text if text else False)
-            if author_text:
-                author = author_text.find_next_sibling(text=True).strip() if author_text.find_next_sibling(text=True) else "Unknown Author"
+    selectors = [
+        (soup.find, "span", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Author" in t if t else False)),
+        (soup.find_all, "span", {}, lambda x: x if "Author" in x.text else None)
+    ]
+    for find_method, tag, attrs, next_step in selectors:
+        element = find_method(tag, **attrs) if attrs else find_method(tag)
+        if element:
+            if isinstance(element, list):
+                for span in element:
+                    next_text = span.find_next_sibling(text=True)
+                    if next_text and next_text.strip():
+                        author = next_text.strip()
+                        break
+            else:
+                next_element = next_step(element)
+                if next_element:
+                    author = next_element.text.strip()
+                    if author and author != "Unknown Author":
+                        break
+                elif element.find_next_sibling(text=True):
+                    author = element.find_next_sibling(text=True).strip()
+                    if author and author != "Unknown Author":
+                        break
     logging.info(f"Author ditemukan: {author}")
 
-    # Genre scraping
+    # Genre
     genre = "Fantasy"
-    genre_element = soup.find("span", string=lambda text: "Genre" in text if text else False)
-    if genre_element:
-        next_span = genre_element.find_next("span")
-        genre = next_span.text.strip() if next_span else "Fantasy"
-    if genre == "Fantasy":
-        info_table = soup.find("table", class_="info-komik")
-        if info_table:
-            genre_row = info_table.find("td", string=lambda text: "Genre" in text if text else False)
-            if genre_row:
-                genre = genre_row.find_next("td").text.strip() if genre_row.find_next("td") else "Fantasy"
-    # Fallback tambahan untuk genre
-    if genre == "Fantasy":
-        genre_alt = soup.find("div", class_="komik_info-content-genre")
-        if genre_alt:
-            genre = genre_alt.text.strip() or "Fantasy"
+    genre_selectors = [
+        (soup.find, "span", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-genre"}, lambda x: x)
+    ]
+    for find_method, tag, attrs, next_step in genre_selectors:
+        element = find_method(tag, **attrs)
+        if element:
+            next_element = next_step(element)
+            if next_element:
+                genre = next_element.text.strip()
+                if genre:
+                    break
     logging.info(f"Genre ditemukan: {genre}")
+
+    # Type
+    comic_type = "Manhua"  # Default untuk Magic Emperor
+    type_selectors = [
+        (soup.find, "span", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Type" in t if t else False))
+    ]
+    for find_method, tag, attrs, next_step in type_selectors:
+        element = find_method(tag, **attrs)
+        if element:
+            next_element = next_step(element)
+            if next_element:
+                comic_type = next_element.text.strip()
+                if comic_type:
+                    break
+            elif element.find_next_sibling(text=True):
+                comic_type = element.find_next_sibling(text=True).strip()
+                if comic_type:
+                    break
+    logging.info(f"Tipe komik ditemukan: {comic_type}")
 
     # Synopsis
     synopsis = "No synopsis available."
@@ -206,8 +237,22 @@ def scrape_comic_details(url):
             break
     if not cover_url:
         logging.warning("Cover image tidak ditemukan.")
-    logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, synopsis={synopsis}, cover={cover_url}")
-    return title, author, synopsis, cover_url, soup, genre
+    logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, type={comic_type}, synopsis={synopsis}, cover={cover_url}")
+    return title, author, synopsis, cover_url, soup, genre, comic_type
+
+def scrape_comic_details(url):
+    html = fetch_page(url)
+    if not html:
+        return None, None, None, None, None, None, None
+    soup = BeautifulSoup(html, "html.parser")
+    domain = urlparse(url).netloc
+    if "komiku.org" in domain:
+        return scrape_komiku_details(url, soup)
+    else:
+        # Placeholder untuk situs lain
+        logging.warning(f"Situs tidak dikenal: {domain}. Menggunakan default Komiku.")
+        return scrape_komiku_details(url, soup)  # Default ke Komiku
+    return None, None, None, None, None, None, None
 
 def scrape_chapter_list(url, soup):
     chapters = {}
@@ -241,7 +286,7 @@ def scrape_chapter_list(url, soup):
     return chapters
 
 def scrape_chapter_images(chapter_url):
-    full_url = urljoin(BASE_URL, chapter_url)
+    full_url = urljoin("https://komiku.org", chapter_url)
     html = fetch_page(full_url)
     if not html:
         return []
@@ -253,8 +298,8 @@ def scrape_chapter_images(chapter_url):
     selectors = [
         'img[itemprop="image"]',
         '#readerarea img',
-        'div.komik img',
-        'img[src*="img.komiku.org"]'
+        'div.komimg img',
+        'img[src*="img.kodansha.co"]'
     ]
     for selector in selectors:
         image_elements = soup.select(selector)
@@ -265,7 +310,7 @@ def scrape_chapter_images(chapter_url):
                     image_urls.append(src)
             break
     if not image_urls:
-        logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
+        logging.error(f"No images found for chapter: {chapter_url}")
     return image_urls
 
 def upload_to_cloudinary(image_url, comic_id, chapter_num):
@@ -284,26 +329,27 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
             resource_type="image"
         )
         os.remove(temp_path)
-        logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
+        logging.info(f"Gambar {image_name} diupload: {upload_result['secure_url']}")
         return upload_result["secure_url"]
     except Exception as e:
-        logging.error(f"Gagal upload gambar {image_url} ke Cloudinary: {e}")
+        logging.error(f"Error uploading {image_url}: {e}")
         return image_url
 
 def add_comic(url):
     start_time = time.time()
-    logging.info(f"Menambahkan komik baru: {url}")
+    logging.info(f"Menambahkan komik: {url}")
     comic_id, _ = get_comic_id_and_display_name(url)
-    title, author, synopsis, cover_url, soup, genre = scrape_comic_details(url)
+    title, author, synopsis, cover_url, soup, genre, comic_type = scrape_comic_details(url)
     if not title:
-        logging.error("Gagal mendapatkan detail komik. Proses dihentikan.")
+        logging.error("Gagal mengambil detail komik.")
         return
     comic_data = {
         "title": title if title else "Unknown Title",
         "author": author if author else "Unknown Author",
         "synopsis": synopsis if synopsis else "No synopsis available.",
         "cover": cover_url if cover_url else "",
-        "genre": genre if genre else "Fantasy",
+        "genre": genre if genre else "Unknown Genre",
+        "type": comic_type if comic_type else "Unknown Type",
         "chapters": {}
     }
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
@@ -311,11 +357,10 @@ def add_comic(url):
         with open(comic_file, "r", encoding="utf-8") as f:
             existing_data = json.load(f)
             comic_data["chapters"] = existing_data.get("chapters", {})
-        logging.info(f"Komik sudah ada, mempertahankan chapters dari {comic_file}")
-    logging.info(f"Comic Data sebelum disimpan: {json.dumps(comic_data, indent=2)}")
+        logging.info(f"Komik sudah ada, mempertahankan chapters.")
     with open(comic_file, "w", encoding="utf-8") as f:
         json.dump(comic_data, f, indent=4)
-    logging.info(f"Berhasil simpan data komik ke {comic_file}")
+    logging.info(f"Data komik disimpan: {comic_file}")
     update_index(comic_id, comic_data)
     end_time = time.time()
     logging.info(f"Penambahan komik selesai dalam {end_time - start_time:.2f} detik.")
@@ -337,14 +382,14 @@ def update_comic(url, start_chapter, end_chapter):
     soup = BeautifulSoup(html, "html.parser")
     chapters = scrape_chapter_list(url, soup)
     if not chapters:
-        logging.error("Tidak ada chapter yang ditemukan.")
+        logging.error("Tidak ada chapter ditemukan.")
         return
     first_image_url = None
     for chapter_num in range(start_chapter, end_chapter + 1):
         if chapter_num in chapters:
             image_urls = scrape_chapter_images(chapters[chapter_num])
             if not image_urls:
-                logging.warning(f"Chapter {chapter_num} dilewati karena tidak ada gambar.")
+                logging.warning(f"Chapter {chapter_num} dilewati: tidak ada gambar.")
                 continue
             uploaded_urls = []
             for idx, img_url in enumerate(image_urls, 1):
@@ -354,12 +399,11 @@ def update_comic(url, start_chapter, end_chapter):
                     first_image_url = uploaded_url
             comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
     if first_image_url and (not comic_data["cover"] or fetch_page(comic_data["cover"]) is None):
-        logging.info(f"Cover asli gagal, ganti dengan: {first_image_url}")
+        logging.info(f"Mengganti cover dengan: {first_image_url}")
         comic_data["cover"] = first_image_url
-    logging.info(f"Comic Data sebelum disimpan: {json.dumps(comic_data, indent=2)}")
     with open(comic_file, "w", encoding="utf-8") as f:
         json.dump(comic_data, f, indent=4)
-    logging.info(f"Berhasil disimpan ke {comic_file}")
+    logging.info(f"Data disimpan: {comic_file}")
     update_index(comic_id, comic_data)
     end_time = time.time()
     logging.info(f"Update selesai dalam {end_time - start_time:.2f} detik.")
@@ -372,26 +416,26 @@ def update_index(comic_id, comic_data):
             with open(index_file, "r", encoding="utf-8") as f:
                 index_data = json.load(f)
             if not isinstance(index_data, dict):
-                logging.warning(f"Invalid index.json format: {index_data}. Resetting.")
+                logging.warning("Format index.json salah. Resetting.")
                 index_data = {}
         except Exception as e:
-            logging.error(f"Gagal membaca index.json: {e}. Resetting.")
+            logging.error(f"Error membaca index.json: {e}. Resetting.")
             index_data = {}
     comic_entry = {
         "title": comic_data["title"],
         "synopsis": comic_data["synopsis"],
         "cover": comic_data["cover"],
         "genre": comic_data["genre"],
+        "type": comic_data["type"],
         "total_chapters": len(comic_data["chapters"])
     }
     index_data[comic_id] = comic_entry
-    logging.info(f"Index Data sebelum disimpan: {json.dumps(index_data, indent=2)}")
     with open(index_file, "w", encoding="utf-8") as f:
         json.dump(index_data, f, indent=4)
-    logging.info(f"Berhasil update indeks di {index_file}")
+    logging.info(f"Indeks diperbarui: {index_file}")
 
 def push_to_github():
-    logging.info("Push perubahan ke GitHub...")
+    logging.info("Push ke GitHub...")
     try:
         data_path = os.path.abspath(DATA_DIR)
         subprocess.run(["git", "add", data_path], check=True, capture_output=True, text=True)
@@ -401,7 +445,7 @@ def push_to_github():
             logging.info("Tidak ada perubahan. Skip push.")
             return True
         commit = subprocess.run(
-            ["git", "commit", "-m", "Update comic data and layout"],
+            ["git", "commit", "-m", "Update comic data"],
             capture_output=True, text=True
         )
         if commit.returncode != 0:
@@ -423,9 +467,9 @@ def push_to_github():
 def main():
     parser = argparse.ArgumentParser(description="GreedyComicHub Scraper")
     subparsers = parser.add_subparsers(dest="command")
-    parser_add = subparsers.add_parser("add-comic", help="Add new comic details")
+    parser_add = subparsers.add_parser("add-comic", help="Add new comic")
     parser_add.add_argument("url", help="Comic URL")
-    parser_update = subparsers.add_parser("update", help="Update comic chapters")
+    parser_update = subparsers.add_parser("update", help="Update chapters")
     parser_update.add_argument("url", help="Comic URL")
     parser_update.add_argument("--start", type=int, default=1, help="Start chapter")
     parser_update.add_argument("--end", type=int, default=1, help="End chapter")
@@ -433,11 +477,11 @@ def main():
     if args.command == "add-comic":
         add_comic(args.url)
         push_to_github()
-        logging.info(f"Added comic {args.url}")
+        logging.info(f"Added comic: {args.url}")
     elif args.command == "update":
         update_comic(args.url, args.start, args.end)
         push_to_github()
-        logging.info(f"Updated chapters for {args.url}")
+        logging.info(f"Updated chapters: {args.url}")
     else:
         parser.print_help()
 
