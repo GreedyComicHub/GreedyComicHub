@@ -156,7 +156,7 @@ h1 {
 
 /* Halaman Chapter */
 #chapter-content {
-    max-width: 800px; /* Konsisten dengan comic-detail */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -178,10 +178,16 @@ h1 {
     background: #0056b3;
 }
 
+.image-frame {
+    max-width: 800px; /* Lebar maksimal container */
+    width: 100%; /* Ambil lebar penuh parent */
+    margin: 10px auto; /* Tengah */
+    box-sizing: border-box; /* Pastikan padding/margin nggak nambah lebar */
+}
+
 .chapter-image {
-    width: 100%; /* Paksa lebar seragam */
+    width: 100%; /* Ikut lebar container */
     height: auto; /* Jaga rasio */
-    margin: 10px auto;
     display: block;
     border-radius: 8px;
     image-rendering: auto; /* Pastikan kualitas nggak turun */
