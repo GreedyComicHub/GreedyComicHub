@@ -32,10 +32,13 @@
                     const chapterData = data.chapters[chapterNum];
                     if (chapterData && chapterData.pages) {
                         chapterData.pages.forEach(imgSrc => {
+                            const frame = document.createElement('div');
+                            frame.className = 'image-frame';
                             const img = document.createElement('img');
                             img.src = imgSrc;
                             img.className = 'chapter-image';
-                            chapterImages.appendChild(img);
+                            frame.appendChild(img);
+                            chapterImages.appendChild(frame);
                         });
                     } else {
                         chapterImages.innerHTML = '<p>Chapter not found.</p>';
