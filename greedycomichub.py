@@ -135,27 +135,50 @@ def scrape_comic_details(url):
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
+
+    # Author scraping
     author = "Unknown Author"
+    # Coba selector utama
     author_element = soup.find("span", string=lambda text: "Author" in text if text else False)
     if author_element:
-        author = author_element.find_next("span").text.strip() if author_element.find_next("span") else "Unknown Author"
-    else:
+        next_span = author_element.find_next("span")
+        author = next_span.text.strip() if next_span else "Unknown Author"
+    # Fallback ke tabel
+    if author == "Unknown Author":
         info_table = soup.find("table", class_="info-komik")
         if info_table:
             author_row = info_table.find("td", string=lambda text: "Author" in text if text else False)
             if author_row:
                 author = author_row.find_next("td").text.strip() if author_row.find_next("td") else "Unknown Author"
+    # Fallback tambahan: cek div atau p yang mungkin punya author
+    if author == "Unknown Author":
+        author_alt = soup.find("div", class_="komik_info-content-meta")
+        if author_alt:
+            author_text = author_alt.find("span", string=lambda text: "Author" in text if text else False)
+            if author_text:
+                author = author_text.find_next_sibling(text=True).strip() if author_text.find_next_sibling(text=True) else "Unknown Author"
     logging.info(f"Author ditemukan: {author}")
+
+    # Genre scraping
     genre = "Fantasy"
     genre_element = soup.find("span", string=lambda text: "Genre" in text if text else False)
     if genre_element:
-        genre = genre_element.find_next("span").text.strip() if genre_element.find_next("span") else "Fantasy"
-    else:
+        next_span = genre_element.find_next("span")
+        genre = next_span.text.strip() if next_span else "Fantasy"
+    if genre == "Fantasy":
+        info_table = soup.find("table", class_="info-komik")
         if info_table:
             genre_row = info_table.find("td", string=lambda text: "Genre" in text if text else False)
             if genre_row:
                 genre = genre_row.find_next("td").text.strip() if genre_row.find_next("td") else "Fantasy"
+    # Fallback tambahan untuk genre
+    if genre == "Fantasy":
+        genre_alt = soup.find("div", class_="komik_info-content-genre")
+        if genre_alt:
+            genre = genre_alt.text.strip() or "Fantasy"
     logging.info(f"Genre ditemukan: {genre}")
+
+    # Synopsis
     synopsis = "No synopsis available."
     synopsis_element = soup.find("div", class_="desc")
     if synopsis_element:
@@ -165,7 +188,9 @@ def scrape_comic_details(url):
         if meta_desc and meta_desc.get("content"):
             synopsis = meta_desc["content"].strip()
     synopsis = paraphrase_synopsis(synopsis)
-    cover_url = None
+
+    # Cover
+    cover_url = ""
     cover_selectors = [
         'meta[property="og:image"]',
         'meta[itemprop="image"]',
@@ -181,7 +206,6 @@ def scrape_comic_details(url):
             break
     if not cover_url:
         logging.warning("Cover image tidak ditemukan.")
-        cover_url = ""
     logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, synopsis={synopsis}, cover={cover_url}")
     return title, author, synopsis, cover_url, soup, genre
 
@@ -357,6 +381,7 @@ def update_index(comic_id, comic_data):
         "title": comic_data["title"],
         "synopsis": comic_data["synopsis"],
         "cover": comic_data["cover"],
+        "genre": comic_data["genre"],
         "total_chapters": len(comic_data["chapters"])
     }
     index_data[comic_id] = comic_entry
