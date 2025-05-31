@@ -155,12 +155,18 @@ h1 {
 }
 
 /* Halaman Chapter */
+#chapter-content {
+    max-width: 800px; /* Konsisten dengan comic-detail */
+    margin: 0 auto;
+}
+
 .chapter-nav {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .chapter-nav a {
-    margin-right: 10px;
+    margin: 0 10px;
     padding: 8px 15px;
     background: #007bff;
     color: white;
@@ -173,9 +179,10 @@ h1 {
 }
 
 .chapter-image {
-    max-width: 100%;
-    height: auto;
+    width: 100%; /* Paksa lebar seragam */
+    height: auto; /* Jaga rasio */
     margin: 10px auto;
     display: block;
     border-radius: 8px;
+    image-rendering: auto; /* Pastikan kualitas nggak turun */
 }
