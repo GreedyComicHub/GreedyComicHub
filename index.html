@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- index.html: Tampilkan daftar komik dari data/index.json -->
-<!-- JS baca JSON, render card komik -->
-<!-- Kalau error, cek console browser dan path data/index.json -->
+<!-- Hanya render cover + judul -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,11 +11,13 @@
 <body>
     <h1>GreedyComicHub</h1>
     <div id="comic-list"></div>
-    <script src="script.js"></script>
     <script>
         // Ambil daftar komik dari index.json
         fetch('data/index.json')
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load index.json');
+                return res.json();
+            })
             .then(data => {
                 const comicList = document.getElementById('comic-list');
                 for (let comicId in data) {
@@ -27,10 +28,9 @@
                         <a href="comic.html?comic=${comicId}">
                             <img src="${comic.cover}" alt="${comic.title}">
                             <h2>${comic.title}</h2>
-                            <p>${comic.author}</p>
                         </a>
                     `;
-                    comicList.appendChild(card); 
+                    comicList.appendChild(card);
                 }
             })
             .catch(err => console.error('Error loading comics:', err));

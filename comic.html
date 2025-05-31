@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<!-- comic.html: Tampilkan daftar chapter dari data/<comic>.json -->
-<!-- JS baca data.chapters, link ke chapter.html -->
-<!-- Kalau error, cek console browser dan path JSON -->
+<!-- comic.html: Tampilkan detail komik dari data/<comic>.json -->
+<!-- Render cover, judul, genre, author, sinopsis, daftar chapter -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Chapters</title>
+    <title>Comic Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <a href="index.html">Back to Home</a>
-    <h1 id="comic-title"></h1>
-    <div id="chapter-list"></div>
-    <script src="script.js"></script>
+    <div id="comic-detail">
+        <img id="cover" src="" alt="Comic Cover">
+        <h1 id="comic-title"></h1>
+        <p id="genre"></p>
+        <p id="author"></p>
+        <p id="synopsis"></p>
+        <h3>Chapters</h3>
+        <div id="chapter-list"></div>
+    </div>
     <script>
-        // Ambil comic ID dari URL (e.g., comic.html?comic=magic-emperor)
+        // Ambil comic ID dari URL
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
         if (comicId) {
             fetch(`data/${comicId}.json`)
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${comicId}.json`);
+                    return res.json();
+                })
                 .then(data => {
-                    document.getElementById('comic-title').textContent = data.title;
+                    document.getElementById('cover').src = data.cover || 'placeholder.jpg';
+                    document.getElementById('comic-title').textContent = data.title || 'Unknown Title';
+                    document.getElementById('genre').textContent = `Genre: ${data.genre || 'Unknown Genre'}`;
+                    document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
+                    document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
                     const chapterList = document.getElementById('chapter-list');
-                    for (let chapter in data.chapters) {
-                        const link = document.createElement('div');
-                        link.className = 'chapter-link';
-                        link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
-                        chapterList.appendChild(link);
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
+                    if (chapters.length === 0) {
+                        chapterList.innerHTML = '<p>No chapters available.</p>';
+                    } else {
+                        chapters.forEach(chapter => {
+                            const link = document.createElement('div');
+                            link.className = 'chapter-link';
+                            link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
+                            chapterList.appendChild(link);
+                        });
                     }
                 })
-                .catch(err => console.error('Error loading chapters:', err));
+                .catch(err => {
+                    console.error('Error loading comic details:', err);
+                    document.getElementById('comic-detail').innerHTML = '<p>Error loading comic details.</p>';
+                });
+        } else {
+            document.getElementById('comic-detail').innerHTML = '<p>Invalid comic ID.</p>';
         }
     </script>
 </body>

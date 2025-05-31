@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <!-- chapter.html: Tampilkan gambar chapter dari data/<comic>.json -->
-<!-- JS baca data.chapters[chapter].pages (array URL gambar) -->
-<!-- Kalau error, cek console browser dan path JSON -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,21 +15,23 @@
     </div>
     <h1 id="chapter-title"></h1>
     <div id="chapter-images"></div>
-    <script src="script.js"></script>
     <script>
-        // Ambil comic ID dan chapter dari URL (e.g., chapter.html?comic=magic-emperor&chapter=1)
+        // Ambil comic ID dan chapter dari URL
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
         const chapter = params.get('chapter');
         if (comicId && chapter) {
             fetch(`data/${comicId}.json`)
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${comicId}.json`);
+                    return res.json();
+                })
                 .then(data => {
-                    document.getElementById('chapter-title').textContent = `${data.title} Chapter ${chapter}`;
+                    document.getElementById('chapter-title').textContent = `${data.title || 'Unknown Comic'} Chapter ${chapter}`;
                     document.getElementById('back-link').href = `comic.html?comic=${comicId}`;
                     
                     // Navigasi prev/next chapter
-                    const chapters = Object.keys(data.chapters).sort((a, b) => a - b);
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
                     const currentIdx = chapters.indexOf(chapter);
                     if (currentIdx > 0) {
                         document.getElementById('prev-link').href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIdx - 1]}`;
@@ -44,15 +44,23 @@
 
                     // Tampilkan gambar
                     const imageList = document.getElementById('chapter-images');
-                    data.chapters[chapter].pages.forEach(url => {
-                        const img = document.createElement('img');
-                        img.src = url;
-                        img.className = 'chapter-image';
-                        imageList.appendChild(img);
-                    });
+                    const pages = data.chapters[chapter]?.pages || [];
+                    if (pages.length === 0) {
+                        imageList.innerHTML = '<p>No images available for this chapter.</p>';
+                    } else {
+                        pages.forEach(url => {
+                            const img = document.createElement('img');
+                            img.src = url;
+                            img.className = 'chapter-image';
+                            imageList.appendChild(img);
+                        });
+                    }
                 })
-                .catch(err => console.error('Error loading chapter:', err));
+                .catch(err => {
+                    console.error('Error loading chapter:', err);
+                    document.getElementById('chapter-images').innerHTML = '<p>Error loading chapter images.</p>';
+                });
+        } else {
+            document.getElementById('chapter-images').innerHTML = '<p>Invalid comic or chapter.</p>';
         }
     </script>
-</body>
-</html>
