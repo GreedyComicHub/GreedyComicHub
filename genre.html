@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- genre.html: Tampilkan daftar komik berdasarkan genre -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics by Genre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="back-link">Back to Home</a>
+    <h1 id="genre-title"></h1>
+    <div id="comic-list"></div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const genre = params.get('genre');
+        if (genre) {
+            document.getElementById('genre-title').textContent = `Comics in ${decodeURIComponent(genre)}`;
+            fetch('data/index.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to load index.json');
+                    return res.json();
+                })
+                .then(data => {
+                    const comicList = document.getElementById('comic-list');
+                    let hasComics = false;
+                    for (let comicId in data) {
+                        const comic = data[comicId];
+                        if (comic.genre && comic.genre.toLowerCase() === genre.toLowerCase()) {
+                            hasComics = true;
+                            const card = document.createElement('div');
+                            card.className = 'comic-card';
+                            card.innerHTML = `
+                                <a href="comic.html?comic=${comicId}">
+                                    <img src="${comic.cover}" alt="${comic.title}">
+                                    <h2>${comic.title}</h2>
+                                </a>
+                            `;
+                            comicList.appendChild(card);
+                        }
+                    }
+                    if (!hasComics) {
+                        comicList.innerHTML = '<p>No comics found for this genre.</p>';
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading comics:', err);
+                    document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+                });
+        } else {
+            document.getElementById('comic-list').innerHTML = '<p>Invalid genre.</p>';
+        }
+    </script>
+</body>
+</html>

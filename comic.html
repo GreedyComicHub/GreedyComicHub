@@ -34,7 +34,9 @@
                 .then(data => {
                     document.getElementById('cover').src = data.cover || 'placeholder.jpg';
                     document.getElementById('comic-title').textContent = data.title || 'Unknown Title';
-                    document.getElementById('genre').textContent = `Genre: ${data.genre || 'Unknown Genre'}`;
+                    const genreElement = document.getElementById('genre');
+                    const genre = data.genre || 'Unknown Genre';
+                    genreElement.innerHTML = `Genre: <a href="genre.html?genre=${encodeURIComponent(genre)}">${genre}</a>`;
                     document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
                     document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
                     const chapterList = document.getElementById('chapter-list');

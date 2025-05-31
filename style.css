@@ -1,4 +1,4 @@
-/* style.css: Styling untuk index.html, comic.html, chapter.html */
+/* style.css: Styling untuk index.html, comic.html, chapter.html, genre.html */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,7 +11,7 @@ h1 {
     color: #333;
 }
 
-/* Halaman Utama */
+/* Halaman Utama dan Genre */
 #comic-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -83,6 +83,15 @@ h1 {
 .comic-info p {
     margin: 5px 0;
     color: #333;
+}
+
+.comic-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.comic-info a:hover {
+    text-decoration: underline;
 }
 
 #synopsis {
