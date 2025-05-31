@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!-- index.html: Tampilkan daftar komik dari data/index.json -->
-<!-- Hanya render cover + judul -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +11,6 @@
     <h1>GreedyComicHub</h1>
     <div id="comic-list"></div>
     <script>
-        // Ambil daftar komik dari index.json
         fetch('data/index.json')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load index.json');

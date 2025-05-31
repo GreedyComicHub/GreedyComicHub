@@ -16,7 +16,6 @@
     <h1 id="chapter-title"></h1>
     <div id="chapter-images"></div>
     <script>
-        // Ambil comic ID dan chapter dari URL
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
         const chapter = params.get('chapter');
@@ -29,8 +28,6 @@
                 .then(data => {
                     document.getElementById('chapter-title').textContent = `${data.title || 'Unknown Comic'} Chapter ${chapter}`;
                     document.getElementById('back-link').href = `comic.html?comic=${comicId}`;
-                    
-                    // Navigasi prev/next chapter
                     const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
                     const currentIdx = chapters.indexOf(chapter);
                     if (currentIdx > 0) {
@@ -41,8 +38,6 @@
                         document.getElementById('next-link').href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIdx + 1]}`;
                         document.getElementById('next-link').style.display = 'inline';
                     }
-
-                    // Tampilkan gambar
                     const imageList = document.getElementById('chapter-images');
                     const pages = data.chapters[chapter]?.pages || [];
                     if (pages.length === 0) {
@@ -64,3 +59,5 @@
             document.getElementById('chapter-images').innerHTML = '<p>Invalid comic or chapter.</p>';
         }
     </script>
+</body>
+</html>

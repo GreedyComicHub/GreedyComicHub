@@ -7,7 +7,6 @@ import time
 from datetime import datetime
 from urllib.parse import urlparse, urljoin
 
-# Cek dependency
 try:
     import cloudinary
     import cloudinary.uploader
@@ -62,7 +61,6 @@ except Exception as e:
     logging.error(f"Gagal membaca config.ini: {e}")
     exit(1)
 
-# Konfigurasi Cloudinary
 cloudinary.config(
     cloud_name=CLOUDINARY_CLOUD_NAME,
     api_key=CLOUDINARY_API_KEY,
@@ -70,7 +68,6 @@ cloudinary.config(
 )
 logging.info(f"Menggunakan akun Cloudinary: {CLOUDINARY_CLOUD_NAME}")
 
-# Header untuk request
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -106,7 +103,6 @@ def fetch_page(url, retries=3, delay=2):
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
-
     phrase_map = {
         "perjalanan": ["petualangan", "kisah", "cerita"],
         "sihir": ["magis", "kekuatan ajaib", "ilmu sihir"],
@@ -115,7 +111,6 @@ def paraphrase_synopsis(original_synopsis):
         "fantasi": ["dunia imajiner", "alam fantasi", "dunia ajaib"],
         "menghadapi": ["melawan", "berhadapan dengan", "menantang"]
     }
-
     words = original_synopsis.lower().split()
     paraphrased = []
     for word in words:
@@ -123,13 +118,11 @@ def paraphrase_synopsis(original_synopsis):
         if isinstance(new_word, list):
             new_word = new_word[0]
         paraphrased.append(new_word)
-
     new_synopsis = " ".join(paraphrased).capitalize()
     if "perjalanan" in original_synopsis.lower() or "petualangan" in new_synopsis.lower():
         new_synopsis = f"Seorang penyihir legendaris memulai {new_synopsis} yang mendebarkan."
     elif "intrik" in original_synopsis.lower() or "konspirasi" in new_synopsis.lower():
         new_synopsis = f"{new_synopsis} di tengah dunia yang penuh dengan rahasia dan bahaya."
-
     logging.info(f"Sinopsis asli: {original_synopsis}")
     logging.info(f"Sinopsis setelah parafrase: {new_synopsis}")
     return new_synopsis
@@ -138,13 +131,10 @@ def scrape_comic_details(url):
     html = fetch_page(url)
     if not html:
         return None, None, None, None, None, None
-
     soup = BeautifulSoup(html, "html.parser")
-    
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
-
     author = "Unknown Author"
     author_element = soup.find("span", string=lambda text: "Author" in text if text else False)
     if author_element:
@@ -156,7 +146,6 @@ def scrape_comic_details(url):
             if author_row:
                 author = author_row.find_next("td").text.strip() if author_row.find_next("td") else "Unknown Author"
     logging.info(f"Author ditemukan: {author}")
-
     genre = "Fantasy"
     genre_element = soup.find("span", string=lambda text: "Genre" in text if text else False)
     if genre_element:
@@ -167,7 +156,6 @@ def scrape_comic_details(url):
             if genre_row:
                 genre = genre_row.find_next("td").text.strip() if genre_row.find_next("td") else "Fantasy"
     logging.info(f"Genre ditemukan: {genre}")
-
     synopsis = "No synopsis available."
     synopsis_element = soup.find("div", class_="desc")
     if synopsis_element:
@@ -176,9 +164,7 @@ def scrape_comic_details(url):
         meta_desc = soup.find("meta", attrs={"name": "description"})
         if meta_desc and meta_desc.get("content"):
             synopsis = meta_desc["content"].strip()
-    
     synopsis = paraphrase_synopsis(synopsis)
-
     cover_url = None
     cover_selectors = [
         'meta[property="og:image"]',
@@ -196,14 +182,12 @@ def scrape_comic_details(url):
     if not cover_url:
         logging.warning("Cover image tidak ditemukan.")
         cover_url = ""
-
     logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, synopsis={synopsis}, cover={cover_url}")
     return title, author, synopsis, cover_url, soup, genre
 
 def scrape_chapter_list(url, soup):
     chapters = {}
     logging.info(f"Mencari daftar chapter dari {url}...")
-
     chapter_elements = soup.select("td.judulseries a")
     if not chapter_elements:
         logging.warning("Tidak ditemukan chapter. Mencoba fallback...")
@@ -218,7 +202,6 @@ def scrape_chapter_list(url, soup):
                     logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
                 except ValueError:
                     continue
-
     for element in chapter_elements:
         href = element.get("href", "")
         chapter_text = element.text.lower()
@@ -231,7 +214,6 @@ def scrape_chapter_list(url, soup):
             except ValueError:
                 logging.warning(f"Chapter tidak valid: {chapter_text}")
                 continue
-
     return chapters
 
 def scrape_chapter_images(chapter_url):
@@ -239,13 +221,10 @@ def scrape_chapter_images(chapter_url):
     html = fetch_page(full_url)
     if not html:
         return []
-
     soup = BeautifulSoup(html, "html.parser")
-    
     title_element = soup.find("h1")
     chapter_title = title_element.text.strip() if title_element else "Unknown Chapter"
     logging.info(f"Judul chapter: {chapter_title}")
-
     image_urls = []
     selectors = [
         'img[itemprop="image"]',
@@ -253,7 +232,6 @@ def scrape_chapter_images(chapter_url):
         'div.komik img',
         'img[src*="img.komiku.org"]'
     ]
-
     for selector in selectors:
         image_elements = soup.select(selector)
         if image_elements:
@@ -262,11 +240,8 @@ def scrape_chapter_images(chapter_url):
                 if src and src.startswith("http"):
                     image_urls.append(src)
             break
-
     if not image_urls:
         logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
-        return []
-
     return image_urls
 
 def upload_to_cloudinary(image_url, comic_id, chapter_num):
@@ -277,7 +252,6 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
         with open(temp_path, "wb") as f:
             f.write(response.content)
-
         folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}"
         upload_result = cloudinary.uploader.upload(
             temp_path,
@@ -292,21 +266,14 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         logging.error(f"Gagal upload gambar {image_url} ke Cloudinary: {e}")
         return image_url
 
-def update_comic(url, start_chapter, end_chapter):
+def add_comic(url):
     start_time = time.time()
-    logging.info(f"Mulai update komik: {url}")
-
-    comic_id, display_name = get_comic_id_and_display_name(url)
+    logging.info(f"Menambahkan komik baru: {url}")
+    comic_id, _ = get_comic_id_and_display_name(url)
     title, author, synopsis, cover_url, soup, genre = scrape_comic_details(url)
     if not title:
         logging.error("Gagal mendapatkan detail komik. Proses dihentikan.")
         return
-
-    chapters = scrape_chapter_list(url, soup)
-    if not chapters:
-        logging.error("Tidak ada chapter yang ditemukan. Proses dihentikan.")
-        return
-
     comic_data = {
         "title": title if title else "Unknown Title",
         "author": author if author else "Unknown Author",
@@ -315,19 +282,39 @@ def update_comic(url, start_chapter, end_chapter):
         "genre": genre if genre else "Fantasy",
         "chapters": {}
     }
-
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if os.path.exists(comic_file):
         with open(comic_file, "r", encoding="utf-8") as f:
             existing_data = json.load(f)
-            comic_data["title"] = existing_data.get("title", comic_data["title"])
-            comic_data["author"] = existing_data.get("author", comic_data["author"])
-            comic_data["synopsis"] = existing_data.get("synopsis", comic_data["synopsis"])
-            comic_data["cover"] = existing_data.get("cover", comic_data["cover"])
-            comic_data["genre"] = existing_data.get("genre", comic_data["genre"])
             comic_data["chapters"] = existing_data.get("chapters", {})
-        logging.info(f"Loaded existing comic data from {comic_file}")
+        logging.info(f"Komik sudah ada, mempertahankan chapters dari {comic_file}")
+    logging.info(f"Comic Data sebelum disimpan: {json.dumps(comic_data, indent=2)}")
+    with open(comic_file, "w", encoding="utf-8") as f:
+        json.dump(comic_data, f, indent=4)
+    logging.info(f"Berhasil simpan data komik ke {comic_file}")
+    update_index(comic_id, comic_data)
+    end_time = time.time()
+    logging.info(f"Penambahan komik selesai dalam {end_time - start_time:.2f} detik.")
 
+def update_comic(url, start_chapter, end_chapter):
+    start_time = time.time()
+    logging.info(f"Mulai update chapter: {url}")
+    comic_id, _ = get_comic_id_and_display_name(url)
+    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+    if not os.path.exists(comic_file):
+        logging.error(f"File {comic_file} tidak ada. Jalankan 'add-comic' dulu.")
+        return
+    with open(comic_file, "r", encoding="utf-8") as f:
+        comic_data = json.load(f)
+    html = fetch_page(url)
+    if not html:
+        logging.error("Gagal mengambil halaman komik.")
+        return
+    soup = BeautifulSoup(html, "html.parser")
+    chapters = scrape_chapter_list(url, soup)
+    if not chapters:
+        logging.error("Tidak ada chapter yang ditemukan.")
+        return
     first_image_url = None
     for chapter_num in range(start_chapter, end_chapter + 1):
         if chapter_num in chapters:
@@ -335,27 +322,20 @@ def update_comic(url, start_chapter, end_chapter):
             if not image_urls:
                 logging.warning(f"Chapter {chapter_num} dilewati karena tidak ada gambar.")
                 continue
-
             uploaded_urls = []
             for idx, img_url in enumerate(image_urls, 1):
                 uploaded_url = upload_to_cloudinary(img_url, comic_id, chapter_num)
                 uploaded_urls.append(uploaded_url)
                 if not first_image_url:
                     first_image_url = uploaded_url
-
-            comic_data["chapters"][str(chapter_num)] = {
-                "pages": uploaded_urls
-            }
-
+            comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
     if first_image_url and (not comic_data["cover"] or fetch_page(comic_data["cover"]) is None):
-        logging.info(f"Cover asli gagal load, ganti dengan gambar pertama: {first_image_url}")
+        logging.info(f"Cover asli gagal, ganti dengan: {first_image_url}")
         comic_data["cover"] = first_image_url
-
     logging.info(f"Comic Data sebelum disimpan: {json.dumps(comic_data, indent=2)}")
     with open(comic_file, "w", encoding="utf-8") as f:
         json.dump(comic_data, f, indent=4)
-    logging.info(f"Berhasil simpan data komik ke {comic_file}")
-
+    logging.info(f"Berhasil disimpan ke {comic_file}")
     update_index(comic_id, comic_data)
     end_time = time.time()
     logging.info(f"Update selesai dalam {end_time - start_time:.2f} detik.")
@@ -363,18 +343,16 @@ def update_comic(url, start_chapter, end_chapter):
 def update_index(comic_id, comic_data):
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = {}
-
     if os.path.exists(index_file):
         try:
             with open(index_file, "r", encoding="utf-8") as f:
                 index_data = json.load(f)
             if not isinstance(index_data, dict):
-                logging.warning(f"Format index.json salah: {index_data}. Reset ke dict kosong.")
+                logging.warning(f"Invalid index.json format: {index_data}. Resetting.")
                 index_data = {}
         except Exception as e:
-            logging.error(f"Gagal membaca index.json: {e}. Reset ke dict kosong.")
+            logging.error(f"Gagal membaca index.json: {e}. Resetting.")
             index_data = {}
-
     comic_entry = {
         "title": comic_data["title"],
         "synopsis": comic_data["synopsis"],
@@ -382,7 +360,6 @@ def update_index(comic_id, comic_data):
         "total_chapters": len(comic_data["chapters"])
     }
     index_data[comic_id] = comic_entry
-
     logging.info(f"Index Data sebelum disimpan: {json.dumps(index_data, indent=2)}")
     with open(index_file, "w", encoding="utf-8") as f:
         json.dump(index_data, f, indent=4)
@@ -392,51 +369,50 @@ def push_to_github():
     logging.info("Push perubahan ke GitHub...")
     try:
         data_path = os.path.abspath(DATA_DIR)
-        result_add = subprocess.run(["git", "add", data_path], capture_output=True, text=True)
-        logging.info(f"Git add output: {result_add.stdout}{result_add.stderr}")
-
-        result_status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
-        if not result_status.stdout.strip():
-            logging.info("Tidak ada perubahan baru. Skipping commit and push.")
+        subprocess.run(["git", "add", data_path], check=True, capture_output=True, text=True)
+        subprocess.run(["git", "add", "."], check=True, capture_output=True, text=True)
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if not status.stdout.strip():
+            logging.info("Tidak ada perubahan. Skip push.")
             return True
-
-        result_commit = subprocess.run(
-            ["git", "commit", "-m", "Update comic data"],
+        commit = subprocess.run(
+            ["git", "commit", "-m", "Update comic data and layout"],
             capture_output=True, text=True
         )
-        logging.info(f"Git commit output: {result_commit.stdout}{result_commit.stderr}")
-        if result_commit.returncode != 0:
-            logging.error("Gagal commit perubahan.")
+        if commit.returncode != 0:
+            logging.error(f"Commit gagal: {commit.stderr}")
             return False
-
-        result_push = subprocess.run(
+        push = subprocess.run(
             ["git", "push", f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git", "main"],
             capture_output=True, text=True
         )
-        logging.info(f"Git push output: {result_push.stdout}{result_push.stderr}")
-        if result_push.returncode != 0:
-            logging.error("Gagal push perubahan ke GitHub.")
+        if push.returncode != 0:
+            logging.error(f"Push gagal: {push.stderr}")
             return False
-
-        logging.info("Berhasil push perubahan ke GitHub.")
+        logging.info("Berhasil push ke GitHub.")
         return True
     except Exception as e:
-        logging.error(f"Error saat push ke GitHub: {e}")
+        logging.error(f"Error push: {e}")
         return False
 
 def main():
     parser = argparse.ArgumentParser(description="GreedyComicHub Scraper")
     subparsers = parser.add_subparsers(dest="command")
-    parser_update = subparsers.add_parser("update", help="Update data komik")
-    parser_update.add_argument("url", help="URL halaman komik")
-    parser_update.add_argument("--start", type=int, default=1, help="Chapter awal")
-    parser_update.add_argument("--end", type=int, default=1, help="Chapter akhir")
+    parser_add = subparsers.add_parser("add-comic", help="Add new comic details")
+    parser_add.add_argument("url", help="Comic URL")
+    parser_update = subparsers.add_parser("update", help="Update comic chapters")
+    parser_update.add_argument("url", help="Comic URL")
+    parser_update.add_argument("--start", type=int, default=1, help="Start chapter")
+    parser_update.add_argument("--end", type=int, default=1, help="End chapter")
     args = parser.parse_args()
-
-    if args.command == "update":
+    if args.command == "add-comic":
+        add_comic(args.url)
+        push_to_github()
+        logging.info(f"Added comic {args.url}")
+    elif args.command == "update":
         update_comic(args.url, args.start, args.end)
         push_to_github()
-        logging.info(f"Update Komik {args.url} selesai.")
+        logging.info(f"Updated chapters for {args.url}")
     else:
         parser.print_help()
 
