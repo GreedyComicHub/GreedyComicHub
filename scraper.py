@@ -21,7 +21,7 @@ def scrape_comic_data(comic_url: str) -> dict:
     try:
         driver = setup_driver()
         driver.get(comic_url)
-        time.sleep(2)  # Tunggu halaman load
+        time.sleep(3)  # Tambah waktu tunggu biar halaman load
         soup = BeautifulSoup(driver.page_source, "html.parser")
         driver.quit()
 
@@ -65,8 +65,8 @@ def scrape_comic_data(comic_url: str) -> dict:
         cover_elem = soup.find("div", class_="ims")
         if cover_elem:
             img = cover_elem.find("img")
-            if img and img.get("src"):
-                cover = img["src"]
+            if img and img.get("data-src"):  # Ganti ke data-src
+                cover = img["data-src"]
 
         data = {
             "title": title,
@@ -89,15 +89,15 @@ def scrape_chapter_images(chapter_url: str) -> list:
     try:
         driver = setup_driver()
         driver.get(chapter_url)
-        time.sleep(2)
+        time.sleep(3)
         soup = BeautifulSoup(driver.page_source, "html.parser")
         driver.quit()
 
         images = []
         img_elements = soup.find_all("img", class_="isi-konten")
         for img in img_elements:
-            if img.get("src"):
-                images.append(img["src"])
+            if img.get("data-src"):  # Ganti ke data-src
+                images.append(img["data-src"])
         return images
     except Exception as e:
         logging.error(f"Error scraping images from {chapter_url}: {str(e)}")
