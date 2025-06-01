@@ -56,7 +56,8 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
                         logging.info(f"Added chapter {chapter_num} for {comic_id} with {len(images)} images")
                         success = True
                     else:
-                        logging.warning(f"No images found for chapter {chapter_num} at {chapter_url}")
+                        logging.warning(f"No images found for chapter {chapter_num} at {chapter_url}, skipping")
+                        continue
                 except Exception as e:
                     logging.error(f"Error adding chapter {chapter_num} for {comic_id}: {str(e)}")
                     continue

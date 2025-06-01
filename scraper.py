@@ -64,31 +64,42 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
 
         # Selector utama
         images = []
-        img_elements = soup.select("div#Baca_Komik img")
-        logging.info(f"Found {len(img_elements)} <img> elements with selector div#Baca_Komik img")
-        
-        for img in img_elements:
-            src = img.get("data-src") or img.get("src")
-            if src and "komiku" in src and "lazy.jpg" not in src and "thumbnail" not in src:
-                try:
-                    upload_result = cloudinary.uploader.upload(
-                        src,
-                        folder=f"greedycomichub/{chapter_url.split('/')[-2]}/{chapter_url.split('/')[-1]}",
-                        public_id=src.split("/")[-1].split(".")[0]
-                    )
-                    images.append(upload_result["secure_url"])
-                    logging.info(f"Uploaded image {src} to Cloudinary")
-                except Exception as e:
-                    logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
-                    continue
+        selectors = [
+            "div#Baca_Komik img",
+            "div.reader-area img",
+            "div.komik img"
+        ]
+        for selector in selectors:
+            img_elements = soup.select(selector)
+            logging.info(f"Found {len(img_elements)} <img> elements with selector {selector}")
+            
+            for img in img_elements:
+                src = img.get("data-src") or img.get("src")
+                if src and "komiku" in src and "lazy.jpg" not in src and "thumbnail" not in src:
+                    logging.info(f"Found image source: {src}")
+                    try:
+                        upload_result = cloudinary.uploader.upload(
+                            src,
+                            folder=f"greedycomichub/{chapter_url.split('/')[-2]}/{chapter_url.split('/')[-1]}",
+                            public_id=src.split("/")[-1].split(".")[0]
+                        )
+                        images.append(upload_result["secure_url"])
+                        logging.info(f"Uploaded image {src} to Cloudinary")
+                    except Exception as e:
+                        logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
+                        continue
+            
+            if images:
+                break
         
         if not images:
-            logging.warning(f"No images found at {chapter_url} with selector div#Baca_Komik img")
-            img_elements = soup.select("div#Baca_Komik img[data-src*='komiku']")
-            logging.info(f"Trying fallback selector div#Baca_Komik img[data-src*='komiku'], found {len(img_elements)} <img> elements")
+            logging.warning(f"No images found at {chapter_url} with main selectors")
+            img_elements = soup.select("img[data-src*='komiku']")
+            logging.info(f"Trying fallback selector img[data-src*='komiku'], found {len(img_elements)} <img> elements")
             for img in img_elements:
                 src = img.get("data-src") or img.get("src")
                 if src and "lazy.jpg" not in src and "thumbnail" not in src:
+                    logging.info(f"Found fallback image source: {src}")
                     try:
                         upload_result = cloudinary.uploader.upload(
                             src,
