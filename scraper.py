@@ -48,7 +48,7 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         soup = BeautifulSoup(response.text, "html.parser")
         # Pakai selector dari greedycomichub.py
         images = []
-        for img in soup.select("#content img"):
+        for img in soup.select("img[itemprop='image']"):
             src = img.get("src")
             if src:
                 try:
@@ -65,7 +65,7 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
                     continue
         
         if not images:
-            logging.warning(f"No images found at {chapter_url} with selector #content img")
+            logging.warning(f"No images found at {chapter_url} with selector img[itemprop='image']")
         else:
             logging.info(f"Found and uploaded {len(images)} images for {chapter_url}")
         return images
