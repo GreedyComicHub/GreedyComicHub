@@ -72,10 +72,29 @@ def update_all_comics() -> None:
             # Cek chapter terbaru
             existing_data = read_json(f"data/{comic_id}.json") or {}
             current_chapters = existing_data.get("chapters", {})
-            last_chapter = max([int(c) for c in current_chapters.keys()] if current_chapters else [0])
-            logging.info(f"Checking updates for {comic_id}, last chapter: {last_chapter}")
-            # Cek 1 chapter ke depan
-            update_comic(comic_url, start_chapter=last_chapter + 1, end_chapter=last_chapter + 1)
+            if not current_chapters:
+                logging.info(f"No chapters found for {comic_id}, skipping")
+                continue
+            # Handle desimal chapters
+            try:
+                chapter_numbers = []
+                for c in current_chapters.keys():
+                    try:
+                        chapter_numbers.append(float(c))
+                    except ValueError:
+                        logging.warning(f"Invalid chapter number {c} for {comic_id}, skipping")
+                        continue
+                if not chapter_numbers:
+                    logging.info(f"No valid chapters for {comic_id}, skipping")
+                    continue
+                last_chapter = max(chapter_numbers)
+                next_chapter = int(last_chapter) + 1 if last_chapter.is_integer() else int(last_chapter + 1)
+                logging.info(f"Checking updates for {comic_id}, last chapter: {last_chapter}, next: {next_chapter}")
+                # Cek 1 chapter ke depan
+                update_comic(comic_url, start_chapter=next_chapter, end_chapter=next_chapter)
+            except Exception as e:
+                logging.error(f"Error processing chapters for {comic_id}: {str(e)}")
+                continue
         logging.info("Update all comics selesai")
     except Exception as e:
         logging.error(f"Error updating all comics: {str(e)}")
