@@ -153,3 +153,5 @@
 2025-06-02 02:15:48 - Processing: {'type': 'comic_add', 'data': {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}, 'status': 'processing', 'timestamp': '2025-06-02 02:09:30'}
 2025-06-02 02:15:50 - Completed: {'type': 'comic_add', 'data': {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}, 'status': 'completed', 'timestamp': '2025-06-02 02:09:30'}
 2025-06-02 02:15:50 - Processing: {'type': 'comic_add', 'data': {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}, 'status': 'processing', 'timestamp': '2025-06-02 02:09:30'}
+2025-06-02 02:15:52 - Completed: {'type': 'comic_add', 'data': {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}, 'status': 'completed', 'timestamp': '2025-06-02 02:09:30'}
+2025-06-02 02:15:52 - Processing: {'type': 'comic_add', 'data': {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}, 'status': 'processing', 'timestamp': '2025-06-02 02:09:30'}
