@@ -1,8 +1,10 @@
+"""Add new comic to the system."""
 from scraper import scrape_comic_data
-from utils import read_json, write_json, add_to_queue, get_comic_id_from_url  # Tambah import
+from utils import read_json, write_json, add_to_queue, get_comic_id_from_url, git_push
 import logging
 
 def add_comic(comic_url):
+    """Add a new comic from the given URL."""
     logging.info(f"Menambahkan komik baru: {comic_url}")
     try:
         comic_data = scrape_comic_data(comic_url)
@@ -27,7 +29,10 @@ def add_comic(comic_url):
         }
         write_json(index_file, index_data)
 
-        # Tambah ke queue untuk Git push
+        # Push langsung ke GitHub biar Netlify update
+        git_push()
+
+        # Tetep tambah ke queue untuk konsistensi (opsional)
         add_to_queue("comic_add", {"comic_id": comic_id, "url": comic_url})
         logging.info(f"Penambahan komik selesai: {comic_url}")
     except Exception as e:
