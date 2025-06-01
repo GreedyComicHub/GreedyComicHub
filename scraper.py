@@ -13,7 +13,13 @@ def setup_driver() -> webdriver.Chrome:
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     service = Service("chromedriver.exe")
-    return webdriver.Chrome(service=service, options=chrome_options)
+    try:
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        logging.info("Chrome driver initialized successfully.")
+        return driver
+    except Exception as e:
+        logging.error(f"Error setting up driver: {str(e)}")
+        raise
 
 def scrape_comic_data(comic_url: str) -> dict:
     """Scrape comic data from Komiku."""
@@ -21,13 +27,15 @@ def scrape_comic_data(comic_url: str) -> dict:
     try:
         driver = setup_driver()
         driver.get(comic_url)
-        time.sleep(3)  # Tambah waktu tunggu biar halaman load
+        time.sleep(5)  # Tunggu JavaScript load
         soup = BeautifulSoup(driver.page_source, "html.parser")
         driver.quit()
+        logging.info("Page source retrieved successfully.")
 
         # Judul dari <h1 class="judul">
         title_elem = soup.find("h1", class_="judul")
         title = title_elem.text.strip().replace("Komik ", "") if title_elem else "Unknown Title"
+        logging.info(f"Title found: {title}")
 
         # Default value
         author = "Unknown Author"
@@ -39,18 +47,22 @@ def scrape_comic_data(comic_url: str) -> dict:
         # Cari author, genre, type dari <table class="data">
         table = soup.find("table", class_="data")
         if table:
+            logging.info("Found data table.")
             rows = table.find_all("tr")
             for row in rows:
                 cells = row.find_all("td")
                 if len(cells) == 2:
                     key = cells[0].text.strip().lower()
                     value = cells[1].text.strip()
+                    logging.info(f"Found table row: {key} = {value}")
                     if key == "pengarang":
                         author = value
                     elif key == "genre":
                         genre = value
                     elif key == "tipe":
                         comic_type = value
+        else:
+            logging.warning("Data table not found.")
 
         # Sinopsis dari <div class="sin"><p>
         synopsis_elem = soup.find("div", class_="sin")
@@ -60,13 +72,19 @@ def scrape_comic_data(comic_url: str) -> dict:
                 synopsis = p.text.strip()
                 synopsis = re.sub(r"Baca Komik.*di Komiku\.", "", synopsis).strip()
                 synopsis = synopsis.lower().replace(title.lower(), title)
+                logging.info(f"Synopsis found: {synopsis}")
+        else:
+            logging.warning("Synopsis div not found.")
 
         # Cover dari <div class="ims"><img>
         cover_elem = soup.find("div", class_="ims")
         if cover_elem:
             img = cover_elem.find("img")
-            if img and img.get("data-src"):  # Ganti ke data-src
+            if img and img.get("data-src"):
                 cover = img["data-src"]
+                logging.info(f"Cover found: {cover}")
+        else:
+            logging.warning("Cover div not found.")
 
         data = {
             "title": title,
@@ -89,15 +107,16 @@ def scrape_chapter_images(chapter_url: str) -> list:
     try:
         driver = setup_driver()
         driver.get(chapter_url)
-        time.sleep(3)
+        time.sleep(5)
         soup = BeautifulSoup(driver.page_source, "html.parser")
         driver.quit()
 
         images = []
         img_elements = soup.find_all("img", class_="isi-konten")
         for img in img_elements:
-            if img.get("data-src"):  # Ganti ke data-src
+            if img.get("data-src"):
                 images.append(img["data-src"])
+                logging.info(f"Image found: {img['data-src']}")
         return images
     except Exception as e:
         logging.error(f"Error scraping images from {chapter_url}: {str(e)}")

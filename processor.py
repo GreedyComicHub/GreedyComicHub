@@ -14,9 +14,8 @@ def process_queue():
             queue = read_json(queue_file) or []
             if not queue:
                 logging.info("Queue kosong, selesai.")
-                break  # Keluar kalau queue kosong
+                break
 
-            # Ambil task pertama
             task = queue[0]
             task_type = task["type"]
             task_data = task["data"]
@@ -26,21 +25,17 @@ def process_queue():
         try:
             logging.info(f"Sedang memproses: {task_type} - {task_data}")
             
-            # Proses task berdasarkan tipe
             if task_type in ["comic_add", "comic_update", "source_update"]:
-                git_push()  # Push perubahan JSON ke GitHub
+                git_push()
             else:
                 logging.warning(f"Tipe task tidak dikenal: {task_type}")
 
-            # Tandai task selesai
             with lock:
                 queue = read_json(queue_file) or []
                 if queue and queue[0]["type"] == task_type and queue[0]["data"] == task_data:
                     queue[0]["status"] = "completed"
-                    # Tulis ke log
                     with open("logs/queue_status.log", "a", encoding="utf-8") as f:
                         f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - Completed: {task_type} - {task_data}\n")
-                    # Hapus task dari queue
                     queue.pop(0)
                     write_json(queue_file, queue)
                 else:
@@ -53,7 +48,7 @@ def process_queue():
                 if queue and queue[0]["type"] == task_type and queue[0]["data"] == task_data:
                     queue[0]["status"] = "failed"
                     write_json(queue_file, queue)
-            time.sleep(5)  # Tunggu sebelum coba lagi
+            time.sleep(5)
 
 if __name__ == "__main__":
     logging.basicConfig(
