@@ -109,7 +109,6 @@ def fetch_page(url, retries=3, delay=2):
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
-    # Filter teks promosi
     promo_phrases = [
         "baca komik", "bahasa indonesia", "di komiku", "komiku", "baca manga",
         "baca manhua", "baca manhwa", "selengkapnya", "klik di sini"
@@ -119,7 +118,6 @@ def paraphrase_synopsis(original_synopsis):
         filtered_synopsis = filtered_synopsis.replace(phrase, "").strip()
     if not filtered_synopsis:
         return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
-    # Parafrase
     phrase_map = {
         "perjalanan": ["petualangan", "kisah", "cerita"],
         "sihir": ["magis", "kekuatan ajaib", "ilmu sihir"],
@@ -145,14 +143,11 @@ def paraphrase_synopsis(original_synopsis):
     return new_synopsis
 
 def scrape_komiku_details(url, soup):
-    # Title
     title_element = soup.find("h1")
     title = title_element.text.strip() if title_element else "Unknown Title"
-    # Bersihkan "Komik" dari judul
     title = title.replace("Komik ", "").replace("komik ", "").strip()
     logging.info(f"Nama komik dari <h1>: {title}")
 
-    # Author
     author = "Unknown Author"
     selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Pengarang" in t if t else False)),
@@ -186,7 +181,6 @@ def scrape_komiku_details(url, soup):
     author = author.replace("~", "").strip() if author else "Unknown Author"
     logging.info(f"Author ditemukan: {author}")
 
-    # Genre
     genre = "Fantasy"
     genre_selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Konsep Cerita" in t if t else False)),
@@ -207,7 +201,6 @@ def scrape_komiku_details(url, soup):
                     break
     logging.info(f"Genre ditemukan: {genre}")
 
-    # Type
     comic_type = "Manhua"
     type_selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Jenis Komik" in t if t else False)),
@@ -232,7 +225,6 @@ def scrape_komiku_details(url, soup):
                     break
     logging.info(f"Tipe komik ditemukan: {comic_type}")
 
-    # Synopsis
     synopsis = "No synopsis available."
     synopsis_element = soup.find("div", class_="desc")
     if synopsis_element:
@@ -243,7 +235,6 @@ def scrape_komiku_details(url, soup):
             synopsis = meta_desc["content"].strip()
     synopsis = paraphrase_synopsis(synopsis)
 
-    # Cover
     cover_url = ""
     cover_selectors = [
         'meta[property="og:image"]',
@@ -286,11 +277,10 @@ def scrape_chapter_list(url, soup):
         for link in all_links:
             href = link.get("href", "")
             if "chapter" in href.lower():
-                # Ekstrak nomor chapter dengan regex, tangani desimal
                 chapter_text = link.text.strip()
                 match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
                 if match:
-                    chapter_num = match.group(1)  # Ambil nomor termasuk desimal (36, 36.5, dll.)
+                    chapter_num = match.group(1)
                     chapters[chapter_num] = href
                     logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
                 else:
@@ -298,10 +288,9 @@ def scrape_chapter_list(url, soup):
     for element in chapter_elements:
         href = element.get("href", "")
         chapter_text = element.text.strip()
-        # Ekstrak nomor chapter dengan regex, tangani desimal
         match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
         if match:
-            chapter_num = match.group(1)  # Ambil nomor termasuk desimal
+            chapter_num = match.group(1)
             chapters[chapter_num] = href
             logging.info(f"Chapter {chapter_num}: {href}")
         else:
@@ -422,7 +411,7 @@ def update_comic(url, start_chapter, end_chapter, overwrite=False):
         return
     first_image_url = None
     for chapter_num in chapters.keys():
-        chapter_num_float = float(chapter_num)  # Ubah ke float untuk perbandingan
+        chapter_num_float = float(chapter_num)
         if start_chapter <= chapter_num_float <= end_chapter:
             if str(chapter_num) in comic_data["chapters"] and not overwrite:
                 logging.info(f"Chapter {chapter_num} sudah ada, melewati.")
@@ -441,6 +430,9 @@ def update_comic(url, start_chapter, end_chapter, overwrite=False):
                 if not first_image_url:
                     first_image_url = uploaded_url
             comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
+    # Sort chapters berdasarkan nomor chapter (float)
+    sorted_chapters = dict(sorted(comic_data["chapters"].items(), key=lambda x: float(x[0])))
+    comic_data["chapters"] = sorted_chapters
     if first_image_url and (not comic_data["cover"] or fetch_page(comic_data["cover"]) is None):
         logging.info(f"Cover asli gagal, ganti dengan: {first_image_url}")
         comic_data["cover"] = first_image_url
@@ -525,8 +517,8 @@ def main():
     parser_add.add_argument("url", help="Comic URL")
     parser_update = subparsers.add_parser("update", help="Update comic chapters")
     parser_update.add_argument("url", help="Comic URL")
-    parser_update.add_argument("--start", type=int, default=1, help="Start chapter")
-    parser_update.add_argument("--end", type=int, default=1, help="End chapter")
+    parser_update.add_argument("--start", type=float, default=1.0, help="Start chapter (can be decimal)")
+    parser_update.add_argument("--end", type=float, default=1.0, help="End chapter (can be decimal)")
     parser_update.add_argument("--overwrite", action="store_true", help="Overwrite existing chapters")
     args = parser.parse_args()
     try:
@@ -546,7 +538,6 @@ def main():
         error_summary.append(error_msg)
     finally:
         logging.info("=== Proses Update Selesai ===")
-        # Rekap error di akhir (hanya level ERROR)
         if error_summary:
             logging.info("=== Rekap Error ===")
             for error in error_summary:
