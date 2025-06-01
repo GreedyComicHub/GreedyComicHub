@@ -80,5 +80,13 @@
       "url": "https://komiku.org/manga/magic-emperor"
     },
     "status": "pending"
+  },
+  {
+    "type": "comic_add",
+    "data": {
+      "comic_id": "blue-lock",
+      "url": "https://komiku.org/manga/blue-lock"
+    },
+    "status": "pending"
   }
 ]
