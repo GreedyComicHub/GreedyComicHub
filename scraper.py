@@ -69,7 +69,7 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         
         for img in img_elements:
             src = img.get("data-src") or img.get("src")
-            if src and "komiku" in src and "lazy.jpg" not in src:
+            if src and "komiku" in src and "lazy.jpg" not in src and "thumbnail" not in src:
                 try:
                     upload_result = cloudinary.uploader.upload(
                         src,
@@ -84,11 +84,11 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         
         if not images:
             logging.warning(f"No images found at {chapter_url} with selector div#Baca_Komik img")
-            img_elements = soup.select("img[src*='komiku'], img[data-src*='komiku']")
-            logging.info(f"Trying fallback selector img[src*='komiku'], found {len(img_elements)} <img> elements")
+            img_elements = soup.select("div#Baca_Komik img[data-src*='komiku']")
+            logging.info(f"Trying fallback selector div#Baca_Komik img[data-src*='komiku'], found {len(img_elements)} <img> elements")
             for img in img_elements:
                 src = img.get("data-src") or img.get("src")
-                if src and "lazy.jpg" not in src:
+                if src and "lazy.jpg" not in src and "thumbnail" not in src:
                     try:
                         upload_result = cloudinary.uploader.upload(
                             src,
