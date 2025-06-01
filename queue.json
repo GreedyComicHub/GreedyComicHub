@@ -2,18 +2,10 @@
   {
     "type": "comic_add",
     "data": {
-      "comic_id": "black-clover-indonesia",
-      "url": "https://komiku.org/manga/black-clover-indonesia"
-    },
-    "status": "processing"
-  },
-  {
-    "type": "comic_add",
-    "data": {
       "comic_id": "magic-emperor",
       "url": "https://komiku.org/manga/magic-emperor"
     },
-    "status": "pending"
+    "status": "processing"
   },
   {
     "type": "comic_add",
