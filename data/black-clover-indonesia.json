@@ -4,17 +4,5 @@
   "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
   "genre": [],
   "type": "",
-  "chapters": {
-    "1": {
-      "url": "https://komiku.org/chapters/black-clover-indonesia-chapter-01",
-      "images": [
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819031/greedycomichub/chapters/black-clover-indonesia-chapter-01/isekai.png",
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819032/greedycomichub/chapters/black-clover-indonesia-chapter-01/fantasy.png",
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819033/greedycomichub/chapters/black-clover-indonesia-chapter-01/ecchi.png",
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819034/greedycomichub/chapters/black-clover-indonesia-chapter-01/Romantis.png",
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819034/greedycomichub/chapters/black-clover-indonesia-chapter-01/full-color.png",
-        "https://res.cloudinary.com/devjnr9d6/image/upload/v1748819035/greedycomichub/chapters/black-clover-indonesia-chapter-01/Tamat.png"
-      ]
-    }
-  }
+  "chapters": {}
 }

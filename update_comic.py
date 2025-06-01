@@ -38,7 +38,7 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
         comic_file = f"data/{comic_id}.json"
         existing_data = read_json(comic_file) or {}
         comic_data = scrape_comic_data(comic_url)
-        comic_data["chapters"] = existing_data.get("chapters", {})
+        comic_data["chapters"] = {}
 
         # Scrape chapters if specified
         if start_chapter is not None and end_chapter is not None:
