@@ -6,5 +6,13 @@
         "genre": "Fantasi",
         "type": "Manhua",
         "total_chapters": 502
+    },
+    "blue-lock": {
+        "title": "Blue Lock",
+        "synopsis": "Blue lock . yoichi isagi berjuang dalam fasilitas blue lock untuk menjadi pencetak gol ulung.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "genre": "Olahraga",
+        "type": "Manga",
+        "total_chapters": 0
     }
 }
