@@ -6,11 +6,13 @@ from typing import Dict, List
 from bs4 import BeautifulSoup
 from utils import get_comic_id_from_url
 
-def scrape_comic_data(comic_url: str) -> Dict[str, any]:
+def scrape_comic_data(comic_url: str) -> Dict[str, str]:
     """Scrape comic data from Komiku using requests."""
     logging.info(f"Scraping data from {comic_url}")
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
         response = requests.get(comic_url, headers=headers, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
@@ -49,7 +51,7 @@ def scrape_comic_data(comic_url: str) -> Dict[str, any]:
                     logging.info(f"Table row: {key} = {value}")
                     if key == "pengarang":
                         data["author"] = value
-                    elif key in ("genre", "kategori"):
+                    elif key in ("genre", "kategori", "konsep cerita"):
                         genres = [a.text.strip() for a in cells[1].find_all("a")]
                         data["genre"] = ", ".join(genres) if genres else value
                     elif key in ("tipe", "tipe komik", "jenis komik"):
@@ -58,17 +60,12 @@ def scrape_comic_data(comic_url: str) -> Dict[str, any]:
             logging.warning("Data table not found.")
 
         # Extract synopsis
-        synopsis_elem = (
-            soup.find("div", class_="sinopsis")
-            or soup.find("div", class_="sin")
-            or soup.find("div", class_="desc")
-        )
+        synopsis_elem = soup.find("div", class_="sinopsis") or soup.find("div", class_="desc")
         if synopsis_elem:
-            p = synopsis_elem.find("p")
-            if p:
-                synopsis = p.text.strip()
-                synopsis = re.sub(r"Baca Komik.*di Komiku\.", "", synopsis).strip()
-                synopsis = synopsis.lower().replace(title.lower(), title)
+            synopsis = synopsis_elem.text.strip()
+            synopsis = re.sub(r"Baca Komik.*di Komiku\.", "", synopsis).strip()
+            synopsis = synopsis.lower().replace(title.lower(), title)
+            if synopsis:
                 data["synopsis"] = synopsis
                 logging.info(f"Synopsis found: {synopsis}")
         else:
@@ -96,7 +93,9 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
     """Scrape chapter images from Komiku."""
     logging.info(f"Scraping images from {chapter_url}")
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
         response = requests.get(chapter_url, headers=headers, timeout=10)
         soup = BeautifulSoup(response.text, "html.parser")
 

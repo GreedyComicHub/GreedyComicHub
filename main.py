@@ -3,7 +3,7 @@ import sys
 import logging
 from add_comic import add_comic
 from processor import process_queue
-# ... lainnya
+# ... lainnya (update, update-all, dll.)
 
 def main():
     """Main function to handle commands."""
