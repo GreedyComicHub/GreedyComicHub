@@ -2,18 +2,10 @@
   {
     "type": "comic_update",
     "data": {
-      "comic_id": "magic-emperor",
-      "url": "https://komiku.org/manga/magic-emperor"
-    },
-    "status": "processing"
-  },
-  {
-    "type": "comic_update",
-    "data": {
       "comic_id": "blue-lock",
       "url": "https://komiku.org/manga/blue-lock"
     },
-    "status": "pending"
+    "status": "processing"
   },
   {
     "type": "comic_update",
