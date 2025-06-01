@@ -15,6 +15,9 @@ def add_comic(comic_url: str) -> None:
 
         # Save to comic JSON
         comic_file = f"data/{comic_id}.json"
+        existing_data = read_json(comic_file) or {}
+        if existing_data.get("chapters"):
+            logging.info(f"Preserving {len(existing_data['chapters'])} chapters for {comic_id}")
         write_json(comic_file, comic_data)
 
         # Update index.json
@@ -29,7 +32,7 @@ def add_comic(comic_url: str) -> None:
             "total_chapters": len(comic_data["chapters"])
         }
         write_json(index_file, index_data)
-        logging.info(f"Updated index.json for {comic_id}")
+        logging.info(f"Updated index.json for {comic_id} with {len(comic_data['chapters'])} chapters")
 
         # Push to GitHub
         git_push()

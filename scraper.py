@@ -58,9 +58,17 @@ def scrape_comic_data(comic_url: str) -> Dict[str, any]:
         title = title_elem.text.strip().replace("Komik ", "") if title_elem else "Unknown Title"
         logging.info(f"Title found: {title}")
 
-        # Load existing data to preserve chapters
+        # Load existing data
         comic_id, _ = get_comic_id_from_url(comic_url)
-        existing_data = read_json(f"data/{comic_id}.json") or {}
+        comic_file = f"data/{comic_id}.json"
+        existing_data = read_json(comic_file)
+        if existing_data:
+            logging.info(f"Existing data found for {comic_id}")
+        else:
+            logging.info(f"No existing data for {comic_id}")
+            existing_data = {}
+
+        # Preserve chapters
         chapters = existing_data.get("chapters", {})
 
         # Default values

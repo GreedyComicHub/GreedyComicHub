@@ -8,7 +8,15 @@ def read_json(file_path: str) -> Optional[Dict]:
     """Read JSON file."""
     try:
         with open(file_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            logging.info(f"Successfully read JSON from {file_path}")
+            return data
+    except FileNotFoundError:
+        logging.info(f"File {file_path} not found")
+        return None
+    except json.JSONDecodeError as e:
+        logging.error(f"Invalid JSON in {file_path}: {str(e)}")
+        return None
     except Exception as e:
         logging.error(f"Error reading {file_path}: {str(e)}")
         return None
@@ -18,6 +26,7 @@ def write_json(file_path: str, data: Any) -> None:
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+        logging.info(f"Successfully wrote JSON to {file_path}")
     except Exception as e:
         logging.error(f"Error writing {file_path}: {str(e)}")
         raise
@@ -29,7 +38,9 @@ def get_comic_id_from_url(url: str) -> Tuple[str, str]:
             parts = url.rstrip("/").split("/")
             comic_id = parts[-1].replace("manga-", "")
             base_url = "/".join(parts[:-1]) + "/"
+            logging.info(f"Extracted comic_id: {comic_id} from {url}")
             return comic_id, base_url
+        logging.warning(f"Invalid URL format: {url}")
         return "", ""
     except Exception as e:
         logging.error(f"Error parsing URL {url}: {str(e)}")
