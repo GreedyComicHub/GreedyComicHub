@@ -161,7 +161,7 @@ h1 {
 }
 
 .chapter-nav {
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -178,17 +178,23 @@ h1 {
     background: #0056b3;
 }
 
+#chapter-images {
+    margin: 0;
+    padding: 0;
+}
+
 .image-frame {
-    max-width: 800px; /* Lebar maksimal container */
-    width: 100%; /* Ambil lebar penuh parent */
-    margin: 0; /* Hapus margin biar nyatu */
+    max-width: 800px;
+    width: 100%;
+    margin: 0 !important;
     box-sizing: border-box;
 }
 
 .chapter-image {
-    width: 100%; /* Ikut lebar container */
-    height: auto; /* Jaga rasio */
+    width: 100%;
+    height: auto;
     display: block;
-    border-radius: 0; /* Hapus border-radius biar nyatu */
-    image-rendering: auto; /* Pastikan kualitas nggak turun */
+    border-radius: 0;
+    image-rendering: auto;
+    margin: 0 !important;
 }
