@@ -410,7 +410,9 @@ def update_comic(url, start_chapter, end_chapter, overwrite=False):
         error_summary.append(error_msg)
         return
     first_image_url = None
-    for chapter_num in chapters.keys():
+    # Sort chapters berdasarkan nomor chapter (ascending)
+    sorted_chapter_nums = sorted(chapters.keys(), key=lambda x: float(x))
+    for chapter_num in sorted_chapter_nums:
         chapter_num_float = float(chapter_num)
         if start_chapter <= chapter_num_float <= end_chapter:
             if str(chapter_num) in comic_data["chapters"] and not overwrite:
@@ -430,7 +432,7 @@ def update_comic(url, start_chapter, end_chapter, overwrite=False):
                 if not first_image_url:
                     first_image_url = uploaded_url
             comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
-    # Sort chapters berdasarkan nomor chapter (float)
+    # Sort chapters di JSON (ini untuk simpan ke file)
     sorted_chapters = dict(sorted(comic_data["chapters"].items(), key=lambda x: float(x[0])))
     comic_data["chapters"] = sorted_chapters
     if first_image_url and (not comic_data["cover"] or fetch_page(comic_data["cover"]) is None):
