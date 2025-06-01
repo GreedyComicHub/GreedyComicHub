@@ -395,7 +395,7 @@ def add_comic(url):
     end_time = time.time()
     logging.info(f"Penambahan komik selesai dalam {end_time - start_time:.2f} detik.")
 
-def update_comic(url, start_chapter, end_chapter):
+def update_comic(url, start_chapter, end_chapter, overwrite=False):
     start_time = time.time()
     logging.info(f"Mulai update chapter: {url}")
     comic_id, _ = get_comic_id_and_display_name(url)
@@ -424,9 +424,12 @@ def update_comic(url, start_chapter, end_chapter):
     for chapter_num in chapters.keys():
         chapter_num_float = float(chapter_num)  # Ubah ke float untuk perbandingan
         if start_chapter <= chapter_num_float <= end_chapter:
-            if str(chapter_num) in comic_data["chapters"]:
+            if str(chapter_num) in comic_data["chapters"] and not overwrite:
                 logging.info(f"Chapter {chapter_num} sudah ada, melewati.")
                 continue
+            if str(chapter_num) in comic_data["chapters"] and overwrite:
+                logging.info(f"Overwrite diaktifkan: Menghapus data lama chapter {chapter_num} dan download ulang.")
+                del comic_data["chapters"][str(chapter_num)]
             image_urls = scrape_chapter_images(chapters[chapter_num])
             if not image_urls:
                 logging.warning(f"Chapter {chapter_num} dilewati karena tidak ada gambar.")
@@ -524,6 +527,7 @@ def main():
     parser_update.add_argument("url", help="Comic URL")
     parser_update.add_argument("--start", type=int, default=1, help="Start chapter")
     parser_update.add_argument("--end", type=int, default=1, help="End chapter")
+    parser_update.add_argument("--overwrite", action="store_true", help="Overwrite existing chapters")
     args = parser.parse_args()
     try:
         if args.command == "add-comic":
@@ -531,7 +535,7 @@ def main():
             push_to_github()
             logging.info(f"Added comic {args.url}")
         elif args.command == "update":
-            update_comic(args.url, args.start, args.end)
+            update_comic(args.url, args.start, args.end, overwrite=args.overwrite)
             push_to_github()
             logging.info(f"Updated chapters for {args.url}")
         else:
