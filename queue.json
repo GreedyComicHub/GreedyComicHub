@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "type": "comic_update",
+    "data": {
+      "comic_id": "black-clover-indonesia",
+      "url": "https://komiku.org/manga/black-clover-indonesia"
+    },
+    "status": "pending"
+  }
+]

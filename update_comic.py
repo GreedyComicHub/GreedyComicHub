@@ -5,9 +5,20 @@ from typing import Dict, List
 from scraper import scrape_comic_data, scrape_chapter_images
 from utils import read_json, write_json, get_comic_id_from_url, git_push, add_to_queue
 
+def format_chapter_url(base_url: str, chapter_num: float) -> str:
+    """Format chapter URL with leading zero or decimal."""
+    comic_id = base_url.split('/')[-1]
+    if chapter_num.is_integer():
+        return f"https://komiku.org/{comic_id}-chapter-{int(chapter_num):02d}"
+    else:
+        int_part = int(chapter_num)
+        dec_part = int((chapter_num - int_part) * 10)
+        return f"https://komiku.org/{comic_id}-chapter-{int_part}-{dec_part}"
+
 def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = None) -> None:
     """Update comic metadata and chapters."""
     logging.info(f"Updating comic: {comic_url}")
+    success = False
     try:
         comic_id, _ = get_comic_id_from_url(comic_url)
         if not comic_id:
@@ -33,7 +44,8 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
         if start_chapter is not None and end_chapter is not None:
             logging.info(f"Adding chapters {start_chapter} to {end_chapter} for {comic_id}")
             for chapter_num in range(start_chapter, end_chapter + 1):
-                chapter_url = f"{comic_url.rstrip('/')}/chapter-{chapter_num}"
+                chapter_url = format_chapter_url(comic_url, chapter_num)
+                logging.info(f"Generated chapter URL: {chapter_url}")
                 try:
                     images = scrape_chapter_images(chapter_url)
                     if images:
@@ -42,6 +54,7 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
                             "images": images
                         }
                         logging.info(f"Added chapter {chapter_num} for {comic_id} with {len(images)} images")
+                        success = True
                     else:
                         logging.warning(f"No images found for chapter {chapter_num} at {chapter_url}")
                 except Exception as e:
@@ -67,7 +80,11 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
         logging.info(f"Updated index.json for {comic_id} with {len(comic_data['chapters'])} chapters")
 
         git_push()
-        add_to_queue("comic_update", {"comic_id": comic_id, "url": comic_url})
+        if success:
+            add_to_queue("comic_update", {"comic_id": comic_id, "url": comic_url})
+            logging.info(f"Added to queue: comic_update for {comic_id}")
+        else:
+            logging.warning(f"Skipped queue for {comic_id} due to no successful chapter updates")
         logging.info(f"Update completed for {comic_url}")
     except Exception as e:
         logging.error(f"Error updating comic {comic_url}: {str(e)}")
@@ -100,7 +117,7 @@ def update_all_comics() -> None:
                 logging.info(f"No chapters found for {comic_id}, skipping")
                 continue
 
-            # Handle desimal chapters
+            # Handle integer and decimal chapters
             try:
                 chapter_numbers = []
                 for c in current_chapters.keys():
@@ -113,29 +130,41 @@ def update_all_comics() -> None:
                     logging.info(f"No valid chapters for {comic_id}, skipping")
                     continue
                 last_chapter = max(chapter_numbers)
-                next_chapter = int(last_chapter) + 1 if last_chapter.is_integer() else int(last_chapter + 1)
-                logging.info(f"Checking {comic_id}, last chapter in web: {last_chapter}, checking Komiku for {next_chapter}")
+                next_chapters = []
+                if last_chapter.is_integer():
+                    next_chapters = [last_chapter + 0.5, last_chapter + 1]
+                else:
+                    next_chapters = [int(last_chapter) + 1]
+                logging.info(f"Checking {comic_id}, last chapter: {last_chapter}, trying {next_chapters}")
 
-                # Cek chapter di Komiku
-                try:
-                    chapter_url = f"{comic_url.rstrip('/')}/chapter-{next_chapter}"
-                    images = scrape_chapter_images(chapter_url)
-                    if images:
-                        existing_data["chapters"][str(next_chapter)] = {
-                            "url": chapter_url,
-                            "images": images
-                        }
-                        write_json(comic_file, existing_data)
-                        index_data[comic_id]["total_chapters"] = len(existing_data["chapters"])
-                        write_json(index_file, index_data)
-                        git_push()
-                        logging.info(f"Added chapter {next_chapter} for {comic_id} with {len(images)} images")
-                    else:
-                        logging.info(f"No new chapters for {comic_id}, latest is {last_chapter}")
-                except Exception as e:
-                    error_msg = f"Failed to update {comic_id}: {str(e)}"
-                    logging.error(error_msg)
-                    error_list.append(error_msg)
+                # Cek next chapters
+                success = False
+                for next_chapter in next_chapters:
+                    chapter_url = format_chapter_url(comic_url, next_chapter)
+                    try:
+                        images = scrape_chapter_images(chapter_url)
+                        if images:
+                            existing_data["chapters"][str(next_chapter)] = {
+                                "url": chapter_url,
+                                "images": images
+                            }
+                            write_json(comic_file, existing_data)
+                            index_data[comic_id]["total_chapters"] = len(existing_data["chapters"])
+                            write_json(index_file, index_data)
+                            git_push()
+                            logging.info(f"Added chapter {next_chapter} for {comic_id} with {len(images)} images")
+                            success = True
+                        else:
+                            logging.info(f"No new chapters for {comic_id} at {chapter_url}")
+                    except Exception as e:
+                        error_msg = f"Failed to update {comic_id} chapter {next_chapter}: {str(e)}"
+                        logging.error(error_msg)
+                        error_list.append(error_msg)
+
+                if success:
+                    add_to_queue("comic_update", {"comic_id": comic_id, "url": comic_url})
+                    logging.info(f"Added to queue: comic_update for {comic_id}")
+
             except Exception as e:
                 error_msg = f"Error processing {comic_id}: {str(e)}"
                 logging.error(error_msg)

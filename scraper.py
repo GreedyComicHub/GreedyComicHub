@@ -1,9 +1,20 @@
 """Scrape comic data from Komiku."""
 import logging
 import requests
+import cloudinary
 import cloudinary.uploader
+import configparser
 from typing import Dict, List
 from bs4 import BeautifulSoup
+
+# Load config
+config = configparser.ConfigParser()
+config.read('config.ini')
+cloudinary.config(
+    cloud_name=config['Cloudinary']['CloudName'],
+    api_key=config['Cloudinary']['ApiKey'],
+    api_secret=config['Cloudinary']['ApiSecret']
+)
 
 def scrape_comic_data(comic_url: str) -> Dict:
     """Scrape comic metadata."""
@@ -46,21 +57,20 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         
         soup = BeautifulSoup(response.text, "html.parser")
         
-        # Debug: Simpan HTML ke debug.html
+        # Debug: Simpan HTML
         with open("debug.html", "w", encoding="utf-8") as f:
             f.write(soup.prettify())
         logging.info(f"Saved HTML to debug.html for {chapter_url}")
 
-        # Pakai selector div#Baca_Komik img
+        # Selector utama
         images = []
         img_elements = soup.select("div#Baca_Komik img")
         logging.info(f"Found {len(img_elements)} <img> elements with selector div#Baca_Komik img")
         
         for img in img_elements:
-            src = img.get("src")
-            if src and "komiku" in src:  # Pastiin gambar dari Komiku
+            src = img.get("data-src") or img.get("src")
+            if src and "komiku" in src and "lazy.jpg" not in src:
                 try:
-                    # Upload ke Cloudinary
                     upload_result = cloudinary.uploader.upload(
                         src,
                         folder=f"greedycomichub/{chapter_url.split('/')[-2]}/{chapter_url.split('/')[-1]}",
@@ -74,12 +84,11 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         
         if not images:
             logging.warning(f"No images found at {chapter_url} with selector div#Baca_Komik img")
-            # Fallback selector
-            img_elements = soup.select("img[src*='komiku']")
+            img_elements = soup.select("img[src*='komiku'], img[data-src*='komiku']")
             logging.info(f"Trying fallback selector img[src*='komiku'], found {len(img_elements)} <img> elements")
             for img in img_elements:
-                src = img.get("src")
-                if src:
+                src = img.get("data-src") or img.get("src")
+                if src and "lazy.jpg" not in src:
                     try:
                         upload_result = cloudinary.uploader.upload(
                             src,
