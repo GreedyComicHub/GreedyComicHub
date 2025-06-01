@@ -26,7 +26,7 @@ def add_comic(comic_url: str) -> None:
             "cover": comic_data["cover"],
             "genre": comic_data["genre"],
             "type": comic_data["type"],
-            "total_chapters": 0
+            "total_chapters": len(comic_data["chapters"])
         }
         write_json(index_file, index_data)
         logging.info(f"Updated index.json for {comic_id}")
