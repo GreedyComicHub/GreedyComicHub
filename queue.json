@@ -5,16 +5,7 @@
       "comic_id": "black-clover-indonesia",
       "url": "https://komiku.org/manga/black-clover-indonesia"
     },
-    "status": "processing",
-    "timestamp": "2025-06-02 03:02:19"
-  },
-  {
-    "type": "comic_add",
-    "data": {
-      "comic_id": "black-clover-indonesia",
-      "url": "https://komiku.org/manga/black-clover-indonesia"
-    },
-    "status": "pending"
+    "status": "processing"
   },
   {
     "type": "comic_add",
