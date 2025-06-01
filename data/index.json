@@ -14,5 +14,13 @@
         "genre": "Olahraga",
         "type": "Manga",
         "total_chapters": 50
+    },
+    "black-clover-indonesia": {
+        "title": "Unknown Title",
+        "synopsis": "No synopsis available.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
+        "genre": "Unknown Genre",
+        "type": "Unknown Type",
+        "total_chapters": 0
     }
 }
