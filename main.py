@@ -1,55 +1,32 @@
+"""Main script for GreedyComicHub."""
 import sys
-from add_comic import add_comic
-from update_comic import update_comic
-from update_all import update_all_comics
-from update_source_domain import update_source_domain
-from update_source_url import update_source_url
-from processor import process_queue
 import logging
-
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler("logs/update.log"),
-        logging.StreamHandler()
-    ]
-)
+from add_comic import add_comic
+from processor import process_queue
+# ... lainnya
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <command> [args]")
-        print("Commands: add, update, update-all, update-source-domain, update-source-url, process-queue")
-        return
-
-    command = sys.argv[1]
+    """Main function to handle commands."""
+    logging.basicConfig(
+        filename="logs/update.log",
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        encoding="utf-8"
+    )
     try:
-        if command == "add":
-            if len(sys.argv) != 3:
-                print("Usage: python main.py add <comic_url>")
-                return
+        if len(sys.argv) < 2:
+            logging.error("No command provided")
+            print("Usage: python main.py <command> [args]")
+            return
+
+        command = sys.argv[1].lower()
+        if command == "add" and len(sys.argv) == 3:
             add_comic(sys.argv[2])
-        elif command == "update":
-            if len(sys.argv) != 3:
-                print("Usage: python main.py update <comic_url>")
-                return
-            update_comic(sys.argv[2])
-        elif command == "update-all":
-            update_all_comics()
-        elif command == "update-source-domain":
-            if len(sys.argv) != 4 or sys.argv[3] != "ke":
-                print("Usage: python main.py update-source-domain <old_domain> ke <new_domain>")
-                return
-            update_source_domain(sys.argv[2], sys.argv[4])
-        elif command == "update-source-url":
-            if len(sys.argv) != 4 or sys.argv[3] != "ke":
-                print("Usage: python main.py update-source-url <old_url> ke <new_url>")
-                return
-            update_source_url(sys.argv[2], sys.argv[4])
         elif command == "process-queue":
             process_queue()
+        # ... lainnya
         else:
+            logging.error(f"Unknown command: {command}")
             print(f"Unknown command: {command}")
     except Exception as e:
         logging.error(f"Error in main: {str(e)}")

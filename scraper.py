@@ -6,7 +6,7 @@ from typing import Dict, List
 from bs4 import BeautifulSoup
 from utils import get_comic_id_from_url
 
-def scrape_comic_data(comic_url: str) -> Dict[str, str]:
+def scrape_comic_data(comic_url: str) -> Dict[str, any]:
     """Scrape comic data from Komiku using requests."""
     logging.info(f"Scraping data from {comic_url}")
     try:
@@ -49,15 +49,20 @@ def scrape_comic_data(comic_url: str) -> Dict[str, str]:
                     logging.info(f"Table row: {key} = {value}")
                     if key == "pengarang":
                         data["author"] = value
-                    elif key == "genre":
-                        data["genre"] = value
-                    elif key == "tipe":
+                    elif key in ("genre", "kategori"):
+                        genres = [a.text.strip() for a in cells[1].find_all("a")]
+                        data["genre"] = ", ".join(genres) if genres else value
+                    elif key in ("tipe", "tipe komik", "jenis komik"):
                         data["type"] = value
         else:
             logging.warning("Data table not found.")
 
         # Extract synopsis
-        synopsis_elem = soup.find("div", class_="sin") or soup.find("div", class_="sinopsis")
+        synopsis_elem = (
+            soup.find("div", class_="sinopsis")
+            or soup.find("div", class_="sin")
+            or soup.find("div", class_="desc")
+        )
         if synopsis_elem:
             p = synopsis_elem.find("p")
             if p:
