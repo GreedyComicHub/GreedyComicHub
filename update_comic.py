@@ -9,11 +9,11 @@ def format_chapter_url(base_url: str, chapter_num: float) -> str:
     """Format chapter URL with leading zero or decimal."""
     comic_id = base_url.split('/')[-1]
     if chapter_num.is_integer():
-        return f"https://komiku.org/chapters/{comic_id}-chapter-{int(chapter_num):02d}"
+        return f"https://komiku.org/{comic_id}-chapter-{int(chapter_num):02d}"
     else:
         int_part = int(chapter_num)
         dec_part = int((chapter_num - int_part) * 10)
-        return f"https://komiku.org/chapters/{comic_id}-chapter-{int-part}-{dec-part}"
+        return f"https://komiku.org/{comic_id}-chapter-{int_part}-{dec_part}"
 
 def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = None) -> None:
     """Update comic metadata and chapters."""
@@ -30,7 +30,7 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
             if response.status_code != 200:
                 logging.error(f"URL {comic_url} tidak valid, status code: {response.status_code}")
                 raise ValueError(f"Invalid URL: {comic_url}")
-        except Exception as e:
+        except requests.RequestException as e:
             logging.error(f"Error accessing URL {comic_url}: {str(e)}")
             raise
 
@@ -48,7 +48,7 @@ def update_comic(comic_url: str, start_chapter: int = None, end_chapter: int = N
                 logging.info(f"Generated chapter URL: {chapter_url}")
                 try:
                     images = scrape_chapter_images(chapter_url)
-                    if images and all("thumbnail" not in img for img in images):
+                    if images and all("thumbnail" not in img and "asset" not in img for img in images):
                         comic_data["chapters"][str(chapter_num)] = {
                             "url": chapter_url,
                             "images": images
@@ -144,7 +144,7 @@ def update_all_comics() -> None:
                     chapter_url = format_chapter_url(comic_url, next_chapter)
                     try:
                         images = scrape_chapter_images(chapter_url)
-                        if images and all("thumbnail" not in img for img in images):
+                        if images and all("thumbnail" not in img and "asset" not in img for img in images):
                             existing_data["chapters"][str(next_chapter)] = {
                                 "url": chapter_url,
                                 "images": images
