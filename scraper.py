@@ -18,7 +18,6 @@ def scrape_comic_data(comic_url: str) -> Dict:
         synopsis = soup.select_one("div[itemprop='description']").text.strip() if soup.select_one("div[itemprop='description']") else ""
         cover = soup.select_one("img[itemprop='image']")["src"] if soup.select_one("img[itemprop='image']") else ""
         genre = [g.text.strip() for g in soup.select("a[itemprop='genre']")]
-        # Ganti :contains ke :-soup-contains
         comic_type = soup.select_one("td:-soup-contains('Type') + td").text.strip() if soup.select_one("td:-soup-contains('Type') + td") else ""
 
         data = {
@@ -46,11 +45,20 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
             return []
         
         soup = BeautifulSoup(response.text, "html.parser")
-        # Pakai selector dari greedycomichub.py
+        
+        # Debug: Simpan HTML ke debug.html
+        with open("debug.html", "w", encoding="utf-8") as f:
+            f.write(soup.prettify())
+        logging.info(f"Saved HTML to debug.html for {chapter_url}")
+
+        # Pakai selector div#Baca_Komik img
         images = []
-        for img in soup.select("img[itemprop='image']"):
+        img_elements = soup.select("div#Baca_Komik img")
+        logging.info(f"Found {len(img_elements)} <img> elements with selector div#Baca_Komik img")
+        
+        for img in img_elements:
             src = img.get("src")
-            if src:
+            if src and "komiku" in src:  # Pastiin gambar dari Komiku
                 try:
                     # Upload ke Cloudinary
                     upload_result = cloudinary.uploader.upload(
@@ -65,7 +73,27 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
                     continue
         
         if not images:
-            logging.warning(f"No images found at {chapter_url} with selector img[itemprop='image']")
+            logging.warning(f"No images found at {chapter_url} with selector div#Baca_Komik img")
+            # Fallback selector
+            img_elements = soup.select("img[src*='komiku']")
+            logging.info(f"Trying fallback selector img[src*='komiku'], found {len(img_elements)} <img> elements")
+            for img in img_elements:
+                src = img.get("src")
+                if src:
+                    try:
+                        upload_result = cloudinary.uploader.upload(
+                            src,
+                            folder=f"greedycomichub/{chapter_url.split('/')[-2]}/{chapter_url.split('/')[-1]}",
+                            public_id=src.split("/")[-1].split(".")[0]
+                        )
+                        images.append(upload_result["secure_url"])
+                        logging.info(f"Uploaded image {src} to Cloudinary (fallback)")
+                    except Exception as e:
+                        logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
+                        continue
+        
+        if not images:
+            logging.warning(f"No images found at {chapter_url} with any selector")
         else:
             logging.info(f"Found and uploaded {len(images)} images for {chapter_url}")
         return images
