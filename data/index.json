@@ -1,26 +1,26 @@
 {
-    "magic-emperor": {
-        "title": "Magic Emperor",
-        "synopsis": "Seorang penyihir legendaris memulai Magic emperor . petualangan magis dan ambisi dalam melawan intrik politik fantasi. yang mendebarkan.",
-        "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=225&quality=60",
-        "genre": "Fantasi",
-        "type": "Manhua",
-        "total_chapters": 502
-    },
-    "blue-lock": {
-        "title": "Blue Lock",
-        "synopsis": "Blue lock . yoichi isagi berjuang dalam fasilitas blue lock untuk menjadi pencetak gol ulung.",
-        "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
-        "genre": "Olahraga",
-        "type": "Manga",
-        "total_chapters": 50
-    },
-    "black-clover-indonesia": {
-        "title": "Unknown Title",
-        "synopsis": "No synopsis available.",
-        "cover": "",
-        "genre": "Unknown Genre",
-        "type": "Unknown Type",
-        "total_chapters": 0
-    }
+  "magic-emperor": {
+    "title": "Magic Emperor",
+    "synopsis": "Seorang penyihir legendaris memulai Magic emperor . petualangan magis dan ambisi dalam melawan intrik politik fantasi. yang mendebarkan.",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=225&quality=60",
+    "genre": "Fantasi",
+    "type": "Manhua",
+    "total_chapters": 502
+  },
+  "blue-lock": {
+    "title": "Blue Lock",
+    "synopsis": "Blue lock . yoichi isagi berjuang dalam fasilitas blue lock untuk menjadi pencetak gol ulung.",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+    "genre": "Olahraga",
+    "type": "Manga",
+    "total_chapters": 50
+  },
+  "black-clover-indonesia": {
+    "title": "Black Clover",
+    "synopsis": "No synopsis available.",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
+    "genre": "Aksi",
+    "type": "Manga",
+    "total_chapters": 0
+  }
 }

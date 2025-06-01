@@ -1,108 +1,63 @@
 """Utility functions for GreedyComicHub."""
 import json
-import os
-import re
-import time
 import logging
-import configparser
-import git
-import cloudinary
-import cloudinary.uploader
+from typing import Any, Dict, Optional, Tuple
 from filelock import FileLock
 
-def read_json(file_path: str) -> dict:
-    """Read JSON file and return its content."""
+def read_json(file_path: str) -> Optional[Dict]:
+    """Read JSON file with file lock."""
     try:
-        if not os.path.exists(file_path):
-            # Buat file kosong kalau nggak ada
-            if file_path == "queue.json":
-                write_json(file_path, [])
-                logging.info(f"Created empty {file_path}")
-            return {}
-        with open(file_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        with FileLock(file_path + ".lock"):
+            with open(file_path, "r", encoding="utf-8") as f:
+                return json.load(f)
     except Exception as e:
         logging.error(f"Error reading {file_path}: {str(e)}")
-        return {}
+        return None
 
-def write_json(file_path: str, data: dict) -> None:
-    """Write data to JSON file."""
+def write_json(file_path: str, data: Any) -> None:
+    """Write JSON file with file lock."""
     try:
-        os.makedirs(os.path.dirname(file_path) or ".", exist_ok=True)
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
-        logging.info(f"Berhasil simpan ke {file_path}")
+        with FileLock(file_path + ".lock"):
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
     except Exception as e:
         logging.error(f"Error writing {file_path}: {str(e)}")
         raise
 
-def setup_cloudinary() -> None:
-    """Configure Cloudinary with credentials from config.ini."""
-    config = read_config()
+def get_comic_id_from_url(url: str) -> Tuple[str, str]:
+    """Extract comic ID and base URL from comic URL."""
     try:
-        cloudinary.config(
-            cloud_name=config["Cloudinary"]["CloudName"],
-            api_key=config["Cloudinary"]["ApiKey"],
-            api_secret=config["Cloudinary"]["ApiSecret"]
-        )
-        logging.info(f"Menggunakan akun Cloudinary: {config['Cloudinary']['CloudName']}")
-    except KeyError as e:
-        logging.error(f"Cloudinary config missing: {str(e)}")
-        raise
-
-def upload_image(image_url: str, folder: str) -> str:
-    """Upload image to Cloudinary and return secure URL."""
-    try:
-        response = cloudinary.uploader.upload(
-            image_url,
-            folder=f"greedycomichub/{folder}",
-            resource_type="image"
-        )
-        return response["secure_url"]
+        if "komiku.org" in url:
+            parts = url.rstrip("/").split("/")
+            comic_id = parts[-1].replace("manga-", "")
+            base_url = "/".join(parts[:-1]) + "/"
+            return comic_id, base_url
+        return "", ""
     except Exception as e:
-        logging.error(f"Error uploading image {image_url}: {str(e)}")
-        raise
+        logging.error(f"Error parsing URL {url}: {str(e)}")
+        return "", ""
 
-def read_config() -> configparser.ConfigParser:
-    """Read config.ini and return ConfigParser object."""
-    config = configparser.ConfigParser()
-    config.read("config.ini")
-    return config
-
-def git_push() -> None:
-    """Commit and push changes to GitHub."""
-    try:
-        config = read_config()
-        repo = git.Repo(".")
-        repo.git.add(".")
-        repo.index.commit(f"Update komik: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-        origin = repo.remote(name="origin")
-        origin.push()
-        logging.info("Berhasil push ke GitHub")
-    except Exception as e:
-        logging.error(f"Error pushing to GitHub: {str(e)}")
-        raise
-
-def get_comic_id_from_url(url: str) -> tuple:
-    """Extract comic ID and display name from URL."""
-    match = re.search(r"manga/([^/]+)/?$", url)
-    if match:
-        comic_id = match.group(1)
-        display_name = comic_id.replace("-", " ").title()
-        return comic_id, display_name
-    return None, None
-
-def add_to_queue(task_type: str, task_data: dict) -> None:
+def add_to_queue(task_type: str, task_data: Dict) -> None:
     """Add task to queue.json with file lock."""
     queue_file = "queue.json"
-    lock = FileLock(queue_file + ".lock")
-    with lock:
-        queue = read_json(queue_file) or []
-        queue.append({
-            "type": task_type,
-            "data": task_data,
-            "status": "pending",
-            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
-        })
-        write_json(queue_file, queue)
-    logging.info(f"Added to queue: {task_type} - {task_data}")
+    try:
+        with FileLock(queue_file + ".lock"):
+            queue = read_json(queue_file) or []
+            queue.append({"type": task_type, "data": task_data, "status": "pending"})
+            write_json(queue_file, queue)
+        logging.info(f"Added to queue: {task_type} - {task_data}")
+    except Exception as e:
+        logging.error(f"Error adding to queue: {str(e)}")
+        raise
+
+def git_push() -> None:
+    """Push changes to GitHub."""
+    import subprocess
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", "Update comic data"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        logging.info("Berhasil push ke GitHub")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error pushing to GitHub: {str(e)}")
+        raise

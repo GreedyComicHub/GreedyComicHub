@@ -20,18 +20,16 @@ def add_comic(comic_url: str) -> None:
         # Update index.json
         index_file = "data/index.json"
         index_data: Dict = read_json(index_file) or {}
-        if comic_id not in index_data:
-            index_data[comic_id] = {
-                "title": comic_data["title"],
-                "synopsis": comic_data["synopsis"],
-                "cover": comic_data["cover"],
-                "genre": comic_data["genre"],
-                "type": comic_data["type"],
-                "total_chapters": 0
-            }
-            write_json(index_file, index_data)
-        else:
-            logging.info(f"Comic {comic_id} already in index, skipping update.")
+        index_data[comic_id] = {
+            "title": comic_data["title"],
+            "synopsis": comic_data["synopsis"],
+            "cover": comic_data["cover"],
+            "genre": comic_data["genre"],
+            "type": comic_data["type"],
+            "total_chapters": 0
+        }
+        write_json(index_file, index_data)
+        logging.info(f"Updated index.json for {comic_id}")
 
         # Push to GitHub
         git_push()
