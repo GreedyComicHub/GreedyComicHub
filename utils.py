@@ -20,8 +20,8 @@ def read_json(file_path: str) -> Optional[Dict]:
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-            logging.info(f"Successfully read JSON from {file_path}")
-            return data
+        logging.info(f"Successfully read JSON from {file_path}")
+        return data
     except FileNotFoundError:
         logging.info(f"File {file_path} not found")
         return None
