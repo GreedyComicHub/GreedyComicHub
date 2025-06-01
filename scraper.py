@@ -25,11 +25,15 @@ def scrape_comic_data(comic_url: str) -> Dict:
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
 
-        title = soup.select_one("h1[itemprop='name']").text.strip() if soup.select_one("h1[itemprop='name']") else ""
-        synopsis = soup.select_one("div[itemprop='description']").text.strip() if soup.select_one("div[itemprop='description']") else ""
-        cover = soup.select_one("img[itemprop='image']")["src"] if soup.select_one("img[itemprop='image']") else ""
-        genre = [g.text.strip() for g in soup.select("a[itemprop='genre']")]
-        comic_type = soup.select_one("td:-soup-contains('Type') + td").text.strip() if soup.select_one("td:-soup-contains('Type') + td") else ""
+        title = soup.select_one("h1.judul") or soup.select_one("h1[itemprop='name']")
+        title = title.text.strip() if title else ""
+        synopsis = soup.select_one("div.sinopsis") or soup.select_one("div[itemprop='description']")
+        synopsis = synopsis.text.strip() if synopsis else ""
+        cover = soup.select_one("img[itemprop='image']") or soup.select_one("img.cover")
+        cover = cover["src"] if cover else ""
+        genre = [g.text.strip() for g in soup.select("a[itemprop='genre'], a.genre")]
+        comic_type = soup.select_one("span.jenis-komik") or soup.select_one("td:-soup-contains('Type') + td")
+        comic_type = comic_type.text.strip() if comic_type else ""
 
         data = {
             "title": title,
@@ -65,9 +69,10 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         # Selector utama
         images = []
         selectors = [
+            "div.baca-komik img",
+            "div.konten img",
             "div#Baca_Komik img",
-            "div.reader-area img",
-            "div.komik img"
+            "div.reader-area img"
         ]
         for selector in selectors:
             img_elements = soup.select(selector)
@@ -75,7 +80,7 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
             
             for img in img_elements:
                 src = img.get("data-src") or img.get("src")
-                if src and "komiku" in src and "lazy.jpg" not in src and "thumbnail" not in src:
+                if src and "komiku.org" in src and "lazy.jpg" not in src and "thumbnail" not in src and "Loading.gif" not in src:
                     logging.info(f"Found image source: {src}")
                     try:
                         upload_result = cloudinary.uploader.upload(
@@ -94,26 +99,26 @@ def scrape_chapter_images(chapter_url: str) -> List[str]:
         
         if not images:
             logging.warning(f"No images found at {chapter_url} with main selectors")
-            img_elements = soup.select("img[data-src*='komiku']")
-            logging.info(f"Trying fallback selector img[data-src*='komiku'], found {len(img_elements)} <img> elements")
+            img_elements = soup.select("img[data-src*='komiku.org']")
+            logging.info(f"Trying fallback selector img[data-src*='komiku.org'], found {len(img_elements)} images")
             for img in img_elements:
                 src = img.get("data-src") or img.get("src")
-                if src and "lazy.jpg" not in src and "thumbnail" not in src:
+                if src and "lazy.jpg" not in src and "thumbnail" not in src and "Loading.gif" not in src:
                     logging.info(f"Found fallback image source: {src}")
                     try:
                         upload_result = cloudinary.uploader.upload(
                             src,
-                            folder=f"greedycomichub/{chapter_url.split('/')[-2]}/{chapter_url.split('/')[-1]}",
+                            folder=f"greedy-fallback/{chapter_url}",
                             public_id=src.split("/")[-1].split(".")[0]
                         )
                         images.append(upload_result["secure_url"])
-                        logging.info(f"Uploaded image {src} to Cloudinary (fallback)")
+                        logging.info(f"Upload image {source} to Cloudinary (fallback)")
                     except Exception as e:
-                        logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
+                        logging.error(f"Failed to upload {source} to {e}")
                         continue
-        
+                        
         if not images:
-            logging.warning(f"No images found at {chapter_url} with any selector")
+            logging.error(f"No valid images found at {chapter_url} with any selector")
         else:
             logging.info(f"Found and uploaded {len(images)} images for {chapter_url}")
         return images
