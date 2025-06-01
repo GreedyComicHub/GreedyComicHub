@@ -132,7 +132,7 @@ def update_all_comics() -> None:
                         logging.info(f"Added chapter {next_chapter} for {comic_id} with {len(images)} images")
                     else:
                         logging.info(f"No new chapters for {comic_id}, latest is {last_chapter}")
-                except ValueError as e:
+                except Exception as e:
                     error_msg = f"Failed to update {comic_id}: {str(e)}"
                     logging.error(error_msg)
                     error_list.append(error_msg)
