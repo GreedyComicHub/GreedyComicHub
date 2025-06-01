@@ -1,25 +1,23 @@
 """Utility functions for GreedyComicHub."""
 import json
 import logging
+import subprocess
 from typing import Any, Dict, Optional, Tuple
-from filelock import FileLock
 
 def read_json(file_path: str) -> Optional[Dict]:
-    """Read JSON file with file lock."""
+    """Read JSON file."""
     try:
-        with FileLock(file_path + ".lock"):
-            with open(file_path, "r", encoding="utf-8") as f:
-                return json.load(f)
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
     except Exception as e:
         logging.error(f"Error reading {file_path}: {str(e)}")
         return None
 
 def write_json(file_path: str, data: Any) -> None:
-    """Write JSON file with file lock."""
+    """Write JSON file."""
     try:
-        with FileLock(file_path + ".lock"):
-            with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
     except Exception as e:
         logging.error(f"Error writing {file_path}: {str(e)}")
         raise
@@ -38,13 +36,12 @@ def get_comic_id_from_url(url: str) -> Tuple[str, str]:
         return "", ""
 
 def add_to_queue(task_type: str, task_data: Dict) -> None:
-    """Add task to queue.json with file lock."""
+    """Add task to queue.json."""
     queue_file = "queue.json"
     try:
-        with FileLock(queue_file + ".lock"):
-            queue = read_json(queue_file) or []
-            queue.append({"type": task_type, "data": task_data, "status": "pending"})
-            write_json(queue_file, queue)
+        queue = read_json(queue_file) or []
+        queue.append({"type": task_type, "data": task_data, "status": "pending"})
+        write_json(queue_file, queue)
         logging.info(f"Added to queue: {task_type} - {task_data}")
     except Exception as e:
         logging.error(f"Error adding to queue: {str(e)}")
@@ -52,12 +49,20 @@ def add_to_queue(task_type: str, task_data: Dict) -> None:
 
 def git_push() -> None:
     """Push changes to GitHub."""
-    import subprocess
     try:
         subprocess.run(["git", "add", "."], check=True)
-        subprocess.run(["git", "commit", "-m", "Update comic data"], check=True)
-        subprocess.run(["git", "push"], check=True)
-        logging.info("Berhasil push ke GitHub")
+        result = subprocess.run(
+            ["git", "commit", "-m", "Update comic data"],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        if "nothing to commit" not in result.stdout:
+            subprocess.run(["git", "push"], check=True)
+            logging.info("Berhasil push ke GitHub")
     except subprocess.CalledProcessError as e:
-        logging.error(f"Error pushing to GitHub: {str(e)}")
-        raise
+        if "nothing to commit" in e.stdout:
+            logging.info("No changes to commit")
+        else:
+            logging.error(f"Error pushing to GitHub: {str(e)}")
+            raise

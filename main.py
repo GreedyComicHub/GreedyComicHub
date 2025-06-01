@@ -3,7 +3,6 @@ import sys
 import logging
 from add_comic import add_comic
 from processor import process_queue
-# ... lainnya (update, update-all, dll.)
 
 def main():
     """Main function to handle commands."""
@@ -24,7 +23,6 @@ def main():
             add_comic(sys.argv[2])
         elif command == "process-queue":
             process_queue()
-        # ... lainnya
         else:
             logging.error(f"Unknown command: {command}")
             print(f"Unknown command: {command}")
