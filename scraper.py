@@ -1,10 +1,43 @@
 """Scraper for Komiku comic data."""
 import logging
 import re
+import random
 import requests
 from typing import Dict, List
 from bs4 import BeautifulSoup
 from utils import get_comic_id_from_url
+
+def paraphrase_synopsis(text: str, title: str) -> str:
+    """Paraphrase synopsis text using simple word replacement."""
+    try:
+        # Simple word replacements
+        replacements = {
+            "berjuang": "berusaha keras",
+            "mimpi": "cita-cita",
+            "kerajaan": "negeri",
+            "persahabatan": "ikatan sahabat",
+            "perjalanan": "petualangan",
+            "melindungi": "menjaga",
+            "tekad": "semangat",
+            "tantangan": "rintangan"
+        }
+        result = text
+        for old, new in replacements.items():
+            result = result.replace(old, new)
+        
+        # Randomly shuffle sentences
+        sentences = [s.strip() for s in result.split(".") if s.strip()]
+        if len(sentences) > 1:
+            random.shuffle(sentences)
+            result = ". ".join(sentences) + "."
+        
+        # Clean and normalize
+        result = re.sub(r"Baca Komik.*di Komiku\.", "", result).strip()
+        result = result.lower().replace(title.lower(), title)
+        return result if result else text
+    except Exception as e:
+        logging.error(f"Error paraphrasing synopsis: {str(e)}")
+        return text
 
 def scrape_comic_data(comic_url: str) -> Dict[str, str]:
     """Scrape comic data from Komiku using requests."""
@@ -60,16 +93,20 @@ def scrape_comic_data(comic_url: str) -> Dict[str, str]:
             logging.warning("Data table not found.")
 
         # Extract synopsis
-        synopsis_elem = soup.find("div", class_="sinopsis") or soup.find("div", class_="desc")
+        synopsis_elem = None
+        for h2 in soup.find_all("h2"):
+            if h2.text.strip().lower() == "sinopsis lengkap":
+                synopsis_elem = h2.find_next("p")
+                break
         if synopsis_elem:
             synopsis = synopsis_elem.text.strip()
             synopsis = re.sub(r"Baca Komik.*di Komiku\.", "", synopsis).strip()
-            synopsis = synopsis.lower().replace(title.lower(), title)
             if synopsis:
-                data["synopsis"] = synopsis
-                logging.info(f"Synopsis found: {synopsis}")
+                paraphrased = paraphrase_synopsis(synopsis, title)
+                data["synopsis"] = paraphrased
+                logging.info(f"Synopsis found: {paraphrased}")
         else:
-            logging.warning("Synopsis div not found.")
+            logging.warning("Synopsis paragraph not found.")
 
         # Extract cover
         cover_elem = soup.find("div", class_="ims") or soup.find("div", class_="cover")
