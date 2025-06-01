@@ -1,19 +1,11 @@
 """Add new comic to the system."""
-from typing import Dict
 import logging
+from typing import Dict
 from scraper import scrape_comic_data
 from utils import read_json, write_json, add_to_queue, get_comic_id_from_url, git_push
 
 def add_comic(comic_url: str) -> None:
-    """Add a new comic from the given URL.
-
-    Args:
-        comic_url (str): URL of the comic to add.
-
-    Raises:
-        ValueError: If comic URL is invalid.
-        Exception: If adding comic fails.
-    """
+    """Add a new comic from the given URL."""
     logging.info(f"Menambahkan komik baru: {comic_url}")
     try:
         comic_data = scrape_comic_data(comic_url)
@@ -48,5 +40,5 @@ def add_comic(comic_url: str) -> None:
         add_to_queue("comic_add", {"comic_id": comic_id, "url": comic_url})
         logging.info(f"Penambahan komik selesai: {comic_url}")
     except Exception as e:
-        logging.error(f"Error adding comic {comic_url}: {e}")
+        logging.error(f"Error adding comic {comic_url}: {str(e)}")
         raise
