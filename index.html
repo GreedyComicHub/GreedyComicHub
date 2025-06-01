@@ -4,12 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreedyComicHub</title>
+    <title>GreedyComicHub - Baca Komik Online Gratis</title>
+    <meta name="description" content="GreedyComicHub adalah tempat baca komik online gratis. Temukan komik favoritmu seperti Magic Emperor di Greedy Comic Hub!">
+    <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="GreedyComicHub Team">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>GreedyComicHub</h1>
-    <div id="comic-list"></div>
+    <header>
+        <h1>GreedyComicHub - Platform Baca Komik Online Terbaik</h1>
+        <p>Selamat datang di GreedyComicHub! Nikmati berbagai komik gratis seperti <a href="comic.html?comic=magic-emperor">Magic Emperor</a> dan lainnya di Greedy Comic Hub.</p>
+    </header>
+    <main>
+        <section id="comic-list-section">
+            <h2>Daftar Komik di GreedyComicHub</h2>
+            <div id="comic-list"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GreedyComicHub. All rights reserved.</p>
+    </footer>
     <script>
         fetch('data/index.json')
             .then(res => {
@@ -24,8 +39,8 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comicId}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title}">
-                            <h2>${comic.title}</h2>
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub">
+                            <h3>${comic.title}</h3>
                         </a>
                     `;
                     comicList.appendChild(card);
