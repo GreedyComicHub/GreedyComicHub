@@ -1,17 +1,21 @@
 """Process tasks in queue.json."""
 import logging
+from typing import Dict, List
 import time
-from utils import read_json, write_json, git_push
 from filelock import FileLock
+from utils import read_json, write_json, git_push
 
-def process_queue():
-    """Process tasks in queue.json sequentially."""
+def process_queue() -> None:
+    """Process tasks in queue.json sequentially.
+
+    Processes each task, updates status, and pushes changes to GitHub.
+    """
     queue_file = "queue.json"
     lock = FileLock(queue_file + ".lock")
     
     while True:
         with lock:
-            queue = read_json(queue_file) or []
+            queue: List[Dict] = read_json(queue_file) or []
             if not queue:
                 logging.info("Queue kosong, selesai.")
                 break
@@ -42,7 +46,7 @@ def process_queue():
                     logging.warning("Task tidak ditemukan di queue setelah proses.")
 
         except Exception as e:
-            logging.error(f"Error processing task {task_type}: {str(e)}")
+            logging.error(f"Error processing task {task_type}: {e}")
             with lock:
                 queue = read_json(queue_file) or []
                 if queue and queue[0]["type"] == task_type and queue[0]["data"] == task_data:
