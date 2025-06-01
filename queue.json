@@ -96,5 +96,13 @@
       "url": "https://komiku.org/manga/black-clover-indonesia/"
     },
     "status": "pending"
+  },
+  {
+    "type": "comic_update",
+    "data": {
+      "comic_id": "magic-emperor",
+      "url": "https://komiku.org/manga/magic-emperor"
+    },
+    "status": "pending"
   }
 ]
