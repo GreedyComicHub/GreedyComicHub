@@ -4,6 +4,17 @@ import logging
 import subprocess
 from typing import Any, Dict, Optional, Tuple
 
+# Setup logging to console and file
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    encoding="utf-8",
+    handlers=[
+        logging.FileHandler("logs/update.log"),
+        logging.StreamHandler()
+    ]
+)
+
 def read_json(file_path: str) -> Optional[Dict]:
     """Read JSON file."""
     try:
@@ -34,7 +45,7 @@ def write_json(file_path: str, data: Any) -> None:
 def get_comic_id_from_url(url: str) -> Tuple[str, str]:
     """Extract comic ID and base URL from comic URL."""
     try:
-        if "komiku.org" in url:
+        if "komiku.org" in url or "komiku.id" in url:
             parts = url.rstrip("/").split("/")
             comic_id = parts[-1].replace("manga-", "")
             base_url = "/".join(parts[:-1]) + "/"
@@ -70,7 +81,9 @@ def git_push() -> None:
         )
         if "nothing to commit" not in result.stdout:
             subprocess.run(["git", "push"], check=True)
-            logging.info("Berhasil push ke GitHub")
+            logging.info("Successfully pushed to GitHub")
+        else:
+            logging.info("No changes to commit")
     except subprocess.CalledProcessError as e:
         if "nothing to commit" in e.stdout:
             logging.info("No changes to commit")
