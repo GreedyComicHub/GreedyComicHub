@@ -5,7 +5,7 @@
       "comic_id": "black-clover-indonesia",
       "url": "https://komiku.org/manga/black-clover-indonesia"
     },
-    "status": "pending",
+    "status": "processing",
     "timestamp": "2025-06-02 02:57:46"
   },
   {
@@ -126,6 +126,14 @@
     "data": {
       "comic_id": "blue-lock",
       "url": "https://komiku.org/manga/blue-lock"
+    },
+    "status": "pending"
+  },
+  {
+    "type": "comic_update",
+    "data": {
+      "comic_id": "black-clover-indonesia",
+      "url": "https://komiku.org/manga/black-clover-indonesia"
     },
     "status": "pending"
   },
