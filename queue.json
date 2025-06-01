@@ -56,5 +56,13 @@
       "url": "https://komiku.org/manga/magic-emperor"
     },
     "status": "pending"
+  },
+  {
+    "type": "comic_add",
+    "data": {
+      "comic_id": "magic-emperor",
+      "url": "https://komiku.org/manga/magic-emperor"
+    },
+    "status": "pending"
   }
 ]
