@@ -6,6 +6,7 @@ import subprocess
 import time
 from datetime import datetime
 from urllib.parse import urlparse, urljoin
+import re
 
 try:
     import cloudinary
@@ -40,6 +41,9 @@ console_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
+# List untuk nyimpen error selama proses (hanya level ERROR)
+error_summary = []
+
 # Direktori data
 DATA_DIR = "data"
 TEMP_IMAGES_DIR = "temp_images"
@@ -58,7 +62,9 @@ try:
     GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
     GITHUB_REPO = config.get("GitHub", "GitHubRepo")
 except Exception as e:
-    logging.error(f"Gagal membaca config.ini: {e}")
+    error_msg = f"Gagal membaca config.ini: {e}"
+    logging.error(error_msg)
+    error_summary.append(error_msg)
     exit(1)
 
 cloudinary.config(
@@ -94,7 +100,9 @@ def fetch_page(url, retries=3, delay=2):
             if attempt < retries - 1:
                 time.sleep(delay)
             else:
-                logging.error(f"Tidak bisa mengambil {url} setelah {retries} percobaan.")
+                error_msg = f"Tidak bisa mengambil {url} setelah {retries} percobaan."
+                logging.error(error_msg)
+                error_summary.append(error_msg)
                 return None
     return None
 
@@ -278,25 +286,26 @@ def scrape_chapter_list(url, soup):
         for link in all_links:
             href = link.get("href", "")
             if "chapter" in href.lower():
-                chapter_num = href.split("chapter-")[-1].split("/")[0].split("-")[0]
-                try:
-                    chapter_num = int(chapter_num)
+                # Ekstrak nomor chapter dengan regex, tangani desimal
+                chapter_text = link.text.strip()
+                match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
+                if match:
+                    chapter_num = match.group(1)  # Ambil nomor termasuk desimal (36, 36.5, dll.)
                     chapters[chapter_num] = href
                     logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
-                except ValueError:
-                    continue
+                else:
+                    logging.warning(f"Format chapter tidak dikenali: {chapter_text}")
     for element in chapter_elements:
         href = element.get("href", "")
-        chapter_text = element.text.lower()
-        if "chapter" in chapter_text:
-            chapter_num = chapter_text.split("chapter")[-1].strip().split("-")[0]
-            try:
-                chapter_num = int(chapter_num)
-                chapters[chapter_num] = href
-                logging.info(f"Chapter {chapter_num}: {href}")
-            except ValueError:
-                logging.warning(f"Chapter tidak valid: {chapter_text}")
-                continue
+        chapter_text = element.text.strip()
+        # Ekstrak nomor chapter dengan regex, tangani desimal
+        match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
+        if match:
+            chapter_num = match.group(1)  # Ambil nomor termasuk desimal
+            chapters[chapter_num] = href
+            logging.info(f"Chapter {chapter_num}: {href}")
+        else:
+            logging.warning(f"Format chapter tidak dikenali: {chapter_text}")
     return chapters
 
 def scrape_chapter_images(chapter_url):
@@ -324,7 +333,9 @@ def scrape_chapter_images(chapter_url):
                     image_urls.append(src)
             break
     if not image_urls:
-        logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
+        error_msg = f"Tidak ada gambar untuk chapter ini: {chapter_url}"
+        logging.error(error_msg)
+        error_summary.append(error_msg)
     return image_urls
 
 def upload_to_cloudinary(image_url, comic_id, chapter_num):
@@ -346,7 +357,9 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
         return upload_result["secure_url"]
     except Exception as e:
-        logging.error(f"Gagal upload gambar {image_url} ke Cloudinary: {e}")
+        error_msg = f"Gagal upload gambar {image_url} ke Cloudinary: {e}"
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return image_url
 
 def add_comic(url):
@@ -355,7 +368,9 @@ def add_comic(url):
     comic_id, _ = get_comic_id_and_display_name(url)
     title, author, synopsis, cover_url, soup, genre, comic_type = scrape_comic_details(url)
     if not title:
-        logging.error("Gagal mendapatkan detail komik. Proses dihentikan.")
+        error_msg = "Gagal mendapatkan detail komik. Proses dihentikan."
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return
     comic_data = {
         "title": title if title else "Unknown Title",
@@ -386,22 +401,32 @@ def update_comic(url, start_chapter, end_chapter):
     comic_id, _ = get_comic_id_and_display_name(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if not os.path.exists(comic_file):
-        logging.error(f"File {comic_file} tidak ada. Jalankan 'add-comic' dulu.")
+        error_msg = f"File {comic_file} tidak ada. Jalankan 'add-comic' dulu."
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return
     with open(comic_file, "r", encoding="utf-8") as f:
         comic_data = json.load(f)
     html = fetch_page(url)
     if not html:
-        logging.error("Gagal mengambil halaman komik.")
+        error_msg = "Gagal mengambil halaman komik."
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return
     soup = BeautifulSoup(html, "html.parser")
     chapters = scrape_chapter_list(url, soup)
     if not chapters:
-        logging.error("Tidak ada chapter yang ditemukan.")
+        error_msg = "Tidak ada chapter yang ditemukan."
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return
     first_image_url = None
-    for chapter_num in range(start_chapter, end_chapter + 1):
-        if chapter_num in chapters:
+    for chapter_num in chapters.keys():
+        chapter_num_float = float(chapter_num)  # Ubah ke float untuk perbandingan
+        if start_chapter <= chapter_num_float <= end_chapter:
+            if str(chapter_num) in comic_data["chapters"]:
+                logging.info(f"Chapter {chapter_num} sudah ada, melewati.")
+                continue
             image_urls = scrape_chapter_images(chapters[chapter_num])
             if not image_urls:
                 logging.warning(f"Chapter {chapter_num} dilewati karena tidak ada gambar.")
@@ -435,7 +460,9 @@ def update_index(comic_id, comic_data):
                 logging.warning(f"Invalid index.json format: {index_data}. Resetting.")
                 index_data = {}
         except Exception as e:
-            logging.error(f"Gagal membaca index.json: {e}. Resetting.")
+            error_msg = f"Gagal membaca index.json: {e}. Resetting."
+            logging.error(error_msg)
+            error_summary.append(error_msg)
             index_data = {}
     comic_entry = {
         "title": comic_data["title"],
@@ -466,22 +493,29 @@ def push_to_github():
             capture_output=True, text=True
         )
         if commit.returncode != 0:
-            logging.error(f"Commit gagal: {commit.stderr}")
+            error_msg = f"Commit gagal: {commit.stderr}"
+            logging.error(error_msg)
+            error_summary.append(error_msg)
             return False
         push = subprocess.run(
             ["git", "push", f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git", "main"],
             capture_output=True, text=True
         )
         if push.returncode != 0:
-            logging.error(f"Push gagal: {push.stderr}")
+            error_msg = f"Push gagal: {push.stderr}"
+            logging.error(error_msg)
+            error_summary.append(error_msg)
             return False
         logging.info("Berhasil push ke GitHub.")
         return True
     except Exception as e:
-        logging.error(f"Error push: {e}")
+        error_msg = f"Error push: {e}"
+        logging.error(error_msg)
+        error_summary.append(error_msg)
         return False
 
 def main():
+    logging.info("=== Mulai Proses Update Komik ===")
     parser = argparse.ArgumentParser(description="GreedyComicHub Scraper")
     subparsers = parser.add_subparsers(dest="command")
     parser_add = subparsers.add_parser("add-comic", help="Add new comic details")
@@ -491,16 +525,31 @@ def main():
     parser_update.add_argument("--start", type=int, default=1, help="Start chapter")
     parser_update.add_argument("--end", type=int, default=1, help="End chapter")
     args = parser.parse_args()
-    if args.command == "add-comic":
-        add_comic(args.url)
-        push_to_github()
-        logging.info(f"Added comic {args.url}")
-    elif args.command == "update":
-        update_comic(args.url, args.start, args.end)
-        push_to_github()
-        logging.info(f"Updated chapters for {args.url}")
-    else:
-        parser.print_help()
+    try:
+        if args.command == "add-comic":
+            add_comic(args.url)
+            push_to_github()
+            logging.info(f"Added comic {args.url}")
+        elif args.command == "update":
+            update_comic(args.url, args.start, args.end)
+            push_to_github()
+            logging.info(f"Updated chapters for {args.url}")
+        else:
+            parser.print_help()
+    except Exception as e:
+        error_msg = f"Proses update gagal: {str(e)}"
+        logging.error(error_msg)
+        error_summary.append(error_msg)
+    finally:
+        logging.info("=== Proses Update Selesai ===")
+        # Rekap error di akhir (hanya level ERROR)
+        if error_summary:
+            logging.info("=== Rekap Error ===")
+            for error in error_summary:
+                logging.error(error)
+            logging.info(f"Total Error: {len(error_summary)}")
+        else:
+            logging.info("Tidak ada error selama proses update. Semua aman!")
 
 if __name__ == "__main__":
     main()
