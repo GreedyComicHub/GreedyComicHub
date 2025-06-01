@@ -5,12 +5,11 @@ import random
 import requests
 from typing import Dict, List
 from bs4 import BeautifulSoup
-from utils import get_comic_id_from_url
+from utils import get_comic_id_from_url, read_json
 
 def paraphrase_synopsis(text: str, title: str) -> str:
     """Paraphrase synopsis text using simple word replacement."""
     try:
-        # Simple word replacements
         replacements = {
             "berjuang": "berusaha keras",
             "mimpi": "cita-cita",
@@ -25,13 +24,11 @@ def paraphrase_synopsis(text: str, title: str) -> str:
         for old, new in replacements.items():
             result = result.replace(old, new)
         
-        # Randomly shuffle sentences
         sentences = [s.strip() for s in result.split(".") if s.strip()]
         if len(sentences) > 1:
             random.shuffle(sentences)
             result = ". ".join(sentences) + "."
         
-        # Clean and normalize
         result = re.sub(r"Baca Komik.*di Komiku\.", "", result).strip()
         result = result.lower().replace(title.lower(), title)
         return result if result else text
@@ -39,7 +36,7 @@ def paraphrase_synopsis(text: str, title: str) -> str:
         logging.error(f"Error paraphrasing synopsis: {str(e)}")
         return text
 
-def scrape_comic_data(comic_url: str) -> Dict[str, str]:
+def scrape_comic_data(comic_url: str) -> Dict[str, any]:
     """Scrape comic data from Komiku using requests."""
     logging.info(f"Scraping data from {comic_url}")
     try:
@@ -61,15 +58,20 @@ def scrape_comic_data(comic_url: str) -> Dict[str, str]:
         title = title_elem.text.strip().replace("Komik ", "") if title_elem else "Unknown Title"
         logging.info(f"Title found: {title}")
 
+        # Load existing data to preserve chapters
+        comic_id, _ = get_comic_id_from_url(comic_url)
+        existing_data = read_json(f"data/{comic_id}.json") or {}
+        chapters = existing_data.get("chapters", {})
+
         # Default values
         data = {
             "title": title,
-            "author": "Unknown Author",
-            "synopsis": "No synopsis available.",
-            "cover": "",
-            "genre": "Unknown Genre",
-            "type": "Unknown Type",
-            "chapters": {}
+            "author": existing_data.get("author", "Unknown Author"),
+            "synopsis": existing_data.get("synopsis", "No synopsis available."),
+            "cover": existing_data.get("cover", ""),
+            "genre": existing_data.get("genre", "Unknown Genre"),
+            "type": existing_data.get("type", "Unknown Type"),
+            "chapters": chapters
         }
 
         # Extract author, genre, type
