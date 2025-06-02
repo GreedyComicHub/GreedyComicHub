@@ -71,12 +71,45 @@ def fetch_page(url, retries=3, delay=2):
 
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
-        return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
+        return "Petualangan seru di dunia penuh aksi dan misteri, bro!"
+    
+    # Hapus promo phrases
     promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
-    filtered_synopsis = original_synopsis.lower()
+    synopsis = original_synopsis.lower()
     for phrase in promo_phrases:
-        filtered_synopsis = filtered_synopsis.replace(phrase, "").strip()
-    return filtered_synopsis.capitalize()
+        synopsis = synopsis.replace(phrase, "").strip()
+    
+    # Gaya gaul: singkat, santai, pake kata-kata anak muda
+    # Contoh: "One Piece mengikuti petualangan Monkey D. Luffy..." jadi "One Piece, Luffy ngegas jadi Raja Bajak Laut!"
+    words = synopsis.split()
+    if len(words) > 50:  # Batasi panjang biar ga kepanjangan
+        synopsis = " ".join(words[:50]) + "..."
+    
+    # Ganti frase formal ke gaul
+    replacements = {
+        "mengikuti petualangan": "ngejar petualangan",
+        "bermimpi menjadi": "nggak sabar jadi",
+        "menemukan harta karun": "nyari harta karun",
+        "membentuk kru": "ngumpulin geng",
+        "menghadapi berbagai rintangan": "ngehadepin macem-macem drama",
+        "musuh tangguh": "musuh kece",
+        "persahabatan": "bromance",
+        "keberanian": "nyali gede",
+        "pemerintah dunia": "bos dunia",
+        "luas": "buesar"
+    }
+    
+    for formal, gaul in replacements.items():
+        synopsis = synopsis.replace(formal, gaul)
+    
+    # Tambah vibe gaul
+    synopsis = synopsis.replace(".", ", bro!").capitalize()
+    if not synopsis.endswith("bro!"):
+        synopsis += ", bro!"
+    
+    logging.info(f"Sinopsis asli: {original_synopsis[:100]}...")
+    logging.info(f"Sinopsis gaul: {synopsis}")
+    return synopsis
 
 def read_json(file_path):
     lock = FileLock(file_path + ".lock")
