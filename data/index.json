@@ -5,7 +5,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 502
+        "total_chapters": 503
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -13,7 +13,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 50
+        "total_chapters": 51
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -21,7 +21,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 0
+        "total_chapters": 1
     },
     "komik-one-piece-indo": {
         "title": "One Piece",
@@ -29,6 +29,6 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 2
+        "total_chapters": 3
     }
 }
