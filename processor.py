@@ -1,55 +1,49 @@
-"""Process tasks in queue.json."""
 import logging
 import time
-from typing import Dict, List
-from utils import read_json, write_json, git_push
+import os
+from add_comic import add_comic
+from update_comic import update_comic
+from utils import read_json, write_json, QUEUE_FILE, LOG_DIR
 
-def process_queue() -> None:
-    """Process tasks in queue.json sequentially."""
-    queue_file = "queue.json"
+def process_queue(max_tasks=10):
+    logging.info(f"Memproses queue (max {max_tasks} tugas)...")
+    queue = read_json(QUEUE_FILE)
+    if not queue:
+        logging.info("Queue kosong.")
+        return
     
-    while True:
-        queue: List[Dict] = read_json(queue_file) or []
-        if not queue:
-            logging.info("Queue kosong, selesai.")
-            break
-
-        task = queue[0]
-        task_type = task["type"]
-        task_data = task["data"]
-        task["status"] = "processing"
-        write_json(queue_file, queue)
-        
+    processed = 0
+    new_queue = []
+    
+    for task in queue:
+        if processed >= max_tasks:
+            new_queue.append(task)
+            continue
         try:
-            logging.info(f"Sedang memproses: {task_type} - {task_data}")
-            if task_type in ["comic_add", "comic_update", "source_update"]:
-                git_push()
-            else:
-                logging.warning(f"Tipe task tidak dikenal: {task_type}")
-
-            queue = read_json(queue_file) or []
-            if queue and queue[0]["type"] == task_type and queue[0]["data"] == task_data:
-                queue[0]["status"] = "completed"
-                with open("logs/queue_status.log", "a", encoding="utf-8") as f:
-                    f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - "
-                            f"Completed: {task_type} - {task_data}\n")
-                queue.pop(0)
-                write_json(queue_file, queue)
-            else:
-                logging.warning("Task tidak ditemukan di queue setelah proses.")
+            log_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - INFO - Processing task: {task}"
+            with open(os.path.join(LOG_DIR, "queue_status.log"), "a", encoding="utf-8") as f:
+                f.write(log_entry + "\n")
+            logging.info(log_entry)
+            
+            if task["task"] == "add_comic":
+                add_comic(task["url"])
+            elif task["task"] == "update_comic":
+                update_comic(
+                    task["url"],
+                    task.get("start", 1.0),
+                    task.get("end", 1.0),
+                    task.get("overwrite", False)
+                )
+            processed += 1
         except Exception as e:
-            logging.error(f"Error processing task {task_type}: {str(e)}")
-            queue = read_json(queue_file) or []
-            if queue and queue[0]["type"] == task_type and queue[0]["data"] == task_data:
-                queue[0]["status"] = "failed"
-                write_json(queue_file, queue)
-            time.sleep(5)
-
-if __name__ == "__main__":
-    logging.basicConfig(
-        filename="logs/update.log",
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        encoding="utf-8"
-    )
-    process_queue()
+            error_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - ERROR - Failed task: {task} ({str(e)})"
+            with open(os.path.join(LOG_DIR, "queue_status.log"), "a", encoding="utf-8") as f:
+                f.write(error_entry + "\n")
+            logging.error(error_entry)
+            new_queue.append(task)
+    
+    write_json(QUEUE_FILE, new_queue)
+    final_log = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - INFO - Selesai memproses {processed} tugas, {len(new_queue)} tugas tersisa"
+    with open(os.path.join(LOG_DIR, "queue_status.log"), "a", encoding="utf-8") as f:
+        f.write(final_log + "\n")
+    logging.info(final_log)

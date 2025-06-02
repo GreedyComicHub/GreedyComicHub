@@ -1,117 +1,193 @@
-"""Scrape comic data from Komiku."""
 import logging
+import re
 import requests
-import cloudinary
-import cloudinary.uploader
-import configparser
-from typing import Dict, List
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+from utils import fetch_page, paraphrase_synopsis
 
-# Load config
-config = configparser.ConfigParser()
-config.read('config.ini')
-cloudinary.config(
-    cloud_name=config['Cloudinary']['CloudName'],
-    api_key=config['Cloudinary']['ApiKey'],
-    api_secret=config['Cloudinary']['ApiSecret']
-)
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Referer": "https://komiku.org/"
+}
 
-def scrape_comic_data(comic_url: str) -> Dict:
-    """Scrape comic metadata."""
-    logging.info(f"Scraping metadata from {comic_url}")
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(comic_url, headers=headers, timeout=10)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+def get_comic_id_and_display_name(url):
+    path = urlparse(url).path
+    comic_id = path.split("/")[-2] if path.endswith("/") else path.split("/")[-1]
+    comic_id = comic_id.replace("manga-", "").replace("/", "")
+    display_name = " ".join(word.capitalize() for word in comic_id.split("-"))
+    logging.info(f"Nama komik dari URL: ID={comic_id}, Display={display_name}")
+    return comic_id, display_name
 
-        title = soup.select_one("h1[itemprop='name']") or soup.select_one("h1.post-title")
-        title = title.text.strip() if title else ""
-        synopsis = soup.select_one("div.konten > p") or soup.select_one("div.sinopsis")
-        synopsis = synopsis.text.strip() if synopsis else ""
-        cover = soup.select_one("img.cover") or soup.select_one("img[itemprop='image']")
-        cover = cover["src"] if cover else ""
-        genre = [g.text.strip() for g in soup.select("a[itemprop='genre'], a.genre")]
-        comic_type = soup.select_one("td:-soup-contains('Type') + td") or soup.select_one("span.jenis")
-        comic_type = comic_type.text.strip() if comic_type else ""
+def scrape_komiku_details(url, soup):
+    title_element = soup.find("h1")
+    title = title_element.text.strip().replace("Komik ", "").strip() if title_element else "Unknown Title"
+    logging.info(f"Nama komik dari <h1>: {title}")
 
-        data = {
-            "title": title,
-            "synopsis": synopsis,
-            "cover": cover,
-            "genre": genre,
-            "type": comic_type,
-            "chapters": {}
-        }
-        logging.info(f"Scraped metadata for {title}")
-        return data
-    except Exception as e:
-        logging.error(f"Error scraping metadata from {comic_url}: {str(e)}")
-        raise
+    author = "Unknown Author"
+    selectors = [
+        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Pengarang" in t if t else False)),
+        (soup.find, "span", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Author" in t if t else False)),
+        (soup.find_all, "span", {}, lambda x: x if "Author" in x.text else None)
+    ]
+    for find_method, tag, attrs, next_step in selectors:
+        element = find_method(tag, **attrs) if attrs else find_method(tag)
+        if element:
+            if isinstance(element, list):
+                for span in element:
+                    next_text = span.find_next_sibling(text=True)
+                    if next_text and next_text.strip():
+                        author = next_text.strip()
+                        break
+            else:
+                next_element = next_step(element)
+                if next_element:
+                    if tag == "table":
+                        author = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Unknown Author"
+                    else:
+                        author = next_element.text.strip()
+                    if author and author != "Unknown Author":
+                        break
+                elif element.find_next_sibling(text=True):
+                    author = element.find_next_sibling(text=True).strip()
+                    if author and author != "Unknown Author":
+                        break
+    author = author.replace("~", "").strip() if author else "Unknown Author"
+    logging.info(f"Author ditemukan: {author}")
 
-def scrape_chapter_images(chapter_url: str) -> List[str]:
-    """Scrape images from a chapter."""
-    logging.info(f"Scraping images from {chapter_url}")
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(chapter_url, headers=headers, timeout=10)
-        if response.status_code != 200:
-            logging.error(f"Failed to access {chapter_url}, status code: {response.status_code}")
-            return []
-        
-        soup = BeautifulSoup(response.text, "html.parser")
-        
-        # Debug: Simpan HTML
-        with open("debug.html", "w", encoding="utf-8") as f:
-            f.write(soup.prettify())
-        logging.info(f"Saved HTML to debug.html for {chapter_url}")
+    genre = "Fantasy"
+    genre_selectors = [
+        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Konsep Cerita" in t if t else False)),
+        (soup.find, "span", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-genre"}, lambda x: x)
+    ]
+    for find_method, tag, attrs, next_step in genre_selectors:
+        element = find_method(tag, **attrs)
+        if element:
+            next_element = next_step(element)
+            if next_element:
+                if tag == "table":
+                    genre = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Fantasy"
+                else:
+                    genre = next_element.text.strip()
+                if genre:
+                    break
+    logging.info(f"Genre ditemukan: {genre}")
 
-        # Selector utama
-        images = []
-        img_elements = soup.select("img[itemprop='image']")
-        logging.info(f"Found {len(img_elements)} <img> elements with selector img[itemprop='image']")
-        
-        for img in img_elements:
-            src = img.get("src") or img.get("data-src")
-            if src and "img.komiku.org/wp-content" in src and "thumbnail" not in src and "lazy.jpg" not in src and "asset" not in src:
-                logging.info(f"Found image source: {src}")
-                try:
-                    upload_result = cloudinary.uploader.upload(
-                        src,
-                        folder=f"greedycomichub/{chapter_url.split('/')[-1]}",
-                        public_id=src.split("/")[-1].split(".")[0]
-                    )
-                    images.append(upload_result["secure_url"])
-                    logging.info(f"Uploaded image {src} to Cloudinary")
-                except Exception as e:
-                    logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
-                    continue
-        
-        if not images:
-            logging.warning(f"No images found at {chapter_url} with main selector")
-            img_elements = soup.select("img[src*='img.komiku.org/wp-content'], img[data-src*='img.komiku.org/wp-content']")
-            logging.info(f"Trying fallback selector img[src*='img.komiku.org/wp-content'], found {len(img_elements)} <img> elements")
-            for img in img_elements:
-                src = img.get("src") or img.get("data-src")
-                if src and "thumbnail" not in src and "lazy.jpg" not in src and "asset" not in src:
-                    logging.info(f"Found fallback image source: {src}")
-                    try:
-                        upload_result = cloudinary.uploader.upload(
-                            src,
-                            folder=f"greedycomichub/{chapter_url.split('/')[-1]}",
-                            public_id=src.split("/")[-1].split(".")[0]
-                        )
-                        images.append(upload_result["secure_url"])
-                        logging.info(f"Uploaded image {src} to Cloudinary (fallback)")
-                    except Exception as e:
-                        logging.error(f"Failed to upload image {src} to Cloudinary: {str(e)}")
-                        continue
-        
-        if not images:
-            logging.warning(f"No images found at {chapter_url} with any selector")
-        else:
-            logging.info(f"Found and uploaded {len(images)} images for {chapter_url}")
-        return images
-    except Exception as e:
-        logging.error(f"Error scraping images from {chapter_url}: {str(e)}")
+    comic_type = "Manhua"
+    type_selectors = [
+        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Jenis Komik" in t if t else False)),
+        (soup.find, "span", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Type" in t if t else False))
+    ]
+    for find_method, tag, attrs, next_step in type_selectors:
+        element = find_method(tag, **attrs)
+        if element:
+            next_element = next_step(element)
+            if next_element:
+                if tag == "table":
+                    comic_type = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Manhua"
+                else:
+                    comic_type = next_element.text.strip()
+                if comic_type:
+                    break
+            elif element.find_next_sibling(text=True):
+                comic_type = element.find_next_sibling(text=True).strip()
+                if comic_type:
+                    break
+    logging.info(f"Tipe komik ditemukan: {comic_type}")
+
+    synopsis = "No synopsis available."
+    synopsis_element = soup.find("div", class_="desc")
+    if synopsis_element:
+        synopsis = synopsis_element.text.strip()
+    else:
+        meta_desc = soup.find("meta", attrs={"name": "description"})
+        if meta_desc and meta_desc.get("content"):
+            synopsis = meta_desc["content"].strip()
+    synopsis = paraphrase_synopsis(synopsis)
+
+    cover_url = ""
+    cover_selectors = [
+        'meta[property="og:image"]',
+        'meta[itemprop="image"]',
+        'img[itemprop="image"]'
+    ]
+    for selector in cover_selectors:
+        cover_element = soup.select_one(selector)
+        if cover_element and cover_element.get("content"):
+            cover_url = cover_element["content"]
+            break
+        elif cover_element and cover_element.get("src"):
+            cover_url = cover_element["src"]
+            break
+    if not cover_url:
+        logging.warning("Cover image tidak ditemukan.")
+    logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, type={comic_type}, synopsis={synopsis}, cover={cover_url}")
+    return title, author, synopsis, cover_url, soup, genre, comic_type
+
+def scrape_comic_details(url):
+    html = fetch_page(url)
+    if not html:
+        return None, None, None, None, None, None, None
+    soup = BeautifulSoup(html, "html.parser")
+    return scrape_komiku_details(url, soup)
+
+def scrape_chapter_list(url, soup):
+    chapters = {}
+    logging.info(f"Mencari daftar chapter dari {url}...")
+    chapter_elements = soup.select("td.judulseries a")
+    if not chapter_elements:
+        logging.warning("Tidak ditemukan chapter. Mencoba fallback...")
+        all_links = soup.select("a[href*='chapter']")
+        for link in all_links:
+            href = link.get("href", "")
+            if "chapter" in href.lower():
+                chapter_text = link.text.strip()
+                match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
+                if match:
+                    chapter_num = match.group(1)
+                    chapters[chapter_num] = href
+                    logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
+    for element in chapter_elements:
+        href = element.get("href", "")
+        chapter_text = element.text.strip()
+        match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
+        if match:
+            chapter_num = match.group(1)
+            chapters[chapter_num] = href
+            logging.info(f"Chapter {chapter_num}: {href}")
+    return chapters
+
+def scrape_chapter_images(chapter_url):
+    full_url = urljoin("https://komiku.org", chapter_url)
+    html = fetch_page(full_url)
+    if not html:
         return []
+    soup = BeautifulSoup(html, "html.parser")
+    title_element = soup.find("h1")
+    chapter_title = title_element.text.strip() if title_element else "Unknown Chapter"
+    logging.info(f"Judul chapter: {chapter_title}")
+    image_urls = []
+    selectors = [
+        'img[itemprop="image"]',
+        '#readerarea img',
+        'div.komik img',
+        'img[src*="img.komiku.org"]'
+    ]
+    for selector in selectors:
+        image_elements = soup.select(selector)
+        if image_elements:
+            for img in image_elements:
+                src = img.get("src", "")
+                if src and src.startswith("http"):
+                    image_urls.append(src)
+            break
+    if not image_urls:
+        logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
+    return image_urls

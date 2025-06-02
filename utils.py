@@ -1,92 +1,134 @@
-"""Utility functions for GreedyComicHub."""
 import json
 import logging
+import os
 import subprocess
-from typing import Any, Dict, Optional, Tuple
+import time
+import requests
+from configparser import ConfigParser
+import cloudinary
+import cloudinary.uploader
+from filelock import FileLock
 
-# Setup logging to console and file
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    encoding="utf-8",
-    handlers=[
-        logging.FileHandler("logs/update.log"),
-        logging.StreamHandler()
-    ]
+# Direktori
+DATA_DIR = "data"
+TEMP_IMAGES_DIR = "temp_images"
+LOG_DIR = "logs"
+QUEUE_FILE = "queue.json"
+
+# Setup direktori
+for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+# Load konfigurasi
+config = ConfigParser()
+config.read("config.ini")
+CLOUDINARY_CLOUD_NAME = config.get("Cloudinary", "CloudName")
+CLOUDINARY_API_KEY = config.get("Cloudinary", "ApiKey")
+CLOUDINARY_API_SECRET = config.get("Cloudinary", "ApiSecret")
+GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
+GITHUB_REPO = config.get("GitHub", "GitHubRepo")
+
+cloudinary.config(
+    cloud_name=CLOUDINARY_CLOUD_NAME,
+    api_key=CLOUDINARY_API_KEY,
+    api_secret=CLOUDINARY_API_SECRET
 )
 
-def read_json(file_path: str) -> Optional[Dict]:
-    """Read JSON file."""
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        logging.info(f"Successfully read JSON from {file_path}")
-        return data
-    except FileNotFoundError:
-        logging.info(f"File {file_path} not found")
-        return None
-    except json.JSONDecodeError as e:
-        logging.error(f"Invalid JSON in {file_path}: {str(e)}")
-        return None
-    except Exception as e:
-        logging.error(f"Error reading {file_path}: {str(e)}")
-        return None
+def setup_logging():
+    LOG_FILE = os.path.join(LOG_DIR, "update.log")
+    if os.path.exists(LOG_FILE):
+        backup_file = os.path.join(LOG_DIR, "update.log.1")
+        if os.path.exists(backup_file):
+            os.remove(backup_file)
+        os.rename(LOG_FILE, backup_file)
+    
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    file_handler = logging.FileHandler(LOG_FILE)
+    file_handler.setFormatter(formatter)
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
-def write_json(file_path: str, data: Any) -> None:
-    """Write JSON file."""
-    try:
+def fetch_page(url, retries=3, delay=2):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    }
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException as e:
+            logging.warning(f"Gagal mengambil {url} (percobaan {attempt + 1}/{retries}): {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+    return None
+
+def paraphrase_synopsis(original_synopsis):
+    if not original_synopsis or original_synopsis == "No synopsis available.":
+        return "Petualangan epik di dunia fantasi yang penuh dengan sihir dan misteri."
+    promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
+    filtered_synopsis = original_synopsis.lower()
+    for phrase in promo_phrases:
+        filtered_synopsis = filtered_synopsis.replace(phrase, "").strip()
+    return filtered_synopsis.capitalize()
+
+def read_json(file_path):
+    lock = FileLock(file_path + ".lock")
+    with lock:
+        if os.path.exists(file_path):
+            with open(file_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return {}
+
+def write_json(file_path, data):
+    lock = FileLock(file_path + ".lock")
+    with lock:
         with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        logging.info(f"Successfully wrote JSON to {file_path}")
-    except Exception as e:
-        logging.error(f"Error writing {file_path}: {str(e)}")
-        raise
+            json.dump(data, f, indent=4)
 
-def get_comic_id_from_url(url: str) -> Tuple[str, str]:
-    """Extract comic ID and base URL from comic URL."""
+def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
-        if "komiku.org" in url or "komiku.id" in url:
-            parts = url.rstrip("/").split("/")
-            comic_id = parts[-1].replace("manga-", "")
-            base_url = "/".join(parts[:-1]) + "/"
-            logging.info(f"Extracted comic_id: {comic_id} from {url}")
-            return comic_id, base_url
-        logging.warning(f"Invalid URL format: {url}")
-        return "", ""
+        response = requests.get(image_url, timeout=10)
+        response.raise_for_status()
+        image_name = image_url.split("/")[-1]
+        temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
+        with open(temp_path, "wb") as f:
+            f.write(response.content)
+        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}"
+        upload_result = cloudinary.uploader.upload(
+            temp_path,
+            folder=folder,
+            overwrite=True,
+            resource_type="image"
+        )
+        os.remove(temp_path)
+        logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
+        return upload_result["secure_url"]
     except Exception as e:
-        logging.error(f"Error parsing URL {url}: {str(e)}")
-        return "", ""
+        logging.error(f"Gagal upload gambar {image_url}: {e}")
+        return image_url
 
-def add_to_queue(task_type: str, task_data: Dict) -> None:
-    """Add task to queue.json."""
-    queue_file = "queue.json"
-    try:
-        queue = read_json(queue_file) or []
-        queue.append({"type": task_type, "data": task_data, "status": "pending"})
-        write_json(queue_file, queue)
-        logging.info(f"Added to queue: {task_type} - {task_data}")
-    except Exception as e:
-        logging.error(f"Error adding to queue: {str(e)}")
-        raise
-
-def git_push() -> None:
-    """Push changes to GitHub."""
+def push_to_github():
+    logging.info("Push perubahan ke GitHub...")
     try:
         subprocess.run(["git", "add", "."], check=True)
-        result = subprocess.run(
-            ["git", "commit", "-m", "Update comic data"],
-            check=True,
-            capture_output=True,
-            text=True
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if not status.stdout.strip():
+            logging.info("Tidak ada perubahan. Skip push.")
+            return True
+        subprocess.run(["git", "commit", "-m", "Update comic data"], check=True)
+        subprocess.run(
+            ["git", "push", f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git", "main"],
+            check=True
         )
-        if "nothing to commit" not in result.stdout:
-            subprocess.run(["git", "push"], check=True)
-            logging.info("Successfully pushed to GitHub")
-        else:
-            logging.info("No changes to commit")
-    except subprocess.CalledProcessError as e:
-        if "nothing to commit" in e.stdout:
-            logging.info("No changes to commit")
-        else:
-            logging.error(f"Error pushing to GitHub: {str(e)}")
-            raise
+        logging.info("Berhasil push ke GitHub.")
+        return True
+    except Exception as e:
+        logging.error(f"Error push: {e}")
+        return False
