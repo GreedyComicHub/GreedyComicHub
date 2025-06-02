@@ -6,7 +6,7 @@ from utils import read_json, fetch_page, DATA_DIR
 from bs4 import BeautifulSoup
 
 def update_all():
-    """Update chapter berikutnya berdasarkan chapter terakhir di website GreedyComicHub."""
+    """Update 1 chapter berikutnya berdasarkan chapter terakhir di website GreedyComicHub."""
     logging.info("Mengecek chapter berikutnya untuk semua komik...")
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
@@ -22,14 +22,21 @@ def update_all():
             logging.error(f"File {comic_file} nggak ada. Lewati.")
             continue
         
-        # Baca total_chapters dari index.json (acuan website)
-        latest_local_chapter = float(index_data[comic_id].get("total_chapters", 0))
+        # Baca chapter lokal dari comic JSON
+        comic_data = read_json(comic_file)
+        local_chapters = sorted([float(ch) for ch in comic_data.get("chapters", {}).keys()])
+        latest_local_chapter = local_chapters[-1] if local_chapters else 0.0
         comic_title = index_data[comic_id].get("title", comic_id)
         logging.info(f"Komik {comic_id}: Chapter terakhir di website = {latest_local_chapter}")
 
         # Chapter yang mau diupdate (next chapter)
         next_chapter = latest_local_chapter + 1
         logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
+
+        # Cek kalau chapter sudah ada di JSON lokal
+        if next_chapter in local_chapters:
+            logging.info(f"Komik {comic_title}: Chapter {next_chapter} udah ada, bro!")
+            continue
 
         # Scrape daftar chapter dari komiku.org
         html = fetch_page(comic_url)
@@ -39,10 +46,10 @@ def update_all():
         soup = BeautifulSoup(html, "html.parser")
         chapters = scrape_chapter_list(comic_url, soup)
         if not chapters:
-            logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}. Lewati.")
+            logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}.")
             continue
         
-        # Cek apakah next_chapter ada di web
+        # Cek apakah next_chapter ada di komiku.org
         web_chapters = sorted([float(ch) for ch in chapters.keys()])
         if next_chapter not in web_chapters:
             logging.info(f"Komik {comic_title}: Belum ada chapter {next_chapter}, bro!")
