@@ -6,56 +6,56 @@ from utils import read_json, fetch_page, DATA_DIR
 from bs4 import BeautifulSoup
 
 def update_all():
-    """Update 1 chapter berikutnya berdasarkan chapter terakhir di website GreedyComicHub."""
-    logging.info("Mengecek chapter berikutnya untuk semua komik...")
+    logging.info("Mengecek chapter baru...")
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
+    failed_comics = []
     
     if not index_data:
-        logging.warning("Nggak ada komik di index.json, bro!")
+        logging.warning("Nggak ada komik di index.json!")
         return
 
-    for comic_id in index_data:
-        comic_url = f"https://komiku.org/manga/{comic_id}"
+    for comic_id, comic_info in index_data.items():
+        comic_url = comic_info.get("source_url", f"https://komiku.org/manga/{comic_id}")
         comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
         if not os.path.exists(comic_file):
-            logging.error(f"File {comic_file} nggak ada. Lewati.")
+            logging.error(f"File {comic_file} nggak ada.")
+            failed_comics.append(f"{comic_id} ({comic_url})")
             continue
         
-        # Baca chapter lokal dari comic JSON
         comic_data = read_json(comic_file)
         local_chapters = sorted([float(ch) for ch in comic_data.get("chapters", {}).keys()])
         latest_local_chapter = local_chapters[-1] if local_chapters else 0.0
-        comic_title = index_data[comic_id].get("title", comic_id)
-        logging.info(f"Komik {comic_id}: Chapter terakhir di website = {latest_local_chapter}")
+        logging.info(f"{comic_id}: Chapter ter: {latest_local_chapter}")
 
-        # Chapter yang mau diupdate (next chapter)
         next_chapter = latest_local_chapter + 1
-        logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
-
-        # Cek kalau chapter sudah ada di JSON lokal
-        if next_chapter in local_chapters:
-            logging.info(f"Komik {comic_title}: Chapter {next_chapter} udah ada, bro!")
+        if str(next_chapter) in comic_data.get("chapters", {}):
             continue
 
-        # Scrape daftar chapter dari komiku.org
         html = fetch_page(comic_url)
         if not html:
-            logging.error(f"Gagal mengambil halaman {comic_url}. Lewati.")
+            logging.error(f"Gagal ambil {comic_url}. {comic_id} gagal.")
+            failed_comics.append(f"{comic_id} ({comic_url})")
             continue
         soup = BeautifulSoup(html, "html.parser")
         chapters = scrape_chapter_list(comic_url, soup)
         if not chapters:
-            logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}.")
+            logging.warning(f"No chapter untuk {comic_id}.")
+            failed_comics.append(f"{comic_id} ({comic_url})")
             continue
         
-        # Cek apakah next_chapter ada di komiku.org
         web_chapters = sorted([float(ch) for ch in chapters.keys()])
         if next_chapter not in web_chapters:
-            logging.info(f"Komik {comic_title}: Belum ada chapter {next_chapter}, bro!")
+            logging.info(f"{comic_id}: No chapter {next_chapter}.")
             continue
 
-        # Update hanya next_chapter
-        logging.info(f"Komik {comic_id}: Nambah chapter {next_chapter}")
-        update_comic(comic_url, next_chapter, next_chapter, overwrite=False)
-    logging.info("Selesai cek update-all!")
+        try:
+            logging.info(f"Update {comic_id} chapter {next_chapter}")
+            update_comic(comic_url, next_chapter, next_chapter, overwrite=False)
+        except Exception as e:
+            logging.error(f"Gagal update {comic_id} chapter {next_chapter}: {e}")
+            failed_comics.append(f"{comic_id} ({comic_url})")
+
+    if failed_comics:
+        logging.error(f"Gagal: {', '.join(failed_comics)}. Cek URL.")
+    logging.info("Done.")
