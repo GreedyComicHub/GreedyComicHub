@@ -1,113 +1,167 @@
 import json
 import logging
 import os
+import subprocess
+import time
 import requests
-from git import Repo
-from threading import Lock
 from configparser import ConfigParser
-from cloudinary.uploader import upload
-from cloudinary.utils import cloudinary_url
+import cloudinary
+import cloudinary.uploader
+from filelock import FileLock
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-LOG_DIR = os.path.join(os.path.dirname(__file__), "logs")
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.ini")
+# Direktori
+DATA_DIR = "data"
+TEMP_IMAGES_DIR = "temp_images"
+LOG_DIR = "logs"
+QUEUE_FILE = "queue.json"
 
-json_lock = Lock()
+# Setup direktori
+for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+# Load konfigurasi
+config = ConfigParser()
+config.read("config.ini")
+CLOUDINARY_CLOUD_NAME = config.get("Cloudinary", "CloudName")
+CLOUDINARY_API_KEY = config.get("Cloudinary", "ApiKey")
+CLOUDINARY_API_SECRET = config.get("Cloudinary", "ApiSecret")
+GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
+GITHUB_REPO = config.get("GitHub", "GitHubRepo")
+
+cloudinary.config(
+    cloud_name=CLOUDINARY_CLOUD_NAME,
+    api_key=CLOUDINARY_API_KEY,
+    api_secret=CLOUDINARY_API_SECRET
+)
 
 def setup_logging():
-    os.makedirs(LOG_DIR, exist_ok=True)
-    log_file = os.path.join(LOG_DIR, "update.log")
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        handlers=[
-            logging.FileHandler(log_file),
-            logging.StreamHandler()
-        ]
-    )
+    LOG_FILE = os.path.join(LOG_DIR, "update.log")
+    if os.path.exists(LOG_FILE):
+        backup_file = os.path.join(LOG_DIR, "update.log.1")
+        if os.path.exists(backup_file):
+            os.remove(backup_file)
+        os.rename(LOG_FILE, backup_file)
+    
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    file_handler = logging.FileHandler(LOG_FILE)
+    file_handler.setFormatter(formatter)
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+def fetch_page(url, retries=3, delay=2):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    }
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException as e:
+            logging.warning(f"Gagal mengambil {url} (percobaan {attempt + 1}/{retries}): {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+    return None
+
+def paraphrase_synopsis(original_synopsis):
+    if not original_synopsis or original_synopsis == "No synopsis available.":
+        return "Petualangan seru di dunia penuh aksi dan misteri, bro!"
+    
+    # Hapus promo phrases
+    promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
+    synopsis = original_synopsis.lower()
+    for phrase in promo_phrases:
+        synopsis = synopsis.replace(phrase, "").strip()
+    
+    # Gaya gaul: singkat, santai, pake kata-kata anak muda
+    # Contoh: "One Piece mengikuti petualangan Monkey D. Luffy..." jadi "One Piece, Luffy ngegas jadi Raja Bajak Laut!"
+    words = synopsis.split()
+    if len(words) > 50:  # Batasi panjang biar ga kepanjangan
+        synopsis = " ".join(words[:50]) + "..."
+    
+    # Ganti frase formal ke gaul
+    replacements = {
+        "mengikuti petualangan": "ngejar petualangan",
+        "bermimpi menjadi": "nggak sabar jadi",
+        "menemukan harta karun": "nyari harta karun",
+        "membentuk kru": "ngumpulin geng",
+        "menghadapi berbagai rintangan": "ngehadepin macem-macem drama",
+        "musuh tangguh": "musuh kece",
+        "persahabatan": "bromance",
+        "keberanian": "nyali gede",
+        "pemerintah dunia": "bos dunia",
+        "luas": "buesar"
+    }
+    
+    for formal, gaul in replacements.items():
+        synopsis = synopsis.replace(formal, gaul)
+    
+    # Tambah vibe gaul
+    synopsis = synopsis.replace(".", ", bro!").capitalize()
+    if not synopsis.endswith("bro!"):
+        synopsis += ", bro!"
+    
+    logging.info(f"Sinopsis asli: {original_synopsis[:100]}...")
+    logging.info(f"Sinopsis gaul: {synopsis}")
+    return synopsis
 
 def read_json(file_path):
-    try:
+    lock = FileLock(file_path + ".lock")
+    with lock:
         if os.path.exists(file_path):
             with open(file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         return {}
-    except Exception as e:
-        logging.error(f"Gagal baca {file_path}: {e}")
-        return None
 
-def write_json_lock(file_path, data):
-    try:
-        with json_lock:
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
-            with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
-        logging.info(f"Berhasil tulis {file_path}")
-    except Exception as e:
-        logging.error(f"Gagal tulis {file_path}: {e}")
+def write_json(file_path, data):
+    lock = FileLock(file_path + ".lock")
+    with lock:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
 
-def fetch_page(url):
+def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(url, headers=headers, timeout=10)
+        response = requests.get(image_url, timeout=10)
         response.raise_for_status()
-        return response.text
-    except Exception as e:
-        logging.error(f"Gagal ambil {url}: {e}")
-        return None
-
-def push_to_git():
-    try:
-        repo = Repo(os.path.dirname(__file__))
-        repo.git.add(".")
-        repo.index.commit("Update data komik")
-        origin = repo.remote(name="origin")
-        origin.push()
-        logging.info("Berhasil push ke GitHub")
-    except Exception as e:
-        logging.error(f"Gagal push ke GitHub: {e}")
-
-def read_config():
-    try:
-        config = ConfigParser()
-        config.read(CONFIG_PATH)
-        return config
-    except Exception as e:
-        logging.error(f"Gagal baca config.ini: {e}")
-        return None
-
-def upload_to_cloudinary(image_url):
-    try:
-        config = read_config()
-        if not config or 'CloudinaryData' not in config:
-            logging.error("Cloudinary config nggak ada")
-            return None
-        response = upload(
-            image_url,
-            cloud_name=config['CloudinaryData'].get('cloud_name'),
-            api_key=config['CloudinaryData'].get('api_key'),
-            api_secret=config['CloudinaryData'].get('api_secret')
+        image_name = image_url.split("/")[-1]
+        temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
+        with open(temp_path, "wb") as f:
+            f.write(response.content)
+        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}"
+        upload_result = cloudinary.uploader.upload(
+            temp_path,
+            folder=folder,
+            overwrite=True,
+            resource_type="image"
         )
-        url, _ = cloudinary_url(response['public_id'], secure=True)
-        logging.info(f"Berhasil upload {image_url}: {url}")
-        return url
+        os.remove(temp_path)
+        logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
+        return upload_result["secure_url"]
     except Exception as e:
-        logging.error(f"Gagal upload {image_url}: {e}")
-        return None
+        logging.error(f"Gagal upload gambar {image_url}: {e}")
+        return image_url
 
-def paraphrase_synopsis(synopsis):
+def push_to_github():
+    logging.info("Push perubahan ke GitHub...")
     try:
-        replacements = {
-            "adalah": "merupakan",
-            "yang": "dimana",
-            "dengan": "bersama",
-            "untuk": "guna",
-            "di": "pada"
-        }
-        paraphrased = synopsis
-        for old, new in replacements.items():
-            paraphrased = paraphrased.replace(old, new)
-        return paraphrased.strip()
+        subprocess.run(["git", "add", "."], check=True)
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if not status.stdout.strip():
+            logging.info("Tidak ada perubahan. Skip push.")
+            return True
+        subprocess.run(["git", "commit", "-m", "Update comic data"], check=True)
+        subprocess.run(
+            ["git", "push", f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git", "main"],
+            check=True
+        )
+        logging.info("Berhasil push ke GitHub.")
+        return True
     except Exception as e:
-        logging.error(f"Gagal paraphrase: {e}")
-        return synopsis
+        logging.error(f"Error push: {e}")
+        return False
