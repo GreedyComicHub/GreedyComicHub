@@ -5,7 +5,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 512
+        "total_chapters": 513
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -13,7 +13,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 53
+        "total_chapters": 54
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -21,7 +21,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 3
+        "total_chapters": 4
     },
     "komik-one-piece-indo": {
         "title": "One Piece",
@@ -29,7 +29,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 5
+        "total_chapters": 6
     },
     "level-1-player": {
         "title": "Level 1 Player",
@@ -37,6 +37,6 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 1
+        "total_chapters": 2
     }
 }

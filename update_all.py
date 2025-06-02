@@ -6,7 +6,7 @@ from utils import read_json, fetch_page, DATA_DIR
 from bs4 import BeautifulSoup
 
 def update_all():
-    """Update chapter berikutnya berdasarkan chapter terakhir di comic JSON."""
+    """Update chapter berikutnya (satu chapter, termasuk desimal) untuk semua komik berdasarkan data terakhir di comic JSON."""
     logging.info("Mengecek chapter berikutnya untuk semua komik...")
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
@@ -35,19 +35,6 @@ def update_all():
         comic_title = index_data[comic_id].get("title", comic_id)
         logging.info(f"Komik {comic_id}: Chapter terakhir di JSON = {latest_local_chapter}")
 
-        # Tentukan next_chapter (cek desimal dulu, lalu integer)
-        latest_int = int(latest_local_chapter)
-        if latest_local_chapter.is_integer():
-            next_chapter = latest_int + 1  # Langsung ke integer berikutnya
-        else:
-            next_chapter = latest_int + 1  # Coba integer berikutnya kalau desimal
-            # Cek apakah ada desimal berikutnya (misalnya, 507.5 setelah 507)
-            possible_decimal = latest_int + 0.5
-            if possible_decimal > latest_local_chapter:
-                next_chapter = possible_decimal
-
-        logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
-
         # Scrape daftar chapter dari komiku.org
         html = fetch_page(comic_url)
         if not html:
@@ -59,11 +46,16 @@ def update_all():
             logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}. Lewati.")
             continue
 
-        # Cek apakah next_chapter ada di web
+        # Filter chapter berikutnya (paling kecil di atas latest_local_chapter, termasuk desimal)
         web_chapters = sorted([float(ch) for ch in chapters.keys()])
-        if next_chapter not in web_chapters:
-            logging.info(f"Komik {comic_title}: Belum ada chapter {next_chapter}, bro!")
+        new_chapters = [ch for ch in web_chapters if ch > latest_local_chapter]
+        if not new_chapters:
+            logging.info(f"Komik {comic_title}: Belum ada chapter baru setelah {latest_local_chapter}, bro!")
             continue
+
+        # Ambil chapter berikutnya (paling kecil dari new_chapters)
+        next_chapter = min(new_chapters)
+        logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
 
         # Update hanya next_chapter
         logging.info(f"Komik {comic_id}: Nambah chapter {next_chapter}")
