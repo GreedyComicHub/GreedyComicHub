@@ -30,5 +30,13 @@
         "genre": "Aksi",
         "type": "Manga",
         "total_chapters": 4
+    },
+    "level-1-player": {
+        "title": "Level 1 Player",
+        "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual sebagai karakter level satu, bro! dia harus memanfaatkan kecerdasan dan ketekunannya untuk bertahan hidup dan naik level di dunia yang penuh dengan tantangan dan makhluk berbahaya, bro! di tengah perjuangannya, ia bertemu dengan berbagai teman dan musuh yang, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhwa",
+        "total_chapters": 0
     }
 }
