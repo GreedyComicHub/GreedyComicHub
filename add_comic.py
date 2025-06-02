@@ -1,7 +1,7 @@
 import logging
 import os
 from scraper import scrape_comic_details, get_comic_id_and_display_name
-from utils import read_json, write_json, upload_to_cloudinary, DATA_DIR
+from utils import read_json, write_json, upload_to_cloudinary
 
 def add_comic(url):
     logging.info(f"Menambahkan komik baru: {url}")
@@ -19,7 +19,8 @@ def add_comic(url):
             logging.info(f"Cover diupload ke Cloudinary: {cover_cloudinary_url}")
         except Exception as e:
             logging.error(f"Gagal upload cover ke Cloudinary: {e}")
-            cover_cloudinary_url = cover_url  # Fallback ke URL asli kalau gagal
+            cover_cloudinary_url = cover_url
+            logging.info(f"Fallback ke URL asli untuk cover: {cover_cloudinary_url}")
 
     comic_data = {
         "title": title,
@@ -31,7 +32,7 @@ def add_comic(url):
         "chapters": {}
     }
 
-    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+    comic_file = os.path.join("data", f"{comic_id}.json")
     if os.path.exists(comic_file):
         existing_data = read_json(comic_file)
         comic_data["chapters"] = existing_data.get("chapters", {})
@@ -42,7 +43,7 @@ def add_comic(url):
     update_index(comic_id, comic_data)
 
 def update_index(comic_id, comic_data):
-    index_file = os.path.join(DATA_DIR, "index.json")
+    index_file = os.path.join("data", "index.json")
     index_data = read_json(index_file)
     index_data[comic_id] = {
         "title": comic_data["title"],
