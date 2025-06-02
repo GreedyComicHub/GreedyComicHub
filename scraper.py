@@ -102,14 +102,23 @@ def scrape_komiku_details(url, soup):
                     break
     logging.info(f"Tipe komik ditemukan: {comic_type}")
 
+    # Perubahan: Ambil sinopsis dari <p> setelah <h2>Sinopsis Lengkap</h2>
     synopsis = "No synopsis available."
-    synopsis_element = soup.find("div", class_="desc")
-    if synopsis_element:
-        synopsis = synopsis_element.text.strip()
-    else:
-        meta_desc = soup.find("meta", attrs={"name": "description"})
-        if meta_desc and meta_desc.get("content"):
-            synopsis = meta_desc["content"].strip()
+    synopsis_header = soup.find("h2", string=lambda t: "Sinopsis Lengkap" in t if t else False)
+    if synopsis_header:
+        synopsis_element = synopsis_header.find_next("p")
+        if synopsis_element:
+            synopsis = synopsis_element.text.strip()
+            logging.info(f"Sinopsis ditemukan dari <p> setelah <h2>Sinopsis Lengkap</h2>: {synopsis[:100]}...")
+    if synopsis == "No synopsis available.":
+        logging.warning("Sinopsis tidak ditemukan di <p> setelah <h2>. Mencoba fallback ke div.desc.")
+        synopsis_element = soup.find("div", class_="desc")
+        if synopsis_element:
+            synopsis = synopsis_element.text.strip()
+        else:
+            meta_desc = soup.find("meta", attrs={"name": "description"})
+            if meta_desc and meta_desc.get("content"):
+                synopsis = meta_desc["content"].strip()
     synopsis = paraphrase_synopsis(synopsis)
 
     cover_url = ""
