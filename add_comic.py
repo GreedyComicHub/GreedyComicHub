@@ -1,46 +1,45 @@
 import logging
 import os
-from scraper import scrape_comic_details, get_comic_id_and_display_name
-from utils import read_json, write_json, DATA_DIR
+from utils import read_json, write_json_lock, fetch_page, DATA_DIR
+from bs4 import BeautifulSoup
 
 def add_comic(url):
-    logging.info(f"Menambahkan komik baru: {url}")
-    comic_id, _ = get_comic_id_and_display_name(url)
-    title, author, synopsis, cover_url, soup, genre, comic_type = scrape_comic_details(url)
-    if not title:
-        logging.error("Gagal mendapatkan detail komik.")
+    logging.info(f"Menambahkan: {url}")
+    comic_id = url.split("/")[-1] or url.split("/")[-2]
+    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+    index_file = os.path.join(DATA_DIR, "index.json")
+    
+    html = fetch_page(url)
+    if not html:
+        logging.error(f"Gagal ambil {url}")
         return
+    soup = BeautifulSoup(html, "html.parser")
+    title = soup.select_one("h1").text.strip() if soup.select_one("h1") else comic_id
+    cover = soup.select_one("img.cover").get("src") if soup.select_one("img.cover") else ""
+    synopsis = soup.select_one(".sin").text.strip() if soup.select_one(".sin") else ""
+    genre = soup.select_one(".gen").text.strip() if soup.select_one(".gen") else "Unknown"
+    comic_type = soup.select_one(".type").text.strip() or "Unknown"
+    
+    index_data = read_json(index_file) or {}
+    index_data[comic_id] = {
+        "source_url": url,
+        "title": title,
+        "cover": cover,
+        "synopsis": synopsis,
+        "genre": genre,
+        "type": comic_type,
+        "total_chapters": 0
+    }
+    write_json_lock(index_file, index_data)
+    logging.info(f"Berhasil tambah {comic_id} ke index.json")
     
     comic_data = {
         "title": title,
-        "author": author,
+        "cover": cover,
         "synopsis": synopsis,
-        "cover": cover_url,
         "genre": genre,
         "type": comic_type,
         "chapters": {}
     }
-
-    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
-    if os.path.exists(comic_file):
-        existing_data = read_json(comic_file)
-        comic_data["chapters"] = existing_data.get("chapters", {})
-        logging.info(f"Komik sudah ada, mempertahankan chapters.")
-
-    write_json(comic_file, comic_data)
-    logging.info(f"Berhasil simpan data komik ke {comic_file}")
-    update_index(comic_id, comic_data)
-
-def update_index(comic_id, comic_data):
-    index_file = os.path.join(DATA_DIR, "index.json")
-    index_data = read_json(index_file)
-    index_data[comic_id] = {
-        "title": comic_data["title"],
-        "synopsis": comic_data["synopsis"],
-        "cover": comic_data["cover"],
-        "genre": comic_data["genre"],
-        "type": comic_data["type"],
-        "total_chapters": len(comic_data["chapters"])
-    }
-    write_json(index_file, index_data)
-    logging.info(f"Berhasil update indeks di {index_file}")
+    write_json_lock(comic_file, comic_data)
+    logging.info(f"Berhasil tambah {comic_file}")
