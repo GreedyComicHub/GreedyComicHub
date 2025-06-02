@@ -24,5 +24,13 @@
         "type": "",
         "total_chapters": 0,
         "url": "https://komiku.org/manga/black-clover-indonesia"
+    },
+    "komik-one-piece-indo": {
+        "title": "One Piece",
+        "synopsis": "One piece  . monkey d. luffy memulai perjalanan untuk menjadi raja bajak laut dengan membentuk kru yang kuat.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 0
     }
 }
