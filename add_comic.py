@@ -1,7 +1,7 @@
 import logging
 import os
 from scraper import scrape_comic_details, get_comic_id_and_display_name
-from utils import read_json, write_json, upload_to_cloudinary, DATA_DIR
+from utils import read_json, write_json, DATA_DIR
 
 def add_comic(url):
     logging.info(f"Menambahkan komik baru: {url}")
@@ -10,22 +10,12 @@ def add_comic(url):
     if not title:
         logging.error("Gagal mendapatkan detail komik.")
         return
-
-    # Upload cover ke Cloudinary
-    cover_cloudinary_url = ""
-    if cover_url:
-        try:
-            cover_cloudinary_url = upload_to_cloudinary(cover_url, comic_id, "cover")
-            logging.info(f"Cover diupload ke Cloudinary: {cover_cloudinary_url}")
-        except Exception as e:
-            logging.error(f"Gagal upload cover ke Cloudinary: {e}")
-            cover_cloudinary_url = cover_url  # Fallback ke URL asli kalau gagal
-
+    
     comic_data = {
         "title": title,
         "author": author,
         "synopsis": synopsis,
-        "cover": cover_cloudinary_url,
+        "cover": cover_url,
         "genre": genre,
         "type": comic_type,
         "chapters": {}
