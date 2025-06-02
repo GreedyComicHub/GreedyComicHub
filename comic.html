@@ -41,10 +41,8 @@
                     document.getElementById('type').textContent = `Type: ${data.type || 'Unknown Type'}`;
                     document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
                     document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
-                    
-                    // Daftar Chapter
                     const chapterList = document.getElementById('chapter-list');
-                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b); // Chapter 1 di atas
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
                     if (chapters.length === 0) {
                         chapterList.innerHTML = '<p>No chapters available.</p>';
                     } else {

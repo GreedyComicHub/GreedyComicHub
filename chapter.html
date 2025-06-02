@@ -26,7 +26,6 @@
         const comicId = params.get('comic');
         const chapterNum = params.get('chapter');
         if (comicId && chapterNum) {
-            // Tambah cache-busting dengan timestamp
             const timestamp = new Date().getTime();
             fetch(`data/${comicId}.json?ts=${timestamp}`)
                 .then(res => {
@@ -38,7 +37,7 @@
                     const chapterImages = document.getElementById('chapter-images');
                     const chapterData = data.chapters[chapterNum];
                     if (chapterData && chapterData.pages) {
-                        chapterImages.innerHTML = ''; // Bersihkan dulu
+                        chapterImages.innerHTML = '';
                         chapterData.pages.forEach(imgSrc => {
                             const frame = document.createElement('div');
                             frame.className = 'image-frame';

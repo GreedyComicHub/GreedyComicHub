@@ -1,29 +1,28 @@
 {
-  "magic-emperor": {
-    "title": "Magic Emperor",
-    "synopsis": "dalam petualangannya, sang kaisar tidak hanya bertarung menghadapi musuh, tetapi juga menggali misteri masa lalu serta berusaha memahami arti kekuasaan dan tanggung jawab. cerita ini penuh dengan aksi epik, strategi cerdas, dan pengembangan karakter yang dalam, memperlihatkan bagaimana ia tumbuh menjadi pecita-citan sejati. dengan kekuatan sihir yang luar biasa, ia berusaha membangun kekaisaran yang damai sekaligus menghadapi berbagai ancaman baik dari dalam maupun luar negerinya. Magic Emperor menceritakan tentang kisah seorang pemuda yang terlahir kembali dengan keahlian sihir tingkat tinggi di dunia fantasi yang dipenuhi dengan konflik dan intrik politik.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 502,
-    "url": "https://komiku.org/manga/magic-emperor"
-  },
-  "blue-lock": {
-    "title": "Blue Lock",
-    "synopsis": "Blue Lock mengisahkan tentang program unik yang diselenggarakan jepang untuk menemukan striker terbaik bagi tim nasional sepak bola mereka. Blue Lock menggambarkan dinamika kompetitif, strategi, dan pengembangan karakter pemain di bawah tekanan yang intens. fokus utama program ini adalah memupuk ego dan semangat individualisme agar pemain bukan hanya sekadar bagian tim, melainkan pencetak gol berdedikasi. di dalam program yang penuh tekanan dan rintangan ini, dia harus menghadapi rival yang mempunyai tujuan sama dan melewati pelatihan keras demi mengukir prestasi tinggi dalam sepak bola. setelah kegagalan di piala dunia, ribuan pemain muda dikumpulkan di fasilitas khusus bernama Blue Lock agar mereka bisa bertarung mengasah kemampuan dan mencetak gol yang tak tertandingi. cerita berpusat pada yoichi isagi, seorang pemain muda yang bergabung ke Blue Lock dengan harapan bisa menjadi striker terbaik dunia.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
-    "genre": "Olahraga",
-    "type": "Manga",
-    "total_chapters": 50,
-    "url": "https://komiku.org/manga/blue-lock"
-  },
-  "black-clover-indonesia": {
-    "title": "",
-    "synopsis": "",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
-    "genre": [],
-    "type": "",
-    "total_chapters": 0,
-    "url": "https://komiku.org/manga/black-clover-indonesia"
-  }
+    "magic-emperor": {
+        "title": "Magic Emperor",
+        "synopsis": "dalam petualangannya, sang kaisar tidak hanya bertarung menghadapi musuh, tetapi juga menggali misteri masa lalu serta berusaha memahami arti kekuasaan dan tanggung jawab. cerita ini penuh dengan aksi epik, strategi cerdas, dan pengembangan karakter yang dalam, memperlihatkan bagaimana ia tumbuh menjadi pecita-citan sejati. dengan kekuatan sihir yang luar biasa, ia berusaha membangun kekaisaran yang damai sekaligus menghadapi berbagai ancaman baik dari dalam maupun luar negerinya. Magic Emperor menceritakan tentang kisah seorang pemuda yang terlahir kembali dengan keahlian sihir tingkat tinggi di dunia fantasi yang dipenuhi dengan konflik dan intrik politik.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhua",
+        "total_chapters": 502,
+        "url": "https://komiku.org/manga/magic-emperor"
+    },
+    "blue-lock": {
+        "title": "Blue Lock",
+        "synopsis": "Blue lock  . yoichi isagi berjuang dalam fasilitas blue lock untuk menjadi pencetak gol ulung.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "genre": "Olahraga",
+        "type": "Manga",
+        "total_chapters": 50
+    },
+    "black-clover-indonesia": {
+        "title": "",
+        "synopsis": "",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
+        "genre": [],
+        "type": "",
+        "total_chapters": 0,
+        "url": "https://komiku.org/manga/black-clover-indonesia"
+    }
 }

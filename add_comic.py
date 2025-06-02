@@ -1,46 +1,46 @@
-"""Add new comic to the system."""
 import logging
-from typing import Dict
-from scraper import scrape_comic_data
-from utils import read_json, write_json, add_to_queue, get_comic_id_from_url, git_push
+import os
+from scraper import scrape_comic_details, get_comic_id_and_display_name
+from utils import read_json, write_json, DATA_DIR
 
-def add_comic(comic_url: str) -> None:
-    """Add a new comic from the given URL."""
-    logging.info(f"Menambahkan komik baru: {comic_url}")
-    try:
-        comic_data = scrape_comic_data(comic_url)
-        comic_id, _ = get_comic_id_from_url(comic_url)
-        if not comic_id:
-            raise ValueError("Invalid comic URL")
+def add_comic(url):
+    logging.info(f"Menambahkan komik baru: {url}")
+    comic_id, _ = get_comic_id_and_display_name(url)
+    title, author, synopsis, cover_url, soup, genre, comic_type = scrape_comic_details(url)
+    if not title:
+        logging.error("Gagal mendapatkan detail komik.")
+        return
+    
+    comic_data = {
+        "title": title,
+        "author": author,
+        "synopsis": synopsis,
+        "cover": cover_url,
+        "genre": genre,
+        "type": comic_type,
+        "chapters": {}
+    }
 
-        # Save to comic JSON
-        comic_file = f"data/{comic_id}.json"
-        existing_data = read_json(comic_file) or {}
-        if existing_data.get("chapters"):
-            logging.info(f"Preserving {len(existing_data['chapters'])} chapters for {comic_id}")
-        write_json(comic_file, comic_data)
+    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+    if os.path.exists(comic_file):
+        existing_data = read_json(comic_file)
+        comic_data["chapters"] = existing_data.get("chapters", {})
+        logging.info(f"Komik sudah ada, mempertahankan chapters.")
 
-        # Update index.json
-        index_file = "data/index.json"
-        index_data: Dict = read_json(index_file) or {}
-        index_data[comic_id] = {
-            "title": comic_data["title"],
-            "synopsis": comic_data["synopsis"],
-            "cover": comic_data["cover"],
-            "genre": comic_data["genre"],
-            "type": comic_data["type"],
-            "total_chapters": len(comic_data["chapters"]),
-            "url": comic_url  # Simpan URL
-        }
-        write_json(index_file, index_data)
-        logging.info(f"Updated index.json for {comic_id} with {len(comic_data['chapters'])} chapters")
+    write_json(comic_file, comic_data)
+    logging.info(f"Berhasil simpan data komik ke {comic_file}")
+    update_index(comic_id, comic_data)
 
-        # Push to GitHub
-        git_push()
-
-        # Add to queue
-        add_to_queue("comic_add", {"comic_id": comic_id, "url": comic_url})
-        logging.info(f"Penambahan komik selesai: {comic_url}")
-    except Exception as e:
-        logging.error(f"Error adding comic {comic_url}: {str(e)}")
-        raise
+def update_index(comic_id, comic_data):
+    index_file = os.path.join(DATA_DIR, "index.json")
+    index_data = read_json(index_file)
+    index_data[comic_id] = {
+        "title": comic_data["title"],
+        "synopsis": comic_data["synopsis"],
+        "cover": comic_data["cover"],
+        "genre": comic_data["genre"],
+        "type": comic_data["type"],
+        "total_chapters": len(comic_data["chapters"])
+    }
+    write_json(index_file, index_data)
+    logging.info(f"Berhasil update indeks di {index_file}")
