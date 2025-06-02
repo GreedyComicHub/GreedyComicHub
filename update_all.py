@@ -6,11 +6,11 @@ from utils import read_json, fetch_page, DATA_DIR
 from bs4 import BeautifulSoup
 
 def update_all():
-    """Update chapter berikutnya berdasarkan chapter terakhir di website GreedyComicHub."""
+    """Update chapter berikutnya berdasarkan chapter terakhir di comic JSON."""
     logging.info("Mengecek chapter berikutnya untuk semua komik...")
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
-    
+
     if not index_data:
         logging.warning("Nggak ada komik di index.json, bro!")
         return
@@ -21,14 +21,31 @@ def update_all():
         if not os.path.exists(comic_file):
             logging.error(f"File {comic_file} nggak ada. Lewati.")
             continue
-        
-        # Baca total_chapters dari index.json (acuan website)
-        latest_local_chapter = float(index_data[comic_id].get("total_chapters", 0))
-        comic_title = index_data[comic_id].get("title", comic_id)
-        logging.info(f"Komik {comic_id}: Chapter terakhir di website = {latest_local_chapter}")
 
-        # Chapter yang mau diupdate (next chapter)
-        next_chapter = latest_local_chapter + 1
+        # Baca chapter terakhir dari comic_id.json
+        comic_data = read_json(comic_file)
+        chapters = comic_data.get("chapters", {})
+        if not chapters:
+            logging.info(f"Komik {comic_id}: Belum ada chapter, coba add chapter pertama.")
+            update_comic(comic_url, 1.0, 1.0, overwrite=False)
+            continue
+
+        # Ambil chapter terakhir dengan sorting berdasarkan float
+        latest_local_chapter = max([float(ch) for ch in chapters.keys()])
+        comic_title = index_data[comic_id].get("title", comic_id)
+        logging.info(f"Komik {comic_id}: Chapter terakhir di JSON = {latest_local_chapter}")
+
+        # Tentukan next_chapter (cek desimal dulu, lalu integer)
+        latest_int = int(latest_local_chapter)
+        if latest_local_chapter.is_integer():
+            next_chapter = latest_int + 1  # Langsung ke integer berikutnya
+        else:
+            next_chapter = latest_int + 1  # Coba integer berikutnya kalau desimal
+            # Cek apakah ada desimal berikutnya (misalnya, 507.5 setelah 507)
+            possible_decimal = latest_int + 0.5
+            if possible_decimal > latest_local_chapter:
+                next_chapter = possible_decimal
+
         logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
 
         # Scrape daftar chapter dari komiku.org
@@ -41,7 +58,7 @@ def update_all():
         if not chapters:
             logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}. Lewati.")
             continue
-        
+
         # Cek apakah next_chapter ada di web
         web_chapters = sorted([float(ch) for ch in chapters.keys()])
         if next_chapter not in web_chapters:
