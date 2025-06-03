@@ -62,5 +62,13 @@
         "genre": "Fantasy",
         "type": "Manhua",
         "total_chapters": 0
+    },
+    "komik-one-punch-man": {
+        "title": "Komiku",
+        "synopsis": "Komiku adalah tempat  online terlengkap mulai dari manhwa, manhua, dan manga bisa kamu baca online gratis khusus , bro! genre komik yang tersedia adalah romance, fantasy, isekai, action, ecchi, berwarna, dan genre lainnya di website komiku, bro!org, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748909556/greedycomichub/komik-one-punch-man/cover/dpltj7oxlgilyenzupvo.png",
+        "genre": "Fantasy",
+        "type": "Manhua",
+        "total_chapters": 0
     }
 }
