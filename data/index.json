@@ -34,5 +34,14 @@
         "type": "Manga",
         "total_chapters": 56,
         "source_url": "https://komiku.org/manga/blue-lock"
+    },
+    "one-punch-man": {
+        "title": "One Punch Man",
+        "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan satu pukulan, bro! meskipun kekuatannya luar biasa, ia merasa bosan dan kesepian karena tidak ada lawan yang menantang, bro! petualangannya dimulai saat ia bergabung dengan asosiasi pahlawan dan bertemu dengan berbagai pahlawan dan monster yang unik, bro! dalam perjalanannya,, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914412/greedycomichub/one-punch-man/cover/zj2lukkinpvbshwa0n2u.jpg",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 1,
+        "source_url": "https://komiku.org/manga/manga-one-punch-man"
     }
 }
