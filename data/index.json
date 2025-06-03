@@ -5,7 +5,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912685/greedycomichub/magic-emperor/cover/iwnxpcjty7gtzji2xrnd.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 603
+        "total_chapters": 604
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -13,7 +13,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912742/greedycomichub/blue-lock/cover/jcnkpademsdzckcdw2cn.jpg",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 55
+        "total_chapters": 56
     },
     "komik-one-piece-indo": {
         "title": "One Piece",
@@ -21,7 +21,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912779/greedycomichub/komik-one-piece-indo/cover/hpueo2lzaarbustdtouk.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 7
+        "total_chapters": 8
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -29,7 +29,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912761/greedycomichub/black-clover-indonesia/cover/skwono1m1dxg8f1md4zh.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 5
+        "total_chapters": 6
     },
     "sakamoto-days": {
         "title": "Sakamoto Days",
@@ -37,7 +37,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912811/greedycomichub/sakamoto-days/cover/h7twavtnwa727k23hutu.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 2
+        "total_chapters": 3
     },
     "level-1-player": {
         "title": "Level 1 Player",
@@ -45,7 +45,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912796/greedycomichub/level-1-player/cover/pydiuvnyobfztgyoypic.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 3
+        "total_chapters": 4
     },
     "one-punch-man": {
         "title": "One Punch Man",
