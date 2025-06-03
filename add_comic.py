@@ -11,7 +11,6 @@ def add_comic(url):
         logging.error("Gagal mendapatkan detail komik.")
         return
 
-    # Upload cover ke Cloudinary
     cover_cloudinary_url = cover_url
     if cover_url:
         try:
@@ -28,20 +27,22 @@ def add_comic(url):
         "cover": cover_cloudinary_url,
         "genre": genre,
         "type": comic_type,
-        "chapters": {}
+        "chapters": {},
+        "source_url": url  # Simpen URL asli
     }
 
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if os.path.exists(comic_file):
         existing_data = read_json(comic_file)
         comic_data["chapters"] = existing_data.get("chapters", {})
-        logging.info(f"Komik sudah ada, mempertahankan chapters.")
+        comic_data["source_url"] = existing_data.get("source_url", url)  # Pertahankan URL lama kalau ada
+        logging.info(f"Komik sudah ada, mempertahankan chapters dan source_url.")
 
     write_json(comic_file, comic_data)
     logging.info(f"Berhasil simpan data komik ke {comic_file}")
-    update_index(comic_id, comic_data, url)  # Tambah url ke parameter
+    update_index(comic_id, comic_data)
 
-def update_index(comic_id, comic_data, source_url):
+def update_index(comic_id, comic_data):
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
     index_data[comic_id] = {
@@ -51,7 +52,7 @@ def update_index(comic_id, comic_data, source_url):
         "genre": comic_data["genre"],
         "type": comic_data["type"],
         "total_chapters": len(comic_data["chapters"]),
-        "source_url": source_url  # Simpen URL asli
+        "source_url": comic_data["source_url"]  # Ambil dari comic_data
     }
     write_json(index_file, index_data)
     logging.info(f"Berhasil update indeks di {index_file}")
