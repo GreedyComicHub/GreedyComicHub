@@ -5,7 +5,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914332/greedycomichub/komik-one-piece-indo/cover/nlnsxaplnxvhhhwy6hcg.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 9
+        "total_chapters": 10
     },
     "magic-emperor": {
         "title": "Magic Emperor",
@@ -13,7 +13,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914357/greedycomichub/magic-emperor/cover/vlr2en4zvujbujaxakdd.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 605
+        "total_chapters": 606
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -21,7 +21,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914374/greedycomichub/black-clover-indonesia/cover/kwrlignzmyxok9pt71dm.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 7
+        "total_chapters": 8
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -29,7 +29,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914390/greedycomichub/blue-lock/cover/svk2mhjyux0ahl0pfnlc.jpg",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 57
+        "total_chapters": 58
     },
     "one-punch-man": {
         "title": "One Punch Man",
@@ -37,7 +37,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914412/greedycomichub/one-punch-man/cover/zj2lukkinpvbshwa0n2u.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 2
+        "total_chapters": 3
     },
     "level-1-player": {
         "title": "Level 1 Player",
@@ -45,7 +45,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914431/greedycomichub/level-1-player/cover/rmsvlbkx9argxlrt1iow.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 5
+        "total_chapters": 6
     },
     "sakamoto-days": {
         "title": "Sakamoto Days",
@@ -53,6 +53,6 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748914446/greedycomichub/sakamoto-days/cover/y0l9djadwcnbzitepbec.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 4
+        "total_chapters": 5
     }
 }
