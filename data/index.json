@@ -14,5 +14,13 @@
         "genre": "Olahraga",
         "type": "Manga",
         "total_chapters": 55
+    },
+    "komik-one-piece-indo": {
+        "title": "One Piece",
+        "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak laut dengan nyari harta karun legendaris bernama one piece, bro! dalam perjalanannya, luffy ngumpulin geng yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri, bro! bersama-sama, mereka ngehadepin macem-macem drama, musuh kece,, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912203/greedycomichub/komik-one-piece-indo/cover/qgssa9miuhwdslyvs4d8.jpg",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 7
     }
 }
