@@ -8,6 +8,7 @@ from configparser import ConfigParser
 import cloudinary
 import cloudinary.uploader
 from filelock import FileLock
+from urllib.parse import urlparse, parse_qs, urlencode  # Tambah import ini
 
 # Direktori
 DATA_DIR = "data"
@@ -42,7 +43,6 @@ def setup_logging():
         if os.path.exists(backup_file):
             os.remove(backup_file)
         os.rename(LOG_FILE, backup_file)
-    
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -72,19 +72,15 @@ def fetch_page(url, retries=3, delay=2):
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan seru di dunia penuh aksi dan misteri, bro!"
-    
     # Hapus promo phrases
     promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
     synopsis = original_synopsis.lower()
     for phrase in promo_phrases:
         synopsis = synopsis.replace(phrase, "").strip()
-    
     # Gaya gaul: singkat, santai, pake kata-kata anak muda
-    # Contoh: "One Piece mengikuti petualangan Monkey D. Luffy..." jadi "One Piece, Luffy ngegas jadi Raja Bajak Laut!"
     words = synopsis.split()
-    if len(words) > 50:  # Batasi panjang biar ga kepanjangan
+    if len(words) > 50:
         synopsis = " ".join(words[:50]) + "..."
-    
     # Ganti frase formal ke gaul
     replacements = {
         "mengikuti petualangan": "ngejar petualangan",
@@ -98,15 +94,12 @@ def paraphrase_synopsis(original_synopsis):
         "pemerintah dunia": "bos dunia",
         "luas": "buesar"
     }
-    
     for formal, gaul in replacements.items():
         synopsis = synopsis.replace(formal, gaul)
-    
     # Tambah vibe gaul
     synopsis = synopsis.replace(".", ", bro!").capitalize()
     if not synopsis.endswith("bro!"):
         synopsis += ", bro!"
-    
     logging.info(f"Sinopsis asli: {original_synopsis[:100]}...")
     logging.info(f"Sinopsis gaul: {synopsis}")
     return synopsis
@@ -129,11 +122,14 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
         response = requests.get(image_url, timeout=10)
         response.raise_for_status()
-        image_name = image_url.split("/")[-1]
+        # Bersihin query parameter dari URL
+        parsed_url = urlparse(image_url)
+        image_name = os.path.basename(parsed_url.path)
         temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
         with open(temp_path, "wb") as f:
             f.write(response.content)
-        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}"
+        # Ubah folder structure biar konsisten
+        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}" if chapter_num != "cover" else f"greedycomichub/{comic_id}/cover"
         upload_result = cloudinary.uploader.upload(
             temp_path,
             folder=folder,
@@ -145,7 +141,9 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         return upload_result["secure_url"]
     except Exception as e:
         logging.error(f"Gagal upload gambar {image_url}: {e}")
-        return image_url
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+        return image_url  # Fallback ke URL asli
 
 def push_to_github():
     logging.info("Push perubahan ke GitHub...")
