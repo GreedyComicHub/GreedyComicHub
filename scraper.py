@@ -102,7 +102,6 @@ def scrape_komiku_details(url, soup):
                     break
     logging.info(f"Tipe komik ditemukan: {comic_type}")
 
-    # Perubahan: Ambil sinopsis dari <p> setelah <h2>Sinopsis Lengkap</h2>
     synopsis = "No synopsis available."
     synopsis_header = soup.find("h2", string=lambda t: "Sinopsis Lengkap" in t if t else False)
     if synopsis_header:
@@ -162,7 +161,7 @@ def scrape_chapter_list(url, soup):
                 if match:
                     chapter_num = match.group(1)
                     chapters[chapter_num] = href
-                    logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
+                    # logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
     for element in chapter_elements:
         href = element.get("href", "")
         chapter_text = element.text.strip()
@@ -170,7 +169,7 @@ def scrape_chapter_list(url, soup):
         if match:
             chapter_num = match.group(1)
             chapters[chapter_num] = href
-            logging.info(f"Chapter {chapter_num}: {href}")
+            # logging.info(f"Chapter {chapter_num}: {href}")
     return chapters
 
 def scrape_chapter_images(chapter_url):
