@@ -5,7 +5,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971206/greedycomichub/komik-one-piece-indo/cover/exwxkpyqgy9dmsi0pks4.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 14
+        "total_chapters": 15
     },
     "magic-emperor": {
         "title": "Magic Emperor",
@@ -13,7 +13,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971141/greedycomichub/magic-emperor/cover/mxhfoje8qy0pdqszgjte.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 654
+        "total_chapters": 655
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -21,7 +21,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971225/greedycomichub/black-clover-indonesia/cover/otkabcne14pmk8j4y1cv.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 12
+        "total_chapters": 13
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -29,7 +29,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971239/greedycomichub/blue-lock/cover/xkauweawhgukvactd2hb.jpg",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 62
+        "total_chapters": 64
     },
     "one-punch-man": {
         "title": "One Punch Man",
@@ -37,7 +37,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971253/greedycomichub/one-punch-man/cover/slrrnxiaox8jhhg3qaup.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 7
+        "total_chapters": 8
     },
     "level-1-player": {
         "title": "Level 1 Player",
@@ -45,7 +45,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971272/greedycomichub/level-1-player/cover/ue8nekk1chj0vc9hscuf.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 10
+        "total_chapters": 12
     },
     "sakamoto-days": {
         "title": "Sakamoto Days",
@@ -53,7 +53,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748971287/greedycomichub/sakamoto-days/cover/at0enmi2jvy44ou4c37x.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 9
+        "total_chapters": 11
     },
     "god-of-martial-arts": {
         "title": "God of Martial Arts",
@@ -61,7 +61,6 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748981429/greedycomichub/god-of-martial-arts/cover/gem4iejpxugxqrgvi1t5.jpg",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 3,
-        "source_url": "https://komiku.org/manga/god-of-martial-arts/"
+        "total_chapters": 5
     }
 }
