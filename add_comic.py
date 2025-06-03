@@ -39,9 +39,9 @@ def add_comic(url):
 
     write_json(comic_file, comic_data)
     logging.info(f"Berhasil simpan data komik ke {comic_file}")
-    update_index(comic_id, comic_data)
+    update_index(comic_id, comic_data, url)  # Tambah url ke parameter
 
-def update_index(comic_id, comic_data):
+def update_index(comic_id, comic_data, source_url):
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
     index_data[comic_id] = {
@@ -50,7 +50,8 @@ def update_index(comic_id, comic_data):
         "cover": comic_data["cover"],
         "genre": comic_data["genre"],
         "type": comic_data["type"],
-        "total_chapters": len(comic_data["chapters"])
+        "total_chapters": len(comic_data["chapters"]),
+        "source_url": source_url  # Simpen URL asli
     }
     write_json(index_file, index_data)
     logging.info(f"Berhasil update indeks di {index_file}")
