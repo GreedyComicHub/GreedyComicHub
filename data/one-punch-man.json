@@ -5,5 +5,28 @@
     "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748912828/greedycomichub/one-punch-man/cover/vtrlqh8e6wfcxypo42gb.jpg",
     "genre": "Aksi",
     "type": "Manga",
-    "chapters": {}
+    "chapters": {
+        "1": {
+            "pages": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913463/greedycomichub/one-punch-man/chapter_1/aheb9rhvqpvcl3wnpx5f.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913466/greedycomichub/one-punch-man/chapter_1/fnizn1y8le9petwcem34.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913469/greedycomichub/one-punch-man/chapter_1/tdatlkdox7gnbvfzwp6z.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913472/greedycomichub/one-punch-man/chapter_1/ojwgtupozkconxxnliyz.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913474/greedycomichub/one-punch-man/chapter_1/njs1r0kfq1dskgtnt8sp.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913476/greedycomichub/one-punch-man/chapter_1/c1d4tr6jtclzosfi7ogf.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913479/greedycomichub/one-punch-man/chapter_1/lxqxzgn1uzlckl2lnsk1.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913482/greedycomichub/one-punch-man/chapter_1/rcm5rzmc9jamoth4ztgw.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913485/greedycomichub/one-punch-man/chapter_1/q1yzfy1gs55426tfsgk1.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913487/greedycomichub/one-punch-man/chapter_1/bzxhxdj1s21rhkdwsqv3.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913490/greedycomichub/one-punch-man/chapter_1/qhq6hui121qk0tghz7fi.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913492/greedycomichub/one-punch-man/chapter_1/s76zdg696ry8dxrrmofd.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913495/greedycomichub/one-punch-man/chapter_1/jv87lbuftgyjp2evzgis.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913497/greedycomichub/one-punch-man/chapter_1/uwiqhjugikpgcbpzbuxz.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913500/greedycomichub/one-punch-man/chapter_1/fto3a6iayadyekszo15j.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913503/greedycomichub/one-punch-man/chapter_1/azcpahlill4c9kmbmluw.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913505/greedycomichub/one-punch-man/chapter_1/e8pejkimqmafectpr6iu.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748913508/greedycomichub/one-punch-man/chapter_1/nivxucnzr9ttiblmghsk.png"
+            ]
+        }
+    }
 }
