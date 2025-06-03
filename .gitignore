@@ -1,4 +1,1 @@
-config.ini
-temp_images/
-logs/
-chromedriver.exe
+__pycache__/ 
