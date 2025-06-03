@@ -15,12 +15,15 @@ def update_all():
         logging.warning("Nggak ada komik di index.json, bro!")
         return
 
+    # List buat nyimpen komik yang gagal
+    failed_comics = []
+
     for comic_id in index_data:
-        # Fix: Pake source_url dari index.json
         comic_url = index_data[comic_id].get("source_url", f"https://komiku.org/manga/{comic_id}")
         comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
         if not os.path.exists(comic_file):
             logging.error(f"File {comic_file} nggak ada. Lewati.")
+            failed_comics.append(comic_id)
             continue
 
         # Baca chapter terakhir dari comic_id.json
@@ -28,7 +31,11 @@ def update_all():
         chapters = comic_data.get("chapters", {})
         if not chapters:
             logging.info(f"Komik {comic_id}: Belum ada chapter, coba add chapter pertama.")
-            update_comic(comic_url, 1.0, 1.0, overwrite=False)
+            try:
+                update_comic(comic_url, 1.0, 1.0, overwrite=False)
+            except Exception as e:
+                logging.error(f"Komik {comic_id}: Gagal add chapter pertama: {e}")
+                failed_comics.append(comic_id)
             continue
 
         # Ambil chapter terakhir dengan sorting berdasarkan float
@@ -40,11 +47,13 @@ def update_all():
         html = fetch_page(comic_url)
         if not html:
             logging.error(f"Gagal mengambil halaman {comic_url}. Lewati.")
+            failed_comics.append(comic_id)
             continue
         soup = BeautifulSoup(html, "html.parser")
         chapters = scrape_chapter_list(comic_url, soup)
         if not chapters:
             logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}. Lewati.")
+            failed_comics.append(comic_id)
             continue
 
         # Filter chapter berikutnya (paling kecil di atas latest_local_chapter, termasuk desimal)
@@ -59,6 +68,16 @@ def update_all():
         logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
 
         # Update hanya next_chapter
-        logging.info(f"Komik {comic_id}: Nambah chapter {next_chapter}")
-        update_comic(comic_url, next_chapter, next_chapter, overwrite=False)
+        try:
+            logging.info(f"Komik {comic_id}: Nambah chapter {next_chapter}")
+            update_comic(comic_url, next_chapter, next_chapter, overwrite=False)
+        except Exception as e:
+            logging.error(f"Komik {comic_id}: Gagal update chapter {next_chapter}: {e}")
+            failed_comics.append(comic_id)
+
+    # Rekap komik yang gagal di akhir
     logging.info("Selesai cek update-all!")
+    if failed_comics:
+        logging.error(f"Rekap komik yang gagal: {', '.join(set(failed_comics))}")
+    else:
+        logging.info("Semua komik berhasil diupdate, bro!")
