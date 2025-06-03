@@ -47,20 +47,18 @@
             ]
         },
         "2.1": {
-            "images": [
-                "https://img.komiku.org/wp-content/uploads/21378-1.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-2.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-3.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-4.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-5.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-6.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-7.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-8.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-9.jpg",
-                "https://img.komiku.org/wp-content/uploads/21378-10.jpg"
-            ],
-            "title": "Chapter 2.1",
-            "url": "https://komiku.org/god-of-martial-arts-chapter-2-1/"
+            "pages": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984426/greedycomichub/god-of-martial-arts/chapter_2.1/vfxikio4kr19b9crzfak.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984428/greedycomichub/god-of-martial-arts/chapter_2.1/owpvi7w1q5bwigg28hke.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984429/greedycomichub/god-of-martial-arts/chapter_2.1/r6ycqbxopgwf9igoyj7c.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984430/greedycomichub/god-of-martial-arts/chapter_2.1/osck14m7uyja6hwbr2qr.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984432/greedycomichub/god-of-martial-arts/chapter_2.1/aulrn5r334fcom4lzgon.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984433/greedycomichub/god-of-martial-arts/chapter_2.1/so6pmshdhxkvwel80dl1.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984434/greedycomichub/god-of-martial-arts/chapter_2.1/uoazc2jbifuenq0qqr8p.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984435/greedycomichub/god-of-martial-arts/chapter_2.1/u2r6n2z20yhwc0kt3ewm.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984436/greedycomichub/god-of-martial-arts/chapter_2.1/yplq1n2f2uzuvphcig0m.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1748984437/greedycomichub/god-of-martial-arts/chapter_2.1/sivelswgfggt4o31jcv3.jpg"
+            ]
         },
         "2.2": {
             "pages": [
