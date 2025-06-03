@@ -1,116 +1,137 @@
 import argparse
 import logging
-import sys
 import os
-import configparser
-from urllib.parse import urlparse
-from utils import read_json, write_json, DATA_DIR
+import json
 from add_comic import add_comic
 from update_all import update_all
 from update_comic import update_comic
-from deploy_net import deploy_netlify
+from update_source_url import update_source_url
+from utils import read_json, write_json, setup_logging, DATA_DIR
 
-def update_path(old_url, new_url):
-    """Update source_url di index.json tanpa menyatukan domain dan path."""
-    logging.info(f"Update path dari {old_url} ke {new_url}")
+def update_domain(old_domain, new_domain):
+    """Update domain untuk semua komik di index.json dan file JSON komik."""
+    logging.info(f"Mengganti domain dari {old_domain} ke {new_domain}...")
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file)
-
     if not index_data:
-        logging.error("Index.json kosong, bro!")
+        logging.warning("Nggak ada komik di index.json, bro!")
         return
 
-    old_domain = urlparse(old_url).netloc
-    old_path = urlparse(old_url).path
-    new_domain = urlparse(new_url).netloc
-    new_path = urlparse(new_url).path
-
-    updated = False
-    for comic_id, comic_data in index_data.items():
-        current_url = comic_data.get("source_url")
-        if not current_url:
+    for comic_id in index_data:
+        old_source_url = index_data[comic_id].get("source_url", "")
+        if not old_source_url:
+            logging.warning(f"Komik {comic_id} gak punya source_url, lewati.")
             continue
 
-        current = urlparse(current_url)
-        if old_domain and current.netloc == old_domain:
-            new_source_url = current_url.replace(old_domain, new_domain)
-            comic_data["source_url"] = new_source_url
-            updated = True
-            logging.info(f"Update domain {comic_id}: {current_url} -> {new_source_url}")
-        if old_path and current.path == old_path:
-            new_source_url = current_url.replace(old_path, new_path)
-            comic_data["source_url"] = new_source_url
-            updated = True
-            logging.info(f"Update path {comic_id}: {current_url} -> {new_source_url}")
+        new_source_url = old_source_url.replace(old_domain, new_domain)
+        if new_source_url == old_source_url:
+            logging.info(f"Komik {comic_id}: source_url {old_source_url} gak berubah, lewati.")
+            continue
 
-    if updated:
-        write_json(index_file, index_data)
-        logging.info("Berhasil update index.json")
-        deploy_netlify()
-    else:
-        logging.warning("Nggak ada URL yang cocok untuk diupdate, bro!")
+        index_data[comic_id]["source_url"] = new_source_url
+        logging.info(f"Komik {comic_id}: Update source_url dari {old_source_url} ke {new_source_url}")
+
+        comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+        if not os.path.exists(comic_file):
+            logging.error(f"File {comic_file} gak ada, lewati.")
+            continue
+        comic_data = read_json(comic_file)
+        comic_data["source_url"] = new_source_url
+        write_json(comic_file, comic_data)
+        logging.info(f"Berhasil update {comic_file} dengan source_url baru: {new_source_url}")
+
+    write_json(index_file, index_data)
+    logging.info(f"Berhasil update index.json dengan domain baru.")
+
+def update_path(old_url, new_url):
+    """Update source_url untuk komik spesifik dari URL lama ke URL baru."""
+    logging.info(f"Mengganti source_url dari {old_url} ke {new_url}...")
+    index_file = os.path.join(DATA_DIR, "index.json")
+    index_data = read_json(index_file)
+    if not index_data:
+        logging.warning("Nggak ada komik di index.json, bro!")
+        return
+
+    comic_id = None
+    for cid in index_data:
+        if index_data[cid].get("source_url", "") == old_url:
+            comic_id = cid
+            break
+
+    if not comic_id:
+        logging.error(f"Nggak ada komik dengan source_url {old_url} di index.json, bro!")
+        return
+
+    index_data[comic_id]["source_url"] = new_url
+    logging.info(f"Komik {comic_id}: Update source_url dari {old_url} ke {new_url}")
+
+    comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+    if not os.path.exists(comic_file):
+        logging.error(f"File {comic_file} gak ada, bro!")
+        return
+    comic_data = read_json(comic_file)
+    comic_data["source_url"] = new_url
+    write_json(comic_file, comic_data)
+    logging.info(f"Berhasil update {comic_file} dengan source_url baru: {new_url}")
+
+    write_json(index_file, index_data)
+    logging.info(f"Berhasil update index.json dengan source_url baru.")
 
 def main():
-    config = configparser.ConfigParser()
-    config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        handlers=[
-            logging.FileHandler(os.path.join("logs", "update.log")),
-            logging.StreamHandler(sys.stdout)
-        ]
-    )
+    setup_logging()
+    parser = argparse.ArgumentParser(description="GreedyComicHub CLI")
+    subparsers = parser.add_subparsers(dest="command")
 
-    parser = argparse.ArgumentParser(
-        description="GreedyComicHub CLI: Manage comics with scraping and Cloudinary integration.",
-        epilog="Contoh: python main.py add-comic https://komiku.org/manga/magic-emperor"
-    )
-    subparsers = parser.add_subparsers(dest="command", help="Available commands")
+    # Parser untuk add-comic
+    add_parser = subparsers.add_parser("add-comic", help="Tambah komik baru")
+    add_parser.add_argument("url", help="URL komik di komiku.org")
 
-    add_parser = subparsers.add_parser("add-comic", help="Tambah komik baru dari URL komiku.org")
-    add_parser.add_argument("url", help="URL komik di komiku.org (contoh: https://komiku.org/manga/magic-emperor)")
+    # Parser untuk update-all
+    update_all_parser = subparsers.add_parser("update-all", help="Update semua komik")
 
-    update_parser = subparsers.add_parser("update", help="Update chapter komik dari URL")
-    update_parser.add_argument("url", help="URL komik di komiku.org (contoh: https://komiku.org/manga/magic-emperor)")
-    update_parser.add_argument("--start", type=float, default=1.0, help="Chapter mulai (contoh: 1.0)")
-    update_parser.add_argument("--end", type=float, default=float("inf"), help="Chapter akhir (contoh: 10.0)")
-    update_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter lama")
+    # Parser untuk update
+    update_parser = subparsers.add_parser("update", help="Update chapter tertentu")
+    update_parser.add_argument("url", help="URL komik")
+    update_parser.add_argument("--start", type=float, required=True, help="Chapter mulai")
+    update_parser.add_argument("--end", type=float, required=True, help="Chapter akhir")
+    update_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter")
 
-    subparsers.add_parser("update-all", help="Update chapter terbaru untuk semua komik di index.json")
+    # Parser untuk update-source-url
+    source_url_parser = subparsers.add_parser("update-source-url", help="Ganti URL lama ke URL baru")
+    source_url_parser.add_argument("old_url", help="URL lama")
+    source_url_parser.add_argument("new_url", help="URL baru")
 
-    path_parser = subparsers.add_parser("update-path", help="Update domain atau path di index.json")
-    path_parser.add_argument("old_url", help="URL lama (contoh: https://komiku.org/manga/magic-emperor)")
-    path_parser.add_argument("new_url", help="URL baru (contoh: https://komiku.id/manga/magic-emperor)")
+    # Parser untuk update-domain
+    domain_parser = subparsers.add_parser("update-domain", help="Ganti domain semua komik")
+    domain_parser.add_argument("old_domain", help="Domain lama (misalnya, komiku.org)")
+    domain_parser.add_argument("new_domain", help="Domain baru (misalnya, komiku.id)")
+
+    # Parser untuk update-path
+    path_parser = subparsers.add_parser("update-path", help="Ganti source_url komik spesifik")
+    path_parser.add_argument("old_url", help="URL komik yang error")
+    path_parser.add_argument("new_url", help="URL komik yang baru")
+
+    # Parser untuk help
+    help_parser = subparsers.add_parser("help", help="Tampilkan bantuan")
 
     args = parser.parse_args()
 
     if args.command == "add-comic":
         add_comic(args.url)
-        deploy_netlify()
-    elif args.command == "update":
-        update_comic(args.url, args.start, args.end, args.overwrite)
-        deploy_netlify()
     elif args.command == "update-all":
         update_all()
-        deploy_netlify()
+    elif args.command == "update":
+        update_comic(args.url, args.start, args.end, args.overwrite)
+    elif args.command == "update-source-url":
+        update_source_url(args.old_url, args.new_url)
+    elif args.command == "update-domain":
+        update_domain(args.old_domain, args.new_domain)
     elif args.command == "update-path":
         update_path(args.old_url, args.new_url)
+    elif args.command == "help" or not args.command:
+        parser.print_help()
     else:
         parser.print_help()
-        print("\nFungsi dan Contoh Perintah:")
-        print("1. add-comic: Tambah komik baru dari URL, simpan metadata di index.json, dan deploy ke web.")
-        print("   - Fungsi: Scraping metadata (title, synopsis, cover), simpan source_url, dan update chapter pertama.")
-        print("   - Contoh: python main.py add-comic https://komiku.org/manga/magic-emperor")
-        print("2. update: Update chapter komik dari URL untuk rentang chapter tertentu.")
-        print("   - Fungsi: Scraping chapter baru, upload gambar ke Cloudinary, simpan di comic JSON, dan deploy ke web.")
-        print("   - Contoh: python main.py update https://komiku.org/manga/magic-emperor --start 651.0 --end 652.0")
-        print("3. update-all: Update chapter terbaru untuk semua komik di index.json.")
-        print("   - Fungsi: Cek chapter terbaru untuk tiap komik, update jika ada, dan deploy ke web.")
-        print("   - Contoh: python main.py update-all")
-        print("4. update-path: Update domain atau path di source_url index.json tanpa menyatukan keduanya.")
-        print("   - Fungsi: Ganti domain (misal, komiku.org ke komiku.id) atau path URL, dan deploy ke web.")
-        print("   - Contoh: python main.py update-path https://komiku.org/manga/magic-emperor https://komiku.id/manga/magic-emperor")
 
 if __name__ == "__main__":
     main()
