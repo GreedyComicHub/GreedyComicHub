@@ -14,13 +14,14 @@ def update_all():
         logging.warning("Nggak ada komik di index.json, bro!")
         return
     for comic_id in index_data:
+        # Ambil source_url langsung dari index.json
         comic_url = index_data[comic_id].get("source_url")
         if not comic_url:
-            logging.error(f"Komik {comic_id} tidak punya source_url di index.json, lewati.")
+            logging.error(f"Komik {comic_id} gak punya source_url di index.json, lewati.")
             continue
         comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
         if not os.path.exists(comic_file):
-            logging.error(f"File {comic_file} nggak gakang ada. Lewati.")
+            logging.error(f"File {comic_file} gak ada, lewati.")
             continue
         latest_local_chapter = float(index_data[comic_id].get("total_chapters", 0))
         comic_title = index_data[comic_id].get("title", comic_id)
@@ -29,15 +30,15 @@ def update_all():
         logging.info(f"Komik {comic_id}: Coba update chapter {next_chapter}")
         html = fetch_page(comic_url)
         if not html:
-            logging.error(f"Gagal mengambil halaman {comic_url}. Lewati.")
+            logging.error(f"Gagal mengambil halaman {comic_url}, lewati.")
             continue
         soup = BeautifulSoup(html, "html.parser")
         chapters = scrape_chapter_list(comic_url, soup)
         if not chapters:
-            logging.warning(f"Nggak ada chapter ditemukan untuk {comic_id}. Lewati.")
+            logging.warning(f"Gak ada chapter ditemukan untuk {comic_id}, lewati.")
             continue
         web_chapters = sorted([float(ch) for ch in chapters.keys()])
-        if next_chapter in web_chapters:
+        if next_chapter not in web_chapters:
             logging.info(f"Komik {comic_title}: Belum ada chapter {next_chapter}, bro!")
             continue
         logging.info(f"Komik {comic_id}: Nambah chapter {next_chapter}")
