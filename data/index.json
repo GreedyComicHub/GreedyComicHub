@@ -5,7 +5,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992274/greedycomichub/komik-one-piece-indo/cover/i5hpts6or1cr5rw7yaaf.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1001
+        "total_chapters": 1002
     },
     "magic-emperor": {
         "title": "Magic Emperor",
@@ -13,7 +13,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992227/greedycomichub/magic-emperor/cover/ixenomctmykdq5zwkbab.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 659
+        "total_chapters": 660
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
@@ -21,7 +21,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992296/greedycomichub/black-clover-indonesia/cover/ggfbqnnknphvlbpyyhlh.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 16
+        "total_chapters": 17
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -29,7 +29,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992310/greedycomichub/blue-lock/cover/auuqdycbqmyqrvrhvilg.jpg",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 67
+        "total_chapters": 68
     },
     "one-punch-man": {
         "title": "One Punch Man",
@@ -37,7 +37,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992325/greedycomichub/one-punch-man/cover/wyfxrljo1qmaykmmg6dt.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 11
+        "total_chapters": 12
     },
     "level-1-player": {
         "title": "Level 1 Player",
@@ -45,7 +45,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992338/greedycomichub/level-1-player/cover/dee2d2etf7iu3hvow4my.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 15
+        "total_chapters": 16
     },
     "sakamoto-days": {
         "title": "Sakamoto Days",
@@ -53,7 +53,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992349/greedycomichub/sakamoto-days/cover/aar1vmwfmwggfa87mfvj.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 14
+        "total_chapters": 15
     },
     "god-of-martial-arts": {
         "title": "God of Martial Arts",
@@ -61,14 +61,14 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992367/greedycomichub/god-of-martial-arts/cover/fzphhhj3c2myrirci9jg.jpg",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 10
+        "total_chapters": 11
     },
     "soul-land-2": {
         "title": "Soul Land 2",
         "synopsis": "Setelah kejadian di soul land pertama, kehidupan di dunia ini memasuki era baru yang penuh dengan tantangan dan kesempatan bagi para jiwa petarung, bro! tokoh utama melanjutkan perjalanan untuk mengembangkan kekuatan jiwa mereka dengan menghadapi lawan-lawan yang semakin kuat dan misteri yang tersembunyi di balik dunia jiwa, bro! dalam perjalanannya, mereka menemukan, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992191/greedycomichub/soul-land-2/cover/bqxg7qqcctsfdskxzd94.png",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749185726/greedycomichub/soul-land-2/cover/ljqj1x2ywri04paryblt.png",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 2
+        "total_chapters": 3
     }
 }
