@@ -1,87 +1,62 @@
 import logging
 import os
-import configparser
-import cloudinary
-import cloudinary.uploader
 from scraper import scrape_chapter_list, scrape_chapter_images, get_comic_id_and_display_name
-from utils import read_json, write_json, fetch_page, DATA_DIR
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from utils import read_json, write_json, upload_to_cloudinary, fetch_page, DATA_DIR
 
-# Setup Cloudinary from config.ini
-config = configparser.ConfigParser()
-config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
-cloudinary.config(
-    cloud_name=config["Cloudinary"]["CloudName"],
-    api_key=config["Cloudinary"]["ApiKey"],
-    api_secret=config["Cloudinary"]["ApiSecret"]
-)
-
-def update_comic(url, start, end, overwrite=False):
-    """Update komik dengan chapter dari start sampai end, upload gambar ke Cloudinary."""
+def update_comic(url, start_chapter, end_chapter, overwrite=False):
     logging.info(f"Mulai update chapter: {url}")
-    comic_id, display_name = get_comic_id_and_display_name(url)
-    logging.info(f"Nama komik dari URL: ID={comic_id}, Display={display_name}")
-
+    comic_id, _ = get_comic_id_and_display_name(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if not os.path.exists(comic_file):
-        logging.error(f"File {comic_file} nggak ada. Jalankan 'add-comic' dulu.")
+        logging.error(f"File {comic_file} tidak ada. Jalankan 'add-comic' dulu.")
         return
-
+    
     comic_data = read_json(comic_file)
-    chapters = comic_data.get("chapters", {})
-
     html = fetch_page(url)
     if not html:
-        logging.error(f"Gagal mengambil halaman {url}.")
+        logging.error("Gagal mengambil halaman komik.")
         return
+    
+    from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
-    chapter_list = scrape_chapter_list(url, soup)
-    if not chapter_list:
-        logging.error(f"Nggak ada chapter ditemukan untuk {comic_id}.")
+    chapters = scrape_chapter_list(url, soup)
+    if not chapters:
+        logging.error("Tidak ada chapter yang ditemukan.")
         return
 
-    updated = False
-    for chapter_num in sorted(chapter_list.keys(), key=float):
-        if float(chapter_num) < start or float(chapter_num) > end:
-            continue
-        if chapter_num in chapters and not overwrite:
-            logging.info(f"Chapter {chapter_num} untuk {comic_id} udah ada, skip.")
-            continue
-
-        chapter_url = urljoin(url, chapter_list[chapter_num])
-        logging.info(f"Mencoba nambah chapter {chapter_num} dari {chapter_url}")
-        image_urls = scrape_chapter_images(chapter_url)
-        if not image_urls:
-            logging.error(f"Gagal scrape gambar untuk chapter {chapter_num}.")
-            continue
-
-        # Upload ke Cloudinary
-        cloudinary_urls = []
-        for img_url in image_urls:
-            try:
-                uploaded = cloudinary.uploader.upload(
-                    img_url,
-                    folder=f"comics/{comic_id}/{chapter_num}",
-                    resource_type="image"
-                )
-                cloudinary_urls.append(uploaded["secure_url"])
-            except Exception as e:
-                logging.error(f"Gagal upload gambar {img_url} ke Cloudinary: {e}")
+    sorted_chapter_nums = sorted(chapters.keys(), key=lambda x: float(x))
+    for chapter_num in sorted_chapter_nums:
+        chapter_num_float = float(chapter_num)
+        if start_chapter <= chapter_num_float <= end_chapter:
+            if str(chapter_num) in comic_data["chapters"] and not overwrite:
+                logging.info(f"Chapter {chapter_num} sudah ada, melewati.")
                 continue
+            image_urls = scrape_chapter_images(chapters[chapter_num])
+            if not image_urls:
+                continue
+            uploaded_urls = []
+            for img_url in image_urls:
+                uploaded_url = upload_to_cloudinary(img_url, comic_id, chapter_num)
+                uploaded_urls.append(uploaded_url)
+            comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
+    
+    comic_data["chapters"] = dict(sorted(comic_data["chapters"].items(), key=lambda x: float(x[0])))
+    write_json(comic_file, comic_data)
+    logging.info(f"Berhasil disimpan ke {comic_file}")
+    update_index(comic_id, comic_data)
 
-        if not cloudinary_urls:
-            logging.error(f"Tidak ada gambar berhasil diupload untuk chapter {chapter_num}.")
-            continue
-
-        chapters[chapter_num] = {
-            "images": cloudinary_urls,
-            "title": f"Chapter {chapter_num}"
-        }
-        logging.info(f"Berhasil nambah chapter {chapter_num} dengan {len(cloudinary_urls)} gambar.")
-        updated = True
-
-    if updated:
-        comic_data["chapters"] = chapters
-        write_json(comic_file, comic_data)
-        logging.info(f"Berhasil disimpan ke {comic_file}")
+def update_index(comic_id, comic_data):
+    index_file = os.path.join(DATA_DIR, "index.json")
+    index_data = read_json(index_file)
+    logging.info(f"[CHECKPOINT] Update indeks untuk komik {comic_id}")
+    index_data[comic_id] = {
+        "title": comic_data["title"],
+        "synopsis": comic_data["synopsis"],
+        "cover": comic_data["cover"],
+        "genre": comic_data["genre"],
+        "type": comic_data["type"],
+        "total_chapters": len(comic_data["chapters"]),
+        "source_url": comic_data.get("source_url", "")  # Pastiin source_url disimpan
+    }
+    write_json(index_file, index_data)
+    logging.info(f"[CHECKPOINT] Berhasil update indeks di {index_file}")

@@ -21,3 +21,6 @@
 2025-06-02 05:45:32 - Completed: comic_update - {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}
 2025-06-02 05:45:34 - Completed: comic_update - {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}
 2025-06-02 05:45:36 - Completed: comic_update - {'comic_id': 'black-clover-indonesia', 'url': 'https://komiku.org/manga/black-clover-indonesia'}
+2025-06-06 12:52:43 - INFO - [CHECKPOINT] Processing task: {'task': 'add_comic', 'url': 'https://komiku.org/manga/blue-lock'}
+2025-06-06 12:52:43 - INFO - [CHECKPOINT] Processing task: {'task': 'update_comic', 'url': 'https://komiku.org/manga/magic-emperor', 'start': 1.0, 'end': 2.0, 'overwrite': False}
+2025-06-06 12:52:48 - INFO - [CHECKPOINT] Selesai memproses 2 tugas, 0 tugas tersisa

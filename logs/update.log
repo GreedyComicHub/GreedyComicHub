@@ -1,8 +1,2 @@
-2025-06-04 05:13:40,031 - INFO - Mulai update chapter: https://komiku.org/manga/magic-emperor
-2025-06-04 05:13:40,032 - INFO - Nama komik dari URL: ID=magic-emperor, Display=Magic Emperor
-2025-06-04 05:13:40,033 - INFO - Nama komik dari URL: ID=magic-emperor, Display=Magic Emperor
-2025-06-04 05:13:41,347 - INFO - Mencari daftar chapter dari https://komiku.org/manga/magic-emperor...
-2025-06-04 05:13:41,385 - INFO - Mencoba nambah chapter 656 dari https://komiku.org/magic-emperor-chapter-656/
-2025-06-04 05:13:41,824 - INFO - Judul chapter: Chapter 656
-2025-06-04 05:14:17,761 - INFO - Berhasil nambah chapter 656 dengan 28 gambar.
-2025-06-04 05:14:18,050 - INFO - Berhasil disimpan ke data\magic-emperor.json
+2025-06-06 12:52:40,792 - INFO - Memproses queue (max 10 tugas, max 4 proses)...
+2025-06-06 12:52:40,794 - INFO - [CHECKPOINT] Membaca file: queue.json
