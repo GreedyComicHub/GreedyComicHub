@@ -28,14 +28,14 @@ def add_comic(url):
         "genre": genre,
         "type": comic_type,
         "chapters": {},
-        "source_url": url  # Simpen URL asli
+        "source_url": url.strip()  # Simpen URL asli, bersihin spasi
     }
 
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     if os.path.exists(comic_file):
         existing_data = read_json(comic_file)
         comic_data["chapters"] = existing_data.get("chapters", {})
-        comic_data["source_url"] = existing_data.get("source_url", url)  # Pertahankan URL lama kalau ada
+        comic_data["source_url"] = existing_data.get("source_url", url.strip())
         logging.info(f"Komik sudah ada, mempertahankan chapters dan source_url.")
 
     write_json(comic_file, comic_data)
@@ -52,7 +52,7 @@ def update_index(comic_id, comic_data):
         "genre": comic_data["genre"],
         "type": comic_data["type"],
         "total_chapters": len(comic_data["chapters"]),
-        "source_url": comic_data["source_url"]  # Ambil dari comic_data
+        "source_url": comic_data["source_url"]  # Pastiin URL disimpan
     }
     write_json(index_file, index_data)
     logging.info(f"Berhasil update indeks di {index_file}")

@@ -1,13 +1,1 @@
-[
-    {
-        "task": "add_comic",
-        "url": "https://komiku.org/manga/blue-lock"
-    },
-    {
-        "task": "update_comic",
-        "url": "https://komiku.org/manga/magic-emperor",
-        "start": 1.0,
-        "end": 2.0,
-        "overwrite": false
-    }
-]
+[]
