@@ -9,26 +9,23 @@ from configparser import ConfigParser
 import cloudinary
 import cloudinary.uploader
 from filelock import FileLock
-from urllib.parse import urlparse, parse_qs, urlencode
+from urllib.parse import urlparse
 
-# Direktori
 DATA_DIR = "data"
 TEMP_IMAGES_DIR = "temp_images"
 LOG_DIR = "logs"
-QUEUE_FILE = "queue.json"
+QUEUE_FILE = os.path.join(DATA_DIR, "queue.json")
 
-# Setup direktori
 for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-# Load konfigurasi
 config = ConfigParser()
 config.read("config.ini")
 CLOUDINARY_CLOUD_NAME = config.get("Cloudinary", "CloudName")
 CLOUDINARY_API_KEY = config.get("Cloudinary", "ApiKey")
 CLOUDINARY_API_SECRET = config.get("Cloudinary", "ApiSecret")
-GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") or config.get("GitHub", "GitHubToken", fallback="")
 GITHUB_REPO = config.get("GitHub", "GitHubRepo")
 
 cloudinary.config(
@@ -102,19 +99,18 @@ def paraphrase_synopsis(original_synopsis):
     return synopsis
 
 def read_json(file_path):
-    lock = FileLock(file_path + ".lock")
-    with lock:
-        logging.info(f"[CHECKPOINT] Membaca file: {file_path}")
+    try:
         if os.path.exists(file_path):
             with open(file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
-        logging.info(f"[CHECKPOINT] File {file_path} tidak ada, kembalikan dict kosong")
-        return {}
+        logging.info(f"[CHECKPOINT] File {file_path} tidak ada, kembalikan list kosong")
+        return []
+    except Exception as e:
+        logging.error(f"[ERROR] Gagal baca {file_path}: {e}")
+        return []
 
 def write_json(file_path, data):
-    lock = FileLock(file_path + ".lock")
-    with lock:
-        logging.info(f"[CHECKPOINT] Menulis ke file: {file_path}")
+    try:
         if os.path.exists(file_path):
             backup_path = file_path + ".backup"
             shutil.copy(file_path, backup_path)
@@ -122,16 +118,22 @@ def write_json(file_path, data):
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         logging.info(f"[CHECKPOINT] Berhasil menulis ke {file_path}")
+    except Exception as e:
+        logging.error(f"[ERROR] Gagal menulis {file_path}: {e}")
 
 def add_to_queue(task):
-    """Tambah tugas ke queue.json dengan aman."""
-    lock = FileLock(QUEUE_FILE + ".lock")
-    with lock:
+    try:
         logging.info(f"[CHECKPOINT] Menambah tugas ke queue: {task}")
         queue = read_json(QUEUE_FILE)
+        if not isinstance(queue, list):
+            logging.warning(f"queue.json rusak, reset ke []")
+            queue = []
         queue.append(task)
         write_json(QUEUE_FILE, queue)
         logging.info(f"[CHECKPOINT] Tugas ditambahkan ke queue: {task}")
+    except Exception as e:
+        logging.error(f"[ERROR] Gagal menambah tugas: {task}, error: {e}")
+        print(f"Error menambahkan: {e}")
 
 def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
@@ -142,7 +144,7 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
         with open(temp_path, "wb") as f:
             f.write(response.content)
-        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}" if chapter_num != "cover" else f"greedycomichub/{comic_id}/cover"
+        folder = f"greedycomics/{comic_id}/chapter_{chapter_num}" if chapter_num != "cover" else f"greedycomics/{comic_id}/cover"
         upload_result = cloudinary.uploader.upload(
             temp_path,
             folder=folder,
@@ -150,29 +152,38 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
             resource_type="image"
         )
         os.remove(temp_path)
-        logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
+        logging.info(f"Upload {image_name}: {upload_result['secure_url']}")
         return upload_result["secure_url"]
     except Exception as e:
-        logging.error(f"Gagal upload gambar {image_url}: {e}")
+        logging.error(f"Error upload {image_url}: {e}")
         if os.path.exists(temp_path):
             os.remove(temp_path)
         return image_url
 
 def push_to_github():
-    logging.info("Push perubahan ke GitHub...")
+    logging.info("Push ke GitHub...")
     try:
         subprocess.run(["git", "add", "."], check=True)
         status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
         if not status.stdout.strip():
-            logging.info("Tidak ada perubahan. Skip push.")
+            logging.info("No changes. Skip push.")
             return True
         subprocess.run(["git", "commit", "-m", "Update comic data"], check=True)
+        if not GITHUB_TOKEN:
+            logging.error("No GitHub token. Set GITHUB_TOKEN.")
+            return False
+        logging.info(f"Push ke {GITHUB_REPO}...")
         subprocess.run(
             ["git", "push", f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git", "main"],
-            check=True
+            check=True,
+            capture_output=True,
+            text=True
         )
-        logging.info("Berhasil push ke GitHub.")
+        logging.info("Push sukses.")
         return True
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error push: {e}")
+        return False
     except Exception as e:
         logging.error(f"Error push: {e}")
         return False
