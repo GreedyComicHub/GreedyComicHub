@@ -24,10 +24,6 @@ def scrape_komiku_details(url, soup):
     title_element = soup.find("h1")
     title = title_element.text.strip().replace("Komik ", "").strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     author = "Unknown Author"
     selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Pengarang" in t if t else False)),
@@ -60,10 +56,6 @@ def scrape_komiku_details(url, soup):
                         break
     author = author.replace("~", "").strip() if author else "Unknown Author"
     logging.info(f"Author ditemukan: {author}")
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     genre = "Fantasy"
     genre_selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Konsep Cerita" in t if t else False)),
@@ -83,10 +75,6 @@ def scrape_komiku_details(url, soup):
                 if genre:
                     break
     logging.info(f"Genre ditemukan: {genre}")
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     comic_type = "Manhua"
     type_selectors = [
         (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Jenis Komik" in t if t else False)),
@@ -110,10 +98,6 @@ def scrape_komiku_details(url, soup):
                 if comic_type:
                     break
     logging.info(f"Tipe komik ditemukan: {comic_type}")
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     synopsis = "No synopsis available."
     synopsis_header = soup.find("h2", string=lambda t: "Sinopsis Lengkap" in t if t else False)
     if synopsis_header:
@@ -131,10 +115,6 @@ def scrape_komiku_details(url, soup):
             if meta_desc and meta_desc.get("content"):
                 synopsis = meta_desc["content"].strip()
     synopsis = paraphrase_synopsis(synopsis)
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     cover_url = ""
     cover_selectors = [
         'meta[property="og:image"]',
