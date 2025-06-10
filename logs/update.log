@@ -1,14 +1,15 @@
-2025-06-11 04:58:02,872 - INFO - Menambahkan komik baru: https://komiku.org/manga/dandadan
-2025-06-11 04:58:02,872 - INFO - Nama komik dari URL: ID=dandadan, Display=Dandadan
-2025-06-11 04:58:03,945 - INFO - Nama komik dari <h1>: DANDADAN
-2025-06-11 04:58:03,946 - INFO - Author ditemukan: Nugroho Joko Prasetyo
-2025-06-11 04:58:03,948 - INFO - Genre ditemukan: Fiksi Sains
-2025-06-11 04:58:03,948 - INFO - Tipe komik ditemukan: Manga
-2025-06-11 04:58:03,949 - INFO - Sinopsis ditemukan dari <p> setelah <h2>Sinopsis Lengkap</h2>: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
-2025-06-11 04:58:03,950 - INFO - Sinopsis asli: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
-2025-06-11 04:58:03,951 - INFO - Sinopsis gaul: Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!
-2025-06-11 04:58:03,968 - INFO - Scraped data: title=DANDADAN, author=Nugroho Joko Prasetyo, genre=Fiksi Sains, type=Manga, synopsis=Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!, cover=https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300
-2025-06-11 04:58:07,071 - INFO - Gambar manga_thumbnail-Manga-DANDADAN.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749592687/greedycomichub/dandadan/cover/m6oeuzncbxzmbrtgnkhz.jpg
-2025-06-11 04:58:07,072 - INFO - Cover diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749592687/greedycomichub/dandadan/cover/m6oeuzncbxzmbrtgnkhz.jpg
-2025-06-11 04:58:07,076 - INFO - Komik sudah ada, mempertahankan chapters dan source_url.
-2025-06-11 04:58:07,078 - INFO - Berhasil simpan data komik ke data\dandadan.json
+2025-06-11 05:11:55,308 - INFO - Menambahkan komik baru: https://komiku.org/manga/dandadan
+2025-06-11 05:11:55,309 - INFO - Nama komik dari URL: ID=dandadan, Display=Dandadan
+2025-06-11 05:11:56,193 - INFO - Nama komik dari <h1>: DANDADAN
+2025-06-11 05:11:56,195 - INFO - Author ditemukan: Nugroho Joko Prasetyo
+2025-06-11 05:11:56,196 - INFO - Genre ditemukan: Fiksi Sains
+2025-06-11 05:11:56,197 - INFO - Tipe komik ditemukan: Manga
+2025-06-11 05:11:56,198 - INFO - Sinopsis ditemukan dari <p> setelah <h2>Sinopsis Lengkap</h2>: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
+2025-06-11 05:11:56,199 - INFO - Sinopsis asli: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
+2025-06-11 05:11:56,199 - INFO - Sinopsis gaul: Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!
+2025-06-11 05:11:56,223 - INFO - Scraped data: title=DANDADAN, author=Nugroho Joko Prasetyo, genre=Fiksi Sains, type=Manga, synopsis=Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!, cover=https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300
+2025-06-11 05:11:59,385 - INFO - Gambar manga_thumbnail-Manga-DANDADAN.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749593519/greedycomichub/dandadan/cover/sipzdmlat6jgbuhwlpiy.jpg
+2025-06-11 05:11:59,386 - INFO - Cover diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749593519/greedycomichub/dandadan/cover/sipzdmlat6jgbuhwlpiy.jpg
+2025-06-11 05:11:59,390 - INFO - Komik sudah ada, mempertahankan chapters dan source_url.
+2025-06-11 05:11:59,393 - INFO - Berhasil simpan data komik ke data\dandadan.json
+2025-06-11 05:11:59,396 - INFO - Berhasil update indeks di data\index.json
