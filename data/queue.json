@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "task": "update_comic",
+        "url": "https://komiku.org/manga/soul-land-2",
+        "start": 1.0,
+        "end": 1.0,
+        "overwrite": false
+    }
+]
