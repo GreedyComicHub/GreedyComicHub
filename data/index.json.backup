@@ -77,7 +77,11 @@
     "unknown-title": {
         "title": "Unknown Title",
         "synopsis": "Petualangan seru di dunia penuh aksi dan misteri, bro!",
+<<<<<<< HEAD
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749580330/greedycomics/unknown-title/cover/uosk3ipsuieq7vc09zqt.jpg",
+=======
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749579875/greedycomics/unknown-title/cover/ahs3hjjcb1u5uahldudv.jpg",
+>>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
         "genre": "Unknown Genre",
         "type": "Manga",
         "author": "Unknown Author",

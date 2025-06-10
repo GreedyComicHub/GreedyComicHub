@@ -83,6 +83,7 @@
         "author": "Unknown Author",
         "total_chapters": 0,
         "source_url": "https://komiku.org/manga/dandadan"
+<<<<<<< HEAD
     },
     "dandadan": {
         "title": "DANDADAN",
@@ -92,5 +93,7 @@
         "type": "Manga",
         "total_chapters": 0,
         "source_url": "https://komiku.org/manga/dandadan"
+=======
+>>>>>>> 4b15c6dc1e741c004a4dedbad5589a76d2074390
     }
 }
