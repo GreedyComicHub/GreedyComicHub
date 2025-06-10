@@ -83,5 +83,14 @@
         "author": "Unknown Author",
         "total_chapters": 0,
         "source_url": "https://komiku.org/manga/dandadan"
+    },
+    "dandadan": {
+        "title": "DANDADAN",
+        "synopsis": "Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749581974/greedycomichub/dandadan/cover/yxurw43nn4gzo1twpapr.jpg",
+        "genre": "Fiksi Sains",
+        "type": "Manga",
+        "total_chapters": 0,
+        "source_url": "https://komiku.org/manga/dandadan"
     }
 }

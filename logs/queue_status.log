@@ -58,3 +58,6 @@
 2025-06-11 01:34:02 - ERROR - [CHECKPOINT] Failed task: {'task': 'update_comic', 'url': 'https://komiku.org/manga/soul-land-2', 'start': 1.0, 'end': 1.0, 'overwrite': False} (name 'os' is not defined)
 2025-06-11 01:34:03 - ERROR - [CHECKPOINT] Failed task: {'task': 'update_comic', 'url': 'https://komiku.org/manga/soul-land-2', 'start': 5.0, 'end': 5.0, 'overwrite': False} (name 'os' is not defined)
 2025-06-11 01:34:03 - INFO - [CHECKPOINT] Selesai memproses 0 tugas, 2 tugas tersisa
+2025-06-11 01:41:34 - INFO - Processing task: {'task': 'add_comic', 'url': 'https://komiku.org/manga/dandadan'}
+2025-06-11 01:41:34 - ERROR - Processing task: {'task': 'update_comic', 'url': 'https://komiku.org/manga/soul-land-2', 'start': 5.0, 'end': 5.0, 'overwrite': False}
+2025-06-11 01:41:34 - INFO - Selesai memproses 2 tugas, 1 tugas tersisa
