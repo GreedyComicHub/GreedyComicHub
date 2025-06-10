@@ -73,5 +73,14 @@
         "type": "Manhua",
         "total_chapters": 4,
         "source_url": "https://komiku.org/manga/soul-land-2"
+    },
+    "unknown-title": {
+        "title": "Unknown Title",
+        "synopsis": "Petualangan seru di dunia penuh aksi dan misteri, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749574501/greedycomics/unknown-title/cover/ewcqvz61xd2lnaslaq8v.jpg",
+        "genre": "Unknown Genre",
+        "type": "Unknown Type",
+        "total_chapters": 0,
+        "source_url": "https://komiku.org/manga/dandadan"
     }
 }

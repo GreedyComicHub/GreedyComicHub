@@ -8,7 +8,6 @@ import shutil
 from configparser import ConfigParser
 import cloudinary
 import cloudinary.uploader
-from filelock import FileLock
 from urllib.parse import urlparse
 
 DATA_DIR = "data"
