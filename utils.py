@@ -50,14 +50,16 @@ def setup_logging():
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-def fetch_page(url, retries=3, delay=2):
+def fetch_page(url, retries=5, delay=3):
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Referer": "https://komiku.org/"
     }
     for attempt in range(retries):
         try:
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers=headers, timeout=15)
             response.raise_for_status()
             return response.text
         except requests.RequestException as e:

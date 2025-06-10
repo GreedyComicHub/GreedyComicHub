@@ -103,7 +103,7 @@ def main():
     elif args.command == "update-source-url":
         update_source_url(args.old_url, args.new_url)
     elif args.command == "update-domain":
-        update_domain(args.old_domain, args.new_domain)
+        update_domain(args.old_domain, new_domain)
     elif args.command == "process-queue":
         process_queue(args.max_tasks, args.max_processes)
     elif args.command == "check-queue":

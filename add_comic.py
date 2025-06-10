@@ -14,29 +14,35 @@ def add_comic(url):
     
     soup = BeautifulSoup(html_content, "html.parser")
     
-    title_element = soup.select_one("h1[itemprop='name']")
+    # Judul
+    title_element = soup.select_one("h1[itemprop='name']") or soup.select_one("h1.judul")
     title = title_element.text.strip() if title_element else "Unknown Title"
+    if title == "Unknown Title":
+        logging.error("Gagal ambil judul")
     
-    synopsis_element = soup.select_one("div[itemprop='description']")
+    # Sinopsis
+    synopsis_element = soup.select_one("div[itemprop='description']") or soup.select_one("div.komik_info-description-sinopsis")
     synopsis = synopsis_element.text.strip() if synopsis_element else "No synopsis available."
     synopsis = paraphrase_synopsis(synopsis)
     
-    cover_element = soup.select_one("img[itemprop='image']")
+    # Cover
+    cover_element = soup.select_one("img[itemprop='image']") or soup.select_one("img.komik_info-cover-image")
     cover_url = cover_element["src"] if cover_element else ""
+    comic_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
     if cover_url:
-        comic_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
         cover_url = upload_to_cloudinary(cover_url, comic_id, "cover")
     
-    genre_element = soup.select_one("td:contains('Genre') + td")
-    genre = genre_element.text.strip() if genre_element else "Unknown Genre"
+    # Genre
+    genre_elements = soup.select("td:contains('Genre') + td a") or soup.select("div.komik_info-genre a")
+    genre = ", ".join([g.text.strip() for g in genre_elements]) if genre_elements else "Unknown Genre"
     
-    type_element = soup.select_one("td:contains('Type') + td")
+    # Tipe
+    type_element = soup.select_one("td:contains('Type') + td") or soup.select_one("td:contains('Jenis Komik') + td")
     comic_type = type_element.text.strip() if type_element else "Unknown Type"
     
-    author_element = soup.select_one("td:contains('Author') + td")
+    # Author
+    author_element = soup.select_one("td:contains('Author') + td") or soup.select_one("div.komik_info-author")
     author = author_element.text.strip() if author_element else "Unknown Author"
-    
-    comic_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
     
     comic_data = {
         "title": title,
