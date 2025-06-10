@@ -30,3 +30,5 @@
 2025-06-10 23:59:52 - INFO - [CHECKPOINT] Selesai memproses 1 tugas, 0 tugas tersisa
 2025-06-11 00:06:11 - INFO - [CHECKPOINT] Processing task: {'task': 'add_comic', 'url': 'https://komiku.org/manga/dandadan'}
 2025-06-11 00:06:15 - INFO - [CHECKPOINT] Selesai memproses 1 tugas, 0 tugas tersisa
+2025-06-11 00:14:19 - INFO - [CHECKPOINT] Processing task: {'task': 'add_comic', 'url': 'https://komiku.org/manga/dandadan'}
+2025-06-11 00:14:24 - INFO - [CHECKPOINT] Selesai memproses 1 tugas, 0 tugas tersisa

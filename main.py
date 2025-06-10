@@ -17,24 +17,24 @@ def update_domain(old_domain, new_domain):
         logging.warning("index.json kosong, bro!")
         return
     for comic_id in index_data:
-        old_source_url = index_data[comics_id].get("source_url", "")
+        old_source_url = index_data[comic_id].get("source_url", "")
         if not old_source_url:
-            logging.warning(f"Komik {comics_id} nggak punya source_url, skip.")
+            logging.warning(f"Komik {comic_id} nggak punya source_url, skip.")
             continue
         new_source_url = old_source_url.replace(old_domain, new_domain)
         if new_source_url == old_source_url:
-            logging.info(f"Komik {comics_id}: source_url {old_source_url} nggak berubah, skip.")
+            logging.info(f"Komik {comic_id}: source_url {old_source_url} nggak berubah, skip.")
             continue
-        index_data[comics_id]["source_url"] = new_source_url
-        logging.info(f"Komik {comics_id}: Update source_url dari {old_source_url} ke {new_source_url}")
-        comics_file = os.path.join(DATA_DIR, f"{comics_id}.json")
-        if not os.path.exists(comics_file):
-            logging.error(f"File {comics_file} nggak ada, skip.")
+        index_data[comic_id]["source_url"] = new_source_url
+        logging.info(f"Komik {comic_id}: Update source_url dari {old_source_url} ke {new_source_url}")
+        comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
+        if not os.path.exists(comic_file):
+            logging.error(f"File {comic_file} nggak ada, skip.")
             continue
-        comics_data = read_json(comics_file)
-        comics_data["source_url"] = new_source_url
-        write_json(comics_file, comics_data)
-        logging.info(f"Update {comics_file} dengan source_url baru: {new_source_url}")
+        comic_data = read_json(comic_file)
+        comic_data["source_url"] = new_source_url
+        write_json(comic_file, comic_data)
+        logging.info(f"Update {comic_file} dengan source_url baru: {new_source_url}")
     write_json(index_file, index_data)
     logging.info(f"Update index.json dengan domain baru.")
 

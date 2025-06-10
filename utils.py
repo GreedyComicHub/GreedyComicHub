@@ -132,7 +132,7 @@ def add_to_queue(task):
         logging.info(f"[CHECKPOINT] Tugas ditambahkan ke queue: {task}")
     except Exception as e:
         logging.error(f"[ERROR] Gagal menambah tugas: {task}, error: {e}")
-        print(f"Error menambahkan: {e}")
+        print(f"Error menambahkan ke queue: {e}")
 
 def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
