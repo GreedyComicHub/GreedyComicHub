@@ -8,7 +8,7 @@ from configparser import ConfigParser
 import cloudinary
 import cloudinary.uploader
 from filelock import FileLock
-from urllib.parse import urlparse, parse_qs, urlencode  # Tambah import ini
+from urllib.parse import urlparse, parse_qs, urlencode
 
 # Direktori
 DATA_DIR = "data"
@@ -72,16 +72,13 @@ def fetch_page(url, retries=3, delay=2):
 def paraphrase_synopsis(original_synopsis):
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan seru di dunia penuh aksi dan misteri, bro!"
-    # Hapus promo phrases
     promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
     synopsis = original_synopsis.lower()
     for phrase in promo_phrases:
         synopsis = synopsis.replace(phrase, "").strip()
-    # Gaya gaul: singkat, santai, pake kata-kata anak muda
     words = synopsis.split()
     if len(words) > 50:
         synopsis = " ".join(words[:50]) + "..."
-    # Ganti frase formal ke gaul
     replacements = {
         "mengikuti petualangan": "ngejar petualangan",
         "bermimpi menjadi": "nggak sabar jadi",
@@ -96,7 +93,6 @@ def paraphrase_synopsis(original_synopsis):
     }
     for formal, gaul in replacements.items():
         synopsis = synopsis.replace(formal, gaul)
-    # Tambah vibe gaul
     synopsis = synopsis.replace(".", ", bro!").capitalize()
     if not synopsis.endswith("bro!"):
         synopsis += ", bro!"
@@ -122,13 +118,11 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
     try:
         response = requests.get(image_url, timeout=10)
         response.raise_for_status()
-        # Bersihin query parameter dari URL
         parsed_url = urlparse(image_url)
         image_name = os.path.basename(parsed_url.path)
         temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
         with open(temp_path, "wb") as f:
             f.write(response.content)
-        # Ubah folder structure biar konsisten
         folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}" if chapter_num != "cover" else f"greedycomichub/{comic_id}/cover"
         upload_result = cloudinary.uploader.upload(
             temp_path,
@@ -143,7 +137,7 @@ def upload_to_cloudinary(image_url, comic_id, chapter_num):
         logging.error(f"Gagal upload gambar {image_url}: {e}")
         if os.path.exists(temp_path):
             os.remove(temp_path)
-        return image_url  # Fallback ke URL asli
+        return image_url
 
 def push_to_github():
     logging.info("Push perubahan ke GitHub...")
@@ -163,3 +157,8 @@ def push_to_github():
     except Exception as e:
         logging.error(f"Error push: {e}")
         return False
+
+def get_comic_id_from_url(url):
+    comic_id = url.rstrip("/").split("/")[-1].lower()
+    logging.info(f"Nama komik dari URL: ID={comic_id}, Display={comic_id.capitalize()}")
+    return comic_id

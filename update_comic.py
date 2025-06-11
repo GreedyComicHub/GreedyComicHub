@@ -1,55 +1,76 @@
-import logging
 import os
-from scraper import scrape_chapter_list, scrape_chapter_images, get_comic_id_and_display_name
-from utils import read_json, write_json, upload_to_cloudinary, fetch_page, DATA_DIR
+import logging
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from utils import fetch_page, read_json, write_json, DATA_DIR, get_comic_id_from_url, upload_to_cloudinary
 
-def update_comic(url, start_chapter, end_chapter, overwrite=False):
+def update_comic(url, start, end, overwrite=False):
     logging.info(f"Mulai update chapter: {url}")
-    comic_id, _ = get_comic_id_and_display_name(url)
+    comic_id = get_comic_id_from_url(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
-    if not os.path.exists(comic_file):
-        logging.error(f"File {comic_file} tidak ada. Jalankan 'add-comic' dulu.")
-        return
     comic_data = read_json(comic_file)
+    if not comic_data:
+        logging.error(f"File {comic_file} ga ada, bro!")
+        return
+
+    # Scrape daftar chapter
     html = fetch_page(url)
     if not html:
-        logging.error("Gagal mengambil halaman komik.")
+        logging.error(f"Gagal ambil halaman {url}")
         return
-    from bs4 import BeautifulSoup
-    soup = BeautifulSoup(html, "html.parser")
-    chapters = scrape_chapter_list(url, soup)
-    if not chapters:
-        logging.error("Tidak ada chapter yang ditemukan.")
-        return
-    sorted_chapter_nums = sorted(chapters.keys(), key=lambda x: float(x))
-    for chapter_num in sorted_chapter_nums:
-        chapter_num_float = float(chapter_num)
-        if start_chapter <= chapter_num_float <= end_chapter:
-            if str(chapter_num) in comic_data["chapters"] and not overwrite:
-                logging.info(f"Chapter {chapter_num} sudah ada, melewati.")
-                continue
-            image_urls = scrape_chapter_images(chapters[chapter_num])
-            if not image_urls:
-                continue
-            uploaded_urls = []
-            for img_url in image_urls:
-                uploaded_url = upload_to_cloudinary(img_url, comic_id, chapter_num)
-                uploaded_urls.append(uploaded_url)
-            comic_data["chapters"][str(chapter_num)] = {"pages": uploaded_urls}
-    comic_data["chapters"] = dict(sorted(comic_data["chapters"].items(), key=lambda x: float(x[0])))
-    write_json(comic_file, comic_data)
-    logging.info(f"Berhasil disimpan ke {comic_file}")
-    update_index(comic_id, comic_data)
 
-def update_index(comic_id, comic_data):
-    index_file = os.path.join(DATA_DIR, "index.json")
-    index_data = read_json(index_file)
-    index_data[comic_id] = {
-        "title": comic_data["title"],
-        "synopsis": comic_data["synopsis"],
-        "cover": comic_data["cover"],
-        "genre": comic_data["genre"],
-        "type": comic_data["type"],
-        "total_chapters": len(comic_data["chapters"])
-    }
-    write_json(index_file, index_data)
+    try:
+        soup = BeautifulSoup(html, 'html.parser')
+        chapter_list = soup.select('td.judulseries a')
+        logging.info(f"Found {len(chapter_list)} chapter links")
+
+        chapters = {}
+        for chapter in chapter_list:
+            chapter_url = chapter.get('href')
+            if chapter_url.startswith('/'):
+                chapter_url = urljoin(url, chapter_url)
+            chapter_text = chapter.find('span').text.strip() if chapter.find('span') else chapter.text.strip()
+            logging.info(f"Chapter: {chapter_text}, URL: {chapter_url}")
+
+            try:
+                chapter_num = chapter_text.lower().replace('chapter ', '').replace('bab ', '').strip()
+                chapter_num = float(chapter_num)
+                if start <= chapter_num <= end:
+                    # Scrape gambar dari halaman chapter
+                    chapter_html = fetch_page(chapter_url)
+                    images = []
+                    if chapter_html:
+                        chapter_soup = BeautifulSoup(chapter_html, 'html.parser')
+                        image_elements = chapter_soup.select('div#Baca_Komik img[itemprop="image"]')
+                        for img in image_elements:
+                            img_url = img.get('src')
+                            if img_url and img_url.startswith('http'):
+                                cloudinary_url = upload_to_cloudinary(img_url, comic_id, str(chapter_num))
+                                images.append(cloudinary_url)
+                        logging.info(f"Scraped {len(images)} images for Chapter {chapter_num}")
+
+                    chapters[str(chapter_num)] = {
+                        "title": chapter_text,
+                        "url": chapter_url,
+                        "images": images
+                    }
+            except (ValueError, IndexError):
+                logging.warning(f"Ga bisa parse chapter number dari: {chapter_text}")
+                continue
+
+        logging.info(f"Filtered {len(chapters)} chapters in range {start} to {end}")
+
+        # Update comic data
+        comic_data["chapters"] = comic_data.get("chapters", {})
+        if overwrite:
+            comic_data["chapters"].update(chapters)
+        else:
+            for num, chapter in chapters.items():
+                if num not in comic_data["chapters"]:
+                    comic_data["chapters"][num] = chapter
+        comic_data["total_chapters"] = len(comic_data["chapters"])
+
+        write_json(comic_file, comic_data)
+        logging.info(f"Berhasil disimpan ke {comic_file}")
+    except Exception as e:
+        logging.error(f"Error scraping {url}: {e}")

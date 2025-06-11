@@ -1,15 +1,245 @@
-2025-06-11 05:11:55,308 - INFO - Menambahkan komik baru: https://komiku.org/manga/dandadan
-2025-06-11 05:11:55,309 - INFO - Nama komik dari URL: ID=dandadan, Display=Dandadan
-2025-06-11 05:11:56,193 - INFO - Nama komik dari <h1>: DANDADAN
-2025-06-11 05:11:56,195 - INFO - Author ditemukan: Nugroho Joko Prasetyo
-2025-06-11 05:11:56,196 - INFO - Genre ditemukan: Fiksi Sains
-2025-06-11 05:11:56,197 - INFO - Tipe komik ditemukan: Manga
-2025-06-11 05:11:56,198 - INFO - Sinopsis ditemukan dari <p> setelah <h2>Sinopsis Lengkap</h2>: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
-2025-06-11 05:11:56,199 - INFO - Sinopsis asli: Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal...
-2025-06-11 05:11:56,199 - INFO - Sinopsis gaul: Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!
-2025-06-11 05:11:56,223 - INFO - Scraped data: title=DANDADAN, author=Nugroho Joko Prasetyo, genre=Fiksi Sains, type=Manga, synopsis=Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!, cover=https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300
-2025-06-11 05:11:59,385 - INFO - Gambar manga_thumbnail-Manga-DANDADAN.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749593519/greedycomichub/dandadan/cover/sipzdmlat6jgbuhwlpiy.jpg
-2025-06-11 05:11:59,386 - INFO - Cover diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749593519/greedycomichub/dandadan/cover/sipzdmlat6jgbuhwlpiy.jpg
-2025-06-11 05:11:59,390 - INFO - Komik sudah ada, mempertahankan chapters dan source_url.
-2025-06-11 05:11:59,393 - INFO - Berhasil simpan data komik ke data\dandadan.json
-2025-06-11 05:11:59,396 - INFO - Berhasil update indeks di data\index.json
+2025-06-11 06:51:03,180 - INFO - Mulai update chapter: https://komiku.org/manga/dandadan
+2025-06-11 06:51:03,180 - INFO - Nama komik dari URL: ID=dandadan, Display=Dandadan
+2025-06-11 06:51:04,172 - INFO - Found 199 chapter links
+2025-06-11 06:51:04,174 - INFO - Chapter: Chapter 197, URL: https://komiku.org/dandadan-chapter-197/
+2025-06-11 06:51:04,175 - INFO - Chapter: Chapter 196, URL: https://komiku.org/dandadan-chapter-196/
+2025-06-11 06:51:04,175 - INFO - Chapter: Chapter 195, URL: https://komiku.org/dandadan-chapter-195/
+2025-06-11 06:51:04,176 - INFO - Chapter: Chapter 194, URL: https://komiku.org/dandadan-chapter-194/
+2025-06-11 06:51:04,177 - INFO - Chapter: Chapter 193, URL: https://komiku.org/dandadan-chapter-193/
+2025-06-11 06:51:04,178 - INFO - Chapter: Chapter 192, URL: https://komiku.org/dandadan-chapter-192/
+2025-06-11 06:51:04,178 - INFO - Chapter: Chapter 191, URL: https://komiku.org/dandadan-chapter-191/
+2025-06-11 06:51:04,179 - INFO - Chapter: Chapter 190, URL: https://komiku.org/dandadan-chapter-190/
+2025-06-11 06:51:04,179 - INFO - Chapter: Chapter 189, URL: https://komiku.org/dandadan-chapter-189/
+2025-06-11 06:51:04,180 - INFO - Chapter: Chapter 188, URL: https://komiku.org/dandadan-chapter-188/
+2025-06-11 06:51:04,180 - INFO - Chapter: Chapter 187, URL: https://komiku.org/dandadan-chapter-187/
+2025-06-11 06:51:04,181 - INFO - Chapter: Chapter 186, URL: https://komiku.org/dandadan-chapter-186/
+2025-06-11 06:51:04,181 - INFO - Chapter: Chapter 185, URL: https://komiku.org/dandadan-chapter-185/
+2025-06-11 06:51:04,182 - INFO - Chapter: Chapter 184, URL: https://komiku.org/dandadan-chapter-184/
+2025-06-11 06:51:04,182 - INFO - Chapter: Chapter 183, URL: https://komiku.org/dandadan-chapter-183/
+2025-06-11 06:51:04,183 - INFO - Chapter: Chapter 182, URL: https://komiku.org/dandadan-chapter-182/
+2025-06-11 06:51:04,184 - INFO - Chapter: Chapter 181, URL: https://komiku.org/dandadan-chapter-181/
+2025-06-11 06:51:04,184 - INFO - Chapter: Chapter 180, URL: https://komiku.org/dandadan-chapter-180/
+2025-06-11 06:51:04,185 - INFO - Chapter: Chapter 179, URL: https://komiku.org/dandadan-chapter-179/
+2025-06-11 06:51:04,186 - INFO - Chapter: Chapter 178, URL: https://komiku.org/dandadan-chapter-178/
+2025-06-11 06:51:04,186 - INFO - Chapter: Chapter 177, URL: https://komiku.org/dandadan-chapter-177/
+2025-06-11 06:51:04,187 - INFO - Chapter: Chapter 176, URL: https://komiku.org/dandadan-chapter-176/
+2025-06-11 06:51:04,187 - INFO - Chapter: Chapter 175, URL: https://komiku.org/dandadan-chapter-175/
+2025-06-11 06:51:04,188 - INFO - Chapter: Chapter 174, URL: https://komiku.org/dandadan-chapter-174/
+2025-06-11 06:51:04,189 - INFO - Chapter: Chapter 173, URL: https://komiku.org/dandadan-chapter-173/
+2025-06-11 06:51:04,189 - INFO - Chapter: Chapter 172, URL: https://komiku.org/dandadan-chapter-172/
+2025-06-11 06:51:04,190 - INFO - Chapter: Chapter 171, URL: https://komiku.org/dandadan-chapter-171/
+2025-06-11 06:51:04,191 - INFO - Chapter: Chapter 170, URL: https://komiku.org/dandadan-chapter-170/
+2025-06-11 06:51:04,191 - INFO - Chapter: Chapter 169, URL: https://komiku.org/dandadan-chapter-169/
+2025-06-11 06:51:04,192 - INFO - Chapter: Chapter 168, URL: https://komiku.org/dandadan-chapter-168/
+2025-06-11 06:51:04,195 - INFO - Chapter: Chapter 167, URL: https://komiku.org/dandadan-chapter-167/
+2025-06-11 06:51:04,272 - INFO - Chapter: Chapter 166, URL: https://komiku.org/dandadan-chapter-166/
+2025-06-11 06:51:04,279 - INFO - Chapter: Chapter 165, URL: https://komiku.org/dandadan-chapter-165/
+2025-06-11 06:51:04,282 - INFO - Chapter: Chapter 164, URL: https://komiku.org/dandadan-chapter-164/
+2025-06-11 06:51:04,283 - INFO - Chapter: Chapter 163, URL: https://komiku.org/dandadan-chapter-163/
+2025-06-11 06:51:04,284 - INFO - Chapter: Chapter 162, URL: https://komiku.org/dandadan-chapter-162/
+2025-06-11 06:51:04,284 - INFO - Chapter: Chapter 161, URL: https://komiku.org/dandadan-chapter-161/
+2025-06-11 06:51:04,285 - INFO - Chapter: Chapter 160, URL: https://komiku.org/dandadan-chapter-160/
+2025-06-11 06:51:04,287 - INFO - Chapter: Chapter 159, URL: https://komiku.org/dandadan-chapter-159/
+2025-06-11 06:51:04,288 - INFO - Chapter: Chapter 158, URL: https://komiku.org/dandadan-chapter-158/
+2025-06-11 06:51:04,288 - INFO - Chapter: Chapter 157, URL: https://komiku.org/dandadan-chapter-157/
+2025-06-11 06:51:04,289 - INFO - Chapter: Chapter 156, URL: https://komiku.org/dandadan-chapter-156/
+2025-06-11 06:51:04,290 - INFO - Chapter: Chapter 155, URL: https://komiku.org/dandadan-chapter-155/
+2025-06-11 06:51:04,290 - INFO - Chapter: Chapter 154, URL: https://komiku.org/dandadan-chapter-154/
+2025-06-11 06:51:04,291 - INFO - Chapter: Chapter 153, URL: https://komiku.org/dandadan-chapter-153/
+2025-06-11 06:51:04,291 - INFO - Chapter: Chapter 152, URL: https://komiku.org/dandadan-chapter-152/
+2025-06-11 06:51:04,292 - INFO - Chapter: Chapter 151, URL: https://komiku.org/dandadan-chapter-151/
+2025-06-11 06:51:04,292 - INFO - Chapter: Chapter 150, URL: https://komiku.org/dandadan-chapter-150/
+2025-06-11 06:51:04,293 - INFO - Chapter: Chapter 149, URL: https://komiku.org/dandadan-chapter-149/
+2025-06-11 06:51:04,294 - INFO - Chapter: Chapter 148, URL: https://komiku.org/dandadan-chapter-148/
+2025-06-11 06:51:04,294 - INFO - Chapter: Chapter 147, URL: https://komiku.org/dandadan-chapter-147/
+2025-06-11 06:51:04,295 - INFO - Chapter: Chapter 146, URL: https://komiku.org/dandadan-chapter-146/
+2025-06-11 06:51:04,295 - INFO - Chapter: Chapter 145, URL: https://komiku.org/dandadan-chapter-145/
+2025-06-11 06:51:04,296 - INFO - Chapter: Chapter 144, URL: https://komiku.org/dandadan-chapter-144/
+2025-06-11 06:51:04,296 - INFO - Chapter: Chapter 143, URL: https://komiku.org/dandadan-chapter-143/
+2025-06-11 06:51:04,297 - INFO - Chapter: Chapter 142, URL: https://komiku.org/dandadan-chapter-142/
+2025-06-11 06:51:04,297 - INFO - Chapter: Chapter 141, URL: https://komiku.org/dandadan-chapter-141/
+2025-06-11 06:51:04,298 - INFO - Chapter: Chapter 140, URL: https://komiku.org/dandadan-chapter-140/
+2025-06-11 06:51:04,298 - INFO - Chapter: Chapter 139, URL: https://komiku.org/dandadan-chapter-139/
+2025-06-11 06:51:04,299 - INFO - Chapter: Chapter 138, URL: https://komiku.org/dandadan-chapter-138/
+2025-06-11 06:51:04,299 - INFO - Chapter: Chapter 137, URL: https://komiku.org/dandadan-chapter-137/
+2025-06-11 06:51:04,300 - INFO - Chapter: Chapter 136, URL: https://komiku.org/dandadan-chapter-136/
+2025-06-11 06:51:04,301 - INFO - Chapter: Chapter 135, URL: https://komiku.org/dandadan-chapter-135/
+2025-06-11 06:51:04,301 - INFO - Chapter: Chapter 134, URL: https://komiku.org/dandadan-chapter-134/
+2025-06-11 06:51:04,304 - INFO - Chapter: Chapter 133, URL: https://komiku.org/dandadan-chapter-133/
+2025-06-11 06:51:04,305 - INFO - Chapter: Chapter 132, URL: https://komiku.org/dandadan-chapter-132/
+2025-06-11 06:51:04,305 - INFO - Chapter: Chapter 131, URL: https://komiku.org/dandadan-chapter-131/
+2025-06-11 06:51:04,306 - INFO - Chapter: Chapter 130, URL: https://komiku.org/dandadan-chapter-130/
+2025-06-11 06:51:04,307 - INFO - Chapter: Chapter 129, URL: https://komiku.org/dandadan-chapter-129/
+2025-06-11 06:51:04,307 - INFO - Chapter: Chapter 128, URL: https://komiku.org/dandadan-chapter-128/
+2025-06-11 06:51:04,308 - INFO - Chapter: Chapter 127, URL: https://komiku.org/dandadan-chapter-127/
+2025-06-11 06:51:04,308 - INFO - Chapter: Chapter 126, URL: https://komiku.org/dandadan-chapter-126/
+2025-06-11 06:51:04,320 - INFO - Chapter: Chapter 125, URL: https://komiku.org/dandadan-chapter-125/
+2025-06-11 06:51:04,322 - INFO - Chapter: Chapter 124, URL: https://komiku.org/dandadan-chapter-124/
+2025-06-11 06:51:04,322 - INFO - Chapter: Chapter 123, URL: https://komiku.org/dandadan-chapter-123/
+2025-06-11 06:51:04,323 - INFO - Chapter: Chapter 122, URL: https://komiku.org/dandadan-chapter-122/
+2025-06-11 06:51:04,323 - INFO - Chapter: Chapter 120, URL: https://komiku.org/dandadan-chapter-120/
+2025-06-11 06:51:04,324 - INFO - Chapter: Chapter 119, URL: https://komiku.org/dandadan-chapter-119/
+2025-06-11 06:51:04,324 - INFO - Chapter: Chapter 118, URL: https://komiku.org/dandadan-chapter-118/
+2025-06-11 06:51:04,325 - INFO - Chapter: Chapter 117, URL: https://komiku.org/dandadan-chapter-117/
+2025-06-11 06:51:04,325 - INFO - Chapter: Chapter 116, URL: https://komiku.org/dandadan-chapter-116/
+2025-06-11 06:51:04,326 - INFO - Chapter: Chapter 115, URL: https://komiku.org/dandadan-chapter-115/
+2025-06-11 06:51:04,326 - INFO - Chapter: Chapter 114, URL: https://komiku.org/dandadan-chapter-114/
+2025-06-11 06:51:04,327 - INFO - Chapter: Chapter 113, URL: https://komiku.org/dandadan-chapter-113/
+2025-06-11 06:51:04,327 - INFO - Chapter: Chapter 112, URL: https://komiku.org/dandadan-chapter-112/
+2025-06-11 06:51:04,328 - INFO - Chapter: Chapter 111, URL: https://komiku.org/dandadan-chapter-111/
+2025-06-11 06:51:04,328 - INFO - Chapter: Chapter 110, URL: https://komiku.org/dandadan-chapter-110/
+2025-06-11 06:51:04,329 - INFO - Chapter: Chapter 109, URL: https://komiku.org/dandadan-chapter-109/
+2025-06-11 06:51:04,329 - INFO - Chapter: Chapter 108, URL: https://komiku.org/dandadan-chapter-108/
+2025-06-11 06:51:04,330 - INFO - Chapter: Chapter 107, URL: https://komiku.org/dandadan-chapter-107/
+2025-06-11 06:51:04,330 - INFO - Chapter: Chapter 106, URL: https://komiku.org/dandadan-chapter-106/
+2025-06-11 06:51:04,331 - INFO - Chapter: Chapter 105, URL: https://komiku.org/dandadan-chapter-105/
+2025-06-11 06:51:04,331 - INFO - Chapter: Chapter 104, URL: https://komiku.org/dandadan-chapter-104/
+2025-06-11 06:51:04,332 - INFO - Chapter: Chapter 103, URL: https://komiku.org/dandadan-chapter-103/
+2025-06-11 06:51:04,332 - INFO - Chapter: Chapter 102, URL: https://komiku.org/dandadan-chapter-102/
+2025-06-11 06:51:04,335 - INFO - Chapter: Chapter 101, URL: https://komiku.org/dandadan-chapter-101/
+2025-06-11 06:51:04,336 - INFO - Chapter: Chapter 100, URL: https://komiku.org/dandadan-chapter-100/
+2025-06-11 06:51:04,336 - INFO - Chapter: Chapter 99, URL: https://komiku.org/dandadan-chapter-99/
+2025-06-11 06:51:04,337 - INFO - Chapter: Chapter 98, URL: https://komiku.org/dandadan-chapter-98/
+2025-06-11 06:51:04,337 - INFO - Chapter: Chapter 97, URL: https://komiku.org/dandadan-chapter-97/
+2025-06-11 06:51:04,338 - INFO - Chapter: Chapter 96, URL: https://komiku.org/dandadan-chapter-96/
+2025-06-11 06:51:04,339 - INFO - Chapter: Chapter 95, URL: https://komiku.org/dandadan-chapter-95/
+2025-06-11 06:51:04,339 - INFO - Chapter: Chapter 94, URL: https://komiku.org/dandadan-chapter-94/
+2025-06-11 06:51:04,340 - INFO - Chapter: Chapter 93, URL: https://komiku.org/dandadan-chapter-93/
+2025-06-11 06:51:04,340 - INFO - Chapter: Chapter 92, URL: https://komiku.org/dandadan-chapter-92/
+2025-06-11 06:51:04,341 - INFO - Chapter: Chapter 91, URL: https://komiku.org/dandadan-chapter-91/
+2025-06-11 06:51:04,341 - INFO - Chapter: Chapter 90, URL: https://komiku.org/dandadan-chapter-90/
+2025-06-11 06:51:04,342 - INFO - Chapter: Chapter 89, URL: https://komiku.org/dandadan-chapter-89/
+2025-06-11 06:51:04,342 - INFO - Chapter: Chapter 88, URL: https://komiku.org/dandadan-chapter-88/
+2025-06-11 06:51:04,343 - INFO - Chapter: Chapter 87, URL: https://komiku.org/dandadan-chapter-87/
+2025-06-11 06:51:04,343 - INFO - Chapter: Chapter 86, URL: https://komiku.org/dandadan-chapter-86/
+2025-06-11 06:51:04,344 - INFO - Chapter: Chapter 85, URL: https://komiku.org/dandadan-chapter-85/
+2025-06-11 06:51:04,344 - INFO - Chapter: Chapter 84, URL: https://komiku.org/dandadan-chapter-84/
+2025-06-11 06:51:04,345 - INFO - Chapter: Chapter 83, URL: https://komiku.org/dandadan-chapter-83/
+2025-06-11 06:51:04,345 - INFO - Chapter: Chapter 82, URL: https://komiku.org/dandadan-chapter-82/
+2025-06-11 06:51:04,346 - INFO - Chapter: Chapter 81, URL: https://komiku.org/dandadan-chapter-81/
+2025-06-11 06:51:04,347 - INFO - Chapter: Chapter 80, URL: https://komiku.org/dandadan-chapter-80/
+2025-06-11 06:51:04,347 - INFO - Chapter: Chapter 79, URL: https://komiku.org/dandadan-chapter-79/
+2025-06-11 06:51:04,348 - INFO - Chapter: Chapter 78, URL: https://komiku.org/dandadan-chapter-78/
+2025-06-11 06:51:04,348 - INFO - Chapter: Chapter 77, URL: https://komiku.org/dandadan-chapter-77/
+2025-06-11 06:51:04,351 - INFO - Chapter: Chapter 76, URL: https://komiku.org/dandadan-chapter-76/
+2025-06-11 06:51:04,352 - INFO - Chapter: Chapter 75, URL: https://komiku.org/dandadan-chapter-75/
+2025-06-11 06:51:04,352 - INFO - Chapter: Chapter 74, URL: https://komiku.org/dandadan-chapter-74/
+2025-06-11 06:51:04,353 - INFO - Chapter: Chapter 73, URL: https://komiku.org/dandadan-chapter-73/
+2025-06-11 06:51:04,354 - INFO - Chapter: Chapter 72, URL: https://komiku.org/dandadan-chapter-72/
+2025-06-11 06:51:04,355 - INFO - Chapter: Chapter 71, URL: https://komiku.org/dandadan-chapter-71/
+2025-06-11 06:51:04,356 - INFO - Chapter: Chapter 70, URL: https://komiku.org/dandadan-chapter-70/
+2025-06-11 06:51:04,356 - INFO - Chapter: Chapter 69, URL: https://komiku.org/dandadan-chapter-69/
+2025-06-11 06:51:04,357 - INFO - Chapter: Chapter 68, URL: https://komiku.org/dandadan-chapter-68/
+2025-06-11 06:51:04,357 - INFO - Chapter: Chapter 67, URL: https://komiku.org/dandadan-chapter-67/
+2025-06-11 06:51:04,358 - INFO - Chapter: Chapter 66, URL: https://komiku.org/dandadan-chapter-66/
+2025-06-11 06:51:04,359 - INFO - Chapter: Chapter 65, URL: https://komiku.org/dandadan-chapter-65/
+2025-06-11 06:51:04,359 - INFO - Chapter: Chapter 64, URL: https://komiku.org/dandadan-chapter-64/
+2025-06-11 06:51:04,360 - INFO - Chapter: Chapter 63, URL: https://komiku.org/dandadan-chapter-63/
+2025-06-11 06:51:04,360 - INFO - Chapter: Chapter 62, URL: https://komiku.org/dandadan-chapter-62/
+2025-06-11 06:51:04,361 - INFO - Chapter: Chapter 61, URL: https://komiku.org/dandadan-chapter-61/
+2025-06-11 06:51:04,361 - INFO - Chapter: Chapter 60, URL: https://komiku.org/dandadan-chapter-60/
+2025-06-11 06:51:04,362 - INFO - Chapter: Chapter 59, URL: https://komiku.org/dandadan-chapter-59/
+2025-06-11 06:51:04,362 - INFO - Chapter: Chapter 58, URL: https://komiku.org/dandadan-chapter-58/
+2025-06-11 06:51:04,363 - INFO - Chapter: Chapter 57, URL: https://komiku.org/dandadan-chapter-57/
+2025-06-11 06:51:04,364 - INFO - Chapter: Chapter 56, URL: https://komiku.org/dandadan-chapter-56/
+2025-06-11 06:51:04,364 - INFO - Chapter: Chapter 55, URL: https://komiku.org/dandadan-chapter-55/
+2025-06-11 06:51:04,367 - INFO - Chapter: Chapter 54, URL: https://komiku.org/dandadan-chapter-54/
+2025-06-11 06:51:04,367 - INFO - Chapter: Chapter 53, URL: https://komiku.org/dandadan-chapter-53/
+2025-06-11 06:51:04,368 - INFO - Chapter: Chapter 52, URL: https://komiku.org/dandadan-chapter-52/
+2025-06-11 06:51:04,368 - INFO - Chapter: Chapter 51, URL: https://komiku.org/dandadan-chapter-51/
+2025-06-11 06:51:04,369 - INFO - Chapter: Chapter 50, URL: https://komiku.org/dandadan-chapter-50/
+2025-06-11 06:51:04,369 - INFO - Chapter: Chapter 49, URL: https://komiku.org/dandadan-chapter-49/
+2025-06-11 06:51:04,370 - INFO - Chapter: Chapter 48, URL: https://komiku.org/dandadan-chapter-48/
+2025-06-11 06:51:04,371 - INFO - Chapter: Chapter 47, URL: https://komiku.org/dandadan-chapter-47/
+2025-06-11 06:51:04,371 - INFO - Chapter: Chapter 46, URL: https://komiku.org/dandadan-chapter-46/
+2025-06-11 06:51:04,372 - INFO - Chapter: Chapter 45, URL: https://komiku.org/dandadan-chapter-45/
+2025-06-11 06:51:04,373 - INFO - Chapter: Chapter 44, URL: https://komiku.org/dandadan-chapter-44/
+2025-06-11 06:51:04,373 - INFO - Chapter: Chapter 43, URL: https://komiku.org/dandadan-chapter-43/
+2025-06-11 06:51:04,374 - INFO - Chapter: Chapter 42, URL: https://komiku.org/dandadan-chapter-42/
+2025-06-11 06:51:04,374 - INFO - Chapter: Chapter 41, URL: https://komiku.org/dandadan-chapter-41/
+2025-06-11 06:51:04,375 - INFO - Chapter: Chapter 40, URL: https://komiku.org/dandadan-chapter-40/
+2025-06-11 06:51:04,376 - INFO - Chapter: Chapter 39, URL: https://komiku.org/dandadan-chapter-39/
+2025-06-11 06:51:04,376 - INFO - Chapter: Chapter 38, URL: https://komiku.org/dandadan-chapter-38/
+2025-06-11 06:51:04,377 - INFO - Chapter: Chapter 37, URL: https://komiku.org/dandadan-chapter-37/
+2025-06-11 06:51:04,377 - INFO - Chapter: Chapter 36, URL: https://komiku.org/dandadan-chapter-36/
+2025-06-11 06:51:04,378 - INFO - Chapter: Chapter 35, URL: https://komiku.org/dandadan-chapter-35/
+2025-06-11 06:51:04,378 - INFO - Chapter: Chapter 34, URL: https://komiku.org/dandadan-chapter-34/
+2025-06-11 06:51:04,379 - INFO - Chapter: Chapter 33, URL: https://komiku.org/dandadan-chapter-33/
+2025-06-11 06:51:04,379 - INFO - Chapter: Chapter 32, URL: https://komiku.org/dandadan-chapter-32/
+2025-06-11 06:51:04,380 - INFO - Chapter: Chapter 31, URL: https://komiku.org/dandadan-chapter-31/
+2025-06-11 06:51:04,382 - INFO - Chapter: Chapter 30, URL: https://komiku.org/dandadan-chapter-30/
+2025-06-11 06:51:04,383 - INFO - Chapter: Chapter 29, URL: https://komiku.org/dandadan-chapter-29/
+2025-06-11 06:51:04,383 - INFO - Chapter: Chapter 28, URL: https://komiku.org/dandadan-chapter-28/
+2025-06-11 06:51:04,384 - INFO - Chapter: Chapter 27, URL: https://komiku.org/dandadan-chapter-27/
+2025-06-11 06:51:04,384 - INFO - Chapter: Chapter 26, URL: https://komiku.org/dandadan-chapter-26/
+2025-06-11 06:51:04,385 - INFO - Chapter: Chapter 25, URL: https://komiku.org/dandadan-chapter-25/
+2025-06-11 06:51:04,385 - INFO - Chapter: Chapter 24, URL: https://komiku.org/dandadan-chapter-24/
+2025-06-11 06:51:04,386 - INFO - Chapter: Chapter 23, URL: https://komiku.org/dandadan-chapter-23/
+2025-06-11 06:51:04,386 - INFO - Chapter: Chapter 22, URL: https://komiku.org/dandadan-chapter-22/
+2025-06-11 06:51:04,387 - INFO - Chapter: Chapter 21, URL: https://komiku.org/dandadan-chapter-21/
+2025-06-11 06:51:04,388 - INFO - Chapter: Chapter 20, URL: https://komiku.org/dandadan-chapter-20/
+2025-06-11 06:51:04,388 - INFO - Chapter: Chapter 19.5, URL: https://komiku.org/dandadan-chapter-19-5/
+2025-06-11 06:51:04,389 - INFO - Chapter: Chapter 19, URL: https://komiku.org/dandadan-chapter-19/
+2025-06-11 06:51:04,389 - INFO - Chapter: Chapter 18, URL: https://komiku.org/dandadan-chapter-18/
+2025-06-11 06:51:04,390 - INFO - Chapter: Chapter 17, URL: https://komiku.org/dandadan-chapter-17/
+2025-06-11 06:51:04,391 - INFO - Chapter: Chapter 16, URL: https://komiku.org/dandadan-chapter-16/
+2025-06-11 06:51:04,391 - INFO - Chapter: Chapter 15, URL: https://komiku.org/dandadan-chapter-15/
+2025-06-11 06:51:04,392 - INFO - Chapter: Chapter 14, URL: https://komiku.org/dandadan-chapter-14/
+2025-06-11 06:51:04,392 - INFO - Chapter: Chapter 13, URL: https://komiku.org/dandadan-chapter-13/
+2025-06-11 06:51:04,393 - INFO - Chapter: Chapter 12, URL: https://komiku.org/dandadan-chapter-12/
+2025-06-11 06:51:04,393 - INFO - Chapter: Chapter 11, URL: https://komiku.org/dandadan-chapter-11/
+2025-06-11 06:51:04,394 - INFO - Chapter: Chapter 10, URL: https://komiku.org/dandadan-chapter-10/
+2025-06-11 06:51:04,394 - INFO - Chapter: Chapter 9, URL: https://komiku.org/dandadan-chapter-9/
+2025-06-11 06:51:04,395 - INFO - Chapter: Chapter 8, URL: https://komiku.org/dandadan-chapter-8/
+2025-06-11 06:51:04,395 - INFO - Chapter: Chapter 7, URL: https://komiku.org/dandadan-chapter-7/
+2025-06-11 06:51:04,396 - INFO - Chapter: Chapter 6, URL: https://komiku.org/dandadan-chapter-6/
+2025-06-11 06:51:04,399 - INFO - Chapter: Chapter 5, URL: https://komiku.org/dandadan-chapter-5/
+2025-06-11 06:51:04,399 - INFO - Chapter: Chapter 4, URL: https://komiku.org/dandadan-chapter-4/
+2025-06-11 06:51:04,400 - INFO - Chapter: Chapter 3, URL: https://komiku.org/dandadan-chapter-3/
+2025-06-11 06:51:04,401 - INFO - Chapter: Chapter 2.2, URL: https://komiku.org/dandadan-chapter-2-2/
+2025-06-11 06:51:04,401 - INFO - Chapter: Chapter 2.1, URL: https://komiku.org/dandadan-chapter-02-1/
+2025-06-11 06:51:04,402 - INFO - Chapter: Chapter 1.2, URL: https://komiku.org/dandadan-chapter-1-2/
+2025-06-11 06:51:04,402 - INFO - Chapter: Chapter 1.1, URL: https://komiku.org/dandadan-chapter-1-1/
+2025-06-11 06:51:08,342 - INFO - Gambar 2424992-1.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599468/greedycomichub/dandadan/chapter_1.1/n0bznch3o8lbqilygcfe.jpg
+2025-06-11 06:51:09,865 - INFO - Gambar 2424992-2.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599469/greedycomichub/dandadan/chapter_1.1/n2bt2jzmeim6ak2x3pzc.jpg
+2025-06-11 06:51:11,793 - INFO - Gambar 2424992-3.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599471/greedycomichub/dandadan/chapter_1.1/plytvrr3mxnbmvsgxqcr.jpg
+2025-06-11 06:51:13,315 - INFO - Gambar 2424992-4.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599473/greedycomichub/dandadan/chapter_1.1/upxbzrmtue7i39a86i54.jpg
+2025-06-11 06:51:15,502 - INFO - Gambar 2424992-5.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599475/greedycomichub/dandadan/chapter_1.1/nsvlfhotgry1nmzwaf5r.jpg
+2025-06-11 06:51:17,768 - INFO - Gambar 2424992-6.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599477/greedycomichub/dandadan/chapter_1.1/rg8pacunz6s7nfxfp30u.jpg
+2025-06-11 06:51:19,904 - INFO - Gambar 2424992-7.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599479/greedycomichub/dandadan/chapter_1.1/xp38irpon9csvqq8o4c7.jpg
+2025-06-11 06:51:21,817 - INFO - Gambar 2424992-8.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599481/greedycomichub/dandadan/chapter_1.1/o7oxujffq4rdblhcriru.jpg
+2025-06-11 06:51:23,698 - INFO - Gambar 2424992-9.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599483/greedycomichub/dandadan/chapter_1.1/mwj90zzgafrbsv550qwr.jpg
+2025-06-11 06:51:26,254 - INFO - Gambar 2424992-10.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599485/greedycomichub/dandadan/chapter_1.1/ewxgxmlls1ow9lhtwspy.jpg
+2025-06-11 06:51:27,559 - INFO - Gambar 2424992-11.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599487/greedycomichub/dandadan/chapter_1.1/xxqh7vpmpvicfwg5rckf.jpg
+2025-06-11 06:51:29,446 - INFO - Gambar 2424992-12.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599489/greedycomichub/dandadan/chapter_1.1/hmgr8kizbg6wonrjmqyk.jpg
+2025-06-11 06:51:31,280 - INFO - Gambar 2424992-13.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599491/greedycomichub/dandadan/chapter_1.1/bjj1xrmns4xrubyuv85w.jpg
+2025-06-11 06:51:34,156 - INFO - Gambar 2424992-14.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599493/greedycomichub/dandadan/chapter_1.1/ohtclzhayuklk0ziywj9.jpg
+2025-06-11 06:51:36,200 - INFO - Gambar 2424992-15.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599496/greedycomichub/dandadan/chapter_1.1/e6qrtvsktdg6ugxqkofq.jpg
+2025-06-11 06:51:37,947 - INFO - Gambar 2424992-16.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599497/greedycomichub/dandadan/chapter_1.1/jdgve5rexnsqvjlqt5yc.jpg
+2025-06-11 06:51:39,718 - INFO - Gambar 2424992-17.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599499/greedycomichub/dandadan/chapter_1.1/nh6m29ko6tw6iaeorpvq.jpg
+2025-06-11 06:51:41,387 - INFO - Gambar 2424992-18.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599501/greedycomichub/dandadan/chapter_1.1/ekwq3hujgcvbf6acxvwg.jpg
+2025-06-11 06:51:43,173 - INFO - Gambar 2424992-19.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599503/greedycomichub/dandadan/chapter_1.1/nobfqj4ybkvw3zlbgxo3.jpg
+2025-06-11 06:51:44,420 - INFO - Gambar 2424992-20.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599504/greedycomichub/dandadan/chapter_1.1/ta1ykayhbdfc96faxr8j.jpg
+2025-06-11 06:51:46,170 - INFO - Gambar 2424992-21.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599506/greedycomichub/dandadan/chapter_1.1/p2bnqbnsunsbml4bnnkm.jpg
+2025-06-11 06:51:48,135 - INFO - Gambar 2424992-22.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599507/greedycomichub/dandadan/chapter_1.1/y0lwz8v1lufwcozjwyep.jpg
+2025-06-11 06:51:49,931 - INFO - Gambar 2424992-23.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599509/greedycomichub/dandadan/chapter_1.1/seisy3rqobvzfml3pl4h.jpg
+2025-06-11 06:51:51,687 - INFO - Gambar 2424992-24.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599511/greedycomichub/dandadan/chapter_1.1/tisfmhxwib8zktqo5bhd.jpg
+2025-06-11 06:51:53,356 - INFO - Gambar 2424992-25.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599513/greedycomichub/dandadan/chapter_1.1/w2zql4iozfxkxuqsojpp.jpg
+2025-06-11 06:51:55,126 - INFO - Gambar 2424992-26.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599514/greedycomichub/dandadan/chapter_1.1/ujnj6yyfdlnmiptrx6kt.jpg
+2025-06-11 06:51:56,871 - INFO - Gambar 2424992-27.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599516/greedycomichub/dandadan/chapter_1.1/mc54cjuqzepg1wecx5an.jpg
+2025-06-11 06:51:58,714 - INFO - Gambar 2424992-28.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599518/greedycomichub/dandadan/chapter_1.1/y5bfdyr3invo10qkhixb.jpg
+2025-06-11 06:52:00,448 - INFO - Gambar 2424992-29.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599520/greedycomichub/dandadan/chapter_1.1/y5myge4c77tsuxiuktzc.jpg
+2025-06-11 06:52:02,634 - INFO - Gambar 2424992-30.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599522/greedycomichub/dandadan/chapter_1.1/q51vh3qfbvgmbxaq6ibj.jpg
+2025-06-11 06:52:04,424 - INFO - Gambar 2424992-31.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599524/greedycomichub/dandadan/chapter_1.1/cc04y3euroaoe9wzegwu.jpg
+2025-06-11 06:52:06,241 - INFO - Gambar 2424992-32.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599526/greedycomichub/dandadan/chapter_1.1/moygmy53lxmrrltsaiu5.jpg
+2025-06-11 06:52:08,197 - INFO - Gambar 2424992-33.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599528/greedycomichub/dandadan/chapter_1.1/ispvi0dlugikkjnax4zr.jpg
+2025-06-11 06:52:10,090 - INFO - Gambar 2424992-34.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599530/greedycomichub/dandadan/chapter_1.1/ehdpnnkgjg30vtoq8sht.jpg
+2025-06-11 06:52:11,496 - INFO - Gambar 2424992-35.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599531/greedycomichub/dandadan/chapter_1.1/zkkrxicraysalfipko8o.jpg
+2025-06-11 06:52:13,174 - INFO - Gambar 2424992-36.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599533/greedycomichub/dandadan/chapter_1.1/rfgyeu4ib1kvgqomtx6i.jpg
+2025-06-11 06:52:15,175 - INFO - Gambar 2424992-37.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599535/greedycomichub/dandadan/chapter_1.1/beat7dftnmoaflnyqm68.jpg
+2025-06-11 06:52:17,010 - INFO - Gambar 2424992-38.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599537/greedycomichub/dandadan/chapter_1.1/dk2ct2z5zq6jmhiooy7c.jpg
+2025-06-11 06:52:18,303 - INFO - Gambar 2424992-39.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599538/greedycomichub/dandadan/chapter_1.1/l5nionnsz4oxldaf3tlc.jpg
+2025-06-11 06:52:19,640 - INFO - Gambar 2424992-40.jpg diupload ke Cloudinary: https://res.cloudinary.com/devjnr9d6/image/upload/v1749599539/greedycomichub/dandadan/chapter_1.1/dbw1h3brasn79d8k64rb.jpg
+2025-06-11 06:52:19,641 - INFO - Scraped 40 images for Chapter 1.1
+2025-06-11 06:52:19,642 - INFO - Filtered 1 chapters in range 1.1 to 1.1
+2025-06-11 06:52:19,646 - INFO - Berhasil disimpan ke data\dandadan.json
