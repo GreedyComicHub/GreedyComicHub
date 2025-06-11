@@ -36,6 +36,7 @@ def update_comic(url, start, end, overwrite=False):
             try:
                 chapter_num = chapter_text.lower().replace('chapter ', '').replace('bab ', '').strip()
                 chapter_num = float(chapter_num)
+                chapter_num = int(chapter_num) if chapter_num.is_integer() else chapter_num
                 if start <= chapter_num <= end:
                     # Cek apakah chapter sudah ada dan punya gambar
                     existing_chapter = comic_data.get('chapters', {}).get(str(chapter_num), {})
@@ -86,5 +87,13 @@ def update_comic(url, start, end, overwrite=False):
 
         write_json(comic_file, comic_data)
         logging.info(f"Berhasil disimpan ke {comic_file}")
+
+        # Update index.json
+        index_file = os.path.join(DATA_DIR, "index.json")
+        index_data = read_json(index_file) or {}
+        if comic_id in index_data:
+            index_data[comic_id]["total_chapters"] = comic_data["total_chapters"]
+            write_json(index_file, index_data)
+            logging.info(f"Updated {comic_id} in {index_file}")
     except Exception as e:
         logging.error(f"Error scraping {url}: {e}")

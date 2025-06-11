@@ -165,8 +165,9 @@ def scrape_chapter_list(url, soup):
                 # Regex untuk tangkap integer atau desimal (misal 1, 1.1, 302.5)
                 match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
                 if match:
-                    chapter_num = match.group(1)
-                    chapters[chapter_num] = href
+                    chapter_num = float(match.group(1))
+                    chapter_num = int(chapter_num) if chapter_num.is_integer() else chapter_num
+                    chapters[str(chapter_num)] = href
                     logging.debug(f"Chapter {chapter_num}: {href}")
             if chapters:
                 break

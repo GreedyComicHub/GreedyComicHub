@@ -31,7 +31,7 @@ def update_all(start=None, end=None, overwrite=False):
         if not chapters:
             logging.info(f"Komik {comic_title}: Belum ada chapter, coba add chapter pertama.")
             try:
-                update_comic(comic_url, start or 1.0, start or 1.0, overwrite)
+                update_comic(comic_url, start or 1, start or 1, overwrite)
             except Exception as e:
                 logging.error(f"Komik {comic_title}: Gagal add chapter pertama: {e}")
                 failed_comics.append(comic_id)
@@ -39,6 +39,7 @@ def update_all(start=None, end=None, overwrite=False):
 
         # Ambil chapter terakhir
         latest_local_chapter = max([float(ch) for ch in chapters.keys()])
+        latest_local_chapter = int(latest_local_chapter) if latest_local_chapter.is_integer() else latest_local_chapter
         logging.info(f"Komik {comic_title}: Chapter terakhir di JSON = {latest_local_chapter}")
 
         # Scrape daftar chapter dari web
@@ -59,10 +60,12 @@ def update_all(start=None, end=None, overwrite=False):
         new_chapters = [ch for ch in web_chapters.keys() if float(ch) > latest_local_chapter]
         if not new_chapters:
             logging.info(f"Komik {comic_title}: Belum ada chapter baru setelah {latest_local_chapter}")
+            failed_comics.append(comic_id)
             continue
 
         # Ambil chapter berikutnya
         next_chapter = min([float(ch) for ch in new_chapters])
+        next_chapter = int(next_chapter) if next_chapter.is_integer() else next_chapter
         logging.info(f"Komik {comic_title}: Coba update chapter {next_chapter}")
 
         try:
@@ -75,6 +78,9 @@ def update_all(start=None, end=None, overwrite=False):
     # Rekap
     logging.info("Selesai update-all!")
     if failed_comics:
-        logging.error(f"Komik gagal: {', '.join(set(failed_comics))}")
+        logging.info("\n=== Komik yang tidak di-update ===")
+        for comic_id in set(failed_comics):
+            comic_url = index_data.get(comic_id, {}).get("source_url", f"https://komiku.org/manga/{comic_id}")
+            logging.info(f"- {comic_id}: {comic_url}")
     else:
         logging.info("Semua komik berhasil diupdate, bro!")
