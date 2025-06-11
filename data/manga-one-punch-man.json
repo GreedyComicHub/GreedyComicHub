@@ -5,6 +5,31 @@
     "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan satu pukulan, bro! meskipun kekuatannya luar biasa, ia merasa bosan dan kesepian karena tidak ada lawan yang menantang, bro! petualangannya dimulai saat ia bergabung dengan asosiasi pahlawan dan bertemu dengan berbagai pahlawan dan monster yang unik, bro! dalam perjalanannya,, bro!, bro!, bro!",
     "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605206/greedycomichub/manga-one-punch-man/cover/zvew0mcl0j9cqshowest.jpg",
     "source_url": "https://komiku.org/manga/manga-one-punch-man",
-    "chapters": {},
-    "total_chapters": 0
+    "chapters": {
+        "1.0": {
+            "title": "Chapter 1",
+            "url": "https://komiku.org/one-punch-man-chapter-1/",
+            "images": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606767/greedycomichub/manga-one-punch-man/chapter_1.0/k46dezeyqdrv7rnkxuqe.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606771/greedycomichub/manga-one-punch-man/chapter_1.0/plboqk8jmv6h6cp9dtgt.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606774/greedycomichub/manga-one-punch-man/chapter_1.0/frbzmp7zanpmsx1emd2x.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606778/greedycomichub/manga-one-punch-man/chapter_1.0/linqxxyhhimh4vtbtczp.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606781/greedycomichub/manga-one-punch-man/chapter_1.0/hwd24vs7x6uucatnwtuw.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606783/greedycomichub/manga-one-punch-man/chapter_1.0/x78irvwh8gihr7txllay.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606785/greedycomichub/manga-one-punch-man/chapter_1.0/wwl1ik8fp2cd4wnabfsi.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606789/greedycomichub/manga-one-punch-man/chapter_1.0/hueiraiclo6srz0t5xil.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606794/greedycomichub/manga-one-punch-man/chapter_1.0/r3iicbazbqipsiqy0oqq.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606797/greedycomichub/manga-one-punch-man/chapter_1.0/xadib4pbnbtzc7xj7rhp.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606799/greedycomichub/manga-one-punch-man/chapter_1.0/vubuvg8w8vwrnchauadx.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606803/greedycomichub/manga-one-punch-man/chapter_1.0/a1wzmlfgrg5gekqdtxvy.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606805/greedycomichub/manga-one-punch-man/chapter_1.0/guojbqskwihr0duypjko.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606808/greedycomichub/manga-one-punch-man/chapter_1.0/aqpupscyrrj1dylf9wvk.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606811/greedycomichub/manga-one-punch-man/chapter_1.0/xt42p65bere0w5ofo9wn.png",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606814/greedycomichub/manga-one-punch-man/chapter_1.0/tcrsjxtuor5bvt9h4ih6.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606817/greedycomichub/manga-one-punch-man/chapter_1.0/dqvvjzxdsqfxwfb81n0l.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606821/greedycomichub/manga-one-punch-man/chapter_1.0/livrrhwpsuduem5v7xgv.png"
+            ]
+        }
+    },
+    "total_chapters": 1
 }

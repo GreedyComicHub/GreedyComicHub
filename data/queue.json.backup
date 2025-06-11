@@ -1,0 +1,13 @@
+[
+    {
+        "task": "add_comic",
+        "url": "https://komiku.org/manga/dandadan"
+    },
+    {
+        "task": "update_comic",
+        "url": "https://komiku.org/manga/soul-land-2",
+        "start": 5.0,
+        "end": 5.0,
+        "overwrite": false
+    }
+]
