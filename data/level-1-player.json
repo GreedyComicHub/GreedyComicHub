@@ -1,10 +1,10 @@
 {
     "title": "Level 1 Player",
     "author": "Team Arcane",
-    "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual sebagai karakter level satu, bro! dia harus memanfaatkan kecerdasan dan ketekunannya untuk bertahan hidup dan naik level di dunia yang penuh dengan tantangan dan makhluk berbahaya, bro! di tengah perjuangannya, ia bertemu dengan berbagai teman dan musuh yang, bro!, bro!, bro!",
-    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992338/greedycomichub/level-1-player/cover/dee2d2etf7iu3hvow4my.jpg",
     "genre": "Fantasi",
-    "type": "Manhwa",
+    "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual sebagai karakter level satu, bro! dia harus memanfaatkan kecerdasan dan ketekunannya untuk bertahan hidup dan naik level di dunia yang penuh dengan tantangan dan makhluk berbahaya, bro! di tengah perjuangannya, ia bertemu dengan berbagai teman dan musuh yang, bro!, bro!, bro!",
+    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604804/greedycomichub/level-1-player/cover/s289agbosejtbnxrudik.jpg",
+    "source_url": "https://komiku.org/manga/level-1-player",
     "chapters": {
         "1": {
             "pages": [
@@ -1155,6 +1155,5 @@
             ]
         }
     },
-    "source_url": "https://komiku.org/manga/level-1-player",
     "total_chapters": 18
 }

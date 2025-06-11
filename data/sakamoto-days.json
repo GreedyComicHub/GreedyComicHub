@@ -1,10 +1,10 @@
 {
     "title": "Sakamoto Days",
     "author": "Yuto Suzuki",
-    "synopsis": "Sakamoto adalah mantan pembunuh bayaran yang kini menjalani kehidupan normal sebagai pemilik toko kelontong, bro! meski sudah pensiun dari dunia gelap, kemampuan tempurnya yang luar biasa membuatnya harus selalu siap menghadapi berbagai bahaya yang mengancam kesehariannya, bro! kehidupan damai sakamoto berubah ketika lawan-lawan lama mulai muncul kembali dan mencoba menggoyahkan ketenangannya, bro! dalam, bro!, bro!, bro!",
-    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992349/greedycomichub/sakamoto-days/cover/aar1vmwfmwggfa87mfvj.jpg",
     "genre": "Komedi",
-    "type": "Manga",
+    "synopsis": "Sakamoto adalah mantan pembunuh bayaran yang kini menjalani kehidupan normal sebagai pemilik toko kelontong, bro! meski sudah pensiun dari dunia gelap, kemampuan tempurnya yang luar biasa membuatnya harus selalu siap menghadapi berbagai bahaya yang mengancam kesehariannya, bro! kehidupan damai sakamoto berubah ketika lawan-lawan lama mulai muncul kembali dan mencoba menggoyahkan ketenangannya, bro! dalam, bro!, bro!, bro!",
+    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604786/greedycomichub/sakamoto-days/cover/ggjg2gdvw9oc0yxkph8z.jpg",
+    "source_url": "https://komiku.org/manga/sakamoto-days",
     "chapters": {
         "1": {
             "pages": [
@@ -456,6 +456,5 @@
             ]
         }
     },
-    "source_url": "https://komiku.org/manga/sakamoto-days",
     "total_chapters": 17
 }

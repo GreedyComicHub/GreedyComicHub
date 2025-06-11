@@ -1,10 +1,10 @@
 {
     "title": "One Piece",
     "author": "Eiichiro Oda",
-    "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak laut dengan nyari harta karun legendaris bernama one piece, bro! dalam perjalanannya, luffy ngumpulin geng yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri, bro! bersama-sama, mereka ngehadepin macem-macem drama, musuh kece,, bro!, bro!, bro!",
-    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992274/greedycomichub/komik-one-piece-indo/cover/i5hpts6or1cr5rw7yaaf.jpg",
     "genre": "Aksi",
-    "type": "Manga",
+    "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak laut dengan nyari harta karun legendaris bernama one piece, bro! dalam perjalanannya, luffy ngumpulin geng yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri, bro! bersama-sama, mereka ngehadepin macem-macem drama, musuh kece,, bro!, bro!, bro!",
+    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605300/greedycomichub/komik-one-piece-indo/cover/avc7vr4huzcrpui7z1fe.jpg",
+    "source_url": "https://komiku.org/manga/komik-one-piece-indo",
     "chapters": {
         "1": {
             "pages": [
@@ -20158,6 +20158,5 @@
             ]
         }
     },
-    "source_url": "https://komiku.org/manga/komik-one-piece-indo",
     "total_chapters": 1004
 }

@@ -1,28 +1,33 @@
 {
     "komik-one-piece-indo": {
         "title": "One Piece",
+        "author": "Eiichiro Oda",
         "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak laut dengan nyari harta karun legendaris bernama one piece, bro! dalam perjalanannya, luffy ngumpulin geng yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri, bro! bersama-sama, mereka ngehadepin macem-macem drama, musuh kece,, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992274/greedycomichub/komik-one-piece-indo/cover/i5hpts6or1cr5rw7yaaf.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605300/greedycomichub/komik-one-piece-indo/cover/avc7vr4huzcrpui7z1fe.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1003
+        "total_chapters": 1004,
+        "source_url": "https://komiku.org/manga/komik-one-piece-indo"
     },
     "magic-emperor": {
         "title": "Magic Emperor",
+        "author": "Rui Tsukiyo",
         "synopsis": "Magic emperor menceritakan tentang kisah seorang pemuda yang terlahir kembali dengan keahlian sihir tingkat tinggi di dunia fantasi yang dipenuhi dengan konflik dan intrik politik, bro! dengan kekuatan sihir yang luar biasa, ia berusaha membangun kekaisaran yang damai sekaligus menghadapi berbagai ancaman baik dari dalam maupun luar kerajaannya, bro! dalam perjalanannya, sang, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992227/greedycomichub/magic-emperor/cover/ixenomctmykdq5zwkbab.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605283/greedycomichub/magic-emperor/cover/vryx5jtk1ljzyodsdhai.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 661,
+        "total_chapters": 663,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
         "title": "Black Clover",
+        "author": "Y\u016bki Tabata",
         "synopsis": "Bersetting di dunia di mana sihir adalah bagian penting dalam kehidupan sehari-hari, cerita ini mengikuti asta, seorang anak laki-laki yang terlahir tanpa kemampuan sihir, bro! meski begitu, dia nggak sabar jadi raja penyihir, sosok terkuat yang melindungi kerajaan, bro! dengan tekad yang kuat dan semangat pantang menyerah, asta berusaha mengalahkan segala rintangan yang, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992296/greedycomichub/black-clover-indonesia/cover/ggfbqnnknphvlbpyyhlh.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605264/greedycomichub/black-clover-indonesia/cover/a9s2opvcqq6sekxzwpm4.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 18
+        "total_chapters": 18,
+        "source_url": "https://komiku.org/manga/black-clover-indonesia"
     },
     "blue-lock": {
         "title": "Blue Lock",
@@ -33,37 +38,35 @@
         "total_chapters": 69,
         "source_url": "https://komiku.org/manga/blue-lock"
     },
-    "one-punch-man": {
-        "title": "One Punch Man",
-        "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan satu pukulan, bro! meskipun kekuatannya luar biasa, ia merasa bosan dan kesepian karena tidak ada lawan yang menantang, bro! petualangannya dimulai saat ia bergabung dengan asosiasi pahlawan dan bertemu dengan berbagai pahlawan dan monster yang unik, bro! dalam perjalanannya,, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992325/greedycomichub/one-punch-man/cover/wyfxrljo1qmaykmmg6dt.jpg",
-        "genre": "Aksi",
-        "type": "Manga",
-        "total_chapters": 13
-    },
     "level-1-player": {
         "title": "Level 1 Player",
+        "author": "Team Arcane",
         "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual sebagai karakter level satu, bro! dia harus memanfaatkan kecerdasan dan ketekunannya untuk bertahan hidup dan naik level di dunia yang penuh dengan tantangan dan makhluk berbahaya, bro! di tengah perjuangannya, ia bertemu dengan berbagai teman dan musuh yang, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992338/greedycomichub/level-1-player/cover/dee2d2etf7iu3hvow4my.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604804/greedycomichub/level-1-player/cover/s289agbosejtbnxrudik.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 17
+        "total_chapters": 18,
+        "source_url": "https://komiku.org/manga/level-1-player"
     },
     "sakamoto-days": {
         "title": "Sakamoto Days",
+        "author": "Yuto Suzuki",
         "synopsis": "Sakamoto adalah mantan pembunuh bayaran yang kini menjalani kehidupan normal sebagai pemilik toko kelontong, bro! meski sudah pensiun dari dunia gelap, kemampuan tempurnya yang luar biasa membuatnya harus selalu siap menghadapi berbagai bahaya yang mengancam kesehariannya, bro! kehidupan damai sakamoto berubah ketika lawan-lawan lama mulai muncul kembali dan mencoba menggoyahkan ketenangannya, bro! dalam, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992349/greedycomichub/sakamoto-days/cover/aar1vmwfmwggfa87mfvj.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604786/greedycomichub/sakamoto-days/cover/ggjg2gdvw9oc0yxkph8z.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 16
+        "total_chapters": 17,
+        "source_url": "https://komiku.org/manga/sakamoto-days"
     },
     "god-of-martial-arts": {
         "title": "God of Martial Arts",
+        "author": "Jolly Jae",
         "synopsis": "God of martial arts mengisahkan perjalanan seorang pemuda berbakat yang berjuang menguasai seni bela diri tertinggi di dunia yang dipenuhi tantangan dan rival, bro! dalam usahanya, dia tidak hanya menghadapi musuh kuat, tetapi juga menggali potensi diri serta mempelajari makna sejati kekuatan dan kehormatan, bro! cerita ini menyoroti pertumbuhan karakter utama dari, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1748992367/greedycomichub/god-of-martial-arts/cover/fzphhhj3c2myrirci9jg.jpg",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604765/greedycomichub/god-of-martial-arts/cover/xhcjiuxqpemuybcy0umo.jpg",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 12
+        "total_chapters": 13,
+        "source_url": "https://komiku.org/manga/god-of-martial-arts"
     },
     "soul-land-2": {
         "title": "Soul Land 2",
@@ -83,5 +86,25 @@
         "type": "Manga",
         "total_chapters": 2,
         "source_url": "https://komiku.org/manga/dandadan"
+    },
+    "manga-one-punch-man": {
+        "title": "One Punch Man",
+        "author": "ONE",
+        "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan satu pukulan, bro! meskipun kekuatannya luar biasa, ia merasa bosan dan kesepian karena tidak ada lawan yang menantang, bro! petualangannya dimulai saat ia bergabung dengan asosiasi pahlawan dan bertemu dengan berbagai pahlawan dan monster yang unik, bro! dalam perjalanannya,, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605206/greedycomichub/manga-one-punch-man/cover/zvew0mcl0j9cqshowest.jpg",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 0,
+        "source_url": "https://komiku.org/manga/manga-one-punch-man"
+    },
+    "shuumatsu-no-valkyrie-indonesia": {
+        "title": "Shuumatsu no Valkyrie",
+        "author": "Takumi Fukui, Shinya Umemura",
+        "synopsis": "Dalam dunia yang akan menghadapi kiamat, para dewa dari berbagai mitologi berkumpul untuk menentukan nasib umat manusia melalui sebuah turnamen ekstreme, bro! mereka memilih pejuang manusia terbaik dari berbagai era untuk bertarung satu-sama lain dan membuktikan siapa yang layak hidup atau mati, bro! pertarungan epik ini penuh aksi menegangkan dari mulai strategi, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605492/greedycomichub/shuumatsu-no-valkyrie-indonesia/cover/frhbenyot4vzeg1iqr1u.jpg",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 0,
+        "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
     }
 }
