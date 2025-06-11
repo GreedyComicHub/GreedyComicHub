@@ -36,9 +36,9 @@
                     const chapters = Object.keys(data.chapters || {}).sort((a, b) => parseFloat(a) - parseFloat(b));
                     const chapterImages = document.getElementById('chapter-images');
                     const chapterData = data.chapters[chapterNum];
-                    if (chapterData && chapterData.pages) {
+                    if (chapterData && chapterData.images) {
                         chapterImages.innerHTML = '';
-                        chapterData.pages.forEach(imgSrc => {
+                        chapterData.images.forEach(imgSrc => {
                             const frame = document.createElement('div');
                             frame.className = 'image-frame';
                             const img = document.createElement('img');
