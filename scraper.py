@@ -144,27 +144,34 @@ def scrape_comic_details(url):
 def scrape_chapter_list(url, soup):
     chapters = {}
     logging.info(f"Mencari daftar chapter dari {url}...")
-    chapter_elements = soup.select("td.judulseries a")
-    if not chapter_elements:
-        logging.warning("Tidak ditemukan chapter. Mencoba fallback...")
-        all_links = soup.select("a[href*='chapter']")
-        for link in all_links:
-            href = link.get("href", "")
-            if "chapter" in href.lower():
-                chapter_text = link.text.strip()
+    # Selector utama dan fallback
+    selectors = [
+        'td.judulseries a',
+        'table tr a:has(span)',
+        'a[href*="-chapter-"]',
+        'div.bxcl ul li a'
+    ]
+    for selector in selectors:
+        chapter_elements = soup.select(selector)
+        if chapter_elements:
+            logging.info(f"Chapter ditemukan dengan selector: {selector}")
+            for element in chapter_elements:
+                href = element.get("href", "").strip()
+                if not href or "chapter" not in href.lower():
+                    continue
+                if href.startswith('/'):
+                    href = urljoin(url, href)
+                chapter_text = element.find('span').text.strip() if element.find('span') else element.text.strip()
+                # Regex untuk tangkap integer atau desimal (misal 1, 1.1, 302.5)
                 match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
                 if match:
                     chapter_num = match.group(1)
                     chapters[chapter_num] = href
-                    # logging.info(f"Chapter {chapter_num} ditemukan via fallback: {href}")
-    for element in chapter_elements:
-        href = element.get("href", "")
-        chapter_text = element.text.strip()
-        match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
-        if match:
-            chapter_num = match.group(1)
-            chapters[chapter_num] = href
-            # logging.info(f"Chapter {chapter_num}: {href}")
+                    logging.debug(f"Chapter {chapter_num}: {href}")
+            if chapters:
+                break
+    if not chapters:
+        logging.warning(f"Tidak ditemukan chapter di {url}. HTML mungkin berubah.")
     return chapters
 
 def scrape_chapter_images(chapter_url):

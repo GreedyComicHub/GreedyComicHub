@@ -1,5 +1,6 @@
+__pycache__/
+*.pyc
 logs/
 config.ini
-*.backup
-temp_images/
-__pycache__/
+*.env
+*.log

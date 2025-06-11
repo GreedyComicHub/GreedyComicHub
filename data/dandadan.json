@@ -1,10 +1,10 @@
 {
     "title": "DANDADAN",
     "author": "Nugroho Joko Prasetyo",
-    "synopsis": "Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!",
-    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749593519/greedycomichub/dandadan/cover/sipzdmlat6jgbuhwlpiy.jpg",
     "genre": "Fiksi Sains",
-    "type": "Manga",
+    "synopsis": "Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!",
+    "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604543/greedycomichub/dandadan/cover/yy9inwz0mghlwcubapko.jpg",
+    "source_url": "https://komiku.org/manga/dandadan",
     "chapters": {
         "1.1": {
             "title": "Chapter 1.1",
@@ -51,8 +51,49 @@
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749599538/greedycomichub/dandadan/chapter_1.1/l5nionnsz4oxldaf3tlc.jpg",
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749599539/greedycomichub/dandadan/chapter_1.1/dbw1h3brasn79d8k64rb.jpg"
             ]
+        },
+        "1.2": {
+            "title": "Chapter 1.2",
+            "url": "https://komiku.org/dandadan-chapter-1-2/",
+            "images": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601735/greedycomichub/dandadan/chapter_1.2/hk9bgamlstxkd3srkohv.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601737/greedycomichub/dandadan/chapter_1.2/dp5kslg1iviwysbw5m0l.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601738/greedycomichub/dandadan/chapter_1.2/awwacqytnioqrgbxgwve.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601739/greedycomichub/dandadan/chapter_1.2/zjnmgpctigvv5p43gaxd.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601742/greedycomichub/dandadan/chapter_1.2/wdmqw1uy3agbfm79c5pi.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601744/greedycomichub/dandadan/chapter_1.2/yfrbf1y7egbkrqws5dwb.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601746/greedycomichub/dandadan/chapter_1.2/uzutl3fhdnjab20ovqxv.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601747/greedycomichub/dandadan/chapter_1.2/evqte1pcydovwfejxdoj.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601749/greedycomichub/dandadan/chapter_1.2/opram3xoqs7zv4sitkq1.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601750/greedycomichub/dandadan/chapter_1.2/jpqhatnnp56sqaf1bw82.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601752/greedycomichub/dandadan/chapter_1.2/ilcxkgumwipzxtv16dae.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601754/greedycomichub/dandadan/chapter_1.2/ssnhyzz3cxuojnesg5y0.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601755/greedycomichub/dandadan/chapter_1.2/mdsahtjtuwnrpoeyy5xx.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601757/greedycomichub/dandadan/chapter_1.2/ut6q239dtupakyihnwdv.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601758/greedycomichub/dandadan/chapter_1.2/xjhxxrd0ibbbvlghsl8o.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601760/greedycomichub/dandadan/chapter_1.2/gghmq7eubbj3ex6ouqhz.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601761/greedycomichub/dandadan/chapter_1.2/nypuzhagp8qnpc1izips.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601763/greedycomichub/dandadan/chapter_1.2/u2ro6ovffioc9yfrwjn0.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601764/greedycomichub/dandadan/chapter_1.2/n1lkn0jsbmeewk7cpj0y.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601766/greedycomichub/dandadan/chapter_1.2/ioab5cnklhgqocjezgpy.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601767/greedycomichub/dandadan/chapter_1.2/wfwrg34mzkmhnqilnbbl.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601769/greedycomichub/dandadan/chapter_1.2/qbdditikzqawzxlkb7uc.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601771/greedycomichub/dandadan/chapter_1.2/xe5l71axex0nbrtlvq4q.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601773/greedycomichub/dandadan/chapter_1.2/qwemxx4zkk2g6qostqjf.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601774/greedycomichub/dandadan/chapter_1.2/jedlbchznlqsw06wd5sa.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601776/greedycomichub/dandadan/chapter_1.2/u6cfzulexcgoymanegtv.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601778/greedycomichub/dandadan/chapter_1.2/k5l0ohnlnawzdurrgwwg.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601780/greedycomichub/dandadan/chapter_1.2/ikq6nxxb3osqn7r1skjm.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601781/greedycomichub/dandadan/chapter_1.2/wq9f5yqscl67aphsbu8l.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601783/greedycomichub/dandadan/chapter_1.2/duvkwmb0aspuovmezewz.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601784/greedycomichub/dandadan/chapter_1.2/mizwmkyza5hcwy0hbbay.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601785/greedycomichub/dandadan/chapter_1.2/koadqmychottxamabwlp.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601787/greedycomichub/dandadan/chapter_1.2/ak0iyarsc71qombbqunf.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601788/greedycomichub/dandadan/chapter_1.2/ojqjdaoeauzviuabh1o7.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601789/greedycomichub/dandadan/chapter_1.2/getsi8h9sl65s0np8dxi.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601790/greedycomichub/dandadan/chapter_1.2/v87kmkibm3yv7p0tcngg.jpg"
+            ]
         }
     },
-    "source_url": "https://komiku.org/manga/dandadan",
-    "total_chapters": 1
+    "total_chapters": 2
 }

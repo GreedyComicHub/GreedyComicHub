@@ -122,7 +122,32 @@
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749187900/greedycomichub/soul-land-2/chapter_4/udiq46gamwvtplslld2t.jpg",
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749187903/greedycomichub/soul-land-2/chapter_4/xs1kqs87z9fnsq4kpcmv.jpg"
             ]
+        },
+        "5.0": {
+            "title": "Chapter 5",
+            "url": "https://komiku.org/soul-land-2-chapter-05/",
+            "images": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601706/greedycomichub/soul-land-2/chapter_5.0/kqxlujg5fzmxi5hz7sv0.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601708/greedycomichub/soul-land-2/chapter_5.0/vpv17newdpfdethlctge.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601709/greedycomichub/soul-land-2/chapter_5.0/clppkka6bs1kbtrpf1mz.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601711/greedycomichub/soul-land-2/chapter_5.0/nv7rvgnkazuva5ynbcvx.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601712/greedycomichub/soul-land-2/chapter_5.0/aqlgghqxv46sarjc8vbe.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601714/greedycomichub/soul-land-2/chapter_5.0/psyeqliuyacyo2v91auk.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601716/greedycomichub/soul-land-2/chapter_5.0/hajurrmf82eyujuqkm5u.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601717/greedycomichub/soul-land-2/chapter_5.0/lyhpwsvmeogsmfswdzui.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601719/greedycomichub/soul-land-2/chapter_5.0/i4wqnwmv3xh7kinbw0vz.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601720/greedycomichub/soul-land-2/chapter_5.0/pupugu5r0ysi2nmxseyu.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601722/greedycomichub/soul-land-2/chapter_5.0/yb96waudiho0uyoksdus.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601723/greedycomichub/soul-land-2/chapter_5.0/jtk6mpnuiponjpzesvsq.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601724/greedycomichub/soul-land-2/chapter_5.0/caobub4x67ir10qvo18h.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601726/greedycomichub/soul-land-2/chapter_5.0/gu6uqzi3c4ahzppkj23b.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601727/greedycomichub/soul-land-2/chapter_5.0/w08kdgykjqk1cycmrqa1.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601729/greedycomichub/soul-land-2/chapter_5.0/abvypn6iexahguqknhwq.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601730/greedycomichub/soul-land-2/chapter_5.0/ttckh8c7kzwol2q5eonm.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749601732/greedycomichub/soul-land-2/chapter_5.0/shgtnclk2fgpolblywg1.jpg"
+            ]
         }
     },
-    "source_url": "https://komiku.org/manga/soul-land-2"
+    "source_url": "https://komiku.org/manga/soul-land-2",
+    "total_chapters": 5
 }

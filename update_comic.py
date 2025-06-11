@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 from utils import fetch_page, read_json, write_json, DATA_DIR, get_comic_id_from_url, upload_to_cloudinary
 
 def update_comic(url, start, end, overwrite=False):
-    logging.info(f"Mulai update chapter: {url}")
+    logging.info(f"Mulai update: {url}")
     comic_id = get_comic_id_from_url(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
     comic_data = read_json(comic_file)
@@ -21,21 +21,29 @@ def update_comic(url, start, end, overwrite=False):
 
     try:
         soup = BeautifulSoup(html, 'html.parser')
-        chapter_list = soup.select('td.judulseries a')
+        chapter_list = soup.select('td.judulseries a, table tr a:has(span)')  # Fallback selector
         logging.info(f"Found {len(chapter_list)} chapter links")
 
         chapters = {}
         for chapter in chapter_list:
-            chapter_url = chapter.get('href')
+            chapter_url = chapter.get('href', '').strip()
+            if not chapter_url:
+                continue
             if chapter_url.startswith('/'):
                 chapter_url = urljoin(url, chapter_url)
             chapter_text = chapter.find('span').text.strip() if chapter.find('span') else chapter.text.strip()
-            logging.info(f"Chapter: {chapter_text}, URL: {chapter_url}")
 
             try:
                 chapter_num = chapter_text.lower().replace('chapter ', '').replace('bab ', '').strip()
                 chapter_num = float(chapter_num)
                 if start <= chapter_num <= end:
+                    # Cek apakah chapter sudah ada dan punya gambar
+                    existing_chapter = comic_data.get('chapters', {}).get(str(chapter_num), {})
+                    if existing_chapter.get('images') and not overwrite:
+                        logging.info(f"Chapter {chapter_num} sudah ada gambar, skip upload")
+                        chapters[str(chapter_num)] = existing_chapter
+                        continue
+
                     # Scrape gambar dari halaman chapter
                     chapter_html = fetch_page(chapter_url)
                     images = []
@@ -43,11 +51,17 @@ def update_comic(url, start, end, overwrite=False):
                         chapter_soup = BeautifulSoup(chapter_html, 'html.parser')
                         image_elements = chapter_soup.select('div#Baca_Komik img[itemprop="image"]')
                         for img in image_elements:
-                            img_url = img.get('src')
+                            img_url = img.get('src', '').strip()
                             if img_url and img_url.startswith('http'):
-                                cloudinary_url = upload_to_cloudinary(img_url, comic_id, str(chapter_num))
-                                images.append(cloudinary_url)
+                                if img_url in existing_chapter.get('images', []) and not overwrite:
+                                    logging.info(f"Gambar sudah ada untuk Chapter {chapter_num}: {img_url}")
+                                    images.append(img_url)
+                                else:
+                                    cloudinary_url = upload_to_cloudinary(img_url, comic_id, str(chapter_num))
+                                    images.append(cloudinary_url)
                         logging.info(f"Scraped {len(images)} images for Chapter {chapter_num}")
+                    else:
+                        logging.warning(f"Gagal ambil halaman chapter {chapter_url}")
 
                     chapters[str(chapter_num)] = {
                         "title": chapter_text,
