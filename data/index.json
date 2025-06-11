@@ -6,7 +6,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605300/greedycomichub/komik-one-piece-indo/cover/avc7vr4huzcrpui7z1fe.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1004,
+        "total_chapters": 1005,
         "source_url": "https://komiku.org/manga/komik-one-piece-indo"
     },
     "magic-emperor": {
@@ -16,7 +16,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613041/greedycomichub/magic-emperor/cover/y4stcca48vdpg53v8pnt.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 662,
+        "total_chapters": 663,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
@@ -26,7 +26,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605264/greedycomichub/black-clover-indonesia/cover/a9s2opvcqq6sekxzwpm4.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 18,
+        "total_chapters": 19,
         "source_url": "https://komiku.org/manga/black-clover-indonesia"
     },
     "blue-lock": {
@@ -45,7 +45,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604804/greedycomichub/level-1-player/cover/s289agbosejtbnxrudik.jpg",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 18,
+        "total_chapters": 19,
         "source_url": "https://komiku.org/manga/level-1-player"
     },
     "sakamoto-days": {
@@ -55,7 +55,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604786/greedycomichub/sakamoto-days/cover/ggjg2gdvw9oc0yxkph8z.jpg",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 17,
+        "total_chapters": 18,
         "source_url": "https://komiku.org/manga/sakamoto-days"
     },
     "god-of-martial-arts": {
@@ -65,7 +65,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604765/greedycomichub/god-of-martial-arts/cover/xhcjiuxqpemuybcy0umo.jpg",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 13,
+        "total_chapters": 14,
         "source_url": "https://komiku.org/manga/god-of-martial-arts"
     },
     "soul-land-2": {
@@ -74,7 +74,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749594191/greedycomichub/soul-land-2/cover/gnzu79qwftr0pfoomxst.png",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 4,
+        "total_chapters": 6,
         "source_url": "https://komiku.org/manga/soul-land-2"
     },
     "dandadan": {
@@ -84,7 +84,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749604543/greedycomichub/dandadan/cover/yy9inwz0mghlwcubapko.jpg",
         "genre": "Fiksi Sains",
         "type": "Manga",
-        "total_chapters": 2,
+        "total_chapters": 3,
         "source_url": "https://komiku.org/manga/dandadan"
     },
     "manga-one-punch-man": {
@@ -94,7 +94,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613214/greedycomichub/manga-one-punch-man/cover/unsd9hatbatoajor47sr.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 3,
+        "total_chapters": 4,
         "source_url": "https://komiku.org/manga/manga-one-punch-man"
     },
     "shuumatsu-no-valkyrie-indonesia": {
@@ -104,7 +104,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613103/greedycomichub/shuumatsu-no-valkyrie-indonesia/cover/x5lb7tqjyfxpkmlts2tn.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 2,
+        "total_chapters": 3,
         "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
     }
 }
