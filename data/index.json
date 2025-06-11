@@ -16,7 +16,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613041/greedycomichub/magic-emperor/cover/y4stcca48vdpg53v8pnt.jpg",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 663,
+        "total_chapters": 662,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
@@ -94,7 +94,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613214/greedycomichub/manga-one-punch-man/cover/unsd9hatbatoajor47sr.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1,
+        "total_chapters": 3,
         "source_url": "https://komiku.org/manga/manga-one-punch-man"
     },
     "shuumatsu-no-valkyrie-indonesia": {
@@ -104,7 +104,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613103/greedycomichub/shuumatsu-no-valkyrie-indonesia/cover/x5lb7tqjyfxpkmlts2tn.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1,
+        "total_chapters": 2,
         "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
     }
 }
