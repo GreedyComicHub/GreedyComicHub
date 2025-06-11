@@ -29,7 +29,29 @@
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606817/greedycomichub/manga-one-punch-man/chapter_1.0/dqvvjzxdsqfxwfb81n0l.jpg",
                 "https://res.cloudinary.com/devjnr9d6/image/upload/v1749606821/greedycomichub/manga-one-punch-man/chapter_1.0/livrrhwpsuduem5v7xgv.png"
             ]
+        },
+        "2": {
+            "title": "Chapter 2",
+            "url": "https://komiku.org/one-punch-man-chapter-2/",
+            "images": [
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613573/greedycomichub/manga-one-punch-man/chapter_2/obgxtqckledeqqyarjd1.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613575/greedycomichub/manga-one-punch-man/chapter_2/j7wrux3ewknzwlfzrj9j.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613577/greedycomichub/manga-one-punch-man/chapter_2/e6gwroraqkxcfj2tvuss.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613579/greedycomichub/manga-one-punch-man/chapter_2/ivb1n4mumchlw0rb8djk.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613580/greedycomichub/manga-one-punch-man/chapter_2/wqatrr8ddieowjvrldd8.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613582/greedycomichub/manga-one-punch-man/chapter_2/qxqpzkezwguiqwghnfeq.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613584/greedycomichub/manga-one-punch-man/chapter_2/gyk4cptqseoipcr3ifws.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613586/greedycomichub/manga-one-punch-man/chapter_2/lzajinutua9syxzxascm.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613589/greedycomichub/manga-one-punch-man/chapter_2/d35llkyvfez3bsqotcw5.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613591/greedycomichub/manga-one-punch-man/chapter_2/lgt0ls6ygwfstcvxkkg9.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613594/greedycomichub/manga-one-punch-man/chapter_2/lrg7ioohas57qcjx5yls.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613596/greedycomichub/manga-one-punch-man/chapter_2/du34mn4ldeybne7o0ntb.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613598/greedycomichub/manga-one-punch-man/chapter_2/h3yf2rjlnzckrrcn5vnf.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613601/greedycomichub/manga-one-punch-man/chapter_2/cp7x4ictf0qwd8v11zjc.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613604/greedycomichub/manga-one-punch-man/chapter_2/vjphcap23oid961d05fu.jpg",
+                "https://res.cloudinary.com/devjnr9d6/image/upload/v1749613607/greedycomichub/manga-one-punch-man/chapter_2/ngd4o0yn6igyp1v91ekq.jpg"
+            ]
         }
     },
-    "total_chapters": 1
+    "total_chapters": 2
 }
