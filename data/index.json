@@ -26,7 +26,7 @@
         "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605264/greedycomichub/black-clover-indonesia/cover/a9s2opvcqq6sekxzwpm4.jpg",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 19,
+        "total_chapters": 25,
         "source_url": "https://komiku.org/manga/black-clover-indonesia"
     },
     "blue-lock": {
@@ -106,5 +106,15 @@
         "type": "Manga",
         "total_chapters": 3,
         "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
+    },
+    "the-beginning-after-the-end": {
+        "title": "The Beginning After The End",
+        "author": "TurtleMe",
+        "synopsis": "Cerita ini mengikuti perjalanan seorang raja kuat bernama arthur leywin yang meninggal dan terlahir kembali di dunia baru bernama dicathen, bro! di dunia ini, ia memulai hidup baru sebagai seorang anak bernama ace dengan kemampuan sihir yang luar biasa, bro! perjalanan ace dipenuhi oleh tantangan dan petualangan untuk melindungi orang-orang yang ia, bro!, bro!, bro!",
+        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749805692/greedycomichub/the-beginning-after-the-end/cover/qphkelfgh6qokyeox8ru.jpg",
+        "genre": "Isekai",
+        "type": "Manhwa",
+        "total_chapters": 201,
+        "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
     }
 }
