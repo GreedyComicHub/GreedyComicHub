@@ -44,6 +44,8 @@
                             const img = document.createElement('img');
                             img.src = imgSrc;
                             img.className = 'chapter-image';
+                            img.setAttribute('oncontextmenu', 'return false;');
+                            img.setAttribute('draggable', 'false');
                             img.onerror = () => {
                                 img.alt = 'Gambar gagal dimuat';
                                 img.style.display = 'none';
@@ -51,6 +53,8 @@
                             frame.appendChild(img);
                             chapterImages.appendChild(frame);
                         });
+                        // Disable klik kanan global
+                        document.addEventListener('contextmenu', e => e.preventDefault());
                     } else {
                         chapterImages.innerHTML = '<p>Chapter not found.</p>';
                     }

@@ -32,7 +32,7 @@
                             card.className = 'comic-card';
                             card.innerHTML = `
                                 <a href="comic.html?comic=${comicId}">
-                                    <img src="${comic.cover}" alt="${comic.title}">
+                                    <img src="${comic.cover}" alt="${comic.title}" oncontextmenu="return false;" draggable="false">
                                     <h2>${comic.title}</h2>
                                 </a>
                             `;
@@ -42,6 +42,8 @@
                     if (!hasComics) {
                         comicList.innerHTML = '<p>No comics found for this genre.</p>';
                     }
+                    // Disable klik kanan global
+                    document.addEventListener('contextmenu', e => e.preventDefault());
                 })
                 .catch(err => {
                     console.error('Error loading comics:', err);

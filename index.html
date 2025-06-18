@@ -40,12 +40,14 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comicId}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" oncontextmenu="return false;" draggable="false">
                             <h3>${comic.title}</h3>
                         </a>
                     `;
                     comicList.appendChild(card);
                 });
+                // Disable klik kanan global
+                document.addEventListener('contextmenu', e => e.preventDefault());
             })
             .catch(err => {
                 console.error('Error loading comics:', err);

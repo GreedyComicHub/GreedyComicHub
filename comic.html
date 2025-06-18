@@ -11,7 +11,7 @@
     <a href="index.html" class="back-link">Back to Home</a>
     <div id="comic-detail">
         <div class="comic-header">
-            <img id="cover" src="" alt="Comic Cover">
+            <img id="cover" src="" alt="Comic Cover" oncontextmenu="return false;" draggable="false">
             <div class="comic-info">
                 <h1 id="comic-title"></h1>
                 <p id="genre"></p>
@@ -53,6 +53,8 @@
                             chapterList.appendChild(link);
                         });
                     }
+                    // Disable klik kanan global
+                    document.addEventListener('contextmenu', e => e.preventDefault());
                 })
                 .catch(err => {
                     console.error('Error loading comic details:', err);
