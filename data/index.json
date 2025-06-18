@@ -23,7 +23,7 @@
         "title": "Black Clover",
         "author": "Y\u016bki Tabata",
         "synopsis": "Bersetting di dunia di mana sihir adalah bagian penting dalam kehidupan sehari-hari, cerita ini mengikuti asta, seorang anak laki-laki yang terlahir tanpa kemampuan sihir, bro! meski begitu, dia nggak sabar jadi raja penyihir, sosok terkuat yang melindungi kerajaan, bro! dengan tekad yang kuat dan semangat pantang menyerah, asta berusaha mengalahkan segala rintangan yang, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749605264/greedycomichub/black-clover-indonesia/cover/a9s2opvcqq6sekxzwpm4.jpg",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
         "total_chapters": 25,
@@ -31,11 +31,12 @@
     },
     "blue-lock": {
         "title": "Blue Lock",
+        "author": "Muneyuki Kaneshiro",
         "synopsis": "Blue lock mengisahkan tentang program unik yang diselenggarakan jepang untuk menemukan striker terbaik bagi tim nasional sepak bola mereka, bro! setelah kegagalan di piala dunia, ribuan pemain muda dikumpulkan di fasilitas khusus bernama blue lock agar mereka bisa bertarung mengasah kemampuan dan mencetak gol yang tak tertandingi, bro! fokus utama program ini, bro!, bro!, bro!",
-        "cover": "https://res.cloudinary.com/devjnr9d6/image/upload/v1749189168/greedycomichub/blue-lock/cover/yn7aiqlmu9dmcos9tagy.jpg",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 69,
+        "total_chapters": 70,
         "source_url": "https://komiku.org/manga/blue-lock"
     },
     "level-1-player": {
@@ -116,15 +117,5 @@
         "type": "Manhwa",
         "total_chapters": 201,
         "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
-    },
-    "indonesia": {
-        "title": "Komiku",
-        "author": "Unknown Author",
-        "synopsis": "Komiku adalah tempat  online terlengkap mulai dari manhwa, manhua, dan manga bisa kamu baca online gratis khusus , bro! genre komik yang tersedia adalah romance, fantasy, isekai, action, ecchi, berwarna, dan genre lainnya di website komiku, bro!org, bro!",
-        "cover": "https://thumbnail.komiku.org/img/upload/surviving_the_inverted_world_with_omnipotent_skills/img_6834169e34ce50.03566222.png",
-        "genre": "Fantasy",
-        "type": "Unknown Type",
-        "total_chapters": 0,
-        "source_url": "https://komiku.org/manga/black-clover/indonesia"
     }
 }
