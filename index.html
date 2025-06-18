@@ -15,7 +15,7 @@
 <body>
     <header class="main-header">
         <h1 class="logo">GreedyComicHub</h1>
-        <input type="text" class="search-bar" placeholder="Search comics...">
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
     <main>
         <section class="ad-grid">
@@ -34,47 +34,68 @@
         <p>© 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
     <script>
+        let allComics = []; // Simpan semua komik buat search
+
         fetch('data/index.json')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load index.json');
                 return res.json();
             })
             .then(data => {
-                const comicList = document.getElementById('comic-list');
-                // Kelompokkan komik berdasarkan tipe
-                const comicsByType = {};
-                Object.keys(data).forEach(comicId => {
-                    const comic = data[comicId];
-                    const type = comic.type || 'Unknown';
-                    if (!comicsByType[type]) comicsByType[type] = [];
-                    comicsByType[type].push({ id: comicId, ...comic });
-                });
-                // Tampilin per tipe
-                Object.keys(comicsByType).forEach(type => {
-                    const typeSection = document.createElement('div');
-                    typeSection.className = 'type-section';
-                    typeSection.innerHTML = `<h2>${type}</h2>`;
-                    const typeGrid = document.createElement('div');
-                    typeGrid.className = 'comic-grid';
-                    comicsByType[type].forEach(comic => {
-                        const card = document.createElement('div');
-                        card.className = 'comic-card';
-                        card.innerHTML = `
-                            <a href="comic.html?comic=${comic.id}">
-                                <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                                <h3>${comic.title}</h3>
-                            </a>
-                        `;
-                        typeGrid.appendChild(card);
-                    });
-                    typeSection.appendChild(typeGrid);
-                    comicList.appendChild(typeSection);
-                });
+                allComics = Object.keys(data).map(comicId => ({ id: comicId, ...data[comicId] }));
+                renderComics(allComics);
             })
             .catch(err => {
                 console.error('Error loading comics:', err);
                 document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
             });
+
+        function renderComics(comics) {
+            const comicList = document.getElementById('comic-list');
+            comicList.innerHTML = '';
+            // Kelompokkan komik berdasarkan tipe
+            const comicsByType = {};
+            comics.forEach(comic => {
+                const type = comic.type || 'Unknown';
+                if (!comicsByType[type]) comicsByType[type] = [];
+                comicsByType[type].push(comic);
+            });
+            // Tampilin per tipe
+            Object.keys(comicsByType).forEach(type => {
+                const typeSection = document.createElement('div');
+                typeSection.className = 'type-section';
+                typeSection.innerHTML = `<h2>${type}</h2>`;
+                const typeGrid = document.createElement('div');
+                typeGrid.className = 'comic-grid';
+                comicsByType[type].forEach(comic => {
+                    const card = document.createElement('div');
+                    card.className = 'comic-card';
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${comic.id}">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <h3>${comic.title}</h3>
+                        </a>
+                    `;
+                    typeGrid.appendChild(card);
+                });
+                typeSection.appendChild(typeGrid);
+                comicList.appendChild(typeSection);
+            });
+        }
+
+        // Search bar functionality
+        document.getElementById('search-bar').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) {
+                renderComics(allComics); // Reset kalau kosong
+                return;
+            }
+            const filteredComics = allComics.filter(comic => 
+                comic.title.toLowerCase().includes(query) || 
+                (comic.genre && comic.genre.toLowerCase().includes(query))
+            );
+            renderComics(filteredComics);
+        });
     </script>
 </body>
 </html>
