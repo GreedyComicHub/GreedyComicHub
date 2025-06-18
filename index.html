@@ -13,14 +13,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>GreedyComicHub - Platform Baca Komik Online Terbaik</h1>
-        <p>Selamat datang di GreedyComicHub! Nikmati berbagai komik gratis seperti <a href="comic.html?comic=magic-emperor">Magic Emperor</a> dan lainnya di Greedy Comic Hub.</p>
+    <header class="main-header">
+        <h1 class="logo">GreedyComicHub</h1>
+        <input type="text" class="search-bar" placeholder="Search comics...">
     </header>
     <main>
+        <section class="ad-grid">
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
+        </section>
         <section id="comic-list-section">
-            <h2>Daftar Komik di GreedyComicHub</h2>
             <div id="comic-list"></div>
+        </section>
+        <section class="ad-footer">
+            <div class="ad-placeholder"></div>
+            <div class="ad-placeholder"></div>
         </section>
     </main>
     <footer>
@@ -34,17 +48,34 @@
             })
             .then(data => {
                 const comicList = document.getElementById('comic-list');
+                // Kelompokkan komik berdasarkan tipe
+                const comicsByType = {};
                 Object.keys(data).forEach(comicId => {
                     const comic = data[comicId];
-                    const card = document.createElement('div');
-                    card.className = 'comic-card';
-                    card.innerHTML = `
-                        <a href="comic.html?comic=${comicId}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                            <h3>${comic.title}</h3>
-                        </a>
-                    `;
-                    comicList.appendChild(card);
+                    const type = comic.type || 'Unknown';
+                    if (!comicsByType[type]) comicsByType[type] = [];
+                    comicsByType[type].push({ id: comicId, ...comic });
+                });
+                // Tampilin per tipe
+                Object.keys(comicsByType).forEach(type => {
+                    const typeSection = document.createElement('div');
+                    typeSection.className = 'type-section';
+                    typeSection.innerHTML = `<h2>${type}</h2>`;
+                    const typeGrid = document.createElement('div');
+                    typeGrid.className = 'comic-grid';
+                    comicsByType[type].forEach(comic => {
+                        const card = document.createElement('div');
+                        card.className = 'comic-card';
+                        card.innerHTML = `
+                            <a href="comic.html?comic=${comic.id}">
+                                <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                                <h3>${comic.title}</h3>
+                            </a>
+                        `;
+                        typeGrid.appendChild(card);
+                    });
+                    typeSection.appendChild(typeGrid);
+                    comicList.appendChild(typeSection);
                 });
             })
             .catch(err => {
