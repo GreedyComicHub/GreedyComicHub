@@ -38,18 +38,42 @@
                     const chapterData = data.chapters[chapterNum];
                     if (chapterData && chapterData.images) {
                         chapterImages.innerHTML = '';
-                        chapterData.images.forEach(imgSrc => {
+                        chapterData.images.forEach((imgSrc, index) => {
                             const frame = document.createElement('div');
                             frame.className = 'image-frame';
-                            const img = document.createElement('img');
-                            img.src = imgSrc;
-                            img.className = 'chapter-image';
-                            img.onerror = () => {
-                                img.alt = 'Gambar gagal dimuat';
-                                img.style.display = 'none';
-                            };
-                            frame.appendChild(img);
+                            const canvas = document.createElement('canvas');
+                            canvas.className = 'chapter-image';
+                            canvas.dataset.src = imgSrc; // Simpen URL buat lazy load
+                            frame.appendChild(canvas);
                             chapterImages.appendChild(frame);
+                        });
+                        // Lazy loading
+                        const observer = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const canvas = entry.target;
+                                    const imgSrc = canvas.dataset.src;
+                                    const img = new Image();
+                                    img.crossOrigin = 'Anonymous';
+                                    img.src = imgSrc;
+                                    img.onload = () => {
+                                        canvas.width = img.width; // Ukuran asli
+                                        canvas.height = img.height;
+                                        const ctx = canvas.getContext('2d');
+                                        ctx.drawImage(img, 0, 0);
+                                    };
+                                    img.onerror = () => {
+                                        canvas.style.display = 'none';
+                                        const errorText = document.createElement('p');
+                                        errorText.textContent = 'Gambar gagal dimuat';
+                                        canvas.parentNode.appendChild(errorText);
+                                    };
+                                    observer.unobserve(canvas);
+                                }
+                            });
+                        }, { rootMargin: '200px' });
+                        document.querySelectorAll('.chapter-image').forEach(canvas => {
+                            observer.observe(canvas);
                         });
                     } else {
                         chapterImages.innerHTML = '<p>Chapter not found.</p>';
