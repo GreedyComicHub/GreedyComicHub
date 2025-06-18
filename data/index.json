@@ -116,5 +116,15 @@
         "type": "Manhwa",
         "total_chapters": 201,
         "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
+    },
+    "indonesia": {
+        "title": "Komiku",
+        "author": "Unknown Author",
+        "synopsis": "Komiku adalah tempat  online terlengkap mulai dari manhwa, manhua, dan manga bisa kamu baca online gratis khusus , bro! genre komik yang tersedia adalah romance, fantasy, isekai, action, ecchi, berwarna, dan genre lainnya di website komiku, bro!org, bro!",
+        "cover": "https://thumbnail.komiku.org/img/upload/surviving_the_inverted_world_with_omnipotent_skills/img_6834169e34ce50.03566222.png",
+        "genre": "Fantasy",
+        "type": "Unknown Type",
+        "total_chapters": 0,
+        "source_url": "https://komiku.org/manga/black-clover/indonesia"
     }
 }
