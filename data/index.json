@@ -16,7 +16,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 665,
+        "total_chapters": 708,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
@@ -26,7 +26,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 26,
+        "total_chapters": 378,
         "source_url": "https://komiku.org/manga/black-clover-indonesia"
     },
     "blue-lock": {
@@ -36,7 +36,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
         "genre": "Olahraga",
         "type": "Manga",
-        "total_chapters": 72,
+        "total_chapters": 309,
         "source_url": "https://komiku.org/manga/blue-lock"
     },
     "level-1-player": {
@@ -56,7 +56,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
         "genre": "Komedi",
         "type": "Manga",
-        "total_chapters": 22,
+        "total_chapters": 216,
         "source_url": "https://komiku.org/manga/sakamoto-days"
     },
     "god-of-martial-arts": {
@@ -66,7 +66,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 58,
+        "total_chapters": 819,
         "source_url": "https://komiku.org/manga/god-of-martial-arts"
     },
     "soul-land-2": {
@@ -76,7 +76,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 22,
+        "total_chapters": 518,
         "source_url": "https://komiku.org/manga/soul-land-2"
     },
     "dandadan": {
@@ -86,7 +86,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
         "genre": "Fiksi Sains",
         "type": "Manga",
-        "total_chapters": 24,
+        "total_chapters": 200,
         "source_url": "https://komiku.org/manga/dandadan"
     },
     "manga-one-punch-man": {
@@ -96,7 +96,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/manga-one-punch-man/manga_thumbnail-Komik-One-Punch-Man.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 50,
+        "total_chapters": 295,
         "source_url": "https://komiku.org/manga/manga-one-punch-man"
     },
     "shuumatsu-no-valkyrie-indonesia": {
@@ -106,7 +106,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/shuumatsu-no-valkyrie-indonesia/manga_thumbnail-A2-Shuumatsu-no-Valkyrie-1.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 85,
+        "total_chapters": 176,
         "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
     },
     "the-beginning-after-the-end": {
@@ -116,7 +116,17 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/the-beginning-after-the-end/manga_thumbnail-Manhwa-The-Beginning-After-The-End-1.jpg?w=300",
         "genre": "Isekai",
         "type": "Manhwa",
-        "total_chapters": 202,
+        "total_chapters": 223,
         "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
+    },
+    "123213-chainsaw-man": {
+        "title": "Chainsaw Man",
+        "author": "Tatsuki Fujimoto",
+        "synopsis": "Chainsaw man mengisahkan denji, seorang pemuda yang hidupnya penuh dengan hutang warisan ayahnya dan berjuang untuk bertahan hidup dengan bekerja sebagai pemburu iblis bersama anjing setan peliharaannya yang juga menjadi gergaji mesin, bro! suatu hari, setelah dikhianati dan dibunuh, denji berhasil dihidupkan kembali dengan menyatu bersama anjing setan tersebut sehingga ia, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
+        "genre": "Horor",
+        "type": "Manga",
+        "total_chapters": 207,
+        "source_url": "https://komiku.org/manga/123213-chainsaw-man"
     }
 }
