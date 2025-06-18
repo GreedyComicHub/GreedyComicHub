@@ -32,7 +32,9 @@ h1 {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    pointer-events: none; /* Disable klik */
+}
+.comic-card img:not(.comic-cover) {
+    pointer-events: none; /* Disable klik di genre.html */
     user-select: none; /* Disable select */
     -webkit-user-drag: none; /* Disable drag */
 }
