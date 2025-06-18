@@ -2602,8 +2602,28 @@
                 "https://img.komiku.org/wp-content/uploads/2391908-7_part2.jpg",
                 "https://img.komiku.org/wp-content/uploads/2391908-8.jpg"
             ]
+        },
+        "50.1": {
+            "title": "Chapter 50.1",
+            "url": "https://komiku.org/shuumatsu-no-valkyrie-chapter-50-1/",
+            "images": [
+                "https://img.komiku.org/wp-content/uploads/2398017-1_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-1_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-2_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-2_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-3_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-3_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-4_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-4_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-5_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-5_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-6_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-6_part2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-7_part1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2398017-7_part2.jpg"
+            ]
         }
     },
-    "total_chapters": 84,
+    "total_chapters": 85,
     "type": "Manga"
 }

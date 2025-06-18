@@ -719,8 +719,33 @@
                 "https://img.komiku.org/uploads/2424969-18.jpg",
                 "https://img.komiku.org/uploads/2424969-19.jpg"
             ]
+        },
+        "21": {
+            "title": "Chapter 21",
+            "url": "https://komiku.org/dandadan-chapter-21/",
+            "images": [
+                "https://img.komiku.org/uploads/2424968-1.jpg",
+                "https://img.komiku.org/uploads/2424968-2.jpg",
+                "https://img.komiku.org/uploads/2424968-3.jpg",
+                "https://img.komiku.org/uploads/2424968-4.jpg",
+                "https://img.komiku.org/uploads/2424968-5.jpg",
+                "https://img.komiku.org/uploads/2424968-6.jpg",
+                "https://img.komiku.org/uploads/2424968-7.jpg",
+                "https://img.komiku.org/uploads/2424968-8.jpg",
+                "https://img.komiku.org/uploads/2424968-9.jpg",
+                "https://img.komiku.org/uploads/2424968-10.jpg",
+                "https://img.komiku.org/uploads/2424968-11.jpg",
+                "https://img.komiku.org/uploads/2424968-12.jpg",
+                "https://img.komiku.org/uploads/2424968-13.jpg",
+                "https://img.komiku.org/uploads/2424968-14.jpg",
+                "https://img.komiku.org/uploads/2424968-15.jpg",
+                "https://img.komiku.org/uploads/2424968-16.jpg",
+                "https://img.komiku.org/uploads/2424968-17.jpg",
+                "https://img.komiku.org/uploads/2424968-18.jpg",
+                "https://img.komiku.org/uploads/2424968-19.jpg"
+            ]
         }
     },
-    "total_chapters": 23,
+    "total_chapters": 24,
     "type": "Manga"
 }

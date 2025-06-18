@@ -1342,8 +1342,26 @@
                 "https://img.komiku.org/uploads2/2800651-7.jpg",
                 "https://img.komiku.org/uploads2/2800651-8.jpg"
             ]
+        },
+        "51": {
+            "title": "Chapter 51",
+            "url": "https://komiku.org/one-punch-man-chapter-51/",
+            "images": [
+                "https://img.komiku.org/uploads2/2800650-1.jpg",
+                "https://img.komiku.org/uploads2/2800650-2.jpg",
+                "https://img.komiku.org/uploads2/2800650-3.jpg",
+                "https://img.komiku.org/uploads2/2800650-4.jpg",
+                "https://img.komiku.org/uploads2/2800650-5.jpg",
+                "https://img.komiku.org/uploads2/2800650-6.jpg",
+                "https://img.komiku.org/uploads2/2800650-7.jpg",
+                "https://img.komiku.org/uploads2/2800650-8.jpg",
+                "https://img.komiku.org/uploads2/2800650-9.jpg",
+                "https://img.komiku.org/uploads2/2800650-10.jpg",
+                "https://img.komiku.org/uploads2/2800650-11.jpg",
+                "https://img.komiku.org/uploads2/2800650-12.jpg"
+            ]
         }
     },
-    "total_chapters": 49,
+    "total_chapters": 50,
     "type": "Manga"
 }

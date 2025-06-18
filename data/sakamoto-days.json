@@ -600,8 +600,35 @@
                 "https://img.komiku.org/wp-content/uploads/2375636-21.jpg",
                 "https://img.komiku.org/wp-content/uploads/2375636-22.png"
             ]
+        },
+        "21": {
+            "title": "Chapter 21",
+            "url": "https://komiku.org/sakamoto-days-chapter-21/",
+            "images": [
+                "https://img.komiku.org/wp-content/uploads/2376742-1.png",
+                "https://img.komiku.org/wp-content/uploads/2376742-2.png",
+                "https://img.komiku.org/wp-content/uploads/2376742-3.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-4.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-5.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-6.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-7.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-8.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-9.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-10.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-11.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-12.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-13.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-14.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-15.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-16.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-17.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-18.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-19.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-20.jpg",
+                "https://img.komiku.org/wp-content/uploads/2376742-21.png"
+            ]
         }
     },
-    "total_chapters": 21,
+    "total_chapters": 22,
     "type": "Manga"
 }

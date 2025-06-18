@@ -899,8 +899,25 @@
                 "https://img.komiku.org/wp-content/uploads/21117-8.jpg",
                 "https://img.komiku.org/wp-content/uploads/21117-9.jpg"
             ]
+        },
+        "20.1": {
+            "title": "Chapter 20.1",
+            "url": "https://komiku.org/god-of-martial-arts-chapter-20-1/",
+            "images": [
+                "https://img.komiku.org/wp-content/uploads/21115-1.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-2.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-3.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-4.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-5.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-6.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-7.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-8.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-9.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-10.jpg",
+                "https://img.komiku.org/wp-content/uploads/21115-11.jpg"
+            ]
         }
     },
-    "total_chapters": 57,
+    "total_chapters": 58,
     "type": "Manhua"
 }

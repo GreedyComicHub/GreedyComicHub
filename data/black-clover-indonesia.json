@@ -675,8 +675,31 @@
                 "https://img.komiku.org/wp-content/uploads/2189938-18.jpg",
                 "https://img.komiku.org/wp-content/uploads/2189938-19.jpg"
             ]
+        },
+        "26": {
+            "title": "Chapter 26",
+            "url": "https://komiku.org/black-clover-chapter-26/",
+            "images": [
+                "https://img.komiku.org/wp-content/uploads/2189937-1.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-2.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-3.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-4.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-5.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-6.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-7.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-8.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-9.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-10.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-11.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-12.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-13.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-14.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-15.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-16.jpg",
+                "https://img.komiku.org/wp-content/uploads/2189937-17.jpg"
+            ]
         }
     },
-    "total_chapters": 25,
+    "total_chapters": 26,
     "type": "Manga"
 }
