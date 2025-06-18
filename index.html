@@ -15,7 +15,7 @@
 <body>
     <header class="main-header">
         <h1 class="logo">GreedyComicHub</h1>
-        <input type="text" id="search-bar" class="search-bar" placeholder="Search...">
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
     <main>
         <section class="ad-grid">
@@ -34,7 +34,7 @@
         <p>© 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
     <script>
-        let allComics = []; // Simpan semua komik buat search
+        let allComics = [];
 
         fetch('data/index.json')
             .then(res => {
@@ -53,14 +53,12 @@
         function renderComics(comics) {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
-            // Kelompokkan komik berdasarkan tipe
             const comicsByType = {};
             comics.forEach(comic => {
                 const type = comic.type || 'Unknown';
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
             });
-            // Tampilin per tipe
             Object.keys(comicsByType).forEach(type => {
                 const typeSection = document.createElement('div');
                 typeSection.className = 'type-section';
@@ -83,11 +81,10 @@
             });
         }
 
-        // Search bar functionality
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
             if (!query) {
-                renderComics(allComics); // Reset kalau kosong
+                renderComics(allComics);
                 return;
             }
             const filteredComics = allComics.filter(comic => 

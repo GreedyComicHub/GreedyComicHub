@@ -72,15 +72,15 @@ body {
     color: #fff;
 }
 .comic-grid {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 15px;
+    max-height: 600px; /* 2 baris, sesuaikan (2x ~300px per komik) */
+    overflow-y: auto;
     padding-bottom: 10px;
-    max-height: 600px; /* Muat 2 baris (sesuaikan tinggi komik) */
-    flex-wrap: wrap;
 }
 .comic-grid::-webkit-scrollbar {
-    height: 6px;
+    width: 6px;
 }
 .comic-grid::-webkit-scrollbar-thumb {
     background: #1e90ff;
@@ -96,7 +96,6 @@ body {
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    flex: 0 0 140px; /* Lebar tetap per komik */
 }
 .comic-card:hover {
     transform: scale(1.05);
@@ -277,9 +276,7 @@ footer p {
         height: 60px;
     }
     .comic-grid {
-        flex-wrap: nowrap; /* Scroll horizontal di HP */
-    }
-    .comic-card {
-        flex: 0 0 120px;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        max-height: 500px; /* 2 baris di HP */
     }
 }
