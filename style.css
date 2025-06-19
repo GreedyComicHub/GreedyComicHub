@@ -78,8 +78,8 @@ body {
 .comic-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    max-height: 640px; /* 2 baris (~320px per komik) */
+    gap: 10px; /* Kecilin gap */
+    max-height: 360px; /* 2 baris x 180px */
     overflow-y: auto;
     padding-bottom: 10px;
 }
@@ -100,16 +100,17 @@ body {
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    min-width: 160px; /* Kecilin kartu */
+    min-width: 120px; /* Kecilin lebar */
+    max-height: 180px; /* Kecilin tinggi */
 }
 .comic-card:hover {
     transform: scale(1.05);
 }
 .comic-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
+    max-height: 150px; /* Kecilin gambar */
     object-fit: cover;
+    aspect-ratio: 2 / 3;
 }
 .comic-card img:not(.comic-cover) {
     pointer-events: none;
@@ -117,9 +118,12 @@ body {
     -webkit-user-drag: none;
 }
 .comic-card h2, .comic-card h3 {
-    font-size: 1.1em; /* Kecilin teks */
-    margin: 8px;
+    font-size: 1em; /* Kecilin teks */
+    margin: 5px;
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .comic-card a {
     text-decoration: none;
@@ -275,29 +279,18 @@ footer p {
 @media (max-width: 1024px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
-        max-height: 640px;
+        max-height: 360px;
     }
 }
 @media (max-width: 768px) {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
-        max-height: 640px;
-    }
-    .ad-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
+        max-height: 360px;
     }
 }
 @media (max-width: 600px) {
     .comic-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-height: 540px;
-    }
-    .ad-grid {
-        grid-template-columns: 1fr;
-        gap: 5px;
-    }
-    .ad-placeholder {
-        height: 60px;
+        max-height: 360px;
     }
 }
