@@ -1,3 +1,4 @@
+# main.py: CLI untuk GreedyComicHub
 import argparse
 import logging
 import os
@@ -6,6 +7,7 @@ from add_comic import add_comic
 from update_all import update_all
 from update_comic import update_comic
 from update_source_url import update_source_url
+from list_comics import list_comics
 from utils import read_json, write_json, setup_logging, DATA_DIR
 
 def update_domain(old_domain, new_domain):
@@ -94,6 +96,9 @@ def main():
     path_parser = subparsers.add_parser("update-path", help="Ganti source_url komik spesifik")
     path_parser.add_argument("old_url", help="URL komik yang error")
     path_parser.add_argument("new_url", help="URL komik yang baru")
+    # Parser untuk list-comics
+    list_comics_parser = subparsers.add_parser("list-comics", help="List komik yang sudah ada dan belum ada di komiku.org")
+    list_comics_parser.add_argument('--limit', type=int, help="Jumlah komik yang ditampilkan (contoh: --limit 5)")
     # Parser untuk help
     help_parser = subparsers.add_parser("help", help="Tampilkan bantuan")
     args = parser.parse_args()
@@ -109,6 +114,8 @@ def main():
         update_domain(args.old_domain, args.new_domain)
     elif args.command == "update-path":
         update_path(args.old_url, args.new_url)
+    elif args.command == "list-comics":
+        list_comics(args.limit)
     elif args.command == "help" or not args.command:
         parser.print_help()
     else:

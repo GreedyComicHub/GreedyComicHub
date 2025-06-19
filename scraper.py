@@ -75,31 +75,32 @@ def scrape_komiku_details(url, soup):
                 if genre:
                     break
     logging.info(f"Genre ditemukan: {genre}")
-    comic_type = "Manhua"
+    comic_type = "Unknown Type"
     type_selectors = [
-        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Jenis Komik" in t if t else False)),
-        (soup.find, "span", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("span")),
-        (soup.find, "td", {"string": lambda x: "Type" in x if x else False}, lambda x: x.find_next("td")),
-        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Type" in t if t else False))
+        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: t and "Jenis Komik" in t)),
+        (soup.find, "span", {"string": lambda x: x and "Type" in x}, lambda x: x.find_next("span")),
+        (soup.find, "td", {"string": lambda x: x and "Type" in x}, lambda x: x.find_next("td")),
+        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: t and "Type" in t)),
+        (soup.find, "span", {"class": "komik_info-content-type"}, lambda x: x)
     ]
     for find_method, tag, attrs, next_step in type_selectors:
         element = find_method(tag, **attrs)
         if element:
-            next_element = next_step(element)
+            next_element = next_step(element) if next_step else element
             if next_element:
                 if tag == "table":
-                    comic_type = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Manhua"
+                    comic_type = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Unknown Type"
                 else:
                     comic_type = next_element.text.strip()
-                if comic_type:
+                if comic_type and comic_type != "Unknown Type":
                     break
-            elif element.find_next_sibling(text=True):
-                comic_type = element.find_next_sibling(text=True).strip()
+            elif element.text.strip():
+                comic_type = element.text.strip()
                 if comic_type:
                     break
     logging.info(f"Tipe komik ditemukan: {comic_type}")
     synopsis = "No synopsis available."
-    synopsis_header = soup.find("h2", string=lambda t: "Sinopsis Lengkap" in t if t else False)
+    synopsis_header = soup.find("h2", string=lambda t: t and "Sinopsis Lengkap" in t)
     if synopsis_header:
         synopsis_element = synopsis_header.find_next("p")
         if synopsis_element:
@@ -119,18 +120,22 @@ def scrape_komiku_details(url, soup):
     cover_selectors = [
         'meta[property="og:image"]',
         'meta[itemprop="image"]',
-        'img[itemprop="image"]'
+        'img[itemprop="image"]',
+        'img.komik_info-cover-image'
     ]
     for selector in cover_selectors:
         cover_element = soup.select_one(selector)
-        if cover_element and cover_element.get("content"):
-            cover_url = cover_element["content"]
-            break
-        elif cover_element and cover_element.get("src"):
-            cover_url = cover_element["src"]
-            break
+        if cover_element:
+            cover_url = cover_element.get("content") or cover_element.get("src") or ""
+            if cover_url and cover_url.startswith('http'):
+                break
     if not cover_url:
-        logging.warning("Cover image tidak ditemukan.")
+        logging.warning("Cover image tidak ditemukan dengan selector utama. Mencoba fallback.")
+        cover_image = soup.find("img", class_=lambda x: x and "cover" in x.lower())
+        if cover_image:
+            cover_url = cover_image.get("src", "")
+    if not cover_url:
+        logging.error("Cover image tidak ditemukan.")
     logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, type={comic_type}, synopsis={synopsis}, cover={cover_url}")
     return title, author, synopsis, cover_url, soup, genre, comic_type
 

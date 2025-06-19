@@ -1,15 +1,20 @@
+# update_all.py: Update semua komik di index.json dan catat update di updates.json
 import logging
 import os
+import subprocess
 from scraper import scrape_chapter_list
 from update_comic import update_comic
-from utils import read_json, fetch_page, DATA_DIR
+from utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 def update_all(start=None, end=None, overwrite=False):
     """Update chapter berikutnya untuk semua komik berdasarkan index.json."""
     logging.info("Mengecek chapter berikutnya untuk semua komik...")
     index_file = os.path.join(DATA_DIR, "index.json")
+    updates_file = os.path.join(DATA_DIR, "updates.json")
     index_data = read_json(index_file) or {}
+    updates_data = read_json(updates_file) or {}
     if not index_data:
         logging.warning("Ga ada komik di index.json, bro!")
         return
@@ -32,6 +37,15 @@ def update_all(start=None, end=None, overwrite=False):
             logging.info(f"Komik {comic_title}: Belum ada chapter, coba add chapter pertama.")
             try:
                 update_comic(comic_url, start or 1, start or 1, overwrite)
+                # Catat di updates.json
+                updates_data[f"{comic_id}_1"] = {
+                    "comic_id": comic_id,
+                    "title": comic_title,
+                    "chapter": 1.0,
+                    "thumbnail": comic_info.get("cover", "placeholder.jpg"),
+                    "timestamp": datetime.utcnow().isoformat()
+                }
+                write_json(updates_file, updates_data)
             except Exception as e:
                 logging.error(f"Komik {comic_title}: Gagal add chapter pertama: {e}")
                 failed_comics.append(comic_id)
@@ -60,7 +74,6 @@ def update_all(start=None, end=None, overwrite=False):
         new_chapters = [ch for ch in web_chapters.keys() if float(ch) > latest_local_chapter]
         if not new_chapters:
             logging.info(f"Komik {comic_title}: Belum ada chapter baru setelah {latest_local_chapter}")
-            failed_comics.append(comic_id)
             continue
 
         # Ambil chapter berikutnya
@@ -71,6 +84,15 @@ def update_all(start=None, end=None, overwrite=False):
         try:
             update_comic(comic_url, next_chapter, next_chapter, overwrite)
             logging.info(f"Komik {comic_title}: Berhasil update chapter {next_chapter}")
+            # Catat di updates.json
+            updates_data[f"{comic_id}_{next_chapter}"] = {
+                "comic_id": comic_id,
+                "title": comic_title,
+                "chapter": next_chapter,
+                "thumbnail": comic_info.get("cover", "placeholder.jpg"),
+                "timestamp": datetime.utcnow().isoformat()
+            }
+            write_json(updates_file, updates_data)
         except Exception as e:
             logging.error(f"Komik {comic_title}: Gagal update chapter {next_chapter}: {e}")
             failed_comics.append(comic_id)
@@ -83,4 +105,30 @@ def update_all(start=None, end=None, overwrite=False):
             comic_url = index_data.get(comic_id, {}).get("source_url", f"https://komiku.org/manga/{comic_id}")
             logging.info(f"- {comic_id}: {comic_url}")
     else:
-        logging.info("Semua komik berhasil diupdate, bro!")
+        logging.info("Semua komik berhasil diupdated, bro!")
+
+    # Auto deploy ke web
+    logging.info("Mulai auto deploy ke web...")
+    try:
+        # Tambah file spesifik
+        files_to_deploy = ["index.html", "style.css", "data/index.json", "data/updates.json"]
+        subprocess.run(["git", "add"] + files_to_deploy, check=True)
+        # Cek perubahan
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if not status.stdout.strip():
+            logging.info("Tidak ada perubahan. Skip deploy.")
+            return
+        # Commit
+        subprocess.run(["git", "commit", "-m", "Auto deploy after update-all"], check=True)
+        # Push
+        push_to_github()
+        logging.info("Auto deploy selesai!")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Gagal auto deploy: {e}")
+    except Exception as e:
+        logging.error(f"Error lain saat auto deploy: {e}")
+
+if __name__ == "__main__":
+    from utils import setup_logging
+    setup_logging()
+    update_all()

@@ -5,8 +5,6 @@ import subprocess
 import time
 import requests
 from configparser import ConfigParser
-import cloudinary
-import cloudinary.uploader
 from filelock import FileLock
 from urllib.parse import urlparse, parse_qs, urlencode
 
@@ -24,17 +22,8 @@ for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
 # Load konfigurasi
 config = ConfigParser()
 config.read("config.ini")
-CLOUDINARY_CLOUD_NAME = config.get("Cloudinary", "CloudName")
-CLOUDINARY_API_KEY = config.get("Cloudinary", "ApiKey")
-CLOUDINARY_API_SECRET = config.get("Cloudinary", "ApiSecret")
 GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
 GITHUB_REPO = config.get("GitHub", "GitHubRepo")
-
-cloudinary.config(
-    cloud_name=CLOUDINARY_CLOUD_NAME,
-    api_key=CLOUDINARY_API_KEY,
-    api_secret=CLOUDINARY_API_SECRET
-)
 
 def setup_logging():
     LOG_FILE = os.path.join(LOG_DIR, "update.log")
@@ -113,31 +102,6 @@ def write_json(file_path, data):
     with lock:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
-
-def upload_to_cloudinary(image_url, comic_id, chapter_num):
-    try:
-        response = requests.get(image_url, timeout=10)
-        response.raise_for_status()
-        parsed_url = urlparse(image_url)
-        image_name = os.path.basename(parsed_url.path)
-        temp_path = os.path.join(TEMP_IMAGES_DIR, image_name)
-        with open(temp_path, "wb") as f:
-            f.write(response.content)
-        folder = f"greedycomichub/{comic_id}/chapter_{chapter_num}" if chapter_num != "cover" else f"greedycomichub/{comic_id}/cover"
-        upload_result = cloudinary.uploader.upload(
-            temp_path,
-            folder=folder,
-            overwrite=True,
-            resource_type="image"
-        )
-        os.remove(temp_path)
-        logging.info(f"Gambar {image_name} diupload ke Cloudinary: {upload_result['secure_url']}")
-        return upload_result["secure_url"]
-    except Exception as e:
-        logging.error(f"Gagal upload gambar {image_url}: {e}")
-        if os.path.exists(temp_path):
-            os.remove(temp_path)
-        return image_url
 
 def push_to_github():
     logging.info("Push perubahan ke GitHub...")

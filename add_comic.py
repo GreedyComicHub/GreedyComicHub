@@ -2,7 +2,7 @@ import os
 import logging
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from utils import fetch_page, write_json, read_json, DATA_DIR, get_comic_id_from_url, upload_to_cloudinary
+from utils import fetch_page, write_json, read_json, DATA_DIR, get_comic_id_from_url
 from scraper import scrape_komiku_details
 
 def add_comic(url):
@@ -21,8 +21,8 @@ def add_comic(url):
         soup = BeautifulSoup(html, 'html.parser')
         title, author, synopsis, cover_url, _, genre, comic_type = scrape_komiku_details(url, soup)
 
-        # Upload cover ke Cloudinary
-        cover_cloudinary_url = upload_to_cloudinary(cover_url, comic_id, "cover") if cover_url and cover_url.startswith('http') else ""
+        # Langsung pake cover URL asli
+        cover_image_url = cover_url if cover_url and cover_url.startswith('http') else "placeholder.jpg"
 
         # Ambil data lama dari comic.json kalo ada
         existing_comic_data = read_json(comic_file) or {}
@@ -35,10 +35,11 @@ def add_comic(url):
             "author": author,
             "genre": genre,
             "synopsis": synopsis,
-            "cover": cover_cloudinary_url,
+            "cover": cover_image_url,
             "source_url": url,
             "chapters": chapters,
-            "total_chapters": total_chapters
+            "total_chapters": total_chapters,
+            "type": comic_type
         }
 
         # Simpan ke <comic>.json (overwrite)
@@ -51,7 +52,7 @@ def add_comic(url):
             "title": title,
             "author": author,
             "synopsis": synopsis,
-            "cover": cover_cloudinary_url,
+            "cover": cover_image_url,
             "genre": genre,
             "type": comic_type,
             "total_chapters": total_chapters,

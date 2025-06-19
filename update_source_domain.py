@@ -13,9 +13,9 @@ def update_source_domain(old_domain, new_domain):
                 data["cover"] = data["cover"].replace(old_domain, new_domain)
                 updated = True
             for chapter in data.get("chapters", {}).values():
-                for i, page in enumerate(chapter.get("pages", [])):
-                    if page.startswith(f"https://{old_domain}"):
-                        chapter["pages"][i] = page.replace(old_domain, new_domain)
+                for i, image in enumerate(chapter.get("images", [])):
+                    if image.startswith(f"https://{old_domain}"):
+                        chapter["images"][i] = image.replace(old_domain, new_domain)
                         updated = True
             if updated:
                 write_json(file_path, data)

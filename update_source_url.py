@@ -13,9 +13,9 @@ def update_source_url(old_url, new_url):
                 data["cover"] = new_url
                 updated = True
             for chapter in data.get("chapters", {}).values():
-                for i, page in enumerate(chapter.get("pages", [])):
-                    if page == old_url:
-                        chapter["pages"][i] = new_url
+                for i, image in enumerate(chapter.get("images", [])):
+                    if image == old_url:
+                        chapter["images"][i] = new_url
                         updated = True
             if updated:
                 write_json(file_path, data)
