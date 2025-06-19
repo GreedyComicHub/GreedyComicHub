@@ -46,7 +46,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 24,
+        "total_chapters": 26,
         "source_url": "https://komiku.org/manga/level-1-player"
     },
     "sakamoto-days": {
@@ -66,7 +66,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 821,
+        "total_chapters": 823,
         "source_url": "https://komiku.org/manga/god-of-martial-arts"
     },
     "soul-land-2": {
@@ -148,5 +148,15 @@
         "type": "Manhwa",
         "total_chapters": 265,
         "source_url": "https://komiku.org/manga/nano-machine"
+    },
+    "pick-me-up": {
+        "title": "Pick Me Up",
+        "author": "Jinwoo Kim",
+        "synopsis": "Pick me up mengisahkan tentang kisah cinta dan perjuangan seorang pemuda yang berusaha menemukan jati dirinya di tengah tekanan sosial dan harapan keluarga, bro! di perjalanan hidupnya, ia bertemu dengan berbagai karakter yang mengubah pandangannya tentang cinta dan kehidupan, bro! dalam perjalanan tersebut, dia menghadapi konflik internal dan eksternal yang menguji keteguhan, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "genre": "Aksi",
+        "type": "Manhwa",
+        "total_chapters": 2,
+        "source_url": "https://komiku.org/manga/pick-me-up/"
     }
 }
