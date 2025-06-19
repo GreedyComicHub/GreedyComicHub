@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.html: Halaman utama menampilkan semua komik dari data/index.json -->
+<!-- index.html: Halaman utama menampilkan semua komik dari data/index.json dan update dari data/updates.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,12 @@
             <div class="ad-placeholder"></div>
         </section>
         <section id="comic-list-section">
+            <h2>Komik</h2>
             <div id="comic-list"></div>
+        </section>
+        <section id="update-section">
+            <h2>Update</h2>
+            <div id="update-list" class="comic-grid"></div>
         </section>
         <section class="ad-footer">
             <div class="ad-placeholder"></div>
@@ -36,6 +41,7 @@
     <script>
         let allComics = [];
 
+        // Ambil index.json
         fetch('data/index.json')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load index.json');
@@ -50,6 +56,7 @@
                 document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
             });
 
+        // Render komik utama
         function renderComics(comics) {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
@@ -81,6 +88,41 @@
             });
         }
 
+        // Ambil updates.json dan filter < 2 hari
+        fetch('data/updates.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load updates.json');
+                return res.json();
+            })
+            .then(data => {
+                const updateList = document.getElementById('update-list');
+                const now = new Date();
+                const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
+                const updates = Object.values(data).filter(update => {
+                    const updateTime = new Date(update.timestamp);
+                    return updateTime >= twoDaysAgo;
+                }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                updates.forEach(update => {
+                    const card = document.createElement('div');
+                    card.className = 'comic-card';
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                            <h3>${update.title} - Ch ${update.chapter}</h3>
+                        </a>
+                    `;
+                    updateList.appendChild(card);
+                });
+                if (!updates.length) {
+                    updateList.innerHTML = '<p>Belum ada update baru.</p>';
+                }
+            })
+            .catch(err => {
+                console.error('Error loading updates:', err);
+                document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
+            });
+
+        // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
             if (!query) {
