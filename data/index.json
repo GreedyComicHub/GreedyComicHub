@@ -128,5 +128,15 @@
         "type": "Manga",
         "total_chapters": 207,
         "source_url": "https://komiku.org/manga/123213-chainsaw-man"
+    },
+    "the-kings-avatar": {
+        "title": "The King\u2019s Avatar",
+        "author": "Butterfly Blue",
+        "synopsis": "The king's avatar menceritakan tentang ye xiu, seorang pemain profesional game glory yang terkenal dan sangat dihormati, bro! setelah dipaksa keluar dari tim esports utamanya, ia memulai kembali perjalanannya dari nol dengan akun baru dan tekad kuat untuk merebut kembali statusnya sebagai yang terbaik, bro! dalam prosesnya, ye xiu bertemu dengan berbagai, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/the-kings-avatar/manga_thumbnail-Head-The-Kings-Avatar.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhua",
+        "total_chapters": 165,
+        "source_url": "https://komiku.org/manga/the-kings-avatar"
     }
 }
