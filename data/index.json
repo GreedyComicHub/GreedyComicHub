@@ -208,5 +208,15 @@
         "type": "Manhwa",
         "total_chapters": 151,
         "source_url": "https://komiku.org/manga/kill-the-dragon"
+    },
+    "lv999-no-murabito": {
+        "title": "Lv999 no Murabito",
+        "author": "Koge Donbo",
+        "synopsis": "Cerita ngejar petualangan seorang pria yang merupakan penduduk desa biasa dengan level terendah dalam sebuah dunia game mmorpg, bro! meski berada di level satu, ia memiliki kemampuan dan strategi yang unik sehingga mampu bertahan dan berkembang dalam dunia yang dipenuhi dengan karakter berlevel tinggi, bro! tokoh utama ini punya semangat pantang menyerah, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/lv999-no-murabito/manga_thumbnail-Komik-Lv999-no-Murabito.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manga",
+        "total_chapters": 81,
+        "source_url": "https://komiku.org/manga/lv999-no-murabito"
     }
 }
