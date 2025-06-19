@@ -258,5 +258,15 @@
         "type": "Manga",
         "total_chapters": 252,
         "source_url": "https://komiku.org/manga/the-cuckoos-fiancee"
+    },
+    "spirit-farmer": {
+        "title": "Spirit Farmer",
+        "author": "Radioaktif Studio",
+        "synopsis": "Spirit farmer mengisahkan perjuangan seorang petani muda yang memiliki kemampuan unik untuk berkomunikasi dengan roh-roh alam di desanya, bro! dalam perjalanan hidupnya, ia menghadapi berbagai tantangan mulai dari konflik dengan para petani lain hingga ancaman kekuatan gelap yang berusaha menguasai tanahnya, bro! dengan bantuan roh-roh yang setia, ia belajar mengembangkan kekuatannya untuk, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/img/upload/spirit_farmer/img_6853c1b18cc731.95675294.jpg?w=300",
+        "genre": "Slice of Life",
+        "type": "Manhwa",
+        "total_chapters": 190,
+        "source_url": "https://komiku.org/manga/spirit-farmer"
     }
 }
