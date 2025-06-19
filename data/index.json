@@ -46,7 +46,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 29,
+        "total_chapters": 111,
         "source_url": "https://komiku.org/manga/level-1-player"
     },
     "sakamoto-days": {
@@ -228,5 +228,25 @@
         "type": "Manhwa",
         "total_chapters": 84,
         "source_url": "https://komiku.org/manga/becoming-a-legendary-ace-employee"
+    },
+    "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family": {
+        "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
+        "author": "Tang Jia San Shao",
+        "synopsis": "Cerita ini mengisahkan perjalanan seorang pemuda yang merupakan pewaris keluarga tang yang berpengaruh di sichuan, bro! meski awalnya dianggap lemah dan tidak berbakat, ia bertekad keras untuk menjadi ahli pedang terbaik demi menjaga kehormatan keluarganya dan menghadapi berbagai tantangan yang datang dari musuh dan pengkhianatan dalam keluarganya sendiri, bro! lewat latihan yang, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhwa",
+        "total_chapters": 1,
+        "source_url": "https://komiku.org/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family"
+    },
+    "magical-realm-shopkeeper": {
+        "title": "Magical Realm Shopkeeper",
+        "author": "Wuky",
+        "synopsis": "Di dunia di mana sihir dan makhluk fantastis menjadi bagian dari kehidupan sehari-hari, seorang pemuda biasa menemukan dirinya menjadi pemilik toko ajaib yang penuh barang-barang langka dan berharga, bro! dengan tekad yang kuat dan kecerdasan, dia mulai membangun bisnisnya sambil menghadapi berbagai tantangan dari makhluk misterius dan pesaing yang ingin menguasai, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhwa",
+        "total_chapters": 1,
+        "source_url": "https://komiku.org/manga/magical-realm-shopkeeper"
     }
 }
