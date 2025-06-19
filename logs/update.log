@@ -1,2 +1,132 @@
-2025-06-19 11:41:55,845 - INFO - Mengecek chapter berikutnya untuk semua komik...
-2025-06-19 11:41:55,874 - INFO - Komik One Piece: Chapter terakhir di JSON = 1151
+2025-06-19 16:02:49,737 - INFO - Mengecek chapter berikutnya untuk semua komik...
+2025-06-19 16:02:49,754 - INFO - Komik One Piece: Chapter terakhir di JSON = 1151
+2025-06-19 16:02:51,441 - INFO - Mencari daftar chapter dari https://komiku.org/manga/komik-one-piece-indo...
+2025-06-19 16:02:51,510 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:51,588 - INFO - Komik One Piece: Belum ada chapter baru setelah 1151
+2025-06-19 16:02:51,604 - INFO - Komik Magic Emperor: Chapter terakhir di JSON = 7066
+2025-06-19 16:02:52,851 - INFO - Mencari daftar chapter dari https://komiku.org/manga/magic-emperor...
+2025-06-19 16:02:52,884 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:52,939 - INFO - Komik Magic Emperor: Belum ada chapter baru setelah 7066
+2025-06-19 16:02:52,996 - INFO - Komik Black Clover: Chapter terakhir di JSON = 380
+2025-06-19 16:02:54,158 - INFO - Mencari daftar chapter dari https://komiku.org/manga/black-clover-indonesia...
+2025-06-19 16:02:54,177 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:54,198 - INFO - Komik Black Clover: Belum ada chapter baru setelah 380
+2025-06-19 16:02:54,276 - INFO - Komik Blue Lock: Chapter terakhir di JSON = 305
+2025-06-19 16:02:55,210 - INFO - Mencari daftar chapter dari https://komiku.org/manga/blue-lock...
+2025-06-19 16:02:55,226 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:55,243 - INFO - Komik Blue Lock: Belum ada chapter baru setelah 305
+2025-06-19 16:02:55,333 - INFO - Komik Level 1 Player: Chapter terakhir di JSON = 110
+2025-06-19 16:02:56,152 - INFO - Mencari daftar chapter dari https://komiku.org/manga/level-1-player...
+2025-06-19 16:02:56,162 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:56,171 - INFO - Komik Level 1 Player: Belum ada chapter baru setelah 110
+2025-06-19 16:02:56,292 - INFO - Komik Sakamoto Days: Chapter terakhir di JSON = 217
+2025-06-19 16:02:57,143 - INFO - Mencari daftar chapter dari https://komiku.org/manga/sakamoto-days...
+2025-06-19 16:02:57,156 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:57,168 - INFO - Komik Sakamoto Days: Belum ada chapter baru setelah 217
+2025-06-19 16:02:57,273 - INFO - Komik God of Martial Arts: Chapter terakhir di JSON = 843
+2025-06-19 16:02:58,783 - INFO - Mencari daftar chapter dari https://komiku.org/manga/god-of-martial-arts...
+2025-06-19 16:02:58,822 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:02:58,886 - INFO - Komik God of Martial Arts: Belum ada chapter baru setelah 843
+2025-06-19 16:02:58,991 - INFO - Komik Soul Land 2: Chapter terakhir di JSON = 403
+2025-06-19 16:03:00,177 - INFO - Mencari daftar chapter dari https://komiku.org/manga/soul-land-2...
+2025-06-19 16:03:00,212 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:00,248 - INFO - Komik Soul Land 2: Belum ada chapter baru setelah 403
+2025-06-19 16:03:00,318 - INFO - Komik DANDADAN: Chapter terakhir di JSON = 198
+2025-06-19 16:03:01,432 - INFO - Mencari daftar chapter dari https://komiku.org/manga/dandadan...
+2025-06-19 16:03:01,449 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:01,464 - INFO - Komik DANDADAN: Belum ada chapter baru setelah 198
+2025-06-19 16:03:01,541 - INFO - Komik One Punch Man: Chapter terakhir di JSON = 261.2
+2025-06-19 16:03:02,676 - INFO - Mencari daftar chapter dari https://komiku.org/manga/manga-one-punch-man...
+2025-06-19 16:03:02,693 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:02,718 - INFO - Komik One Punch Man: Belum ada chapter baru setelah 261.2
+2025-06-19 16:03:02,769 - INFO - Komik Shuumatsu no Valkyrie: Chapter terakhir di JSON = 103
+2025-06-19 16:03:03,637 - INFO - Mencari daftar chapter dari https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia...
+2025-06-19 16:03:03,653 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:03,666 - INFO - Komik Shuumatsu no Valkyrie: Belum ada chapter baru setelah 103
+2025-06-19 16:03:03,781 - INFO - Komik The Beginning After The End: Chapter terakhir di JSON = 222
+2025-06-19 16:03:04,641 - INFO - Mencari daftar chapter dari https://komiku.org/manga/the-beginning-after-the-end...
+2025-06-19 16:03:04,653 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:04,666 - INFO - Komik The Beginning After The End: Belum ada chapter baru setelah 222
+2025-06-19 16:03:04,691 - INFO - Komik Chainsaw Man: Chapter terakhir di JSON = 206
+2025-06-19 16:03:05,557 - INFO - Mencari daftar chapter dari https://komiku.org/manga/123213-chainsaw-man...
+2025-06-19 16:03:05,574 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:05,590 - INFO - Komik Chainsaw Man: Belum ada chapter baru setelah 206
+2025-06-19 16:03:05,677 - INFO - Komik The King’s Avatar: Chapter terakhir di JSON = 165
+2025-06-19 16:03:06,517 - INFO - Mencari daftar chapter dari https://komiku.org/manga/the-kings-avatar...
+2025-06-19 16:03:06,528 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:06,537 - INFO - Komik The King’s Avatar: Belum ada chapter baru setelah 165
+2025-06-19 16:03:06,634 - INFO - Komik Nano Machine: Chapter terakhir di JSON = 265
+2025-06-19 16:03:07,719 - INFO - Mencari daftar chapter dari https://komiku.org/manga/nano-machine...
+2025-06-19 16:03:07,734 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:07,749 - INFO - Komik Nano Machine: Belum ada chapter baru setelah 265
+2025-06-19 16:03:07,837 - INFO - Komik Pick Me Up: Chapter terakhir di JSON = 153
+2025-06-19 16:03:08,653 - INFO - Mencari daftar chapter dari https://komiku.org/manga/pick-me-up/...
+2025-06-19 16:03:08,664 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:08,673 - INFO - Komik Pick Me Up: Belum ada chapter baru setelah 153
+2025-06-19 16:03:08,701 - INFO - Komik Return of the Legend: Chapter terakhir di JSON = 172
+2025-06-19 16:03:09,554 - INFO - Mencari daftar chapter dari https://komiku.org/manga/return-of-the-legend...
+2025-06-19 16:03:09,606 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:09,617 - INFO - Komik Return of the Legend: Belum ada chapter baru setelah 172
+2025-06-19 16:03:09,620 - INFO - Komik Genjitsu Shugi Yuusha no Oukoku Saikenki: Chapter terakhir di JSON = 69
+2025-06-19 16:03:10,427 - INFO - Mencari daftar chapter dari https://komiku.org/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki...
+2025-06-19 16:03:10,435 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:10,441 - INFO - Komik Genjitsu Shugi Yuusha no Oukoku Saikenki: Belum ada chapter baru setelah 69
+2025-06-19 16:03:10,448 - INFO - Komik I Was Forced by the System to Become a Villain: Chapter terakhir di JSON = 147
+2025-06-19 16:03:11,371 - INFO - Mencari daftar chapter dari https://komiku.org/manga/i-was-forced-by-the-system-to-become-a-villain...
+2025-06-19 16:03:11,382 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:11,393 - INFO - Komik I Was Forced by the System to Become a Villain: Belum ada chapter baru setelah 147
+2025-06-19 16:03:11,428 - INFO - Komik The Youngest Son Of A Rich Family: Chapter terakhir di JSON = 156
+2025-06-19 16:03:12,442 - INFO - Mencari daftar chapter dari https://komiku.org/manga/the-youngest-son-of-a-rich-family...
+2025-06-19 16:03:12,453 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:12,464 - INFO - Komik The Youngest Son Of A Rich Family: Belum ada chapter baru setelah 156
+2025-06-19 16:03:12,536 - INFO - Komik Kill The Dragon: Chapter terakhir di JSON = 152
+2025-06-19 16:03:13,351 - INFO - Mencari daftar chapter dari https://komiku.org/manga/kill-the-dragon...
+2025-06-19 16:03:13,363 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:13,375 - INFO - Komik Kill The Dragon: Belum ada chapter baru setelah 152
+2025-06-19 16:03:13,379 - INFO - Komik Lv999 no Murabito: Chapter terakhir di JSON = 81
+2025-06-19 16:03:14,185 - INFO - Mencari daftar chapter dari https://komiku.org/manga/lv999-no-murabito...
+2025-06-19 16:03:14,193 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:14,198 - INFO - Komik Lv999 no Murabito: Belum ada chapter baru setelah 81
+2025-06-19 16:03:14,204 - INFO - Komik Becoming a Legendary Ace Employee: Chapter terakhir di JSON = 84
+2025-06-19 16:03:15,018 - INFO - Mencari daftar chapter dari https://komiku.org/manga/becoming-a-legendary-ace-employee...
+2025-06-19 16:03:15,026 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:15,032 - INFO - Komik Becoming a Legendary Ace Employee: Belum ada chapter baru setelah 84
+2025-06-19 16:03:15,034 - INFO - Komik Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family: Chapter terakhir di JSON = 1
+2025-06-19 16:03:15,826 - INFO - Mencari daftar chapter dari https://komiku.org/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family...
+2025-06-19 16:03:15,834 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:15,839 - INFO - Komik Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family: Coba update chapter 2
+2025-06-19 16:03:15,840 - INFO - Mulai update: https://komiku.org/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family
+2025-06-19 16:03:15,840 - INFO - Nama komik dari URL: ID=becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family, Display=Becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family
+2025-06-19 16:03:16,622 - INFO - Found 77 chapter links
+2025-06-19 16:03:16,628 - INFO - Sorted 1 chapters from 2 to 2
+2025-06-19 16:03:17,067 - INFO - Judul chapter: Chapter 02
+2025-06-19 16:03:17,071 - INFO - Scraped 102 images for Chapter 2
+2025-06-19 16:03:17,072 - INFO - Filtered 1 chapters in range 2 to 2
+2025-06-19 16:03:17,077 - INFO - Berhasil disimpan ke data\becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family.json
+2025-06-19 16:03:17,082 - INFO - Updated becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family in data\index.json
+2025-06-19 16:03:17,083 - INFO - Komik Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family: Berhasil update chapter 2
+2025-06-19 16:03:17,136 - INFO - Komik Magical Realm Shopkeeper: Chapter terakhir di JSON = 1
+2025-06-19 16:03:18,075 - INFO - Mencari daftar chapter dari https://komiku.org/manga/magical-realm-shopkeeper...
+2025-06-19 16:03:18,085 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:18,091 - INFO - Komik Magical Realm Shopkeeper: Coba update chapter 2
+2025-06-19 16:03:18,092 - INFO - Mulai update: https://komiku.org/manga/magical-realm-shopkeeper
+2025-06-19 16:03:18,092 - INFO - Nama komik dari URL: ID=magical-realm-shopkeeper, Display=Magical-realm-shopkeeper
+2025-06-19 16:03:18,932 - INFO - Found 70 chapter links
+2025-06-19 16:03:18,937 - INFO - Sorted 1 chapters from 2 to 2
+2025-06-19 16:03:19,459 - INFO - Judul chapter: Chapter 02
+2025-06-19 16:03:19,462 - INFO - Scraped 62 images for Chapter 2
+2025-06-19 16:03:19,463 - INFO - Filtered 1 chapters in range 2 to 2
+2025-06-19 16:03:19,465 - INFO - Berhasil disimpan ke data\magical-realm-shopkeeper.json
+2025-06-19 16:03:19,469 - INFO - Updated magical-realm-shopkeeper in data\index.json
+2025-06-19 16:03:19,470 - INFO - Komik Magical Realm Shopkeeper: Berhasil update chapter 2
+2025-06-19 16:03:19,476 - INFO - Komik The Cuckoo’s Fiancee: Chapter terakhir di JSON = 251
+2025-06-19 16:03:20,555 - INFO - Mencari daftar chapter dari https://komiku.org/manga/the-cuckoos-fiancee...
+2025-06-19 16:03:20,575 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:20,595 - INFO - Komik The Cuckoo’s Fiancee: Belum ada chapter baru setelah 251
+2025-06-19 16:03:20,604 - INFO - Komik Spirit Farmer: Chapter terakhir di JSON = 192
+2025-06-19 16:03:21,439 - INFO - Mencari daftar chapter dari https://komiku.org/manga/spirit-farmer...
+2025-06-19 16:03:21,450 - INFO - Chapter ditemukan dengan selector: td.judulseries a
+2025-06-19 16:03:21,461 - INFO - Komik Spirit Farmer: Belum ada chapter baru setelah 192
+2025-06-19 16:03:21,461 - INFO - Selesai update-all!
+2025-06-19 16:03:21,462 - INFO - Semua komik berhasil diupdated, bro!
+2025-06-19 16:03:21,462 - INFO - Mulai auto deploy ke web...
