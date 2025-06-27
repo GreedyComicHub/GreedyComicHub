@@ -268,5 +268,15 @@
         "type": "Manhwa",
         "total_chapters": 190,
         "source_url": "https://komiku.org/manga/spirit-farmer"
+    },
+    "kingdom": {
+        "title": "Kingdom",
+        "author": "Yasuhisa Hara",
+        "synopsis": "Kerajaan mengikuti kisah xin, seorang pemuda yatim piatu yang bercita-cita menjadi jenderal terhebat di tiongkok pada zaman negara-negara berperang, bro! dalam perjalanannya, xin bertemu dengan sekutu dan musuh yang memiliki ambisi besar yang sama, memperjuangkan perdamaian dan pemersatuan tiongkok yang terpecah-pecah, bro! cerita ini begitu kaya dengan taktik pertempuran dan pembangunan karakter, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
+        "genre": "Aksi",
+        "type": "Manga",
+        "total_chapters": 840,
+        "source_url": "https://komiku.org/manga/kingdom"
     }
 }
