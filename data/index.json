@@ -278,5 +278,15 @@
         "type": "Manga",
         "total_chapters": 840,
         "source_url": "https://komiku.org/manga/kingdom"
+    },
+    "the-last-human": {
+        "title": "The Last Human",
+        "author": "WOW Studios",
+        "synopsis": "Dunia telah berubah menjadi tempat yang penuh dengan makhluk-makhluk super kuat dan kecerdasan buatan yang mengendalikan banyak hal, bro! dalam situasi ini, jeon-woo, yang dikenal sebagai manusia terakhir, berjuang untuk bertahan hidup sekaligus mencari arti manusia sejati di tengah kekacauan tersebut, bro! setiap langkahnya dipenuhi dengan konflik dan bahaya dari makhluk-makhluk yang, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
+        "genre": "Horor",
+        "type": "Manhua",
+        "total_chapters": 499,
+        "source_url": "https://komiku.org/manga/the-last-human"
     }
 }
