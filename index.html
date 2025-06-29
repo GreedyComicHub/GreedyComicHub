@@ -24,7 +24,7 @@
     </header>
     <main class="main-content">
         <section id="update-section">
-            <h2>Update <span class="new-label">(new)</span></h2>
+            <h2>Update</h2>
             <div id="update-list" class="comic-grid"></div>
         </section>
         <section id="comic-list-section">
@@ -135,21 +135,23 @@
                 const updateTime = new Date(update.timestamp);
                 return updateTime >= twoDaysAgo;
             }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-            updates.forEach(update => {
-                const card = document.createElement('div');
-                card.className = 'comic-card';
-                card.innerHTML = `
-                    <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                        <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                        <div class="card-text">
-                            <h3>${update.title} - Ch ${update.chapter}</h3>
-                        </div>
-                    </a>
-                `;
-                updateList.appendChild(card);
-            });
-            if (!updates.length) {
-                updateList.innerHTML = '<p>Belum ada update baru.</p>';
+            updateList.innerHTML = '';
+            if (updates.length > 0) {
+                updates.forEach(update => {
+                    const card = document.createElement('div');
+                    card.className = 'comic-card';
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                            <div class="card-text">
+                                <h3>${update.title} - Ch ${update.chapter}</h3>
+                            </div>
+                        </a>
+                    `;
+                    updateList.appendChild(card);
+                });
+            } else {
+                updateList.innerHTML = '<p class="no-updates">Belum ada update baru.</p>';
             }
         }
 

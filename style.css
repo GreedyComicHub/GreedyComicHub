@@ -68,6 +68,7 @@ body {
 .type-section, #update-section {
     margin-bottom: 25px;
     padding: 15px; /* Hapus border, cuma pakai padding */
+    text-align: center; /* Tengahkan judul */
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
@@ -162,6 +163,13 @@ body {
 }
 .page-btn:hover {
     background-color: #444;
+}
+
+/* No Updates Text */
+.no-updates {
+    text-align: center; /* Tengahkan teks kalau nggak ada update */
+    padding: 10px;
+    color: #ddd;
 }
 
 /* Media Query */
