@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- chapter.html: Tampilkan gambar chapter dari data/<comic>.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter</title>
+    <title>Baca Chapter - GreedyComicHub</title>
     <link rel="stylesheet" href="style.css">
     <!-- Histats Start -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
@@ -12,86 +11,47 @@
     <!-- Histats End -->
 </head>
 <body>
-    <div id="chapter-content">
-        <div class="chapter-nav">
-            <a id="prev-chapter" href="#">Previous</a>
-            <a id="next-chapter" href="#">Next</a>
-            <a id="back-to-comic" href="#">Back to Comic</a>
-        </div>
-        <div id="chapter-images"></div>
-        <div class="chapter-nav">
-            <a id="prev-chapter-bottom" href="#">Previous</a>
-            <a id="next-chapter-bottom" href="#">Next</a>
-            <a id="back-to-comic-bottom" href="#">Back to Comic</a>
-        </div>
-    </div>
+    <header class="main-header">
+        <h1 class="logo">GreedyComicHub</h1>
+        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
+    </header>
+    <main class="main-content">
+        <section class="chapter-reader">
+            <div id="chapter-content"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 GreedyComicHub. All rights reserved.</p>
+    </footer>
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const comicId = params.get('comic');
-        const chapterNum = params.get('chapter');
-        if (comicId && chapterNum) {
-            const timestamp = new Date().getTime();
-            fetch(`data/${comicId}.json?ts=${timestamp}`)
-                .then(res => {
-                    if (!res.ok) throw new Error(`Failed to load ${comicId}.json`);
-                    return res.json();
-                })
-                .then(data => {
-                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => parseFloat(a) - parseFloat(b));
-                    const chapterImages = document.getElementById('chapter-images');
-                    const chapterData = data.chapters[chapterNum];
-                    if (chapterData && chapterData.images) {
-                        chapterImages.innerHTML = '';
-                        chapterData.images.forEach(imgSrc => {
-                            const frame = document.createElement('div');
-                            frame.className = 'image-frame';
-                            const img = document.createElement('img');
-                            img.src = imgSrc;
-                            img.className = 'chapter-image';
-                            img.setAttribute('oncontextmenu', 'return false;');
-                            img.setAttribute('draggable', 'false');
-                            img.onerror = () => {
-                                img.alt = 'Gambar gagal dimuat';
-                                img.style.display = 'none';
-                            };
-                            frame.appendChild(img);
-                            chapterImages.appendChild(frame);
-                        });
-                        // Disable klik kanan global
-                        document.addEventListener('contextmenu', e => e.preventDefault());
-                    } else {
-                        chapterImages.innerHTML = '<p>Chapter not found.</p>';
-                    }
-                    const currentIndex = chapters.indexOf(chapterNum.toString());
-                    const prevLink = document.getElementById('prev-chapter');
-                    const nextLink = document.getElementById('next-chapter');
-                    const backLink = document.getElementById('back-to-comic');
-                    const prevLinkBottom = document.getElementById('prev-chapter-bottom');
-                    const nextLinkBottom = document.getElementById('next-chapter-bottom');
-                    const backLinkBottom = document.getElementById('back-to-comic-bottom');
-                    backLink.href = `comic.html?comic=${comicId}`;
-                    backLinkBottom.href = `comic.html?comic=${comicId}`;
-                    if (currentIndex > 0) {
-                        prevLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex - 1]}`;
-                        prevLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex - 1]}`;
-                    } else {
-                        prevLink.style.display = 'none';
-                        prevLinkBottom.style.display = 'none';
-                    }
-                    if (currentIndex < chapters.length - 1) {
-                        nextLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex + 1]}`;
-                        nextLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex + 1]}`;
-                    } else {
-                        nextLink.style.display = 'none';
-                        nextLinkBottom.style.display = 'none';
-                    }
-                })
-                .catch(err => {
-                    console.error('Error loading chapter:', err);
-                    document.getElementById('chapter-content').innerHTML = '<p>Error loading chapter.</p>';
-                });
-        } else {
-            document.getElementById('chapter-content').innerHTML = '<p>Invalid comic or chapter.</p>';
+        const urlParams = new URLSearchParams(window.location.search);
+        const comicId = urlParams.get('comic');
+        const chapterNum = urlParams.get('chapter');
+        let updatesData = {};
+
+        // Ambil data updates
+        fetch('data/updates.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load updates.json');
+                return res.json();
+            })
+            .then(data => {
+                updatesData = data;
+                renderChapter(comicId, chapterNum);
+            })
+            .catch(err => {
+                console.error('Error loading data:', err);
+                document.getElementById('chapter-content').innerHTML = '<p>Error loading chapter.</p>';
+            });
+
+        function renderChapter(comicId, chapterNum) {
+            const update = Object.values(updatesData).find(u => u.comic_id === comicId && u.chapter === chapterNum);
+            const chapterContent = document.getElementById('chapter-content');
+            if (update && update.images) {
+                chapterContent.innerHTML = update.images.map(img => `<img src="${img}" alt="Chapter ${chapterNum} Page">`).join('');
+            } else {
+                chapterContent.innerHTML = '<p>Chapter tidak ditemukan atau gambar tidak tersedia.</p>';
+            }
         }
     </script>
 </body>
