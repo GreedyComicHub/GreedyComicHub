@@ -48,27 +48,24 @@ body {
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 15px;
-}
-.content-wrapper {
-    flex: 1;
-    min-width: 0; /* Pastikan flex item menyusut */
-    max-width: 960px; /* Batasi lebar konten utama */
+    max-width: 1200px; /* Batasi lebar total */
+    margin: 0 auto; /* Center layout */
 }
 .ad-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     padding: 15px 0;
-    max-width: 960px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 800px; /* Sesuaikan lebar iklan */
 }
 .ad-footer {
     display: flex;
     justify-content: center;
     padding: 15px 0;
-    max-width: 960px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
 }
 .ad-placeholder {
@@ -83,6 +80,8 @@ body {
 /* Comics */
 #comic-list-section, #update-section {
     padding: 0;
+    width: 100%;
+    max-width: 800px; /* Batasi lebar konten komik */
 }
 .type-section, #update-section {
     margin-bottom: 25px;
@@ -99,7 +98,7 @@ body {
 .comic-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+    gap: 10px; /* Jarak antar komik */
     max-height: 640px;
     overflow-y: auto;
     padding-bottom: 10px;
@@ -123,47 +122,30 @@ body {
     transition: transform 0.2s;
     min-width: 120px;
     max-width: 150px;
-    padding: 10px 0; /* Sesuaikan padding biar pas dengan cover + judul */
+    padding: 5px 0; /* Kurangin padding biar pas */
+    height: 240px; /* Tinggi total (cover 180px + judul 60px) */
 }
 .comic-card:hover {
     transform: scale(1.05);
 }
 .comic-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
+    height: 180px; /* Tinggi cover pas */
     object-fit: cover;
     max-width: 150px;
 }
 .comic-card h3 {
-    font-size: 1.1em;
-    margin: 8px 0;
+    font-size: 1em;
+    margin: 5px 0;
     color: #fff;
-    padding: 0 5px; /* Pastikan judul nggak overflow */
+    padding: 0 5px;
     word-wrap: break-word;
+    height: 60px; /* Tinggi judul pas */
+    overflow: hidden;
 }
 .comic-card a {
     text-decoration: none;
     color: inherit;
-}
-
-/* Best Comics Sidebar */
-.best-comics {
-    flex: 0 0 200px; /* Lebar tetap 200px */
-    margin-left: 20px;
-    background: #222;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-.best-comics h2 {
-    font-size: 1.4em;
-    margin: 0 0 10px;
-    color: #fff;
-}
-.best-list p {
-    margin: 5px 0;
-    color: #ddd;
 }
 
 /* Media Query */
@@ -171,29 +153,23 @@ body {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    .best-comics {
-        flex: 0 0 180px;
+    .main-content {
+        max-width: 1000px;
     }
 }
 @media (max-width: 768px) {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    .best-comics {
-        flex: 0 0 160px;
-    }
     .ad-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
     }
+    .main-content {
+        max-width: 800px;
+    }
 }
 @media (max-width: 600px) {
-    .main-content {
-        flex-direction: column;
-    }
-    .content-wrapper {
-        max-width: 100%;
-    }
     .comic-grid {
         grid-template-columns: repeat(2, 1fr);
         max-height: 540px;
@@ -205,17 +181,16 @@ body {
     .ad-placeholder {
         height: 60px;
     }
-    .best-comics {
-        flex: 0 0 100%;
-        margin-left: 0;
-        margin-top: 15px;
-    }
     .main-header {
         flex-direction: column;
         align-items: flex-start;
     }
     .histats-link {
         margin: 10px 0 0 0;
+    }
+    .main-content {
+        max-width: 100%;
+        padding: 10px;
     }
 }
 
@@ -225,6 +200,8 @@ footer {
     padding: 15px;
     background-color: #111;
     margin-top: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 footer p {
     margin: 0;
