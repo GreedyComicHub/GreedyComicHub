@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman */
+/* style.css: Styling untuk semua halaman (diperbarui) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -172,56 +172,6 @@ body {
     color: #ddd;
 }
 
-/* Media Query */
-@media (max-width: 1024px) {
-    .comic-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    .main-content {
-        max-width: 1000px;
-    }
-}
-@media (max-width: 768px) {
-    .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    .main-content {
-        max-width: 800px;
-    }
-}
-@media (max-width: 600px) {
-    .comic-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .histats-link {
-        margin: 10px 0 0 0;
-    }
-    .main-content {
-        max-width: 100%;
-        padding: 10px;
-    }
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #111;
-    margin-top: 15px;
-    width: 100%;
-    max-width: 1200px;
-}
-footer p {
-    margin: 0;
-    color: #ddd;
-}
 /* Halaman Detail */
 #comic-detail {
     max-width: 800px;
@@ -311,7 +261,9 @@ footer p {
 }
 .chapter-link a:hover {
     background: #0066cc;
-}/* Halaman Chapter */
+}
+
+/* Halaman Chapter */
 #chapter-content {
     max-width: 800px;
     margin: 0 auto;
@@ -351,44 +303,123 @@ footer p {
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
-}/* Footer */
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
     background-color: #111;
     margin-top: 15px;
+    width: 100%;
+    max-width: 1200px;
 }
 footer p {
     margin: 0;
     color: #ddd;
-}/* Media Query */
+}
+
+/* Media Query (Diperbarui buat HP) */
 @media (max-width: 1024px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
-        max-height: 640px;
+        grid-template-rows: repeat(2, 1fr);
     }
-}
-@media (max-width: 768px) {
-    .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-height: 640px;
+    .main-content {
+        max-width: 1000px;
     }
-    .ad-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
+    #comic-detail {
+        max-width: 600px;
     }
-}
-@media (max-width: 600px) {
-    .comic-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-height: 540px;
+    .comic-header {
+        flex-direction: column;
+        align-items: center;
     }
-    .ad-grid {
-        grid-template-columns: 1fr;
-        gap: 5px;
+    .comic-header img {
+        max-width: 150px;
     }
-    .ad-placeholder {
-        height: 60px;
+    #chapter-content {
+        max-width: 600px;
     }
 }
 
+@media (max-width: 768px) {
+    .comic-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .main-content {
+        max-width: 800px;
+    }
+    #comic-detail {
+        max-width: 500px;
+    }
+    .chapter-nav a {
+        display: block;
+        margin: 5px 0;
+    }
+    #chapter-content {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .comic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .histats-link {
+        margin: 10px 0 0 0;
+    }
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main-content {
+        max-width: 100%;
+        padding: 10px;
+    }
+    #comic-detail {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .comic-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .comic-header img {
+        max-width: 120px;
+    }
+    .comic-info h1 {
+        font-size: 1.2em;
+    }
+    .comic-info p {
+        font-size: 0.9em;
+    }
+    #synopsis {
+        font-size: 0.9em;
+    }
+    .chapter-scroll {
+        max-height: 200px;
+    }
+    .chapter-link a {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+    #chapter-content {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .image-frame {
+        max-width: 100%;
+    }
+    .chapter-nav a {
+        display: block;
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+}
