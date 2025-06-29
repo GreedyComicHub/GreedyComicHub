@@ -23,18 +23,13 @@
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
     <main class="main-content">
-        <section class="ad-grid">
-            <div class="ad-placeholder"></div>
-            <div class="ad-placeholder"></div>
-            <div class="ad-placeholder"></div>
-        </section>
         <section id="update-section">
             <h2>Update</h2>
             <div id="update-list" class="comic-grid"></div>
         </section>
-        <div id="comic-list"></div> <!-- Tetap tanpa <h2>Komik</h2> -->
-        <section class="ad-footer">
-            <div class="ad-placeholder"></div>
+        <section id="comic-list-section">
+            <h2>Komik</h2>
+            <div id="comic-list"></div>
         </section>
     </main>
     <footer>
@@ -43,38 +38,44 @@
     <script>
         let allComics = [];
         let updatesData = {};
+        let currentPages = {}; // Simpan halaman per tipe
+        const comicsPerPage = 10; // 5 kolom x 2 baris
 
-        // Ambil index.json
-        fetch('data/index.json')
-            .then(res => {
+        // Ambil index.json dan updates.json
+        Promise.all([
+            fetch('data/index.json').then(res => {
                 if (!res.ok) throw new Error('Failed to load index.json');
                 return res.json();
-            })
-            .then(data => {
-                allComics = Object.keys(data).map(comicId => ({ id: comicId, ...data[comicId] }));
-                return fetch('data/updates.json');
-            })
-            .then(res => {
+            }),
+            fetch('data/updates.json').then(res => {
                 if (!res.ok) throw new Error('Failed to load updates.json');
                 return res.json();
             })
-            .then(data => {
-                updatesData = data;
-                renderComics(allComics);
-                renderUpdates();
-            })
-            .catch(err => {
-                console.error('Error loading data:', err);
-                document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
-                document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
-            });
+        ])
+        .then(([indexData, updates]) => {
+            allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
+            updatesData = updates;
+            currentPages = allComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc[type]) acc[type] = 1;
+                return acc;
+            }, {});
+            renderComics();
+            renderUpdates();
+            setupPagination();
+        })
+        .catch(err => {
+            console.error('Error loading data:', err);
+            document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+            document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
+        });
 
-        // Render komik utama
-        function renderComics(comics) {
+        // Render komik utama dengan paginasi per tipe
+        function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
             const comicsByType = {};
-            comics.forEach(comic => {
+            allComics.forEach(comic => {
                 const type = comic.type || 'Unknown';
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
@@ -85,20 +86,43 @@
                 typeSection.innerHTML = `<h2>${type}</h2>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
-                comicsByType[type].forEach(comic => {
+                const startIndex = (currentPages[type] - 1) * comicsPerPage;
+                const endIndex = startIndex + comicsPerPage;
+                const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
+                paginatedComics.forEach(comic => {
                     const latestChapter = getLatestChapter(comic.id);
                     const card = document.createElement('div');
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                            <h3>${comic.title}</h3>
+                            <div class="card-text">
+                                <h3>${comic.title}</h3>
+                                <p class="last-chapter">Last: Ch ${latestChapter || 'N/A'}</p>
+                            </div>
                         </a>
                     `;
                     typeGrid.appendChild(card);
                 });
-                typeSection.appendChild(typeGrid);
-                comicList.appendChild(typeSection);
+                if (paginatedComics.length > 0) {
+                    typeSection.appendChild(typeGrid);
+                    const pagination = document.createElement('div');
+                    pagination.className = 'pagination';
+                    const totalPages = Math.ceil(comicsByType[type].length / comicsPerPage);
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        pageButton.className = `page-btn ${i === currentPages[type] ? 'active' : ''}`;
+                        pageButton.addEventListener('click', () => {
+                            currentPages[type] = i;
+                            renderComics();
+                            setupPagination();
+                        });
+                        pagination.appendChild(pageButton);
+                    }
+                    typeSection.appendChild(pagination);
+                    comicList.appendChild(typeSection);
+                }
             });
         }
 
@@ -119,7 +143,9 @@
                     card.innerHTML = `
                         <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
                             <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                            <h3>${update.title} - Ch ${update.chapter}</h3>
+                            <div class="card-text">
+                                <h3>${update.title} - Ch ${update.chapter}</h3>
+                            </div>
                         </a>
                     `;
                     updateList.appendChild(card);
@@ -136,18 +162,34 @@
             return comicUpdates.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0].chapter;
         }
 
+        // Setup paginasi (panggil ulang buat update status)
+        function setupPagination() {
+            // Pagination sudah ditangani di renderComics per tipe
+        }
+
         // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
             if (!query) {
-                renderComics(allComics);
+                currentPages = allComics.reduce((acc, comic) => {
+                    const type = comic.type || 'Unknown';
+                    if (!acc[type]) acc[type] = 1;
+                    return acc;
+                }, {});
+                renderComics();
                 return;
             }
             const filteredComics = allComics.filter(comic => 
                 comic.title.toLowerCase().includes(query) || 
                 (comic.genre && comic.genre.toLowerCase().includes(query))
             );
-            renderComics(filteredComics);
+            allComics = filteredComics;
+            currentPages = filteredComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc[type]) acc[type] = 1;
+                return acc;
+            }, {});
+            renderComics();
         });
     </script>
 </body>
