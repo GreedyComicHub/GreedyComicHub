@@ -47,30 +47,28 @@
         let allComics = [];
         let updatesData = {};
 
-        // Ambil index.json
-        fetch('data/index.json')
-            .then(res => {
+        // Ambil index.json dan updates.json
+        Promise.all([
+            fetch('data/index.json').then(res => {
                 if (!res.ok) throw new Error('Failed to load index.json');
                 return res.json();
-            })
-            .then(data => {
-                allComics = Object.keys(data).map(comicId => ({ id: comicId, ...data[comicId] }));
-                return fetch('data/updates.json');
-            })
-            .then(res => {
+            }),
+            fetch('data/updates.json').then(res => {
                 if (!res.ok) throw new Error('Failed to load updates.json');
                 return res.json();
             })
-            .then(data => {
-                updatesData = data;
-                renderComics(allComics);
-                renderUpdates();
-            })
-            .catch(err => {
-                console.error('Error loading data:', err);
-                document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
-                document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
-            });
+        ])
+        .then(([indexData, updates]) => {
+            allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
+            updatesData = updates;
+            renderComics(allComics);
+            renderUpdates();
+        })
+        .catch(err => {
+            console.error('Error loading data:', err);
+            document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+            document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
+        });
 
         // Render komik utama
         function renderComics(comics) {
@@ -95,8 +93,10 @@
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                            <h3>${comic.title}</h3>
-                            <p class="last-chapter">Last: Ch ${latestChapter || 'N/A'}</p>
+                            <div class="card-text">
+                                <h3>${comic.title}</h3>
+                                <p class="last-chapter">Last: Ch ${latestChapter || 'N/A'}</p>
+                            </div>
                         </a>
                     `;
                     typeGrid.appendChild(card);
@@ -121,7 +121,9 @@
                 card.innerHTML = `
                     <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
                         <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                        <h3>${update.title} - Ch ${update.chapter}</h3>
+                        <div class="card-text">
+                            <h3>${update.title} - Ch ${update.chapter}</h3>
+                        </div>
                     </a>
                 `;
                 updateList.appendChild(card);

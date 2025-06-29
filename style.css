@@ -85,7 +85,8 @@ body {
 }
 .type-section, #update-section {
     margin-bottom: 25px;
-    padding: 15px; /* Biar kotak tetap punya ruang */
+    border: 5px solid #C0C0C0; /* Border silver mengelilingi kotak */
+    padding: 15px;
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
@@ -95,7 +96,6 @@ body {
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
-    border-bottom: 5px solid #C0C0C0; /* Border silver di bawah tulisan */
 }
 .new-label {
     color: #ff0000;
@@ -129,7 +129,7 @@ body {
     min-width: 120px;
     max-width: 150px;
     padding: 5px 0;
-    height: 270px; /* Ditambah 30px buat last chapter */
+    height: 240px; /* Kembali ke 240px, atur jarak di dalam */
 }
 .comic-card:hover {
     transform: scale(1.05);
@@ -140,21 +140,23 @@ body {
     object-fit: cover;
     max-width: 150px;
 }
+.comic-card .card-text {
+    padding: 0 5px;
+    height: 60px; /* Total tinggi buat judul + last chapter */
+}
 .comic-card h3 {
     font-size: 1em;
-    margin: 5px 0;
+    margin: 2px 0; /* Kurangin jarak atas-bawah */
     color: #fff;
-    padding: 0 5px;
     word-wrap: break-word;
-    height: 60px;
+    height: 30px; /* Setengah dari total, biar fit */
     overflow: hidden;
 }
 .comic-card .last-chapter {
     font-size: 0.9em;
     color: #ddd;
-    margin: 0;
-    padding: 0 5px;
-    height: 30px;
+    margin: 2px 0; /* Kurangin jarak */
+    height: 30px; /* Setengah dari total */
     overflow: hidden;
 }
 .comic-card a {
