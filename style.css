@@ -85,8 +85,7 @@ body {
 }
 .type-section, #update-section {
     margin-bottom: 25px;
-    border: 5px solid #C0C0C0; /* Border putih silver, lebih gede (5px) */
-    padding: 15px; /* Tambah padding biar kotak lebih besar */
+    padding: 15px; /* Biar kotak tetap punya ruang */
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
@@ -96,6 +95,7 @@ body {
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
+    border-bottom: 5px solid #C0C0C0; /* Border silver di bawah tulisan */
 }
 .new-label {
     color: #ff0000;
@@ -129,7 +129,7 @@ body {
     min-width: 120px;
     max-width: 150px;
     padding: 5px 0;
-    height: 240px;
+    height: 270px; /* Ditambah 30px buat last chapter */
 }
 .comic-card:hover {
     transform: scale(1.05);
@@ -147,6 +147,14 @@ body {
     padding: 0 5px;
     word-wrap: break-word;
     height: 60px;
+    overflow: hidden;
+}
+.comic-card .last-chapter {
+    font-size: 0.9em;
+    color: #ddd;
+    margin: 0;
+    padding: 0 5px;
+    height: 30px;
     overflow: hidden;
 }
 .comic-card a {

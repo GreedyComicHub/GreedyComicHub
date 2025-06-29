@@ -45,6 +45,7 @@
     </footer>
     <script>
         let allComics = [];
+        let updatesData = {};
 
         // Ambil index.json
         fetch('data/index.json')
@@ -54,11 +55,21 @@
             })
             .then(data => {
                 allComics = Object.keys(data).map(comicId => ({ id: comicId, ...data[comicId] }));
+                return fetch('data/updates.json');
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load updates.json');
+                return res.json();
+            })
+            .then(data => {
+                updatesData = data;
                 renderComics(allComics);
+                renderUpdates();
             })
             .catch(err => {
-                console.error('Error loading comics:', err);
+                console.error('Error loading data:', err);
                 document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+                document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
             });
 
         // Render komik utama
@@ -78,12 +89,14 @@
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
                 comicsByType[type].forEach(comic => {
+                    const latestChapter = getLatestChapter(comic.id);
                     const card = document.createElement('div');
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <h3>${comic.title}</h3>
+                            <p class="last-chapter">Last: Ch ${latestChapter || 'N/A'}</p>
                         </a>
                     `;
                     typeGrid.appendChild(card);
@@ -93,39 +106,37 @@
             });
         }
 
-        // Ambil updates.json dan filter < 2 hari
-        fetch('data/updates.json')
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to load updates.json');
-                return res.json();
-            })
-            .then(data => {
-                const updateList = document.getElementById('update-list');
-                const now = new Date();
-                const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
-                const updates = Object.values(data).filter(update => {
-                    const updateTime = new Date(update.timestamp);
-                    return updateTime >= twoDaysAgo;
-                }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-                updates.forEach(update => {
-                    const card = document.createElement('div');
-                    card.className = 'comic-card';
-                    card.innerHTML = `
-                        <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                            <h3>${update.title} - Ch ${update.chapter}</h3>
-                        </a>
-                    `;
-                    updateList.appendChild(card);
-                });
-                if (!updates.length) {
-                    updateList.innerHTML = '<p>Belum ada update baru.</p>';
-                }
-            })
-            .catch(err => {
-                console.error('Error loading updates:', err);
-                document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
+        // Render update
+        function renderUpdates() {
+            const updateList = document.getElementById('update-list');
+            const now = new Date();
+            const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
+            const updates = Object.values(updatesData).filter(update => {
+                const updateTime = new Date(update.timestamp);
+                return updateTime >= twoDaysAgo;
+            }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            updates.forEach(update => {
+                const card = document.createElement('div');
+                card.className = 'comic-card';
+                card.innerHTML = `
+                    <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
+                        <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                        <h3>${update.title} - Ch ${update.chapter}</h3>
+                    </a>
+                `;
+                updateList.appendChild(card);
             });
+            if (!updates.length) {
+                updateList.innerHTML = '<p>Belum ada update baru.</p>';
+            }
+        }
+
+        // Fungsi untuk dapatkan chapter terakhir berdasarkan comic ID
+        function getLatestChapter(comicId) {
+            const comicUpdates = Object.values(updatesData).filter(update => update.comic_id === comicId);
+            if (comicUpdates.length === 0) return null;
+            return comicUpdates.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0].chapter;
+        }
 
         // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
