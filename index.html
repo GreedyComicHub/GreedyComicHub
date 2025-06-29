@@ -35,7 +35,6 @@
         <section id="comic-list-section">
             <h2>Komik</h2>
             <div id="comic-list"></div>
-            <div id="pagination" class="pagination"></div>
         </section>
         <section class="ad-footer">
             <div class="ad-placeholder"></div>
@@ -47,7 +46,7 @@
     <script>
         let allComics = [];
         let updatesData = {};
-        let currentPage = 1;
+        let currentPages = {}; // Simpan halaman per tipe
         const comicsPerPage = 10; // 5 kolom x 2 baris
 
         // Ambil index.json dan updates.json
@@ -64,6 +63,11 @@
         .then(([indexData, updates]) => {
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
             updatesData = updates;
+            currentPages = allComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc[type]) acc[type] = 1;
+                return acc;
+            }, {});
             renderComics();
             renderUpdates();
             setupPagination();
@@ -74,7 +78,7 @@
             document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
         });
 
-        // Render komik utama dengan paginasi
+        // Render komik utama dengan paginasi per tipe
         function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
@@ -90,7 +94,7 @@
                 typeSection.innerHTML = `<h2>${type}</h2>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
-                const startIndex = (currentPage - 1) * comicsPerPage;
+                const startIndex = (currentPages[type] - 1) * comicsPerPage;
                 const endIndex = startIndex + comicsPerPage;
                 const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
                 paginatedComics.forEach(comic => {
@@ -110,6 +114,21 @@
                 });
                 if (paginatedComics.length > 0) {
                     typeSection.appendChild(typeGrid);
+                    const pagination = document.createElement('div');
+                    pagination.className = 'pagination';
+                    const totalPages = Math.ceil(comicsByType[type].length / comicsPerPage);
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        pageButton.className = `page-btn ${i === currentPages[type] ? 'active' : ''}`;
+                        pageButton.addEventListener('click', () => {
+                            currentPages[type] = i;
+                            renderComics();
+                            setupPagination();
+                        });
+                        pagination.appendChild(pageButton);
+                    }
+                    typeSection.appendChild(pagination);
                     comicList.appendChild(typeSection);
                 }
             });
@@ -126,7 +145,7 @@
             }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             updates.forEach(update => {
                 const card = document.createElement('div');
-                card.className = 'comic-card';
+                card.className = 'comic-grid';
                 card.innerHTML = `
                     <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
                         <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
@@ -149,33 +168,21 @@
             return comicUpdates.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0].chapter;
         }
 
-        // Setup paginasi
+        // Setup paginasi (panggil ulang buat update status)
         function setupPagination() {
-            const totalComics = allComics.length;
-            const totalPages = Math.ceil(totalComics / comicsPerPage);
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.textContent = i;
-                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                pageButton.addEventListener('click', () => {
-                    currentPage = i;
-                    renderComics();
-                    setupPagination();
-                });
-                pagination.appendChild(pageButton);
-            }
+            // Pagination sudah ditangani di renderComics per tipe
         }
 
         // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
             if (!query) {
-                currentPage = 1;
+                currentPages = allComics.reduce((acc, comic) => {
+                    const type = comic.type || 'Unknown';
+                    if (!acc[type]) acc[type] = 1;
+                    return acc;
+                }, {});
                 renderComics();
-                setupPagination();
                 return;
             }
             const filteredComics = allComics.filter(comic => 
@@ -183,9 +190,12 @@
                 (comic.genre && comic.genre.toLowerCase().includes(query))
             );
             allComics = filteredComics;
-            currentPage = 1;
+            currentPages = filteredComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc[type]) acc[type] = 1;
+                return acc;
+            }, {});
             renderComics();
-            setupPagination();
         });
     </script>
 </body>

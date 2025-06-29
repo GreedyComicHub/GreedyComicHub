@@ -112,7 +112,7 @@ body {
 .comic-card {
     background: #222;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Hapus border, cuma pakai shadow */
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
@@ -133,17 +133,17 @@ body {
 .comic-card .card-text {
     padding: 0 5px;
     height: 60px;
-    background-color: #1E1E90; /* Background biru tua buat teks */
+    background-color: #1E1E90; /* Pastikan background biru tua */
 }
 .comic-card h3 {
-    font-size: 0.9em; /* Kurangin ukuran biar fit */
+    font-size: 0.9em;
     margin: 2px 0;
     color: #fff;
     word-wrap: break-word;
     height: 30px;
     overflow: hidden;
-    text-overflow: ellipsis; /* Potong dengan elipsis kalau kepanjangan */
-    white-space: nowrap; /* Satu baris */
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .comic-card .last-chapter {
     font-size: 0.85em;
