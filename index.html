@@ -23,11 +23,6 @@
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
     <main class="main-content">
-        <section class="ad-grid">
-            <div class="ad-placeholder"></div>
-            <div class="ad-placeholder"></div>
-            <div class="ad-placeholder"></div>
-        </section>
         <section id="update-section">
             <h2>Update <span class="new-label">(new)</span></h2>
             <div id="update-list" class="comic-grid"></div>
@@ -35,9 +30,6 @@
         <section id="comic-list-section">
             <h2>Komik</h2>
             <div id="comic-list"></div>
-        </section>
-        <section class="ad-footer">
-            <div class="ad-placeholder"></div>
         </section>
     </main>
     <footer>
@@ -145,7 +137,7 @@
             }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             updates.forEach(update => {
                 const card = document.createElement('div');
-                card.className = 'comic-grid';
+                card.className = 'comic-card';
                 card.innerHTML = `
                     <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
                         <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
