@@ -82,7 +82,7 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover" style="max-width: 150px; height: auto;">
                             <h3>${comic.title}</h3>
                         </a>
                     `;
@@ -112,7 +112,7 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover" style="max-width: 150px; height: auto;">
                             <h3>${update.title} - Ch ${update.chapter}</h3>
                         </a>
                     `;
