@@ -104,20 +104,10 @@ body {
 .comic-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
-    max-height: 640px;
-    overflow-y: auto;
     padding-bottom: 10px;
-}
-.comic-grid::-webkit-scrollbar {
-    width: 6px;
-}
-.comic-grid::-webkit-scrollbar-thumb {
-    background: #1e90ff;
-    border-radius: 4px;
-}
-.comic-grid::-webkit-scrollbar-track {
-    background: #333;
+    max-height: none; /* Hapus scroll, pakai paginasi */
 }
 .comic-card {
     background: #222;
@@ -129,7 +119,7 @@ body {
     min-width: 120px;
     max-width: 150px;
     padding: 5px 0;
-    height: 240px; /* Kembali ke 240px, atur jarak di dalam */
+    height: 240px;
 }
 .comic-card:hover {
     transform: scale(1.05);
@@ -142,32 +132,61 @@ body {
 }
 .comic-card .card-text {
     padding: 0 5px;
-    height: 60px; /* Total tinggi buat judul + last chapter */
+    height: 60px;
+    background-color: #1E1E90; /* Background biru tua buat teks */
 }
 .comic-card h3 {
-    font-size: 1em;
-    margin: 2px 0; /* Kurangin jarak atas-bawah */
+    font-size: 0.9em; /* Kurangin ukuran biar fit */
+    margin: 2px 0;
     color: #fff;
     word-wrap: break-word;
-    height: 30px; /* Setengah dari total, biar fit */
+    height: 30px;
     overflow: hidden;
+    text-overflow: ellipsis; /* Potong dengan elipsis kalau kepanjangan */
+    white-space: nowrap; /* Satu baris */
 }
 .comic-card .last-chapter {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #ddd;
-    margin: 2px 0; /* Kurangin jarak */
-    height: 30px; /* Setengah dari total */
+    margin: 2px 0;
+    height: 30px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .comic-card a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.page-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.page-btn.active {
+    background-color: #1E1E90;
+    font-weight: bold;
+}
+.page-btn:hover {
+    background-color: #444;
+}
+
 /* Media Query */
 @media (max-width: 1024px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     .main-content {
         max-width: 1000px;
@@ -176,6 +195,7 @@ body {
 @media (max-width: 768px) {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     .ad-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -188,7 +208,7 @@ body {
 @media (max-width: 600px) {
     .comic-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-height: 540px;
+        grid-template-rows: repeat(2, 1fr);
     }
     .ad-grid {
         grid-template-columns: 1fr;

@@ -35,6 +35,7 @@
         <section id="comic-list-section">
             <h2>Komik</h2>
             <div id="comic-list"></div>
+            <div id="pagination" class="pagination"></div>
         </section>
         <section class="ad-footer">
             <div class="ad-placeholder"></div>
@@ -46,6 +47,8 @@
     <script>
         let allComics = [];
         let updatesData = {};
+        let currentPage = 1;
+        const comicsPerPage = 10; // 5 kolom x 2 baris
 
         // Ambil index.json dan updates.json
         Promise.all([
@@ -61,8 +64,9 @@
         .then(([indexData, updates]) => {
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
             updatesData = updates;
-            renderComics(allComics);
+            renderComics();
             renderUpdates();
+            setupPagination();
         })
         .catch(err => {
             console.error('Error loading data:', err);
@@ -70,12 +74,12 @@
             document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
         });
 
-        // Render komik utama
-        function renderComics(comics) {
+        // Render komik utama dengan paginasi
+        function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
             const comicsByType = {};
-            comics.forEach(comic => {
+            allComics.forEach(comic => {
                 const type = comic.type || 'Unknown';
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
@@ -86,7 +90,10 @@
                 typeSection.innerHTML = `<h2>${type}</h2>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
-                comicsByType[type].forEach(comic => {
+                const startIndex = (currentPage - 1) * comicsPerPage;
+                const endIndex = startIndex + comicsPerPage;
+                const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
+                paginatedComics.forEach(comic => {
                     const latestChapter = getLatestChapter(comic.id);
                     const card = document.createElement('div');
                     card.className = 'comic-card';
@@ -101,8 +108,10 @@
                     `;
                     typeGrid.appendChild(card);
                 });
-                typeSection.appendChild(typeGrid);
-                comicList.appendChild(typeSection);
+                if (paginatedComics.length > 0) {
+                    typeSection.appendChild(typeGrid);
+                    comicList.appendChild(typeSection);
+                }
             });
         }
 
@@ -140,18 +149,43 @@
             return comicUpdates.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0].chapter;
         }
 
+        // Setup paginasi
+        function setupPagination() {
+            const totalComics = allComics.length;
+            const totalPages = Math.ceil(totalComics / comicsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    renderComics();
+                    setupPagination();
+                });
+                pagination.appendChild(pageButton);
+            }
+        }
+
         // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
             if (!query) {
-                renderComics(allComics);
+                currentPage = 1;
+                renderComics();
+                setupPagination();
                 return;
             }
             const filteredComics = allComics.filter(comic => 
                 comic.title.toLowerCase().includes(query) || 
                 (comic.genre && comic.genre.toLowerCase().includes(query))
             );
-            renderComics(filteredComics);
+            allComics = filteredComics;
+            currentPage = 1;
+            renderComics();
+            setupPagination();
         });
     </script>
 </body>
