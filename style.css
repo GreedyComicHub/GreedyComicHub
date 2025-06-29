@@ -19,6 +19,18 @@ body {
     margin: 0;
     font-size: 1.6em;
 }
+.histats-link {
+    margin-left: 15px; /* Jarak dari logo */
+    padding: 5px 10px;
+    background-color: #1e90ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+.histats-link:hover {
+    background-color: #0066cc;
+}
 .search-bar {
     padding: 8px;
     border: none;
@@ -100,7 +112,8 @@ body {
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    min-width: 160px; /* Kecilin kartu */
+    min-width: 120px; /* Kecilin dari 160px */
+    max-width: 150px; /* Batasi lebar maksimum */
 }
 .comic-card:hover {
     transform: scale(1.05);
@@ -110,6 +123,7 @@ body {
     height: auto;
     aspect-ratio: 2 / 3;
     object-fit: cover;
+    max-width: 150px; /* Batasi lebar gambar */
 }
 .comic-card img:not(.comic-cover) {
     pointer-events: none;
@@ -299,5 +313,12 @@ footer p {
     }
     .ad-placeholder {
         height: 60px;
+    }
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .histats-link {
+        margin: 10px 0 0 0;
     }
 }

@@ -19,7 +19,7 @@
 <body>
     <header class="main-header">
         <h1 class="logo">GreedyComicHub</h1>
-        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank">Histats</a>
+        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
     <main>
@@ -82,7 +82,7 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover" style="max-width: 150px; height: auto;">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <h3>${comic.title}</h3>
                         </a>
                     `;
@@ -112,7 +112,7 @@
                     card.className = 'comic-card';
                     card.innerHTML = `
                         <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover" style="max-width: 150px; height: auto;">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
                             <h3>${update.title} - Ch ${update.chapter}</h3>
                         </a>
                     `;
