@@ -85,16 +85,16 @@ body {
 }
 .type-section, #update-section {
     margin-bottom: 25px;
-    border: 3px solid #4A0000; /* Border merah tua kehitaman, agak gede (3px) */
-    padding: 10px; /* Tambah padding biar kotak terasa lebih besar */
+    border: 5px solid #C0C0C0; /* Border putih silver, lebih gede (5px) */
+    padding: 15px; /* Tambah padding biar kotak lebih besar */
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
     margin: 15px 0 8px;
     color: #fff;
     background-color: #1E1E90; /* Background biru tua api buat tulisan */
-    padding: 5px 10px; /* Padding biar rapi */
-    display: inline-block; /* Biar background cuma nutup teks */
+    padding: 5px 10px;
+    display: inline-block;
     border-radius: 4px;
 }
 .new-label {
@@ -120,7 +120,7 @@ body {
     background: #333;
 }
 .comic-card {
-    background: #222; /* Kembali ke abu-abu, biar cuma kotak tipe yang berubah */
+    background: #222;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     overflow: hidden;
