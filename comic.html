@@ -1,84 +1,69 @@
 <!DOCTYPE html>
+<!-- comic.html: Tampilkan detail komik dari data/<comic>.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komik Detail - GreedyComicHub</title>
+    <title>Comic Details</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Histats Start -->
-    <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
-    <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
-    <!-- Histats End -->
 </head>
 <body>
-    <header class="main-header">
-        <h1 class="logo">GreedyComicHub</h1>
-        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
-    </header>
-    <main class="main-content">
-        <section class="comic-detail">
-            <div id="comic-info"></div>
-            <div id="chapter-list" class="chapter-grid"></div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 GreedyComicHub. All rights reserved.</p>
-    </footer>
+    <a href="index.html" class="back-link">Back to Home</a>
+    <div id="comic-detail">
+        <div class="comic-header">
+            <img id="cover" src="" alt="Comic Cover" oncontextmenu="return false;" draggable="false">
+            <div class="comic-info">
+                <h1 id="comic-title"></h1>
+                <p id="genre"></p>
+                <p id="type"></p>
+                <p id="author"></p>
+            </div>
+        </div>
+        <p id="synopsis"></p>
+        <h3>Chapters</h3>
+        <div id="chapter-list" class="chapter-scroll"></div>
+    </div>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const comicId = urlParams.get('comic');
-        let allComics = [];
-        let updatesData = {};
-
-        // Ambil data
-        Promise.all([
-            fetch('data/index.json').then(res => res.json()),
-            fetch('data/updates.json').then(res => res.json())
-        ])
-        .then(([indexData, updates]) => {
-            allComics = Object.keys(indexData).map(id => ({ id, ...indexData[id] }));
-            updatesData = updates;
-            renderComicDetail(comicId);
-        })
-        .catch(err => {
-            console.error('Error loading data:', err);
-            document.getElementById('comic-info').innerHTML = '<p>Error loading comic details.</p>';
-        });
-
-        function renderComicDetail(comicId) {
-            const comic = allComics.find(c => c.id === comicId);
-            if (!comic) {
-                document.getElementById('comic-info').innerHTML = '<p>Komik tidak ditemukan.</p>';
-                return;
-            }
-
-            const comicInfo = document.getElementById('comic-info');
-            comicInfo.innerHTML = `
-                <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title}" class="comic-cover">
-                <h2>${comic.title}</h2>
-                <p>${comic.description || 'Tidak ada deskripsi'}</p>
-            `;
-
-            const chapterList = document.getElementById('chapter-list');
-            const chapters = Object.values(updatesData)
-                .filter(update => update.comic_id === comicId)
-                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-            if (chapters.length > 0) {
-                chapters.forEach(chapter => {
-                    const chapterCard = document.createElement('div');
-                    chapterCard.className = 'chapter-card';
-                    chapterCard.innerHTML = `
-                        <a href="chapter.html?comic=${comicId}&chapter=${chapter.chapter}">
-                            <h3>Chapter ${chapter.chapter}</h3>
-                        </a>
-                    `;
-                    chapterList.appendChild(chapterCard);
+        const params = new URLSearchParams(window.location.search);
+        const comicId = params.get('comic');
+        if (comicId) {
+            fetch(`data/${comicId}.json`)
+                .then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${comicId}.json`);
+                    return res.json();
+                })
+                .then(data => {
+                    document.getElementById('cover').src = data.cover || 'placeholder.jpg';
+                    document.getElementById('comic-title').textContent = data.title || 'Unknown Title';
+                    const genreElement = document.getElementById('genre');
+                    const genre = data.genre || 'Unknown Genre';
+                    genreElement.innerHTML = `Genre: <a href="genre.html?genre=${encodeURIComponent(genre)}">${genre}</a>`;
+                    document.getElementById('type').textContent = `Type: ${data.type || 'Unknown Type'}`;
+                    document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
+                    document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
+                    const chapterList = document.getElementById('chapter-list');
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
+                    if (chapters.length === 0) {
+                        chapterList.innerHTML = '<p>No chapters available.</p>';
+                    } else {
+                        chapters.forEach(chapter => {
+                            const link = document.createElement('div');
+                            link.className = 'chapter-link';
+                            link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
+                            chapterList.appendChild(link);
+                        });
+                    }
+                    // Disable klik kanan global
+                    document.addEventListener('contextmenu', e => e.preventDefault());
+                })
+                .catch(err => {
+                    console.error('Error loading comic details:', err);
+                    document.getElementById('comic-detail').innerHTML = '<p>Error loading comic details.</p>';
                 });
-            } else {
-                chapterList.innerHTML = '<p>Tidak ada chapter tersedia.</p>';
-            }
+        } else {
+            document.getElementById('comic-detail').innerHTML = '<p>Invalid comic ID.</p>';
         }
     </script>
 </body>
 </html>
+
