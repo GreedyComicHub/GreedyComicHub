@@ -67,8 +67,7 @@ body {
 }
 .type-section, #update-section {
     margin-bottom: 25px;
-    border: 5px solid #C0C0C0; /* Border silver mengelilingi kotak */
-    padding: 15px;
+    padding: 15px; /* Hapus border, cuma pakai padding */
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
@@ -93,7 +92,7 @@ body {
 }
 .comic-card {
     background: #222;
-    border: none; /* Hapus border */
+    border: none; /* Pastikan border hilang */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Cuma pakai shadow */
     overflow: hidden;
