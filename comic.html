@@ -9,10 +9,9 @@
 </head>
 <body>
     <header class="main-header">
-        <a href="index.html" class="logo">GreedyComicHub</a>
+        <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
         <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
     </header>
-    <a href="index.html" class="back-link">Back to Home</a>
     <div id="comic-detail">
         <div class="comic-header">
             <img id="cover" src="" alt="Comic Cover" oncontextmenu="return false;" draggable="false">
@@ -24,6 +23,7 @@
             </div>
         </div>
         <p id="synopsis"></p>
+        <p id="latest-chapter-info" class="last-chapter" style="margin: 10px 0; display: none;"></p>
         <a id="latest-chapter-btn" class="chapter-link" href="#" style="display: none;">Chapter </a>
         <h3>Chapters</h3>
         <div id="chapter-list" class="chapter-scroll"></div>
@@ -57,12 +57,15 @@
                             link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
                             chapterList.appendChild(link);
                         });
-                        // Tambah tombol chapter terakhir
+                        // Tambah info dan tombol chapter terakhir
+                        const latestChapterInfo = document.getElementById('latest-chapter-info');
                         const latestChapterBtn = document.getElementById('latest-chapter-btn');
                         const latestChapter = chapters[chapters.length - 1];
+                        latestChapterInfo.textContent = `Latest: Chapter ${latestChapter}`;
+                        latestChapterInfo.style.display = 'block';
                         latestChapterBtn.textContent = `Chapter ${latestChapter}`;
                         latestChapterBtn.href = `chapter.html?comic=${comicId}&chapter=${latestChapter}`;
-                        latestChapterBtn.style.display = 'block';
+                        latestChapterBtn.style.display = 'inline-block';
                     }
                     // Disable klik kanan global
                     document.addEventListener('contextmenu', e => e.preventDefault());

@@ -18,7 +18,7 @@
 </head>
 <body>
     <header class="main-header">
-        <a href="index.html" class="logo">GreedyComicHub</a>
+        <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
         <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
@@ -131,25 +131,38 @@
             });
             // Tambah event listener untuk tooltip
             document.querySelectorAll('.comic-tooltip').forEach(tooltip => {
+                let tooltipDiv = null;
                 tooltip.addEventListener('mouseover', function() {
-                    const tooltipDiv = document.createElement('div');
+                    tooltipDiv = document.createElement('div');
                     tooltipDiv.className = 'tooltip';
                     tooltipDiv.innerHTML = `<strong>${this.getAttribute('data-title')}</strong><br>${this.getAttribute('data-synopsis')}`;
-                    tooltipDiv.style.position = 'absolute';
+                    document.body.appendChild(tooltipDiv);
+                    const rect = this.getBoundingClientRect();
+                    tooltipDiv.style.position = 'fixed';
+                    tooltipDiv.style.top = `${rect.bottom + 5}px`;
+                    tooltipDiv.style.left = `${rect.left}px`;
+                    tooltipDiv.style.transform = 'translateX(-50%)';
                     tooltipDiv.style.background = '#333';
                     tooltipDiv.style.color = '#fff';
                     tooltipDiv.style.padding = '10px';
                     tooltipDiv.style.borderRadius = '5px';
                     tooltipDiv.style.zIndex = '1000';
-                    tooltipDiv.style.maxWidth = '200px';
-                    const rect = this.getBoundingClientRect();
-                    tooltipDiv.style.top = `${rect.bottom + window.scrollY + 5}px`;
-                    tooltipDiv.style.left = `${rect.left + window.scrollX}px`;
-                    document.body.appendChild(tooltipDiv);
-
-                    this.addEventListener('mouseout', () => {
+                    tooltipDiv.style.maxWidth = '250px';
+                    tooltipDiv.style.wordWrap = 'break-word';
+                    tooltipDiv.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
+                });
+                tooltip.addEventListener('mouseout', () => {
+                    if (tooltipDiv) {
                         document.body.removeChild(tooltipDiv);
-                    });
+                        tooltipDiv = null;
+                    }
+                });
+                tooltip.addEventListener('mousemove', function(e) {
+                    if (tooltipDiv) {
+                        tooltipDiv.style.top = `${e.pageY + 5}px`;
+                        tooltipDiv.style.left = `${e.pageX}px`;
+                        tooltipDiv.style.transform = 'translateX(-50%)';
+                    }
                 });
             });
         }

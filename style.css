@@ -15,25 +15,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; /* Rapihin padding */
+    padding: 15px 20px;
     background-color: #111;
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
+    border-bottom: 2px solid #1e90ff; /* Tambah garis bawah biar rapi */
 }
 .logo {
     margin: 0;
-    font-size: 1.8em; /* Ukuran lebih besar dan rapi */
+    font-size: 1.8em;
     color: #1e90ff;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 .logo:hover {
     color: #0066cc;
+    text-shadow: 0 0 10px #0066cc;
+}
+.logo span {
+    color: #fff;
+    font-weight: bold;
 }
 .histats-link {
     margin-left: 15px;
-    padding: 8px 12px; /* Rapihin padding */
+    padding: 8px 12px;
     background-color: #1e90ff;
     color: #fff;
     text-decoration: none;
@@ -51,7 +57,7 @@ body {
     color: #fff;
     width: 150px;
     max-width: 100%;
-    margin-left: 15px; /* Jarak dari histats-link */
+    margin-left: 15px;
 }
 .search-bar::placeholder {
     color: #bbb;
@@ -75,14 +81,14 @@ body {
 }
 .type-section, #update-section {
     margin-bottom: 25px;
-    padding: 15px; /* Hapus border, cuma pakai padding */
-    text-align: center; /* Tengahkan judul */
+    padding: 15px;
+    text-align: center;
 }
 .type-section h2, #update-section h2 {
     font-size: 1.6em;
     margin: 15px 0 8px;
     color: #fff;
-    background-color: #1E1E90; /* Background biru tua api buat tulisan */
+    background-color: #1E1E90;
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
@@ -97,7 +103,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     padding-bottom: 10px;
-    max-height: none; /* Hapus scroll, pakai paginasi */
+    max-height: none;
 }
 .comic-tooltip {
     position: relative;
@@ -105,9 +111,9 @@ body {
 }
 .comic-card {
     background: #222;
-    border: none; /* Pastikan border hilang */
+    border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Cuma pakai shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
@@ -128,7 +134,7 @@ body {
 .comic-card .card-text {
     padding: 0 5px;
     height: 60px;
-    background-color: #1E1E90; /* Pastikan background biru tua */
+    background-color: #1E1E90;
 }
 .comic-card h3 {
     font-size: 0.9em;
@@ -156,15 +162,16 @@ body {
 
 /* Tooltip */
 .tooltip {
-    position: absolute;
+    position: fixed;
     background: #333;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     z-index: 1000;
-    max-width: 200px;
+    max-width: 250px;
     word-wrap: break-word;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    pointer-events: none;
 }
 
 /* Pagination */
@@ -192,7 +199,7 @@ body {
 
 /* No Updates Text */
 .no-updates {
-    text-align: center; /* Tengahkan teks kalau nggak ada update */
+    text-align: center;
     padding: 10px;
     color: #ddd;
 }
@@ -242,14 +249,20 @@ body {
     line-height: 1.6;
     color: #ddd;
 }
+#latest-chapter-info {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #ddd;
+}
 #latest-chapter-btn {
     display: inline-block;
     margin: 10px 0;
-    padding: 8px;
+    padding: 6px 12px;
     background: #1e90ff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 0.9em;
     transition: background 0.2s;
 }
 #latest-chapter-btn:hover {
