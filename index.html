@@ -44,7 +44,7 @@
         let updatesData = {};
         let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
         const comicsPerPage = 10; // 5 kolom x 2 baris
-        const updatesPerPage = window.innerWidth <= 600 ? 6 : 10; // 6 (3x2) di HP, 10 (5x2) di desktop
+        const updatesPerPage = 10; // 5 kolom x 2 baris
         let originalComics = []; // Simpan komik asli
         let comicChapterCache = {}; // Cache buat chapter data
 
@@ -106,7 +106,7 @@
 
         // Render komik utama dengan paginasi dinamis per tipe
         function renderComics() {
-            const aloft = document.getElementById('comic-list');
+            const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
             const comicsByType = {};
             allComics.forEach(comic => {
