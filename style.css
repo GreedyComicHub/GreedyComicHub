@@ -130,40 +130,40 @@ body {
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    min-width: 120px;
-    max-width: 150px;
+    min-width: 100px;
+    max-width: 120px;
     padding: 5px 0;
-    height: 240px;
+    height: 200px;
 }
 .comic-card:hover {
     transform: scale(1.05);
 }
 .comic-card img {
     width: 100%;
-    height: 180px;
+    height: 140px;
     object-fit: cover;
-    max-width: 150px;
+    max-width: 120px;
 }
 .comic-card .card-text {
     padding: 0 5px;
-    height: 60px;
+    height: 50px;
     background-color: #1E1E90;
 }
 .comic-card h3 {
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin: 2px 0;
     color: #fff;
     word-wrap: break-word;
-    height: 30px;
+    height: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 .comic-card .last-chapter {
-    font-size: 0.85em;
+    font-size: 0.75em;
     color: #ddd;
     margin: 2px 0;
-    height: 30px;
+    height: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -220,7 +220,7 @@ body {
     background: #222;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 2px 5px rgba(0,0,0,0.3);
 }
 .comic-header {
     display: flex;
@@ -419,6 +419,25 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .comic-card {
+        min-width: 90px;
+        max-width: 110px;
+        height: 180px;
+    }
+    .comic-card img {
+        height: 120px;
+        max-width: 110px;
+    }
+    .comic-card .card-text {
+        height: 50px;
+    }
+    .comic-card h3 {
+        height: 25px;
+    }
+    .comic-card .last-chapter {
+        height: 25px;
     }
     .main-content {
         max-width: 1000px;
@@ -442,6 +461,25 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .comic-card {
+        min-width: 90px;
+        max-width: 100px;
+        height: 170px;
+    }
+    .comic-card img {
+        height: 110px;
+        max-width: 100px;
+    }
+    .comic-card .card-text {
+        height: 50px;
+    }
+    .comic-card h3 {
+        height: 25px;
+    }
+    .comic-card .last-chapter {
+        height: 25px;
     }
     .main-content {
         max-width: 800px;
@@ -462,6 +500,25 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .comic-card {
+        min-width: 80px;
+        max-width: 90px;
+        height: 160px;
+    }
+    .comic-card img {
+        height: 100px;
+        max-width: 90px;
+    }
+    .comic-card .card-text {
+        height: 50px;
+    }
+    .comic-card h3 {
+        height: 25px;
+    }
+    .comic-card .last-chapter {
+        height: 25px;
     }
     .main-header {
         flex-direction: column;
