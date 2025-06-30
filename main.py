@@ -99,6 +99,10 @@ def main():
     # Parser untuk list-comics
     list_comics_parser = subparsers.add_parser("list-comics", help="List komik yang sudah ada dan belum ada di komiku.org")
     list_comics_parser.add_argument('--limit', type=int, help="Jumlah komik yang ditampilkan (contoh: --limit 5)")
+    # Parser untuk update-chapters (baru)
+    update_chapters_parser = subparsers.add_parser("update-chapters", help="Update semua chapter untuk semua komik")
+    update_chapters_parser.add_argument("--start", type=float, help="Chapter mulai (opsional)")
+    update_chapters_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter")
     # Parser untuk help
     help_parser = subparsers.add_parser("help", help="Tampilkan bantuan")
     args = parser.parse_args()
@@ -116,6 +120,9 @@ def main():
         update_path(args.old_url, args.new_url)
     elif args.command == "list-comics":
         list_comics(args.limit)
+    elif args.command == "update-chapters":
+        from update_chapters import update_all_chapters
+        update_all_chapters(args.start, args.overwrite)
     elif args.command == "help" or not args.command:
         parser.print_help()
     else:
