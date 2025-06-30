@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal sinkron paginasi, kartu besar, ngepas ujung ke ujung) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal sinkron paginasi, kompatibel semua browser) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -413,7 +413,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal sinkron paginasi) */
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal, kompatibel Safari dan semua browser) */
 @media (max-width: 768px) {
     .main-header {
         display: flex !important;
@@ -456,36 +456,32 @@ footer p {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-scroll-snap-type: x mandatory !important; /* Fallback untuk Safari */
+        scroll-snap-type: x proximity !important; /* proximity lebih kompatibel di Safari */
+        -webkit-scroll-snap-type: x proximity !important;
+        touch-action: pan-x !important; /* Aktifkan scroll horizontal di iOS */
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important; /* Sembunyikan scrollbar di Firefox */
-    }
-    #update-section .comic-grid::-webkit-scrollbar {
-        display: none !important; /* Sembunyikan scrollbar di Chrome/Safari */
     }
     .type-section .comic-grid {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-scroll-snap-type: x mandatory !important;
+        scroll-snap-type: x proximity !important;
+        -webkit-scroll-snap-type: x proximity !important;
+        touch-action: pan-x !important;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important;
-    }
-    .type-section .comic-grid::-webkit-scrollbar {
-        display: none !important;
     }
     .comic-card {
         width: calc(100% / 3 - 8px) !important;
+        min-width: calc(100% / 3 - 8px) !important;
+        max-width: calc(100% / 3 - 8px) !important;
         height: 180px !important;
         padding: 5px 0 !important;
         margin: 0 !important;

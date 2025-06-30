@@ -10,7 +10,7 @@
     <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
     <meta name="robots" content="index, follow">
     <meta name="author" content="GreedyComicHub Team">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <!-- Histats Start -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
@@ -49,11 +49,21 @@
         let originalComics = [];
         let comicChapterCache = {};
 
+        // Debounce untuk mencegah render ulang berlebihan
+        function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
         Promise.all([
             fetch('data/index.json').then(res => res.json()),
             fetch('data/updates.json').then(res => res.json())
         ])
         .then(([indexData, updates]) => {
+            console.log('Data loaded:', { comics: Object.keys(indexData).length, updates: Object.keys(updates).length });
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
             originalComics = [...allComics];
             updatesData = updates;
@@ -293,27 +303,35 @@
         }
 
         function setupScrollSync() {
-            console.log('Setting up scroll sync for mobile');
+            console.log('Setting up scroll sync for mobile, browser:', navigator.userAgent);
             const updateGrid = document.getElementById('update-list');
             const comicGrids = document.querySelectorAll('.type-section .comic-grid');
-            const updatePagination = document.getElementById('update-pagination');
+
+            // Debounced scroll handler
+            const handleScroll = debounce((grid, sectionKey, sectionType) => {
+                const scrollLeft = grid.scrollLeft;
+                const cardWidth = grid.querySelector('.comic-card')?.offsetWidth || 100;
+                const totalCards = sectionType === 'updates'
+                    ? Object.values(updatesData).filter(update => new Date(update.timestamp) >= new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000)).length
+                    : allComics.filter(comic => (comic.type || 'Unknown') === sectionKey).length;
+                const totalPages = Math.ceil(totalCards / (sectionType === 'updates' ? updatesPerPage : comicsPerPage));
+                const newPage = Math.min(totalPages, Math.max(1, Math.floor(scrollLeft / (cardWidth * (sectionType === 'updates' ? updatesPerPage : comicsPerPage))) + 1));
+                console.log(`Scroll [${sectionKey}]: scrollLeft=${scrollLeft}, cardWidth=${cardWidth}, newPage=${newPage}, totalPages=${totalPages}, totalCards=${totalCards}`);
+                if (newPage !== (sectionType === 'updates' ? currentPages.updates : currentPages.comics[sectionKey]) && newPage <= totalPages) {
+                    if (sectionType === 'updates') {
+                        currentPages.updates = newPage;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = newPage;
+                        renderComics();
+                    }
+                    grid.scrollLeft = 0;
+                }
+            }, 200);
 
             // Sinkronkan scroll untuk Update
             if (updateGrid) {
-                updateGrid.addEventListener('scroll', () => {
-                    const scrollLeft = updateGrid.scrollLeft;
-                    const cardWidth = updateGrid.querySelector('.comic-card')?.offsetWidth || 100;
-                    const totalCards = updateGrid.querySelectorAll('.comic-card').length;
-                    const totalUpdates = Object.values(updatesData).filter(update => new Date(update.timestamp) >= new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000)).length;
-                    const totalPages = Math.ceil(totalUpdates / updatesPerPage);
-                    const newPage = Math.min(totalPages, Math.max(1, Math.floor(scrollLeft / (cardWidth * updatesPerPage)) + 1));
-                    console.log(`Update scroll: scrollLeft=${scrollLeft}, cardWidth=${cardWidth}, newPage=${newPage}, totalPages=${totalPages}`);
-                    if (newPage !== currentPages.updates && newPage <= totalPages) {
-                        currentPages.updates = newPage;
-                        renderUpdates();
-                        updateGrid.scrollLeft = 0;
-                    }
-                });
+                updateGrid.addEventListener('scroll', () => handleScroll(updateGrid, 'updates', 'updates'));
             } else {
                 console.error('Update grid not found');
             }
@@ -321,20 +339,7 @@
             // Sinkronkan scroll untuk Komik per tipe
             comicGrids.forEach(grid => {
                 const type = grid.parentElement.querySelector('.fancy-type')?.textContent || 'Unknown';
-                grid.addEventListener('scroll', () => {
-                    const scrollLeft = grid.scrollLeft;
-                    const cardWidth = grid.querySelector('.comic-card')?.offsetWidth || 100;
-                    const totalCards = grid.querySelectorAll('.comic-card').length;
-                    const comicsByType = allComics.filter(comic => (comic.type || 'Unknown') === type);
-                    const totalPages = Math.ceil(comicsByType.length / comicsPerPage);
-                    const newPage = Math.min(totalPages, Math.max(1, Math.floor(scrollLeft / (cardWidth * comicsPerPage)) + 1));
-                    console.log(`Comic scroll [${type}]: scrollLeft=${scrollLeft}, cardWidth=${cardWidth}, newPage=${newPage}, totalPages=${totalPages}`);
-                    if (newPage !== currentPages.comics[type] && newPage <= totalPages) {
-                        currentPages.comics[type] = newPage;
-                        renderComics();
-                        grid.scrollLeft = 0;
-                    }
-                });
+                grid.addEventListener('scroll', () => handleScroll(grid, type, 'comics'));
             });
         }
 
