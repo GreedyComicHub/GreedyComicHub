@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik per grup, scroll horizontal murni CSS snap per grup seperti paginasi, fix ukuran kartu, gambar cover tidak terpotong, kompatibel Safari dan semua browser) */
+/* style.css: Styling untuk semua halaman (diperbaiki, web: 5 kolom 10 komik, HP: scroll snap per grup 3 komik seperti paginasi, kartu besar, cover utuh, kompatibel Safari dan semua browser) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -385,7 +385,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik per grup, scroll horizontal murni CSS snap per grup seperti paginasi, fix ukuran kartu, gambar cover tidak terpotong) */
+/* Media Query (HP: scroll snap per grup 3 komik, kartu besar, cover utuh) */
 @media (max-width: 768px) {
     .main-header {
         display: flex !important;
@@ -549,7 +549,7 @@ footer p {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
