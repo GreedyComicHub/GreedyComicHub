@@ -121,7 +121,7 @@
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
-                                <p class="last-chapter">N/A</p> <!-- Placeholder, bisa di-fetch kalau perlu -->
+                                <p class="last-chapter">N/A</p> <!-- Placeholder -->
                             </div>
                         </a>
                     `;
@@ -173,7 +173,7 @@
                 });
 
                 const totalPages = Math.ceil(recentUpdates.length / updatesPerPage);
-                renderDynamicPagination(updatePagination, totalPages, currentPages.updates, 'updates');
+                renderDynamicPagination(updatePagination, totalPages, currentPages.updates, 'updates', 'updates');
             } else {
                 updateList.innerHTML = '<p class="no-updates">Belum ada update baru.</p>';
             }
@@ -197,9 +197,13 @@
             prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
             prevButton.addEventListener('click', () => {
                 if (currentPage > 1) {
-                    currentPages[sectionType][sectionKey] = currentPage - 1;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    if (sectionType === 'updates') {
+                        currentPages.updates = currentPage - 1;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = currentPage - 1;
+                        renderComics();
+                    }
                 }
             });
             paginationElement.appendChild(prevButton);
@@ -218,9 +222,13 @@
                 pageButton.textContent = i;
                 pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
                 pageButton.addEventListener('click', () => {
-                    currentPages[sectionType][sectionKey] = i;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    if (sectionType === 'updates') {
+                        currentPages.updates = i;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = i;
+                        renderComics();
+                    }
                 });
                 paginationElement.appendChild(pageButton);
             }
@@ -239,9 +247,13 @@
             nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
-                    currentPages[sectionType][sectionKey] = currentPage + 1;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    if (sectionType === 'updates') {
+                        currentPages.updates = currentPage + 1;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = currentPage + 1;
+                        renderComics();
+                    }
                 }
             });
             paginationElement.appendChild(nextButton);
