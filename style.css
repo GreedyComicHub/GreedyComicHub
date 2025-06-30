@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal murni CSS seperti Komiku, kompatibel Safari dan semua browser) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal murni CSS tanpa paginasi, fix ukuran kartu, gambar cover tidak terpotong, kompatibel Safari dan semua browser) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -170,39 +170,6 @@ body {
 .comic-card a {
     text-decoration: none;
     color: inherit;
-}
-
-/* Pagination */
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    align-items: center;
-}
-.page-btn {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #333;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 3px;
-}
-.page-btn.active {
-    background-color: #1e1e90;
-    font-weight: bold;
-}
-.page-btn:hover:not(.disabled) {
-    background-color: #444;
-}
-.page-btn.disabled {
-    background-color: #222;
-    cursor: not-allowed;
-    color: #666;
-}
-.ellipsis {
-    margin: 0 5px;
-    color: #ddd;
 }
 
 /* No Updates Text */
@@ -413,7 +380,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal murni CSS seperti Komiku, kompatibel Safari dan semua browser) */
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal murni CSS tanpa paginasi, fix ukuran kartu, gambar cover tidak terpotong) */
 @media (max-width: 768px) {
     .main-header {
         display: flex !important;
@@ -457,8 +424,8 @@ footer p {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
-        scroll-snap-type: x proximity !important;
-        -webkit-scroll-snap-type: x proximity !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-scroll-snap-type: x mandatory !important;
         touch-action: pan-x !important;
         gap: 4px !important;
         width: 100% !important;
@@ -468,30 +435,47 @@ footer p {
         scroll-behavior: smooth !important;
     }
     .comic-card {
-        width: calc(100% / 3 - 8px) !important;
-        min-width: calc(100% / 3 - 8px) !important;
-        max-width: calc(100% / 3 - 8px) !important;
+        width: calc(100% / 3 - 4px) !important;
+        min-width: calc(100% / 3 - 4px) !important;
+        max-width: calc(100% / 3 - 4px) !important;
         height: 180px !important;
-        padding: 5px 0 !important;
-        margin: 0 !important;
+        padding: 0 !important;
+        margin: 0 2px !important;
         flex: 0 0 auto !important;
-        scroll-snap-align: center !important;
+        scroll-snap-align: start !important;
     }
     .comic-card img {
-        height: 120px !important;
         width: 100% !important;
-        max-width: none !important;
+        height: 120px !important;
+        max-width: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
     }
     .comic-card .card-text {
-        height: 50px !important;
+        height: 60px !important;
+        padding: 0 2px !important;
     }
     .comic-card h3 {
         font-size: 0.75em !important;
-        height: 25px !important;
+        height: 30px !important;
+        line-height: 15px !important;
+        white-space: normal !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
     }
     .comic-card .last-chapter {
         font-size: 0.7em !important;
-        height: 25px !important;
+        height: 30px !important;
+        line-height: 15px !important;
+        white-space: normal !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
     }
     .main-content {
         max-width: 100% !important;
