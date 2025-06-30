@@ -42,7 +42,7 @@
     <script>
         let allComics = [];
         let updatesData = {};
-        let currentPages = { updates: 1, comics: {} }; // Tambah page buat updates
+        let currentPages = { updates: 1, comics: {} }; // Tambah page buat updates dan comics per tipe
         const comicsPerPage = 10; // 5 kolom x 2 baris
         const updatesPerPage = 10; // 5 kolom x 2 baris
         let originalComics = []; // Simpan komik asli
@@ -102,10 +102,11 @@
                     return acc;
                 }, {});
                 renderComics();
+                renderUpdates(); // Pastiin update tetep muncul
             });
         }
 
-        // Render komik utama dengan paginasi per tipe
+        // Render komik utama dengan paginasi dinamis per tipe
         function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
@@ -215,8 +216,8 @@
             prevButton.addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPages[sectionType] = currentPage - 1;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    renderUpdates(); // Pastiin render ulang
+                    renderComics(); // Render ulang comics biar nggak ilang
                 }
             });
             paginationElement.appendChild(prevButton);
@@ -236,8 +237,8 @@
                 pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
                 pageButton.addEventListener('click', () => {
                     currentPages[sectionType] = i;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    renderUpdates(); // Render ulang updates
+                    renderComics(); // Render ulang comics biar nggak ilang
                 });
                 paginationElement.appendChild(pageButton);
             }
@@ -257,8 +258,8 @@
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
                     currentPages[sectionType] = currentPage + 1;
-                    if (sectionType === 'updates') renderUpdates();
-                    else renderComics();
+                    renderUpdates(); // Render ulang
+                    renderComics(); // Render ulang comics
                 }
             });
             paginationElement.appendChild(nextButton);
