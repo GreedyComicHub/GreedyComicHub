@@ -10,8 +10,8 @@ from update_comic import get_comic_id_from_url
 from datetime import datetime
 
 def update_all_chapters(start=None, overwrite=False):
-    """Update semua chapter untuk semua komik berdasarkan index.json."""
-    logging.info("Mengecek dan mengupdate semua chapter untuk semua komik...")
+    """Update hanya chapter baru untuk semua komik berdasarkan index.json."""
+    logging.info("Mengecek dan mengupdate chapter baru untuk semua komik...")
     index_file = os.path.join(DATA_DIR, "index.json")
     updates_file = os.path.join(DATA_DIR, "updates.json")
     index_data = read_json(index_file) or {}
@@ -29,10 +29,11 @@ def update_all_chapters(start=None, overwrite=False):
             failed_comics.append(comic_id)
             continue
 
-        # Baca chapter terakhir
+        # Baca chapter lokal
         comic_data = read_json(comic_file)
         chapters = comic_data.get("chapters", {})
         comic_title = comic_info.get("title", comic_id)
+        existing_chapters = set(float(ch) for ch in chapters.keys()) if chapters else set()
 
         # Ambil daftar chapter dari web
         html = fetch_page(comic_url)
@@ -48,32 +49,27 @@ def update_all_chapters(start=None, overwrite=False):
             failed_comics.append(comic_id)
             continue
 
-        # Konversi ke list numerik buat sorting
-        chapter_nums = [float(ch) for ch in web_chapters.keys()]
-        if not chapter_nums:
+        # Konversi web_chapters ke set numerik buat perbandingan
+        web_chapter_nums = {float(ch): url for ch, url in web_chapters.items()}
+        new_chapters = {ch for ch in web_chapter_nums.keys() if ch not in existing_chapters and (start is None or ch >= float(start))}
+
+        if not new_chapters:
+            logging.info(f"Komik {comic_title}: Ga ada chapter baru ditemuin.")
             continue
-        start_chapter = min(chapter_nums) if start is None else float(start)
-        end_chapter = max(chapter_nums)
 
-        logging.info(f"Komik {comic_title}: Mulai update dari chapter {start_chapter} sampai {end_chapter}")
+        logging.info(f"Komik {comic_title}: Temuin {len(new_chapters)} chapter baru, mulai dari {min(new_chapters)}")
 
-        # Update semua chapter dalam range
-        for chapter_num in [ch for ch in chapter_nums if start_chapter <= ch <= end_chapter]:
-            chapter_num_str = str(chapter_num)  # Pastikan key string
-            chapter_url = web_chapters.get(chapter_num_str)  # Gunain .get() buat aman
+        # Update hanya chapter baru
+        for chapter_num in sorted(new_chapters):
+            chapter_num_str = str(chapter_num)
+            chapter_url = web_chapters.get(chapter_num_str)
             if not chapter_url:
-                # Coba cari chapter_num dalam format lain (misal 1.0 vs 1)
-                for key in web_chapters.keys():
+                for key, url in web_chapters.items():
                     if float(key) == chapter_num:
-                        chapter_url = web_chapters[key]
+                        chapter_url = url
                         break
             if not chapter_url:
                 logging.warning(f"Chapter {chapter_num} ga ditemuin di web_chapters, lewati.")
-                continue
-
-            existing_chapter = chapters.get(chapter_num_str, {}).get('images', []) if chapters else []
-            if existing_chapter and all(img and img.startswith('http') for img in existing_chapter) and not overwrite:
-                logging.info(f"Chapter {chapter_num} sudah ada gambar, skip scraping")
                 continue
 
             # Scrape gambar
