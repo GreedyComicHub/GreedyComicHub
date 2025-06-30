@@ -46,6 +46,7 @@
         const comicsPerPage = 10; // 5 kolom x 2 baris
         const updatesPerPage = 10; // 5 kolom x 2 baris
         let originalComics = []; // Simpan komik asli
+        let comicChapterCache = {}; // Cache buat chapter data
 
         // Ambil index.json dan updates.json sekali aja di awal
         Promise.all([
@@ -61,6 +62,15 @@
                 if (!acc.comics[type]) acc.comics[type] = 1;
                 return acc;
             }, { updates: 1, comics: {} });
+            // Pre-fetch chapter data
+            allComics.forEach(comic => {
+                fetch(`data/${comic.id}.json`)
+                    .then(res => res.json())
+                    .then(data => {
+                        comicChapterCache[comic.id] = Object.keys(data.chapters || {}).sort((a, b) => a - b).pop() || 'N/A';
+                    })
+                    .catch(err => console.error(`Error fetching ${comic.id}:`, err));
+            });
             populateGenreFilter();
             renderComics();
             renderUpdates();
@@ -114,27 +124,20 @@
                 const endIndex = startIndex + comicsPerPage;
                 const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
                 paginatedComics.forEach(comic => {
-                    fetch(`data/${comic.id}.json`)
-                        .then(res => res.json())
-                        .then(data => {
-                            const latestChapter = Object.keys(data.chapters || {}).sort((a, b) => a - b).pop() || 'N/A';
-                            const card = document.getElementById(`comic-card-${comic.id}`) || document.createElement('div');
-                            card.id = `comic-card-${comic.id}`;
-                            card.className = 'comic-card';
-                            card.innerHTML = `
-                                <a href="comic.html?comic=${comic.id}">
-                                    <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                                    <div class="card-text">
-                                        <h3>${comic.title}</h3>
-                                        <p class="last-chapter">${latestChapter}</p>
-                                    </div>
-                                </a>
-                            `;
-                            if (!document.getElementById(`comic-card-${comic.id}`)) {
-                                typeGrid.appendChild(card);
-                            }
-                        })
-                        .catch(err => console.error(`Error fetching ${comic.id}:`, err));
+                    const card = document.createElement('div');
+                    card.id = `comic-card-${comic.id}`;
+                    card.className = 'comic-card';
+                    const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${comic.id}">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <div class="card-text">
+                                <h3>${comic.title}</h3>
+                                <p class="last-chapter">${latestChapter}</p>
+                            </div>
+                        </a>
+                    `;
+                    typeGrid.appendChild(card);
                 });
                 if (paginatedComics.length > 0) {
                     typeSection.appendChild(typeGrid);
