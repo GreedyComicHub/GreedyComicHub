@@ -121,7 +121,7 @@
                             const latestChapter = comicChapterCache[comic.id] || 'N/A';
                             card.innerHTML = `
                                 <a href="comic.html?comic=${comic.id}">
-                                    <img src="${comic.thumbnail || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                                    <img src="${comic.thumbnail}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                                     <div class="card-text">
                                         <h3>${comic.title}</h3>
                                         <p class="last-chapter">${latestChapter}</p>
@@ -140,7 +140,7 @@
                         const latestChapter = comicChapterCache[comic.id] || 'N/A';
                         card.innerHTML = `
                             <a href="comic.html?comic=${comic.id}">
-                                <img src="${comic.thumbnail || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                                <img src="${comic.thumbnail}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                                 <div class="card-text">
                                     <h3>${comic.title}</h3>
                                     <p class="last-chapter">${latestChapter}</p>
@@ -197,7 +197,7 @@
                             const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
                             card.innerHTML = `
                                 <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                                    <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                                    <img src="${update.thumbnail}" alt="${update.title} - GreedyComicHub" class="comic-cover">
                                     <div class="card-text">
                                         <h3>${update.title} - Ch ${displayChapter}</h3>
                                     </div>
@@ -215,7 +215,7 @@
                         const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
                         card.innerHTML = `
                             <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                                <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                                <img src="${update.thumbnail}" alt="${update.title} - GreedyComicHub" class="comic-cover">
                                 <div class="card-text">
                                     <h3>${update.title} - Ch ${displayChapter}</h3>
                                 </div>

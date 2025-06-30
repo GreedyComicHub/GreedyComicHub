@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (berbasis kode awal, web: grid 5 kolom 10 komik, HP: scroll snap per grup 3 komik, kartu besar, cover utuh, kompatibel Safari) */
+/* style.css: Styling untuk semua halaman (berbasis kode awal, web: grid 5 kolom 10 komik, HP: scroll snap per grup 3 komik, kartu rapi, cover utuh, kompatibel Safari) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -117,7 +117,6 @@ body {
 .comic-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     padding-bottom: 10px;
 }
@@ -380,7 +379,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (HP: scroll snap per grup 3 komik, kartu besar, cover utuh) */
+/* Media Query (HP: scroll snap per grup 3 komik, kartu rapi) */
 @media (max-width: 768px) {
     .main-header {
         display: flex;
@@ -497,91 +496,5 @@ footer p {
         padding: 5px;
         width: 100%;
         box-sizing: border-box;
-    }
-    #comic-detail {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .comic-header {
-        flex-direction: column;
-        align-items: center;
-    }
-    .comic-header img {
-        max-width: 120px;
-    }
-    .comic-info h1 {
-        font-size: 1.2em;
-    }
-    .comic-info p {
-        font-size: 0.9em;
-    }
-    #synopsis {
-        font-size: 0.9em;
-    }
-    .chapter-scroll {
-        max-height: 200px;
-    }
-    .chapter-link a {
-        font-size: 0.9em;
-        padding: 6px;
-    }
-    #chapter-content {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .image-frame {
-        max-width: 100%;
-        width: 100%;
-    }
-    .chapter-nav a {
-        display: block;
-        margin: 5px 0;
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-    .comic-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .comic-card {
-        min-width: 90px;
-        max-width: 110px;
-        height: 180px;
-    }
-    .comic-card img {
-        height: 120px;
-        max-width: 110px;
-    }
-    .comic-card .card-text {
-        height: 50px;
-    }
-    .comic-card h3 {
-        height: 25px;
-    }
-    .comic-card .last-chapter {
-        height: 25px;
-    }
-    .main-content {
-        max-width: 1000px;
-    }
-    #comic-detail {
-        max-width: 600px;
-    }
-    .comic-header {
-        flex-direction: column;
-        align-items: center;
-    }
-    .comic-header img {
-        max-width: 150px;
-    }
-    #chapter-content {
-        max-width: 600px;
     }
 }
