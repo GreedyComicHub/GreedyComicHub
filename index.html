@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.html: Halaman utama menampilkan komik dari data/index.json dan update dari data/updates.json, web: grid 5 kolom 10 komik, HP: scroll snap per grup 3 komik -->
+<!-- index.html: Halaman utama menampilkan semua komik dari data/index.json dan update dari data/updates.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
     <meta name="robots" content="index, follow">
     <meta name="author" content="GreedyComicHub Team">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=1">
     <!-- Histats Start -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
@@ -29,6 +29,7 @@
         <section id="update-section">
             <h2 class="fancy-title">Update</h2>
             <div id="update-list" class="comic-grid"></div>
+            <div id="update-pagination" class="pagination"></div>
         </section>
         <section id="comic-list-section">
             <h2 class="fancy-title">Komik</h2>
@@ -41,20 +42,28 @@
     <script>
         let allComics = [];
         let updatesData = {};
-        let comicChapterCache = {};
-        let originalComics = [];
-        const isMobile = window.innerWidth <= 768;
-        const comicsPerPage = 10; // Batasi 10 komik per bagian
+        let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
+        const isMobile = window.innerWidth <= 600; // Cek apakah HP
+        const comicsPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
+        const updatesPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
+        let originalComics = []; // Simpan komik asli
+        let comicChapterCache = {}; // Cache buat chapter data
 
+        // Ambil index.json dan updates.json sekali aja di awal
         Promise.all([
             fetch('data/index.json').then(res => res.json()),
             fetch('data/updates.json').then(res => res.json())
         ])
         .then(([indexData, updates]) => {
-            console.log('Data loaded:', { comics: Object.keys(indexData).length, updates: Object.keys(updates).length });
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
             originalComics = [...allComics];
             updatesData = updates;
+            currentPages = allComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc.comics[type]) acc.comics[type] = 1;
+                return acc;
+            }, { updates: 1, comics: {} });
+            // Pre-fetch chapter data
             allComics.forEach(comic => {
                 fetch(`data/${comic.id}.json`)
                     .then(res => res.json())
@@ -69,6 +78,7 @@
         })
         .catch(err => console.error('Error loading data:', err));
 
+        // Fungsi untuk populate dropdown genre
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
@@ -86,13 +96,17 @@
                 } else {
                     allComics = originalComics.filter(comic => comic.genre === selectedGenre);
                 }
+                currentPages.comics = allComics.reduce((acc, comic) => {
+                    const type = comic.type || 'Unknown';
+                    if (!acc[type]) acc[type] = 1;
+                    return acc;
+                }, {});
                 renderComics();
-                renderUpdates();
             });
         }
 
+        // Render komik utama dengan paginasi dinamis
         function renderComics() {
-            console.log('Rendering comics, isMobile:', isMobile, 'browser:', navigator.userAgent);
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
             const comicsByType = {};
@@ -104,161 +118,184 @@
             Object.keys(comicsByType).forEach(type => {
                 const typeSection = document.createElement('div');
                 typeSection.className = 'type-section';
-                typeSection.dataset.type = type;
                 typeSection.innerHTML = `<h2 class="fancy-type">${type}</h2>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
-                const comics = comicsByType[type].slice(0, comicsPerPage); // Batasi 10 komik per tipe
-                if (isMobile) {
-                    for (let i = 0; i < comics.length; i += 3) {
-                        const group = document.createElement('div');
-                        group.className = 'comic-group';
-                        for (let j = i; j < i + 3 && j < comics.length; j++) {
-                            const comic = comics[j];
-                            const card = document.createElement('div');
-                            card.id = `comic-card-${comic.id}`;
-                            card.className = 'comic-card';
-                            const latestChapter = comicChapterCache[comic.id] || 'N/A';
-                            card.innerHTML = `
-                                <a href="comic.html?comic=${comic.id}">
-                                    <img src="${comic.thumbnail}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                                    <div class="card-text">
-                                        <h3>${comic.title}</h3>
-                                        <p class="last-chapter">${latestChapter}</p>
-                                    </div>
-                                </a>
-                            `;
-                            group.appendChild(card);
-                        }
-                        typeGrid.appendChild(group);
-                    }
-                } else {
-                    comics.forEach(comic => {
-                        const card = document.createElement('div');
-                        card.id = `comic-card-${comic.id}`;
-                        card.className = 'comic-card';
-                        const latestChapter = comicChapterCache[comic.id] || 'N/A';
-                        card.innerHTML = `
-                            <a href="comic.html?comic=${comic.id}">
-                                <img src="${comic.thumbnail}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                                <div class="card-text">
-                                    <h3>${comic.title}</h3>
-                                    <p class="last-chapter">${latestChapter}</p>
-                                </div>
-                            </a>
-                        `;
-                        typeGrid.appendChild(card);
-                    });
-                }
-                if (comics.length > 0) {
+                const startIndex = (currentPages.comics[type] - 1) * comicsPerPage;
+                const endIndex = startIndex + comicsPerPage;
+                const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
+                paginatedComics.forEach(comic => {
+                    const card = document.createElement('div');
+                    card.id = `comic-card-${comic.id}`;
+                    card.className = 'comic-card';
+                    const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${comic.id}">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <div class="card-text">
+                                <h3>${comic.title}</h3>
+                                <p class="last-chapter">${latestChapter}</p>
+                            </div>
+                        </a>
+                    `;
+                    typeGrid.appendChild(card);
+                });
+                if (paginatedComics.length > 0) {
                     typeSection.appendChild(typeGrid);
+                    const pagination = document.createElement('div');
+                    pagination.className = 'pagination';
+                    const totalPages = Math.ceil(comicsByType[type].length / comicsPerPage);
+                    renderDynamicPagination(pagination, totalPages, currentPages.comics[type], type, 'comics');
+                    typeSection.appendChild(pagination);
                     comicList.appendChild(typeSection);
                 }
             });
-            // Log ukuran grup/kartu untuk debug
-            if (isMobile) {
-                const groups = document.querySelectorAll('.comic-group');
-                groups.forEach((group, i) => {
-                    const cards = group.querySelectorAll('.comic-card');
-                    console.log(`Group ${i + 1}: width=${group.offsetWidth}px, height=${group.offsetHeight}px`);
-                    cards.forEach((card, j) => {
-                        const img = card.querySelector('img');
-                        console.log(`Card ${j + 1} in group ${i + 1}: width=${card.offsetWidth}px, height=${card.offsetHeight}px, img width=${img.offsetWidth}px, img height=${img.offsetHeight}px`);
-                    });
-                });
-            } else {
-                const cards = document.querySelectorAll('.comic-card');
-                cards.forEach((card, i) => {
-                    const img = card.querySelector('img');
-                    console.log(`Card ${i + 1}: width=${card.offsetWidth}px, height=${card.offsetHeight}px, img width=${img.offsetWidth}px, img height=${img.offsetHeight}px`);
-                });
-            }
         }
 
+        // Render update dengan paginasi dinamis
         function renderUpdates() {
-            console.log('Rendering updates, isMobile:', isMobile, 'browser:', navigator.userAgent);
             const updateList = document.getElementById('update-list');
-            updateList.innerHTML = '';
+            const updatePagination = document.getElementById('update-pagination');
             const updates = Object.values(updatesData).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             const now = new Date();
             const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
-            const recentUpdates = updates.filter(update => new Date(update.timestamp) >= twoDaysAgo).slice(0, comicsPerPage); // Batasi 10 update
+            const recentUpdates = updates.filter(update => new Date(update.timestamp) >= twoDaysAgo);
+
+            updateList.innerHTML = '';
+            updatePagination.innerHTML = '';
 
             if (recentUpdates.length > 0) {
-                if (isMobile) {
-                    for (let i = 0; i < recentUpdates.length; i += 3) {
-                        const group = document.createElement('div');
-                        group.className = 'comic-group';
-                        for (let j = i; j < i + 3 && j < recentUpdates.length; j++) {
-                            const update = recentUpdates[j];
-                            const card = document.createElement('div');
-                            card.className = 'comic-card';
-                            const chapterNum = parseFloat(update.chapter);
-                            const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
-                            card.innerHTML = `
-                                <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                                    <img src="${update.thumbnail}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                                    <div class="card-text">
-                                        <h3>${update.title} - Ch ${displayChapter}</h3>
-                                    </div>
-                                </a>
-                            `;
-                            group.appendChild(card);
-                        }
-                        updateList.appendChild(group);
-                    }
-                } else {
-                    recentUpdates.forEach(update => {
-                        const card = document.createElement('div');
-                        card.className = 'comic-card';
-                        const chapterNum = parseFloat(update.chapter);
-                        const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
-                        card.innerHTML = `
-                            <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                                <img src="${update.thumbnail}" alt="${update.title} - GreedyComicHub" class="comic-cover">
-                                <div class="card-text">
-                                    <h3>${update.title} - Ch ${displayChapter}</h3>
-                                </div>
-                            </a>
-                        `;
-                        updateList.appendChild(card);
-                    });
-                }
+                const startIndex = (currentPages.updates - 1) * updatesPerPage;
+                const endIndex = startIndex + updatesPerPage;
+                const paginatedUpdates = recentUpdates.slice(startIndex, endIndex);
+
+                paginatedUpdates.forEach(update => {
+                    const card = document.createElement('div');
+                    card.className = 'comic-card';
+                    const chapterNum = parseFloat(update.chapter);
+                    const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                            <div class="card-text">
+                                <h3>${update.title} - Ch ${displayChapter}</h3>
+                            </div>
+                        </a>
+                    `;
+                    updateList.appendChild(card);
+                });
+
+                const totalPages = Math.ceil(recentUpdates.length / updatesPerPage);
+                renderDynamicPagination(updatePagination, totalPages, currentPages.updates, 'updates', 'updates');
             } else {
                 updateList.innerHTML = '<p class="no-updates">Belum ada update baru.</p>';
             }
-            // Log ukuran grup/kartu untuk debug
-            if (isMobile) {
-                const groups = document.querySelectorAll('#update-list .comic-group');
-                groups.forEach((group, i) => {
-                    const cards = group.querySelectorAll('.comic-card');
-                    console.log(`Update group ${i + 1}: width=${group.offsetWidth}px, height=${group.offsetHeight}px`);
-                    cards.forEach((card, j) => {
-                        const img = card.querySelector('img');
-                        console.log(`Update card ${j + 1} in group ${i + 1}: width=${card.offsetWidth}px, height=${card.offsetHeight}px, img width=${img.offsetWidth}px, img height=${img.offsetHeight}px`);
-                    });
-                });
-            } else {
-                const cards = document.querySelectorAll('#update-list .comic-card');
-                cards.forEach((card, i) => {
-                    const img = card.querySelector('img');
-                    console.log(`Update card ${i + 1}: width=${card.offsetWidth}px, height=${card.offsetHeight}px, img width=${img.offsetWidth}px, img height=${img.offsetHeight}px`);
-                });
-            }
         }
 
+        // Fungsi paginasi dinamis
+        function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
+            paginationElement.innerHTML = '';
+            const visiblePages = 5; // Tampilkan 5 halaman
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + visiblePages - 1);
+
+            // Adjust kalau mendekati akhir
+            if (endPage - startPage < visiblePages - 1) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+
+            // Tombol Previous
+            const prevButton = document.createElement('button');
+            prevButton.textContent = '<';
+            prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    if (sectionType === 'updates') {
+                        currentPages.updates = currentPage - 1;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = currentPage - 1;
+                        renderComics();
+                    }
+                }
+            });
+            paginationElement.appendChild(prevButton);
+
+            // Ellipsis kiri kalau startPage > 1
+            if (startPage > 1) {
+                const ellipsisLeft = document.createElement('span');
+                ellipsisLeft.textContent = '...';
+                ellipsisLeft.className = 'ellipsis';
+                paginationElement.appendChild(ellipsisLeft);
+            }
+
+            // Render nomor halaman
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageButton.addEventListener('click', () => {
+                    if (sectionType === 'updates') {
+                        currentPages.updates = i;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = i;
+                        renderComics();
+                    }
+                });
+                paginationElement.appendChild(pageButton);
+            }
+
+            // Ellipsis kanan kalau endPage < totalPages
+            if (endPage < totalPages) {
+                const ellipsisRight = document.createElement('span');
+                ellipsisRight.textContent = '...';
+                ellipsisRight.className = 'ellipsis';
+                paginationElement.appendChild(ellipsisRight);
+            }
+
+            // Tombol Next
+            const nextButton = document.createElement('button');
+            nextButton.textContent = '>';
+            nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    if (sectionType === 'updates') {
+                        currentPages.updates = currentPage + 1;
+                        renderUpdates();
+                    } else {
+                        currentPages.comics[sectionKey] = currentPage + 1;
+                        renderComics();
+                    }
+                }
+            });
+            paginationElement.appendChild(nextButton);
+        }
+
+        // Search bar
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
                 allComics = [...originalComics];
-            } else {
-                allComics = originalComics.filter(comic => 
-                    comic.title.toLowerCase().includes(query) || 
-                    (comic.genre && comic.genre.toLowerCase().includes(query))
-                );
+                currentPages.comics = originalComics.reduce((acc, comic) => {
+                    const type = comic.type || 'Unknown';
+                    if (!acc[type]) acc[type] = 1;
+                    return acc;
+                }, {});
+                renderComics();
+                return;
             }
+            const filteredComics = originalComics.filter(comic => 
+                comic.title.toLowerCase().includes(query) || 
+                (comic.genre && comic.genre.toLowerCase().includes(query))
+            );
+            allComics = filteredComics;
+            currentPages.comics = filteredComics.reduce((acc, comic) => {
+                const type = comic.type || 'Unknown';
+                if (!acc[type]) acc[type] = 1;
+                return acc;
+            }, {});
             renderComics();
-            renderUpdates();
         });
     </script>
 </body>
