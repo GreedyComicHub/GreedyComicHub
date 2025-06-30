@@ -5680,8 +5680,54 @@
                 "https://img.komiku.org/upload5/sakamoto-days/217/2025-06-16/18.jpg",
                 "https://img.komiku.org/upload5/sakamoto-days/217/2025-06-16/19.jpg"
             ]
+        },
+        "218.0": {
+            "title": "Chapter 218.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-218/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/1.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/2.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/3.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/4.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/5.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/6.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/7.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/8.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/9.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/10.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/11.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/12.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/13.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/14.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/15.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/16.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/17.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/18.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/218/2025-06-23/19.jpg"
+            ]
+        },
+        "219.0": {
+            "title": "Chapter 219.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-219/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/1.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/2.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/3.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/4.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/5.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/6.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/7.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/8.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/9.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/10.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/11.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/12.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/13.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/14.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/15.jpg"
+            ]
         }
     },
-    "total_chapters": 217,
+    "total_chapters": 219,
     "type": "Manga"
 }

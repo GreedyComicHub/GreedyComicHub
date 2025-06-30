@@ -5081,8 +5081,35 @@
                 "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/103/2025-06-03/58.jpg",
                 "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/103/2025-06-03/59.jpg"
             ]
+        },
+        "104.0": {
+            "title": "Chapter 104.0",
+            "url": "https://komiku.org/shuumatsu-no-valkyrie-chapter-104/",
+            "images": [
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/1_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/1_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/1_part3.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/1_part4.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/2_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/2_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/3_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/3_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/4_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/4_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/5_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/5_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/6.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/7_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/7_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/7_part3.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/8_part1.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/8_part2.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/8_part3.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/8_part4.jpg",
+                "https://img.komiku.org/upload5/shuumatsu-no-valkyrie/104/2025-06-29/9.jpg"
+            ]
         }
     },
-    "total_chapters": 176,
+    "total_chapters": 177,
     "type": "Manga"
 }
