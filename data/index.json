@@ -86,7 +86,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
         "genre": "Fiksi Sains",
         "type": "Manga",
-        "total_chapters": 201,
+        "total_chapters": 202,
         "source_url": "https://komiku.org/manga/dandadan"
     },
     "manga-one-punch-man": {
@@ -288,5 +288,15 @@
         "type": "Manhua",
         "total_chapters": 586,
         "source_url": "https://komiku.org/manga/the-last-human"
+    },
+    "51231-battle-through-the-heavens": {
+        "title": "Battle Through the Heavens",
+        "author": "Tian Can Tu Dou",
+        "synopsis": "Cerita ini mengikuti perjalanan xiao yan yang dulunya jenius bela diri tapi tiba-tiba kehilangan kekuatannya, bro! meski dipandang sebelah mata oleh orang di sekitarnya, ia bertekad untuk mengembalikan kejayaannya dan membuktikan bahwa dia lebih dari sekadar masa lalu yang kelam, bro! dalam perjalanannya, xiao yan menghadapi berbagai musuh dan tantangan yang menguji, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/51231-battle-through-the-heavens/manga_thumbnail-Manhua-Battle-Through-the-Heavens-1.jpg?w=300",
+        "genre": "Fantasi",
+        "type": "Manhua",
+        "total_chapters": 477,
+        "source_url": "https://komiku.org/manga/51231-battle-through-the-heavens/"
     }
 }
