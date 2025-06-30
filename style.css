@@ -15,18 +15,25 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10px;
+    padding: 15px 20px; /* Rapihin padding */
     background-color: #111;
     width: 100%;
     max-width: 1200px;
+    box-sizing: border-box;
 }
 .logo {
     margin: 0;
-    font-size: 1.6em;
+    font-size: 1.8em; /* Ukuran lebih besar dan rapi */
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.logo:hover {
+    color: #0066cc;
 }
 .histats-link {
     margin-left: 15px;
-    padding: 5px 10px;
+    padding: 8px 12px; /* Rapihin padding */
     background-color: #1e90ff;
     color: #fff;
     text-decoration: none;
@@ -44,6 +51,7 @@ body {
     color: #fff;
     width: 150px;
     max-width: 100%;
+    margin-left: 15px; /* Jarak dari histats-link */
 }
 .search-bar::placeholder {
     color: #bbb;
@@ -90,6 +98,10 @@ body {
     gap: 10px;
     padding-bottom: 10px;
     max-height: none; /* Hapus scroll, pakai paginasi */
+}
+.comic-tooltip {
+    position: relative;
+    display: block;
 }
 .comic-card {
     background: #222;
@@ -140,6 +152,19 @@ body {
 .comic-card a {
     text-decoration: none;
     color: inherit;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    max-width: 200px;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 /* Pagination */
@@ -217,16 +242,17 @@ body {
     line-height: 1.6;
     color: #ddd;
 }
-.back-link {
+#latest-chapter-btn {
     display: inline-block;
-    margin-bottom: 15px;
-    padding: 8px 12px;
+    margin: 10px 0;
+    padding: 8px;
     background: #1e90ff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    transition: background 0.2s;
 }
-.back-link:hover {
+#latest-chapter-btn:hover {
     background: #0066cc;
 }
 #chapter-list {
@@ -371,6 +397,9 @@ footer p {
     .main-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    .logo {
+        margin-bottom: 10px;
     }
     .histats-link {
         margin: 10px 0 0 0;

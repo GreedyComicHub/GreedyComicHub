@@ -18,7 +18,7 @@
 </head>
 <body>
     <header class="main-header">
-        <h1 class="logo">GreedyComicHub</h1>
+        <a href="index.html" class="logo">GreedyComicHub</a>
         <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
@@ -97,7 +97,7 @@
                             const card = document.createElement('div');
                             card.className = 'comic-card';
                             card.innerHTML = `
-                                <a href="comic.html?comic=${comic.id}">
+                                <a href="comic.html?comic=${comic.id}" class="comic-tooltip" data-title="${comic.title}" data-synopsis="${data.synopsis || 'No synopsis available.'}">
                                     <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                                     <div class="card-text">
                                         <h3>${comic.title}</h3>
@@ -128,6 +128,29 @@
                     typeSection.appendChild(pagination);
                     comicList.appendChild(typeSection);
                 }
+            });
+            // Tambah event listener untuk tooltip
+            document.querySelectorAll('.comic-tooltip').forEach(tooltip => {
+                tooltip.addEventListener('mouseover', function() {
+                    const tooltipDiv = document.createElement('div');
+                    tooltipDiv.className = 'tooltip';
+                    tooltipDiv.innerHTML = `<strong>${this.getAttribute('data-title')}</strong><br>${this.getAttribute('data-synopsis')}`;
+                    tooltipDiv.style.position = 'absolute';
+                    tooltipDiv.style.background = '#333';
+                    tooltipDiv.style.color = '#fff';
+                    tooltipDiv.style.padding = '10px';
+                    tooltipDiv.style.borderRadius = '5px';
+                    tooltipDiv.style.zIndex = '1000';
+                    tooltipDiv.style.maxWidth = '200px';
+                    const rect = this.getBoundingClientRect();
+                    tooltipDiv.style.top = `${rect.bottom + window.scrollY + 5}px`;
+                    tooltipDiv.style.left = `${rect.left + window.scrollX}px`;
+                    document.body.appendChild(tooltipDiv);
+
+                    this.addEventListener('mouseout', () => {
+                        document.body.removeChild(tooltipDiv);
+                    });
+                });
             });
         }
 
