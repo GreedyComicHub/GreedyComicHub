@@ -260,10 +260,10 @@
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
                     if (sectionType === 'updates') {
-                        currentPages.updates = currentPage + 1;
+                        currentPages.updates = currentPage - 1;
                         renderUpdates();
                     } else {
-                        currentPages.comics[sectionKey] = currentPage + 1;
+                        currentPages.comics[sectionKey] = currentPage - 1;
                         renderComics();
                     }
                 }

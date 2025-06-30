@@ -118,7 +118,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+    gap: 6px; /* Dikurangi untuk jarak lebih rapi */
     padding-bottom: 10px;
     max-height: none;
 }
@@ -132,7 +132,7 @@ body {
     transition: transform 0.2s;
     min-width: 100px;
     max-width: 120px;
-    padding: 5px 0;
+    padding: 6px 0; /* Padding dikurangi untuk konsistensi */
     height: 200px;
 }
 .comic-card:hover {
@@ -220,7 +220,7 @@ body {
     background: #222;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .comic-header {
     display: flex;
@@ -419,7 +419,7 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 8px;
+        gap: 6px;
     }
     .comic-card {
         min-width: 90px;
@@ -461,7 +461,7 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 8px;
+        gap: 6px;
     }
     .comic-card {
         min-width: 90px;
@@ -497,60 +497,83 @@ footer p {
 }
 
 @media (max-width: 600px) {
-    .comic-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 8px;
-    }
-    .comic-card {
-        min-width: 80px;
-        max-width: 90px;
-        height: 160px;
-    }
-    .comic-card img {
-        height: 100px;
-        max-width: 90px;
-    }
-    .comic-card .card-text {
-        height: 50px;
-    }
-    .comic-card h3 {
-        height: 25px;
-    }
-    .comic-card .last-chapter {
-        height: 25px;
-    }
     .main-header {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        flex-direction: row; /* Tetap horizontal */
+        flex-wrap: wrap; /* Wrap kalau sempit */
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px; /* Kecilkan padding */
     }
     .logo {
-        margin-bottom: 10px;
-    }
-    .search-group {
-        flex-direction: column;
-        width: 100%;
-    }
-    .genre-select {
-        margin: 0 0 10px 0;
-        width: 100%;
-        border-radius: 5px;
-    }
-    .search-bar {
-        width: 100%;
-        border-radius: 5px;
+        font-size: 1.4em; /* Kecilkan logo */
         margin: 0;
     }
+    .search-group {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        width: auto;
+    }
+    .genre-select {
+        padding: 5px;
+        font-size: 0.75em; /* Kecilkan */
+        border-radius: 5px 0 0 5px;
+        width: 70px; /* Kecilkan */
+    }
+    .search-bar {
+        padding: 5px;
+        font-size: 0.75em; /* Kecilkan */
+        width: 90px; /* Kecilkan */
+        border-radius: 0 5px 5px 0;
+    }
     .histats-link {
-        margin: 10px 0 0 0;
+        padding: 5px 8px;
+        font-size: 0.75em; /* Kecilkan */
+        margin-left: 8px;
+    }
+    #update-section .comic-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk Update */
+        grid-template-rows: repeat(2, 1fr);
+        gap: 5px; /* Lebih rapat */
+    }
+    .comic-grid {
+        grid-template-columns: repeat(2, 1fr); /* Untuk Komik tetap 2 kolom */
+        grid-template-rows: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .comic-card {
+        min-width: 75px;
+        max-width: 75px;
+        height: 130px;
+        padding: 5px 0;
+    }
+    .comic-card img {
+        height: 85px;
+        max-width: 75px;
+    }
+    .comic-card .card-text {
+        height: 40px;
+    }
+    .comic-card h3 {
+        font-size: 0.65em;
+        height: 20px;
+    }
+    .comic-card .last-chapter {
+        font-size: 0.6em;
+        height: 20px;
     }
     .main-content {
         max-width: 100%;
-        padding: 10px;
+        padding: 5px; /* Kecilkan padding */
+    }
+    #update-section {
+        max-width: 100%;
+        padding: 5px;
     }
     #comic-detail {
         max-width: 100%;
-        padding: 10px;
+        padding: 8px;
     }
     .comic-header {
         flex-direction: column;
@@ -577,7 +600,7 @@ footer p {
     }
     #chapter-content {
         max-width: 100%;
-        padding: 10px;
+        padding: 8px;
     }
     .image-frame {
         max-width: 100%;
