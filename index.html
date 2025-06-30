@@ -47,20 +47,14 @@
         const updatesPerPage = 10; // 5 kolom x 2 baris
         let originalComics = []; // Simpan komik asli
 
-        // Ambil index.json dan updates.json
+        // Ambil index.json dan updates.json sekali aja di awal
         Promise.all([
-            fetch('data/index.json').then(res => {
-                if (!res.ok) throw new Error('Failed to load index.json');
-                return res.json();
-            }),
-            fetch('data/updates.json').then(res => {
-                if (!res.ok) throw new Error('Failed to load updates.json');
-                return res.json();
-            })
+            fetch('data/index.json').then(res => res.json()),
+            fetch('data/updates.json').then(res => res.json())
         ])
         .then(([indexData, updates]) => {
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
-            originalComics = [...allComics]; // Simpan kopi asli
+            originalComics = [...allComics];
             updatesData = updates;
             currentPages = allComics.reduce((acc, comic) => {
                 const type = comic.type || 'Unknown';
@@ -71,11 +65,7 @@
             renderComics();
             renderUpdates();
         })
-        .catch(err => {
-            console.error('Error loading data:', err);
-            document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
-            document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
-        });
+        .catch(err => console.error('Error loading data:', err));
 
         // Fungsi untuk populate dropdown genre
         function populateGenreFilter() {
@@ -124,24 +114,18 @@
                 const endIndex = startIndex + comicsPerPage;
                 const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
                 paginatedComics.forEach(comic => {
-                    fetch(`data/${comic.id}.json`)
-                        .then(res => res.json())
-                        .then(data => {
-                            const latestChapter = Object.keys(data.chapters || {}).sort((a, b) => a - b).pop() || 'N/A';
-                            const card = document.createElement('div');
-                            card.className = 'comic-card';
-                            card.innerHTML = `
-                                <a href="comic.html?comic=${comic.id}">
-                                    <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                                    <div class="card-text">
-                                        <h3>${comic.title}</h3>
-                                        <p class="last-chapter">${latestChapter}</p>
-                                    </div>
-                                </a>
-                            `;
-                            typeGrid.appendChild(card);
-                        })
-                        .catch(err => console.error(`Error fetching ${comic.id}:`, err));
+                    const card = document.createElement('div');
+                    card.className = 'comic-card';
+                    card.innerHTML = `
+                        <a href="comic.html?comic=${comic.id}">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <div class="card-text">
+                                <h3>${comic.title}</h3>
+                                <p class="last-chapter">N/A</p> <!-- Placeholder, bisa di-fetch kalau perlu -->
+                            </div>
+                        </a>
+                    `;
+                    typeGrid.appendChild(card);
                 });
                 if (paginatedComics.length > 0) {
                     typeSection.appendChild(typeGrid);
@@ -176,7 +160,7 @@
                     const card = document.createElement('div');
                     card.className = 'comic-card';
                     const chapterNum = parseFloat(update.chapter);
-                    const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum; // Hapus .0 kalau integer
+                    const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
                     card.innerHTML = `
                         <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
                             <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
@@ -213,7 +197,7 @@
             prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
             prevButton.addEventListener('click', () => {
                 if (currentPage > 1) {
-                    currentPages[sectionType][sectionKey] = currentPage - 1; // Perbaiki konteks per section
+                    currentPages[sectionType][sectionKey] = currentPage - 1;
                     if (sectionType === 'updates') renderUpdates();
                     else renderComics();
                 }
@@ -234,7 +218,7 @@
                 pageButton.textContent = i;
                 pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
                 pageButton.addEventListener('click', () => {
-                    currentPages[sectionType][sectionKey] = i; // Perbaiki konteks per section
+                    currentPages[sectionType][sectionKey] = i;
                     if (sectionType === 'updates') renderUpdates();
                     else renderComics();
                 });
@@ -255,17 +239,12 @@
             nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
-                    currentPages[sectionType][sectionKey] = currentPage + 1; // Perbaiki konteks per section
+                    currentPages[sectionType][sectionKey] = currentPage + 1;
                     if (sectionType === 'updates') renderUpdates();
                     else renderComics();
                 }
             });
             paginationElement.appendChild(nextButton);
-        }
-
-        // Setup paginasi (panggil ulang buat update status)
-        function setupPagination() {
-            // Pagination udah ditangani di renderComics dan renderUpdates
         }
 
         // Search bar
