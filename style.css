@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal murni CSS tanpa paginasi, fix ukuran kartu, gambar cover tidak terpotong, kompatibel Safari dan semua browser) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik per grup, scroll horizontal murni CSS snap per grup seperti paginasi, fix ukuran kartu, gambar cover tidak terpotong, kompatibel Safari dan semua browser) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -120,6 +120,11 @@ body {
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     padding-bottom: 10px;
+}
+.comic-group {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
 }
 .comic-card {
     background: #222;
@@ -380,7 +385,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal murni CSS tanpa paginasi, fix ukuran kartu, gambar cover tidak terpotong) */
+/* Media Query (Diperbarui buat HP, 3 komik per grup, scroll horizontal murni CSS snap per grup seperti paginasi, fix ukuran kartu, gambar cover tidak terpotong) */
 @media (max-width: 768px) {
     .main-header {
         display: flex !important;
@@ -434,6 +439,16 @@ footer p {
         -webkit-overflow-scrolling: touch !important;
         scroll-behavior: smooth !important;
     }
+    .comic-group {
+        display: flex !important;
+        flex-direction: row !important;
+        width: calc(100% - 4px) !important;
+        min-width: calc(100% - 4px) !important;
+        max-width: calc(100% - 4px) !important;
+        gap: 4px !important;
+        scroll-snap-align: start !important;
+        flex: 0 0 auto !important;
+    }
     .comic-card {
         width: calc(100% / 3 - 4px) !important;
         min-width: calc(100% / 3 - 4px) !important;
@@ -442,7 +457,6 @@ footer p {
         padding: 0 !important;
         margin: 0 2px !important;
         flex: 0 0 auto !important;
-        scroll-snap-align: start !important;
     }
     .comic-card img {
         width: 100% !important;
