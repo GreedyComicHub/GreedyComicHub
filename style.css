@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbarui) */
+/* style.css: Styling untuk semua halaman (diperbarui, hapus error sintaks) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -109,7 +109,7 @@ body {
     font-size: 1.6em;
     margin: 15px 0 8px;
     color: #fff;
-    background-color: #1E1E90;
+    background-color: #1e1e90;
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
@@ -118,21 +118,20 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 6px; /* Dikurangi untuk jarak lebih rapi */
+    gap: 10px;
     padding-bottom: 10px;
-    max-height: none;
 }
 .comic-card {
     background: #222;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
     min-width: 100px;
     max-width: 120px;
-    padding: 6px 0; /* Padding dikurangi untuk konsistensi */
+    padding: 5px 0;
     height: 200px;
 }
 .comic-card:hover {
@@ -147,7 +146,7 @@ body {
 .comic-card .card-text {
     padding: 0 5px;
     height: 50px;
-    background-color: #1E1E90;
+    background-color: #1e1e90;
 }
 .comic-card h3 {
     font-size: 0.8em;
@@ -190,7 +189,7 @@ body {
     border-radius: 3px;
 }
 .page-btn.active {
-    background-color: #1E1E90;
+    background-color: #1e1e90;
     font-weight: bold;
 }
 .page-btn:hover:not(.disabled) {
@@ -220,7 +219,7 @@ body {
     background: #222;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .comic-header {
     display: flex;
@@ -338,7 +337,7 @@ body {
 .image-frame {
     max-width: 800px;
     width: 100%;
-    margin: 0 !important;
+    margin: 0;
     box-sizing: border-box;
 }
 .chapter-image {
@@ -347,7 +346,7 @@ body {
     display: block;
     border-radius: 0;
     image-rendering: auto;
-    margin: 0 !important;
+    margin: 0;
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
@@ -419,7 +418,7 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 6px;
+        gap: 10px;
     }
     .comic-card {
         min-width: 90px;
@@ -461,7 +460,7 @@ footer p {
     .comic-grid {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 6px;
+        gap: 10px;
     }
     .comic-card {
         min-width: 90px;
@@ -499,14 +498,14 @@ footer p {
 @media (max-width: 600px) {
     .main-header {
         display: flex;
-        flex-direction: row; /* Tetap horizontal */
-        flex-wrap: wrap; /* Wrap kalau sempit */
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        padding: 8px; /* Kecilkan padding */
+        padding: 8px;
     }
     .logo {
-        font-size: 1.4em; /* Kecilkan logo */
+        font-size: 1.4em;
         margin: 0;
     }
     .search-group {
@@ -517,55 +516,55 @@ footer p {
     }
     .genre-select {
         padding: 5px;
-        font-size: 0.75em; /* Kecilkan */
+        font-size: 0.75em;
         border-radius: 5px 0 0 5px;
-        width: 70px; /* Kecilkan */
+        width: 70px;
     }
     .search-bar {
         padding: 5px;
-        font-size: 0.75em; /* Kecilkan */
-        width: 90px; /* Kecilkan */
+        font-size: 0.75em;
+        width: 90px;
         border-radius: 0 5px 5px 0;
     }
     .histats-link {
         padding: 5px 8px;
-        font-size: 0.75em; /* Kecilkan */
+        font-size: 0.75em;
         margin-left: 8px;
     }
     #update-section .comic-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk Update */
         grid-template-rows: repeat(2, 1fr);
-        gap: 5px; /* Lebih rapat */
+        gap: 5px;
     }
-    .comic-grid {
-        grid-template-columns: repeat(2, 1fr); /* Untuk Komik tetap 2 kolom */
+    .type-section .comic-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk Komik per tipe */
         grid-template-rows: repeat(2, 1fr);
         gap: 5px;
     }
     .comic-card {
-        min-width: 75px;
-        max-width: 75px;
-        height: 130px;
+        min-width: 90px;
+        max-width: 90px;
+        height: 140px;
         padding: 5px 0;
     }
     .comic-card img {
-        height: 85px;
-        max-width: 75px;
+        height: 90px;
+        max-width: 90px;
     }
     .comic-card .card-text {
         height: 40px;
     }
     .comic-card h3 {
-        font-size: 0.65em;
+        font-size: 0.7em;
         height: 20px;
     }
     .comic-card .last-chapter {
-        font-size: 0.6em;
+        font-size: 0.65em;
         height: 20px;
     }
     .main-content {
         max-width: 100%;
-        padding: 5px; /* Kecilkan padding */
+        padding: 5px;
     }
     #update-section {
         max-width: 100%;
