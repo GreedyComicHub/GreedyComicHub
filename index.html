@@ -149,24 +149,14 @@
                     const pagination = document.createElement('div');
                     pagination.className = 'pagination';
                     const totalPages = Math.ceil(comicsByType[type].length / comicsPerPage);
-                    for (let i = 1; i <= totalPages; i++) {
-                        const pageButton = document.createElement('button');
-                        pageButton.textContent = i;
-                        pageButton.className = `page-btn ${i === currentPages.comics[type] ? 'active' : ''}`;
-                        pageButton.addEventListener('click', () => {
-                            currentPages.comics[type] = i;
-                            renderComics();
-                            setupPagination();
-                        });
-                        pagination.appendChild(pageButton);
-                    }
+                    renderDynamicPagination(pagination, totalPages, currentPages.comics[type], type, 'comics');
                     typeSection.appendChild(pagination);
                     comicList.appendChild(typeSection);
                 }
             });
         }
 
-        // Render update dengan paginasi
+        // Render update dengan paginasi dinamis
         function renderUpdates() {
             const updateList = document.getElementById('update-list');
             const updatePagination = document.getElementById('update-pagination');
@@ -200,20 +190,78 @@
                 });
 
                 const totalPages = Math.ceil(recentUpdates.length / updatesPerPage);
-                for (let i = 1; i <= totalPages; i++) {
-                    const pageButton = document.createElement('button');
-                    pageButton.textContent = i;
-                    pageButton.className = `page-btn ${i === currentPages.updates ? 'active' : ''}`;
-                    pageButton.addEventListener('click', () => {
-                        currentPages.updates = i;
-                        renderUpdates();
-                        setupPagination();
-                    });
-                    updatePagination.appendChild(pageButton);
-                }
+                renderDynamicPagination(updatePagination, totalPages, currentPages.updates, 'updates');
             } else {
                 updateList.innerHTML = '<p class="no-updates">Belum ada update baru.</p>';
             }
+        }
+
+        // Fungsi paginasi dinamis
+        function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
+            paginationElement.innerHTML = '';
+            const visiblePages = 5; // Tampilkan 5 halaman
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + visiblePages - 1);
+
+            // Adjust kalau mendekati akhir
+            if (endPage - startPage < visiblePages - 1) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+
+            // Tombol Previous
+            const prevButton = document.createElement('button');
+            prevButton.textContent = '<';
+            prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPages[sectionType] = currentPage - 1;
+                    if (sectionType === 'updates') renderUpdates();
+                    else renderComics();
+                }
+            });
+            paginationElement.appendChild(prevButton);
+
+            // Ellipsis kiri kalau startPage > 1
+            if (startPage > 1) {
+                const ellipsisLeft = document.createElement('span');
+                ellipsisLeft.textContent = '...';
+                ellipsisLeft.className = 'ellipsis';
+                paginationElement.appendChild(ellipsisLeft);
+            }
+
+            // Render nomor halaman
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageButton.addEventListener('click', () => {
+                    currentPages[sectionType] = i;
+                    if (sectionType === 'updates') renderUpdates();
+                    else renderComics();
+                });
+                paginationElement.appendChild(pageButton);
+            }
+
+            // Ellipsis kanan kalau endPage < totalPages
+            if (endPage < totalPages) {
+                const ellipsisRight = document.createElement('span');
+                ellipsisRight.textContent = '...';
+                ellipsisRight.className = 'ellipsis';
+                paginationElement.appendChild(ellipsisRight);
+            }
+
+            // Tombol Next
+            const nextButton = document.createElement('button');
+            nextButton.textContent = '>';
+            nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPages[sectionType] = currentPage + 1;
+                    if (sectionType === 'updates') renderUpdates();
+                    else renderComics();
+                }
+            });
+            paginationElement.appendChild(nextButton);
         }
 
         // Setup paginasi (panggil ulang buat update status)
