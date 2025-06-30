@@ -20,7 +20,7 @@ body {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
-    border-bottom: 2px solid #1e90ff; /* Tambah garis bawah biar rapi */
+    border-bottom: 2px solid #1e90ff;
 }
 .logo {
     margin: 0;
@@ -36,6 +36,19 @@ body {
 .logo span {
     color: #fff;
     font-weight: bold;
+}
+.genre-select {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.genre-select:hover {
+    background-color: #444;
 }
 .histats-link {
     margin-left: 15px;
@@ -105,10 +118,6 @@ body {
     padding-bottom: 10px;
     max-height: none;
 }
-.comic-tooltip {
-    position: relative;
-    display: block;
-}
 .comic-card {
     background: #222;
     border: none;
@@ -158,20 +167,6 @@ body {
 .comic-card a {
     text-decoration: none;
     color: inherit;
-}
-
-/* Tooltip */
-.tooltip {
-    position: fixed;
-    background: #333;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000;
-    max-width: 250px;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    pointer-events: none;
 }
 
 /* Pagination */
@@ -413,6 +408,10 @@ footer p {
     }
     .logo {
         margin-bottom: 10px;
+    }
+    .genre-select {
+        margin: 10px 0;
+        width: 100%;
     }
     .histats-link {
         margin: 10px 0 0 0;

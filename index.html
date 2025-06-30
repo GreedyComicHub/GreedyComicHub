@@ -19,6 +19,9 @@
 <body>
     <header class="main-header">
         <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
+        <select id="genre-filter" class="genre-select">
+            <option value="">All Genres</option>
+        </select>
         <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
         <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
     </header>
@@ -62,6 +65,7 @@
                 if (!acc[type]) acc[type] = 1;
                 return acc;
             }, {});
+            populateGenreFilter();
             renderComics();
             renderUpdates();
             setupPagination();
@@ -71,6 +75,33 @@
             document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
             document.getElementById('update-list').innerHTML = '<p>Error loading updates.</p>';
         });
+
+        // Fungsi untuk populate dropdown genre
+        function populateGenreFilter() {
+            const genreFilter = document.getElementById('genre-filter');
+            const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
+            genreFilter.innerHTML = '<option value="">All Genres</option>';
+            genres.forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre;
+                option.textContent = genre;
+                genreFilter.appendChild(option);
+            });
+            genreFilter.addEventListener('change', (e) => {
+                const selectedGenre = e.target.value;
+                if (!selectedGenre) {
+                    allComics = [...originalComics];
+                } else {
+                    allComics = originalComics.filter(comic => comic.genre === selectedGenre);
+                }
+                currentPages = allComics.reduce((acc, comic) => {
+                    const type = comic.type || 'Unknown';
+                    if (!acc[type]) acc[type] = 1;
+                    return acc;
+                }, {});
+                renderComics();
+            });
+        }
 
         // Render komik utama dengan paginasi per tipe
         function renderComics() {
@@ -99,7 +130,7 @@
                             const card = document.createElement('div');
                             card.className = 'comic-card';
                             card.innerHTML = `
-                                <a href="comic.html?comic=${comic.id}" class="comic-tooltip" data-title="${data.title}" data-synopsis="${data.synopsis || 'No synopsis available.'}">
+                                <a href="comic.html?comic=${comic.id}">
                                     <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                                     <div class="card-text">
                                         <h3>${comic.title}</h3>
@@ -131,46 +162,6 @@
                     comicList.appendChild(typeSection);
                 }
             });
-            // Tambah event listener untuk tooltip
-            document.querySelectorAll('.comic-tooltip').forEach(tooltip => {
-                let tooltipDiv = null;
-                tooltip.addEventListener('mouseover', function() {
-                    tooltipDiv = document.createElement('div');
-                    tooltipDiv.className = 'tooltip';
-                    tooltipDiv.innerHTML = `<strong>${this.getAttribute('data-title')}</strong><br>${this.getAttribute('data-synopsis')}`;
-                    document.body.appendChild(tooltipDiv);
-                    updateTooltipPosition(tooltipDiv, this);
-                });
-                tooltip.addEventListener('mouseout', () => {
-                    if (tooltipDiv) {
-                        document.body.removeChild(tooltipDiv);
-                        tooltipDiv = null;
-                    }
-                });
-                tooltip.addEventListener('mousemove', function(e) {
-                    if (tooltipDiv) {
-                        updateTooltipPosition(tooltipDiv, this, e);
-                    }
-                });
-            });
-        }
-
-        // Fungsi untuk update posisi tooltip
-        function updateTooltipPosition(tooltipDiv, element, e) {
-            const rect = element.getBoundingClientRect();
-            tooltipDiv.style.position = 'fixed';
-            tooltipDiv.style.top = `${e.pageY + 5}px`;
-            tooltipDiv.style.left = `${e.pageX}px`;
-            tooltipDiv.style.transform = 'translateX(-50%)';
-            tooltipDiv.style.background = '#333';
-            tooltipDiv.style.color = '#fff';
-            tooltipDiv.style.padding = '10px';
-            tooltipDiv.style.borderRadius = '5px';
-            tooltipDiv.style.zIndex = '1000';
-            tooltipDiv.style.maxWidth = '250px';
-            tooltipDiv.style.wordWrap = 'break-word';
-            tooltipDiv.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
-            tooltipDiv.style.pointerEvents = 'none';
         }
 
         // Render update
@@ -218,7 +209,7 @@
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
-                allComics = [...originalComics]; // Kembali ke daftar asli
+                allComics = [...originalComics];
                 currentPages = originalComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
