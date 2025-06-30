@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, kartu besar, ngepas ujung ke ujung) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal, kartu besar, ngepas ujung ke ujung) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -413,7 +413,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, kartu besar, ngepas ujung ke ujung) */
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal, kartu besar, ngepas ujung ke ujung) */
 @media (max-width: 767px) {
     .main-header {
         display: flex;
@@ -453,29 +453,37 @@ footer p {
         margin-left: 8px;
     }
     #update-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling di iOS */
     }
     .type-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
+        -webkit-overflow-scrolling: touch;
     }
     .comic-card {
-        width: calc(100% / 3 - 8px) !important; /* Ngepas ujung ke ujung */
-        height: 180px !important; /* Kartu lebih besar */
+        width: calc(100% / 3 - 8px) !important;
+        height: 180px !important;
         padding: 5px 0;
         margin: 0;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
     }
     .comic-card img {
-        height: 120px !important; /* Gambar lebih besar */
+        height: 120px !important;
         width: 100% !important;
         max-width: none !important;
     }
