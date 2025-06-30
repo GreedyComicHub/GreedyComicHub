@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbarui, error dihapus) */
+/* style.css: Styling untuk semua halaman (diperbaiki, hapus error, HP ngepas ujung ke ujung) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -109,7 +109,7 @@ body {
     font-size: 1.6em;
     margin: 15px 0 8px;
     color: #fff;
-    background-color: #1E1E90;
+    background-color: #1e1e90;
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
@@ -120,7 +120,6 @@ body {
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     padding-bottom: 10px;
-    max-height: none;
 }
 .comic-card {
     background: #222;
@@ -147,7 +146,7 @@ body {
 .comic-card .card-text {
     padding: 0 5px;
     height: 50px;
-    background-color: #1E1E90;
+    background-color: #1e1e90;
 }
 .comic-card h3 {
     font-size: 0.8em;
@@ -190,7 +189,7 @@ body {
     border-radius: 3px;
 }
 .page-btn.active {
-    background-color: #1E1E90;
+    background-color: #1e1e90;
     font-weight: bold;
 }
 .page-btn:hover:not(.disabled) {
@@ -414,7 +413,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP) */
+/* Media Query (Diperbarui buat HP, ngepas ujung ke ujung) */
 @media (max-width: 1024px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -484,11 +483,14 @@ footer p {
     .main-content {
         max-width: 800px;
     }
+    #comic-detail {
+        max-width: 500px;
+    }
     .chapter-nav a {
         display: block;
         margin: 5px 0;
     }
-    #chapter-content {
+    .chapter-content {
         max-width: 500px;
     }
 }
@@ -501,6 +503,8 @@ footer p {
         justify-content: space-between;
         align-items: center;
         padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .logo {
         font-size: 1.4em;
@@ -533,21 +537,28 @@ footer p {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 5px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
     .type-section .comic-grid {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 5px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
     .comic-card {
-        min-width: 90px;
-        max-width: 90px;
+        width: calc(100% / 3 - 10px); /* Ngepas ujung ke ujung */
         height: 140px;
         padding: 5px 0;
+        margin: 0;
     }
     .comic-card img {
         height: 90px;
-        max-width: 90px;
+        width: 100%;
+        max-width: none;
     }
     .comic-card .card-text {
         height: 40px;
@@ -563,14 +574,20 @@ footer p {
     .main-content {
         max-width: 100%;
         padding: 5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     #update-section {
         max-width: 100%;
         padding: 5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     #comic-detail {
         max-width: 100%;
         padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .comic-header {
         flex-direction: column;
@@ -598,9 +615,12 @@ footer p {
     #chapter-content {
         max-width: 100%;
         padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .image-frame {
         max-width: 100%;
+        width: 100%;
     }
     .chapter-nav a {
         display: block;
