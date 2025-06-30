@@ -20,6 +20,7 @@
             </div>
         </div>
         <p id="synopsis"></p>
+        <a id="latest-chapter-btn" class="chapter-link" href="#" style="display: none;">Chapter </a>
         <h3>Chapters</h3>
         <div id="chapter-list" class="chapter-scroll"></div>
     </div>
@@ -52,6 +53,12 @@
                             link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
                             chapterList.appendChild(link);
                         });
+                        // Tambah tombol chapter terakhir
+                        const latestChapterBtn = document.getElementById('latest-chapter-btn');
+                        const latestChapter = chapters[chapters.length - 1];
+                        latestChapterBtn.textContent = `Chapter ${latestChapter}`;
+                        latestChapterBtn.href = `chapter.html?comic=${comicId}&chapter=${latestChapter}`;
+                        latestChapterBtn.style.display = 'block';
                     }
                     // Disable klik kanan global
                     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -66,4 +73,3 @@
     </script>
 </body>
 </html>
-

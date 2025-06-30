@@ -90,19 +90,24 @@
                 const endIndex = startIndex + comicsPerPage;
                 const paginatedComics = comicsByType[type].slice(startIndex, endIndex);
                 paginatedComics.forEach(comic => {
-                    const latestChapter = getLatestChapter(comic.id);
-                    const card = document.createElement('div');
-                    card.className = 'comic-card';
-                    card.innerHTML = `
-                        <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
-                            <div class="card-text">
-                                <h3>${comic.title}</h3>
-                                <p class="last-chapter">Last: Ch ${latestChapter || 'N/A'}</p>
-                            </div>
-                        </a>
-                    `;
-                    typeGrid.appendChild(card);
+                    fetch(`data/${comic.id}.json`)
+                        .then(res => res.json())
+                        .then(data => {
+                            const latestChapter = Object.keys(data.chapters || {}).sort((a, b) => a - b).pop() || 'N/A';
+                            const card = document.createElement('div');
+                            card.className = 'comic-card';
+                            card.innerHTML = `
+                                <a href="comic.html?comic=${comic.id}">
+                                    <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                                    <div class="card-text">
+                                        <h3>${comic.title}</h3>
+                                        <p class="last-chapter">${latestChapter}</p>
+                                    </div>
+                                </a>
+                            `;
+                            typeGrid.appendChild(card);
+                        })
+                        .catch(err => console.error(`Error fetching ${comic.id}:`, err));
                 });
                 if (paginatedComics.length > 0) {
                     typeSection.appendChild(typeGrid);
