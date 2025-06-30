@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal, kartu besar, ngepas ujung ke ujung) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal sinkron paginasi, kartu besar, ngepas ujung ke ujung) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -413,8 +413,8 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal, kartu besar, ngepas ujung ke ujung) */
-@media (max-width: 767px) {
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal sinkron paginasi) */
+@media (max-width: 768px) {
     .main-header {
         display: flex;
         flex-direction: row;
@@ -422,7 +422,7 @@ footer p {
         justify-content: space-between;
         align-items: center;
         padding: 8px;
-        width: 100%;
+        width: 100% !important;
         box-sizing: border-box;
     }
     .logo {
@@ -453,21 +453,21 @@ footer p {
         margin-left: 8px;
     }
     #update-section .comic-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling di iOS */
+        -webkit-overflow-scrolling: touch;
     }
     .type-section .comic-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;

@@ -10,7 +10,7 @@
     <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
     <meta name="robots" content="index, follow">
     <meta name="author" content="GreedyComicHub Team">
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="style.css?v=3">
     <!-- Histats Start -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
@@ -42,14 +42,13 @@
     <script>
         let allComics = [];
         let updatesData = {};
-        let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
-        const isMobile = window.innerWidth <= 600; // Cek apakah HP
-        const comicsPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
-        const updatesPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
-        let originalComics = []; // Simpan komik asli
-        let comicChapterCache = {}; // Cache buat chapter data
+        let currentPages = { updates: 1, comics: {} };
+        const isMobile = window.innerWidth <= 768;
+        const comicsPerPage = isMobile ? 3 : 10;
+        const updatesPerPage = isMobile ? 3 : 10;
+        let originalComics = [];
+        let comicChapterCache = {};
 
-        // Ambil index.json dan updates.json sekali aja di awal
         Promise.all([
             fetch('data/index.json').then(res => res.json()),
             fetch('data/updates.json').then(res => res.json())
@@ -63,7 +62,6 @@
                 if (!acc.comics[type]) acc.comics[type] = 1;
                 return acc;
             }, { updates: 1, comics: {} });
-            // Pre-fetch chapter data
             allComics.forEach(comic => {
                 fetch(`data/${comic.id}.json`)
                     .then(res => res.json())
@@ -75,10 +73,12 @@
             populateGenreFilter();
             renderComics();
             renderUpdates();
+            if (isMobile) {
+                setupScrollSync();
+            }
         })
         .catch(err => console.error('Error loading data:', err));
 
-        // Fungsi untuk populate dropdown genre
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
@@ -102,10 +102,12 @@
                     return acc;
                 }, {});
                 renderComics();
+                if (isMobile) {
+                    setupScrollSync();
+                }
             });
         }
 
-        // Render komik utama dengan paginasi dinamis
         function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
@@ -128,7 +130,7 @@
                     const card = document.createElement('div');
                     card.id = `comic-card-${comic.id}`;
                     card.className = 'comic-card';
-                    const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
+                    const latestChapter = comicChapterCache[comic.id] || 'N/A';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
@@ -144,6 +146,7 @@
                     typeSection.appendChild(typeGrid);
                     const pagination = document.createElement('div');
                     pagination.className = 'pagination';
+                    pagination.dataset.type = type;
                     const totalPages = Math.ceil(comicsByType[type].length / comicsPerPage);
                     renderDynamicPagination(pagination, totalPages, currentPages.comics[type], type, 'comics');
                     typeSection.appendChild(pagination);
@@ -152,7 +155,6 @@
             });
         }
 
-        // Render update dengan paginasi dinamis
         function renderUpdates() {
             const updateList = document.getElementById('update-list');
             const updatePagination = document.getElementById('update-pagination');
@@ -163,6 +165,7 @@
 
             updateList.innerHTML = '';
             updatePagination.innerHTML = '';
+            updatePagination.dataset.type = 'updates';
 
             if (recentUpdates.length > 0) {
                 const startIndex = (currentPages.updates - 1) * updatesPerPage;
@@ -192,19 +195,16 @@
             }
         }
 
-        // Fungsi paginasi dinamis
         function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
             paginationElement.innerHTML = '';
-            const visiblePages = 5; // Tampilkan 5 halaman
+            const visiblePages = 5;
             let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
             let endPage = Math.min(totalPages, startPage + visiblePages - 1);
 
-            // Adjust kalau mendekati akhir
             if (endPage - startPage < visiblePages - 1) {
                 startPage = Math.max(1, endPage - visiblePages + 1);
             }
 
-            // Tombol Previous
             const prevButton = document.createElement('button');
             prevButton.textContent = '<';
             prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
@@ -217,11 +217,14 @@
                         currentPages.comics[sectionKey] = currentPage - 1;
                         renderComics();
                     }
+                    if (isMobile) {
+                        const grid = sectionType === 'updates' ? document.getElementById('update-list') : document.querySelector(`.type-section[data-type="${sectionKey}"] .comic-grid`);
+                        grid.scrollLeft = 0; // Reset scroll ke awal saat klik prev
+                    }
                 }
             });
             paginationElement.appendChild(prevButton);
 
-            // Ellipsis kiri kalau startPage > 1
             if (startPage > 1) {
                 const ellipsisLeft = document.createElement('span');
                 ellipsisLeft.textContent = '...';
@@ -229,7 +232,6 @@
                 paginationElement.appendChild(ellipsisLeft);
             }
 
-            // Render nomor halaman
             for (let i = startPage; i <= endPage; i++) {
                 const pageButton = document.createElement('button');
                 pageButton.textContent = i;
@@ -242,11 +244,14 @@
                         currentPages.comics[sectionKey] = i;
                         renderComics();
                     }
+                    if (isMobile) {
+                        const grid = sectionType === 'updates' ? document.getElementById('update-list') : document.querySelector(`.type-section[data-type="${sectionKey}"] .comic-grid`);
+                        grid.scrollLeft = 0; // Reset scroll ke awal saat klik nomor halaman
+                    }
                 });
                 paginationElement.appendChild(pageButton);
             }
 
-            // Ellipsis kanan kalau endPage < totalPages
             if (endPage < totalPages) {
                 const ellipsisRight = document.createElement('span');
                 ellipsisRight.textContent = '...';
@@ -254,7 +259,6 @@
                 paginationElement.appendChild(ellipsisRight);
             }
 
-            // Tombol Next
             const nextButton = document.createElement('button');
             nextButton.textContent = '>';
             nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
@@ -267,12 +271,54 @@
                         currentPages.comics[sectionKey] = currentPage + 1;
                         renderComics();
                     }
+                    if (isMobile) {
+                        const grid = sectionType === 'updates' ? document.getElementById('update-list') : document.querySelector(`.type-section[data-type="${sectionKey}"] .comic-grid`);
+                        grid.scrollLeft = 0; // Reset scroll ke awal saat klik next
+                    }
                 }
             });
             paginationElement.appendChild(nextButton);
         }
 
-        // Search bar
+        function setupScrollSync() {
+            const updateGrid = document.getElementById('update-list');
+            const comicGrids = document.querySelectorAll('.type-section .comic-grid');
+            const updatePagination = document.getElementById('update-pagination');
+
+            // Sinkronkan scroll untuk Update
+            updateGrid.addEventListener('scroll', () => {
+                const scrollLeft = updateGrid.scrollLeft;
+                const cardWidth = updateGrid.querySelector('.comic-card').offsetWidth + 4; // Lebar kartu + gap
+                const totalCards = updateGrid.querySelectorAll('.comic-card').length;
+                const totalPages = Math.ceil(Object.values(updatesData).filter(update => new Date(update.timestamp) >= new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000)).length / updatesPerPage);
+                const newPage = Math.min(totalPages, Math.max(1, Math.floor(scrollLeft / (cardWidth * 3)) + 1));
+                if (newPage !== currentPages.updates) {
+                    currentPages.updates = newPage;
+                    renderUpdates();
+                    updateGrid.scrollLeft = 0; // Reset scroll setelah render ulang
+                }
+            });
+
+            // Sinkronkan scroll untuk Komik per tipe
+            comicGrids.forEach(grid => {
+                const type = grid.parentElement.querySelector('.fancy-type').textContent;
+                const pagination = grid.parentElement.querySelector('.pagination');
+                grid.addEventListener('scroll', () => {
+                    const scrollLeft = grid.scrollLeft;
+                    const cardWidth = grid.querySelector('.comic-card').offsetWidth + 4;
+                    const totalCards = grid.querySelectorAll('.comic-card').length;
+                    const comicsByType = allComics.filter(comic => (comic.type || 'Unknown') === type);
+                    const totalPages = Math.ceil(comicsByType.length / comicsPerPage);
+                    const newPage = Math.min(totalPages, Math.max(1, Math.floor(scrollLeft / (cardWidth * 3)) + 1));
+                    if (newPage !== currentPages.comics[type]) {
+                        currentPages.comics[type] = newPage;
+                        renderComics();
+                        grid.scrollLeft = 0; // Reset scroll setelah render ulang
+                    }
+                });
+            });
+        }
+
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
@@ -283,6 +329,9 @@
                     return acc;
                 }, {});
                 renderComics();
+                if (isMobile) {
+                    setupScrollSync();
+                }
                 return;
             }
             const filteredComics = originalComics.filter(comic => 
@@ -296,6 +345,9 @@
                 return acc;
             }, {});
             renderComics();
+            if (isMobile) {
+                setupScrollSync();
+            }
         });
     </script>
 </body>
