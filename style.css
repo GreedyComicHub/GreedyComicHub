@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbarui, hapus error sintaks) */
+/* style.css: Styling untuk semua halaman (diperbarui, error dihapus) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -109,7 +109,7 @@ body {
     font-size: 1.6em;
     margin: 15px 0 8px;
     color: #fff;
-    background-color: #1e1e90;
+    background-color: #1E1E90;
     padding: 5px 10px;
     display: inline-block;
     border-radius: 4px;
@@ -120,6 +120,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     padding-bottom: 10px;
+    max-height: none;
 }
 .comic-card {
     background: #222;
@@ -146,7 +147,7 @@ body {
 .comic-card .card-text {
     padding: 0 5px;
     height: 50px;
-    background-color: #1e1e90;
+    background-color: #1E1E90;
 }
 .comic-card h3 {
     font-size: 0.8em;
@@ -189,7 +190,7 @@ body {
     border-radius: 3px;
 }
 .page-btn.active {
-    background-color: #1e1e90;
+    background-color: #1E1E90;
     font-weight: bold;
 }
 .page-btn:hover:not(.disabled) {
@@ -483,9 +484,6 @@ footer p {
     .main-content {
         max-width: 800px;
     }
-    #comic-detail {
-        max-width: 500px;
-    }
     .chapter-nav a {
         display: block;
         margin: 5px 0;
@@ -532,12 +530,12 @@ footer p {
         margin-left: 8px;
     }
     #update-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk Update */
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 5px;
     }
     .type-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk Komik per tipe */
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 5px;
     }
