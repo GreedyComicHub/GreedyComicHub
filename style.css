@@ -416,71 +416,81 @@ footer p {
 /* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal sinkron paginasi) */
 @media (max-width: 768px) {
     .main-header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 8px !important;
         width: 100% !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
     }
     .logo {
-        font-size: 1.4em;
-        margin: 0;
+        font-size: 1.4em !important;
+        margin: 0 !important;
     }
     .search-group {
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        width: auto;
+        display: flex !important;
+        flex-direction: row !important;
+        margin: 0 !important;
+        width: auto !important;
     }
     .genre-select {
-        padding: 5px;
-        font-size: 0.75em;
-        border-radius: 5px 0 0 5px;
-        width: 70px;
+        padding: 5px !important;
+        font-size: 0.75em !important;
+        border-radius: 5px 0 0 5px !important;
+        width: 70px !important;
     }
     .search-bar {
-        padding: 5px;
-        font-size: 0.75em;
-        width: 90px;
-        border-radius: 0 5px 5px 0;
+        padding: 5px !important;
+        font-size: 0.75em !important;
+        width: 90px !important;
+        border-radius: 0 5px 5px 0 !important;
     }
     .histats-link {
-        padding: 5px 8px;
-        font-size: 0.75em;
-        margin-left: 8px;
+        padding: 5px 8px !important;
+        font-size: 0.75em !important;
+        margin-left: 8px !important;
     }
     #update-section .comic-grid {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
+        -webkit-scroll-snap-type: x mandatory !important; /* Fallback untuk Safari */
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important; /* Sembunyikan scrollbar di Firefox */
+    }
+    #update-section .comic-grid::-webkit-scrollbar {
+        display: none !important; /* Sembunyikan scrollbar di Chrome/Safari */
     }
     .type-section .comic-grid {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
+        -webkit-scroll-snap-type: x mandatory !important;
         gap: 4px !important;
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+    .type-section .comic-grid::-webkit-scrollbar {
+        display: none !important;
     }
     .comic-card {
         width: calc(100% / 3 - 8px) !important;
         height: 180px !important;
-        padding: 5px 0;
-        margin: 0;
-        flex: 0 0 auto;
-        scroll-snap-align: center;
+        padding: 5px 0 !important;
+        margin: 0 !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: center !important;
     }
     .comic-card img {
         height: 120px !important;
@@ -488,71 +498,71 @@ footer p {
         max-width: none !important;
     }
     .comic-card .card-text {
-        height: 50px;
+        height: 50px !important;
     }
     .comic-card h3 {
-        font-size: 0.75em;
-        height: 25px;
+        font-size: 0.75em !important;
+        height: 25px !important;
     }
     .comic-card .last-chapter {
-        font-size: 0.7em;
-        height: 25px;
+        font-size: 0.7em !important;
+        height: 25px !important;
     }
     .main-content {
-        max-width: 100%;
-        padding: 5px;
-        width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        padding: 5px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     #update-section {
-        max-width: 100%;
-        padding: 5px;
-        width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        padding: 5px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     #comic-detail {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        padding: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     .comic-header {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .comic-header img {
-        max-width: 120px;
+        max-width: 120px !important;
     }
     .comic-info h1 {
-        font-size: 1.2em;
+        font-size: 1.2em !important;
     }
     .comic-info p {
-        font-size: 0.9em;
+        font-size: 0.9em !important;
     }
     #synopsis {
-        font-size: 0.9em;
+        font-size: 0.9em !important;
     }
     .chapter-scroll {
-        max-height: 200px;
+        max-height: 200px !important;
     }
     .chapter-link a {
-        font-size: 0.9em;
-        padding: 6px;
+        font-size: 0.9em !important;
+        padding: 6px !important;
     }
     #chapter-content {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        padding: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     .image-frame {
-        max-width: 100%;
-        width: 100%;
+        max-width: 100% !important;
+        width: 100% !important;
     }
     .chapter-nav a {
-        display: block;
-        margin: 5px 0;
-        font-size: 0.9em;
+        display: block !important;
+        margin: 5px 0 !important;
+        font-size: 0.9em !important;
     }
 }
 
