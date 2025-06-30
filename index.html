@@ -32,7 +32,7 @@
             <div id="update-pagination" class="pagination"></div>
         </section>
         <section id="comic-list-section">
-            <h2>Komik</h2>
+            <h2 class="fancy-title">Komik</h2>
             <div id="comic-list"></div>
         </section>
     </main>
@@ -117,7 +117,7 @@
             Object.keys(comicsByType).forEach(type => {
                 const typeSection = document.createElement('div');
                 typeSection.className = 'type-section';
-                typeSection.innerHTML = `<h2>${type}</h2>`;
+                typeSection.innerHTML = `<h2 class="fancy-type">${type}</h2>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
                 const startIndex = (currentPages.comics[type] - 1) * comicsPerPage;
@@ -170,7 +170,7 @@
 
                 paginatedUpdates.forEach(update => {
                     const card = document.createElement('div');
-                    card.className = 'comic-card';
+                    card.className = 'comic-grid';
                     const chapterNum = parseFloat(update.chapter);
                     const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
                     card.innerHTML = `

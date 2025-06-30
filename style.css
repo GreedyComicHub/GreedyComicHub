@@ -484,3 +484,53 @@ footer p {
         font-size: 0.9em;
     }
 }
+/* Tambahin di akhir file style.css */
+.fancy-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ff6f61;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.fancy-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(to right, #ff6f61, #ff8e53);
+    animation: glow 2s infinite alternate;
+}
+
+.fancy-type {
+    font-size: 2em;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: capitalize;
+    position: relative;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ecf0f1, #bdc3c7);
+    border-radius: 10px;
+    display: inline-block;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes glow {
+    from { width: 50%; }
+    to { width: 100%; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Pastiin kompatibel sama yang lain */
+.type-section {
+    margin-bottom: 30px;
+}
