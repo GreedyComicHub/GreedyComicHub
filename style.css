@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, hapus error, HP ngepas ujung ke ujung) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, ngepas ujung ke ujung, kartu besar) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -413,7 +413,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, ngepas ujung ke ujung) */
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, ngepas ujung ke ujung, kartu besar) */
 @media (max-width: 1024px) {
     .comic-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -441,7 +441,7 @@ footer p {
     .main-content {
         max-width: 1000px;
     }
-    #comic-detail {
+    .comic-detail {
         max-width: 600px;
     }
     .comic-header {
@@ -451,7 +451,7 @@ footer p {
     .comic-header img {
         max-width: 150px;
     }
-    #chapter-content {
+    .chapter-content {
         max-width: 600px;
     }
 }
@@ -483,7 +483,7 @@ footer p {
     .main-content {
         max-width: 800px;
     }
-    #comic-detail {
+    .comic-detail {
         max-width: 500px;
     }
     .chapter-nav a {
@@ -535,7 +535,7 @@ footer p {
     }
     #update-section .comic-grid {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
         gap: 5px;
         width: 100%;
         padding: 0;
@@ -543,7 +543,7 @@ footer p {
     }
     .type-section .comic-grid {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
         gap: 5px;
         width: 100%;
         padding: 0;
@@ -551,25 +551,25 @@ footer p {
     }
     .comic-card {
         width: calc(100% / 3 - 10px); /* Ngepas ujung ke ujung */
-        height: 140px;
+        height: 160px; /* Kartu lebih besar */
         padding: 5px 0;
         margin: 0;
     }
     .comic-card img {
-        height: 90px;
+        height: 100px; /* Gambar lebih besar */
         width: 100%;
         max-width: none;
     }
     .comic-card .card-text {
-        height: 40px;
+        height: 50px;
     }
     .comic-card h3 {
-        font-size: 0.7em;
-        height: 20px;
+        font-size: 0.75em;
+        height: 25px;
     }
     .comic-card .last-chapter {
-        font-size: 0.65em;
-        height: 20px;
+        font-size: 0.7em;
+        height: 25px;
     }
     .main-content {
         max-width: 100%;
