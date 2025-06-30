@@ -178,6 +178,7 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    align-items: center;
 }
 .page-btn {
     padding: 5px 10px;
@@ -192,8 +193,17 @@ body {
     background-color: #1E1E90;
     font-weight: bold;
 }
-.page-btn:hover {
+.page-btn:hover:not(.disabled) {
     background-color: #444;
+}
+.page-btn.disabled {
+    background-color: #222;
+    cursor: not-allowed;
+    color: #666;
+}
+.ellipsis {
+    margin: 0 5px;
+    color: #ddd;
 }
 
 /* No Updates Text */
