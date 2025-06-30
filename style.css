@@ -1,4 +1,4 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal sinkron paginasi, kompatibel semua browser) */
+/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, scroll horizontal murni CSS seperti Komiku, kompatibel Safari dan semua browser) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -413,7 +413,7 @@ footer p {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal, kompatibel Safari dan semua browser) */
+/* Media Query (Diperbarui buat HP, 3 komik 1 baris, scroll horizontal murni CSS seperti Komiku, kompatibel Safari dan semua browser) */
 @media (max-width: 768px) {
     .main-header {
         display: flex !important;
@@ -452,19 +452,7 @@ footer p {
         font-size: 0.75em !important;
         margin-left: 8px !important;
     }
-    #update-section .comic-grid {
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x proximity !important; /* proximity lebih kompatibel di Safari */
-        -webkit-scroll-snap-type: x proximity !important;
-        touch-action: pan-x !important; /* Aktifkan scroll horizontal di iOS */
-        gap: 4px !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
+    #update-section .comic-grid,
     .type-section .comic-grid {
         display: flex !important;
         flex-direction: row !important;
@@ -477,6 +465,7 @@ footer p {
         padding: 0 !important;
         margin: 0 !important;
         -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: smooth !important;
     }
     .comic-card {
         width: calc(100% / 3 - 8px) !important;
