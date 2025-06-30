@@ -1,6 +1,7 @@
 # update_chapters.py: Update semua chapter untuk semua komik di index.json
 import logging
 import os
+import subprocess
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
@@ -58,10 +59,19 @@ def update_all_chapters(start=None, overwrite=False):
 
         # Update semua chapter dalam range
         for chapter_num in [ch for ch in chapter_nums if start_chapter <= ch <= end_chapter]:
-            chapter_num_str = str(chapter_num)
-            chapter_url = web_chapters[chapter_num_str]
-            existing_chapter = chapters.get(chapter_num_str, {}).get('images', []) if chapters else []
+            chapter_num_str = str(chapter_num)  # Pastikan key string
+            chapter_url = web_chapters.get(chapter_num_str)  # Gunain .get() buat aman
+            if not chapter_url:
+                # Coba cari chapter_num dalam format lain (misal 1.0 vs 1)
+                for key in web_chapters.keys():
+                    if float(key) == chapter_num:
+                        chapter_url = web_chapters[key]
+                        break
+            if not chapter_url:
+                logging.warning(f"Chapter {chapter_num} ga ditemuin di web_chapters, lewati.")
+                continue
 
+            existing_chapter = chapters.get(chapter_num_str, {}).get('images', []) if chapters else []
             if existing_chapter and all(img and img.startswith('http') for img in existing_chapter) and not overwrite:
                 logging.info(f"Chapter {chapter_num} sudah ada gambar, skip scraping")
                 continue
