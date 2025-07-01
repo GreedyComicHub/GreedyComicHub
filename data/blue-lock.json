@@ -8586,8 +8586,33 @@
                 "https://img.komiku.org/upload5/blue-lock/307/2025-06-24/19.jpg",
                 "https://img.komiku.org/upload5/blue-lock/307/2025-06-24/20.jpg"
             ]
+        },
+        "308.0": {
+            "title": "Chapter 308.0",
+            "url": "https://komiku.org/blue-lock-chapter-308/",
+            "images": [
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/1.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/2.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/3.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/4.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/5.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/6.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/7.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/8.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/9.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/10.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/11.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/12.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/13.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/14.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/15.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/16.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/17.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/18.jpg",
+                "https://img.komiku.org/upload5/blue-lock/308/2025-07-01/19.jpg"
+            ]
         }
     },
-    "total_chapters": 311,
+    "total_chapters": 312,
     "type": "Manga"
 }
