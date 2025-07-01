@@ -5367,5 +5367,19 @@
         "chapter": 475.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/51231-battle-through-the-heavens/manga_thumbnail-Manhua-Battle-Through-the-Heavens-1.jpg?w=300",
         "timestamp": "2025-06-30T19:04:53.565301"
+    },
+    "blue-lock_308.0": {
+        "comic_id": "blue-lock",
+        "title": "Blue Lock",
+        "chapter": 308.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "timestamp": "2025-07-01T13:39:11.072688"
+    },
+    "level-1-player_113.0": {
+        "comic_id": "level-1-player",
+        "title": "Level 1 Player",
+        "chapter": 113.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "timestamp": "2025-07-01T13:39:12.658866"
     }
 }
