@@ -15,7 +15,6 @@
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
     <!-- Histats End -->
-</div>
 </head>
 <body>
     <header class="main-header">
@@ -41,7 +40,6 @@
         <p>© 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
     <script>
-        enclose
         let allComics = [];
         let updatesData = {};
         let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
@@ -96,13 +94,11 @@
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
                     allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
-                } else if (selectedGenre === '404 Not Found') {
-                    allComics = originalComics.filter(comic => comic.genre === '404 Not Found'); // Tampilkan hanya 404 Not Found
                 } else {
-                    allComics = originalComics.filter(comic => comic.genre === selectedGenre); // Tampilkan genre lain
+                    allComics = originalComics.filter(comic => comic.genre === selectedGenre);
                 }
                 currentPages.comics = allComics.reduce((acc, comic) => {
-                    const type = selectedGenre === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre sebagai type untuk 404 Not Found
+                    const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
                 }, {});
@@ -116,7 +112,7 @@
             comicList.innerHTML = '';
             const comicsByType = {};
             allComics.forEach(comic => {
-                const type = document.getElementById('genre-filter').value === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre untuk 404 Not Found
+                const type = comic.type || 'Unknown';
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
             });
