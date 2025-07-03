@@ -131,7 +131,7 @@
                     const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.image || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -276,8 +276,8 @@
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
-                allComics = originalComics.filter(comic => comic.type !== '404'); // Sembunyikan tipe 404 kalau search bar kosong
-                currentPages.comics = allComics.reduce((acc, comic) => {
+                allComics = [...originalComics];
+                currentPages.comics = originalComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
@@ -287,8 +287,7 @@
             }
             const filteredComics = originalComics.filter(comic => 
                 comic.title.toLowerCase().includes(query) || 
-                (comic.genre && comic.genre.toLowerCase().includes(query)) ||
-                (comic.type && comic.type.toLowerCase() === '404' && query.includes('404'))
+                (comic.genre && comic.genre.toLowerCase().includes(query))
             );
             allComics = filteredComics;
             currentPages.comics = filteredComics.reduce((acc, comic) => {
