@@ -94,11 +94,10 @@
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
                     allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
-                } else {
-                    allComics = originalComics.filter(comic => comic.genre === selectedGenre);
-                }
+                } else if (selectedGenre === '404 Not Found') allComics = originalComics.filter(comic => comic.genre === '404 Not Found'); // show only 404 Not Found
+                else allComics = originalComics.filter(comic => comic.genre === selectedGenre); // show selected genre
                 currentPages.comics = allComics.reduce((acc, comic) => {
-                    const type = comic.type || 'Unknown';
+                    const type = selectedGenre === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre sebagai type untuk 404 Not Found
                     if (!acc[type]) acc[type] = 1;
                     return acc;
                 }, {});
@@ -112,7 +111,7 @@
             comicList.innerHTML = '';
             const comicsByType = {};
             allComics.forEach(comic => {
-                const type = comic.type || 'Unknown';
+                const type = document.getElementById('genre-filter').value === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre untuk 404 Not Found
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
             });
@@ -194,7 +193,7 @@
         }
 
         // Fungsi paginasi dinamis
-        function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
+        function renderDynamicPagination(paginationElement, totalPages, current-pages, sectionKey, sectionType = 'updates') {
             paginationElement.innerHTML = '';
             const visiblePages = 5; // Tampilkan 5 halaman
             let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
