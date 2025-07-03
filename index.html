@@ -95,7 +95,7 @@
             genreFilter.addEventListener('change', (e) => {
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
-                    allComics = originalComics.filter(comic => comic.genre !== '404 Not Found');
+                    allComics = [...originalComics];
                 } else {
                     allComics = originalComics.filter(comic => comic.genre === selectedGenre);
                 }
@@ -264,10 +264,10 @@
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
                     if (sectionType === 'updates') {
-                        currentPages.updates = currentPage + 1;
+                        currentPages.updates = currentPage - 1;
                         renderUpdates();
                     } else {
-                        currentPages.comics[sectionKey] = currentPage + 1;
+                        currentPages.comics[sectionKey] = currentPage - 1;
                         renderComics();
                     }
                 }
@@ -279,8 +279,8 @@
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
-                allComics = originalComics.filter(comic => comic.genre !== '404 Not Found');
-                currentPages.comics = allComics.reduce((acc, comic) => {
+                allComics = [...originalComics];
+                currentPages.comics = originalComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
