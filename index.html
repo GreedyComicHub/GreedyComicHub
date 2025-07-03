@@ -15,6 +15,7 @@
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
     <!-- Histats End -->
+</div>
 </head>
 <body>
     <header class="main-header">
@@ -40,6 +41,7 @@
         <p>© 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
     <script>
+        enclose
         let allComics = [];
         let updatesData = {};
         let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
@@ -82,6 +84,7 @@
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
+            genres.add('404 Not Found'); // Tambahkan genre 404 Not Found secara eksplisit
             genreFilter.innerHTML = '<option value="">All Genres</option>';
             genres.forEach(genre => {
                 const option = document.createElement('option');
@@ -92,12 +95,14 @@
             genreFilter.addEventListener('change', (e) => {
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
-                    allComics = [...originalComics];
+                    allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
+                } else if (selectedGenre === '404 Not Found') {
+                    allComics = originalComics.filter(comic => comic.genre === '404 Not Found'); // Tampilkan hanya 404 Not Found
                 } else {
-                    allComics = originalComics.filter(comic => comic.genre === selectedGenre);
+                    allComics = originalComics.filter(comic => comic.genre === selectedGenre); // Tampilkan genre lain
                 }
                 currentPages.comics = allComics.reduce((acc, comic) => {
-                    const type = comic.type || 'Unknown';
+                    const type = selectedGenre === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre sebagai type untuk 404 Not Found
                     if (!acc[type]) acc[type] = 1;
                     return acc;
                 }, {});
@@ -111,7 +116,7 @@
             comicList.innerHTML = '';
             const comicsByType = {};
             allComics.forEach(comic => {
-                const type = comic.type || 'Unknown';
+                const type = document.getElementById('genre-filter').value === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre untuk 404 Not Found
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
             });
@@ -131,7 +136,7 @@
                     const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.image || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -276,8 +281,8 @@
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
-                allComics = [...originalComics];
-                currentPages.comics = originalComics.reduce((acc, comic) => {
+                allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
+                currentPages.comics = allComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
