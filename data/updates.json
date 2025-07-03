@@ -6753,5 +6753,26 @@
         "chapter": 207.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
         "timestamp": "2025-07-02T08:38:46.517502"
+    },
+    "nano-machine_267.0": {
+        "comic_id": "nano-machine",
+        "title": "Nano Machine",
+        "chapter": 267.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+        "timestamp": "2025-07-03T05:49:26.689477"
+    },
+    "pick-me-up_155.0": {
+        "comic_id": "pick-me-up",
+        "title": "Pick Me Up",
+        "chapter": 155.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "timestamp": "2025-07-03T05:49:27.854531"
+    },
+    "the-youngest-son-of-a-rich-family_158.0": {
+        "comic_id": "the-youngest-son-of-a-rich-family",
+        "title": "The Youngest Son Of A Rich Family",
+        "chapter": 158.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+        "timestamp": "2025-07-03T05:49:31.950159"
     }
 }
