@@ -37,10 +37,7 @@
         </section>
     </main>
     <footer>
-        <div class="footer-content">
-            <button id="show-404-btn" class="footer-btn">Show 404 Not Found</button>
-            <p>© 2025 GreedyComicHub. All rights reserved.</p>
-        </div>
+        <p>© 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
     <script>
         let allComics = [];
@@ -134,7 +131,7 @@
                     const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.image || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -294,17 +291,6 @@
             );
             allComics = filteredComics;
             currentPages.comics = filteredComics.reduce((acc, comic) => {
-                const type = comic.type || 'Unknown';
-                if (!acc[type]) acc[type] = 1;
-                return acc;
-            }, {});
-            renderComics();
-        });
-
-        // Tombol 404 Not Found di footer
-        document.getElementById('show-404-btn').addEventListener('click', () => {
-            allComics = originalComics.filter(comic => comic.genre === '404 Not Found');
-            currentPages.comics = allComics.reduce((acc, comic) => {
                 const type = comic.type || 'Unknown';
                 if (!acc[type]) acc[type] = 1;
                 return acc;
