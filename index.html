@@ -82,7 +82,6 @@
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
-            genres.add('404 Not Found'); // Tambahkan genre 404 Not Found secara eksplisit
             genreFilter.innerHTML = '<option value="">All Genres</option>';
             genres.forEach(genre => {
                 const option = document.createElement('option');
@@ -93,11 +92,12 @@
             genreFilter.addEventListener('change', (e) => {
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
-                    allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
-                } else if (selectedGenre === '404 Not Found') allComics = originalComics.filter(comic => comic.genre === '404 Not Found'); // show only 404 Not Found
-                else allComics = originalComics.filter(comic => comic.genre === selectedGenre); // show selected genre
+                    allComics = [...originalComics];
+                } else {
+                    allComics = originalComics.filter(comic => comic.genre === selectedGenre);
+                }
                 currentPages.comics = allComics.reduce((acc, comic) => {
-                    const type = selectedGenre === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre sebagai type untuk 404 Not Found
+                    const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
                 }, {});
@@ -111,7 +111,7 @@
             comicList.innerHTML = '';
             const comicsByType = {};
             allComics.forEach(comic => {
-                const type = document.getElementById('genre-filter').value === '404 Not Found' ? '404 Not Found' : (comic.type || 'Unknown'); // Gunakan genre untuk 404 Not Found
+                const type = comic.type || 'Unknown';
                 if (!comicsByType[type]) comicsByType[type] = [];
                 comicsByType[type].push(comic);
             });
@@ -131,7 +131,7 @@
                     const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.image || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -193,7 +193,7 @@
         }
 
         // Fungsi paginasi dinamis
-        function renderDynamicPagination(paginationElement, totalPages, current-pages, sectionKey, sectionType = 'updates') {
+        function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
             paginationElement.innerHTML = '';
             const visiblePages = 5; // Tampilkan 5 halaman
             let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
@@ -276,8 +276,8 @@
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
-                allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
-                currentPages.comics = allComics.reduce((acc, comic) => {
+                allComics = [...originalComics];
+                currentPages.comics = originalComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
