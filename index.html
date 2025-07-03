@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="gYzqR5FT6BN_7xVgfMnzNsaEOBA_ojcYypM_knTHWow" />
     <title>GreedyComicHub - Baca Komik Online Gratis</title>
-    <meta name="description" content="GreedyComicHub adalah tempat baca komik online gratis. Tem Temukan komik favoritmu seperti Magic Emperor di Greedy Comic Hub!">
+    <meta name="description" content="GreedyComicHub adalah tempat baca komik online gratis. Temukan komik favoritmu seperti Magic Emperor di Greedy Comic Hub!">
     <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
     <meta name="robots" content="index, follow">
     <meta name="author" content="GreedyComicHub Team">
@@ -82,7 +82,6 @@
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
-            genres.add('404 Not Found'); // Tambahkan genre 404 Not Found secara eksplisit
             genreFilter.innerHTML = '<option value="">All Genres</option>';
             genres.forEach(genre => {
                 const option = document.createElement('option');
@@ -93,7 +92,7 @@
             genreFilter.addEventListener('change', (e) => {
                 const selectedGenre = e.target.value;
                 if (!selectedGenre) {
-                    allComics = originalComics.filter(comic => comic.genre !== '404 Not Found'); // Sembunyikan komik 404 Not Found di halaman utama
+                    allComics = [...originalComics];
                 } else {
                     allComics = originalComics.filter(comic => comic.genre === selectedGenre);
                 }
@@ -132,7 +131,7 @@
                     const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.image || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -278,7 +277,7 @@
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
                 allComics = [...originalComics];
-                currentPages.comics = allComics.reduce((acc, comic) => {
+                currentPages.comics = originalComics.reduce((acc, comic) => {
                     const type = comic.type || 'Unknown';
                     if (!acc[type]) acc[type] = 1;
                     return acc;
