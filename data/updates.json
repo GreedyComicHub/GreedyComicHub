@@ -8300,5 +8300,19 @@
         "chapter": 42.0,
         "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
         "timestamp": "2025-07-03T17:06:46.213562"
+    },
+    "magic-emperor_721.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 721.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-07-04T06:09:37.479287"
+    },
+    "the-beginning-after-the-end_225.0": {
+        "comic_id": "the-beginning-after-the-end",
+        "title": "The Beginning After The End",
+        "chapter": 225.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-beginning-after-the-end/manga_thumbnail-Manhwa-The-Beginning-After-The-End-1.jpg?w=300",
+        "timestamp": "2025-07-04T06:09:55.231211"
     }
 }
