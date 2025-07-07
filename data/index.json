@@ -256,7 +256,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
         "genre": "Romantis",
         "type": "Manga",
-        "total_chapters": 255,
+        "total_chapters": 256,
         "source_url": "https://komiku.org/manga/the-cuckoos-fiancee"
     },
     "spirit-farmer": {
@@ -348,5 +348,15 @@
         "type": "Manhwa",
         "total_chapters": 42,
         "source_url": "https://komiku.org/manga/the-veteran-healer-is-overpowered/"
+    },
+    "isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku": {
+        "title": "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku",
+        "author": "Ichiro Takahashi",
+        "synopsis": "Mynoghra adalah sebuah dunia pasca-apokaliptik yang terancam punah setelah peradaban manusia runtuh dan monster mendominasi bumi, bro! seorang protagonis dengan kekuatan luar biasa muncul dari dunia lain dan memulai perjuangan untuk menaklukkan dunia ini, membangun kembali peradaban sambil menghadapi berbagai ancaman dari kekuatan gelap yang tersisa, bro! dalam perjalanan tersebut, ia bertemu, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/manga_thumbnail-A2-Isekai-Mokushiroku-Mynoghra-Hametsu-no-Bunmei-de-Hajimeru-Sekai-Seifuku.jpg?w=300",
+        "genre": "Isekai",
+        "type": "Manga",
+        "total_chapters": 47,
+        "source_url": "https://komiku.org/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/"
     }
 }
