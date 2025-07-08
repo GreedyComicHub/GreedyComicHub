@@ -13515,5 +13515,26 @@
         "chapter": 161.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
         "timestamp": "2025-07-07T15:05:39.886570"
+    },
+    "dandadan_201.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 201.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2025-07-08T14:17:10.632445"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_199.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 199.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-07-08T14:17:33.276022"
+    },
+    "record-of-the-mightiest-lord_50.0": {
+        "comic_id": "record-of-the-mightiest-lord",
+        "title": "Record of The Mightiest Lord",
+        "chapter": 50.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
+        "timestamp": "2025-07-08T14:17:34.823400"
     }
 }
