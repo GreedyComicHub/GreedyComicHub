@@ -13536,5 +13536,19 @@
         "chapter": 50.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
         "timestamp": "2025-07-08T14:17:34.823400"
+    },
+    "123213-chainsaw-man_208.0": {
+        "comic_id": "123213-chainsaw-man",
+        "title": "Chainsaw Man",
+        "chapter": 208.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
+        "timestamp": "2025-07-09T03:47:52.687837"
+    },
+    "the-cuckoos-fiancee_255.0": {
+        "comic_id": "the-cuckoos-fiancee",
+        "title": "The Cuckoo\u2019s Fiancee",
+        "chapter": 255.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
+        "timestamp": "2025-07-09T03:48:04.809507"
     }
 }
