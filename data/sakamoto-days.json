@@ -5726,8 +5726,33 @@
                 "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/14.jpg",
                 "https://img.komiku.org/upload5/sakamoto-days/219/2025-06-30/15.jpg"
             ]
+        },
+        "220.0": {
+            "title": "Chapter 220.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-220/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/1.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/2.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/3.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/4.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/5.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/6.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/7.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/8.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/9.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/10.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/11.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/12.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/13.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/14.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/15.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/16.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/17.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/18.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/220/2025-07-09/19.jpg"
+            ]
         }
     },
-    "total_chapters": 219,
+    "total_chapters": 220,
     "type": "Manga"
 }
