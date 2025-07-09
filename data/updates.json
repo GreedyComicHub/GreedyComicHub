@@ -13550,5 +13550,19 @@
         "chapter": 255.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
         "timestamp": "2025-07-09T03:48:04.809507"
+    },
+    "sakamoto-days_220.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 220.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2025-07-09T11:49:18.938818"
+    },
+    "the-cuckoos-fiancee_256.0": {
+        "comic_id": "the-cuckoos-fiancee",
+        "title": "The Cuckoo\u2019s Fiancee",
+        "chapter": 256.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
+        "timestamp": "2025-07-09T11:49:39.441177"
     }
 }
