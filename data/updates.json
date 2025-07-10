@@ -13564,5 +13564,26 @@
         "chapter": 256.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
         "timestamp": "2025-07-09T11:49:39.441177"
+    },
+    "nano-machine_268.0": {
+        "comic_id": "nano-machine",
+        "title": "Nano Machine",
+        "chapter": 268.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+        "timestamp": "2025-07-10T10:21:10.684410"
+    },
+    "pick-me-up_156.0": {
+        "comic_id": "pick-me-up",
+        "title": "Pick Me Up",
+        "chapter": 156.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "timestamp": "2025-07-10T10:21:11.969876"
+    },
+    "the-youngest-son-of-a-rich-family_159.0": {
+        "comic_id": "the-youngest-son-of-a-rich-family",
+        "title": "The Youngest Son Of A Rich Family",
+        "chapter": 159.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+        "timestamp": "2025-07-10T10:21:16.595250"
     }
 }
