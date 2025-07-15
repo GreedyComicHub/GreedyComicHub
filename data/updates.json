@@ -13781,5 +13781,19 @@
         "chapter": 200.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
         "timestamp": "2025-07-14T14:30:57.666073"
+    },
+    "soul-land-2_414.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 414.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-07-15T11:57:31.958504"
+    },
+    "dandadan_202.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 202.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2025-07-15T11:57:34.007936"
     }
 }
