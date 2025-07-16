@@ -13809,5 +13809,26 @@
         "chapter": 257.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
         "timestamp": "2025-07-16T16:00:11.773166"
+    },
+    "soul-land-2_416.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 416.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-07-16T21:03:38.361791"
+    },
+    "nano-machine_269.0": {
+        "comic_id": "nano-machine",
+        "title": "Nano Machine",
+        "chapter": 269.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+        "timestamp": "2025-07-16T21:03:47.684888"
+    },
+    "pick-me-up_157.0": {
+        "comic_id": "pick-me-up",
+        "title": "Pick Me Up",
+        "chapter": 157.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "timestamp": "2025-07-16T21:03:49.273277"
     }
 }
