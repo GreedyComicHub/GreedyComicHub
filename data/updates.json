@@ -13830,5 +13830,47 @@
         "chapter": 157.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
         "timestamp": "2025-07-16T21:03:49.273277"
+    },
+    "sakamoto-days_221.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 221.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2025-07-17T15:47:42.773463"
+    },
+    "soul-land-2_417.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 417.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-07-17T15:47:47.336409"
+    },
+    "the-youngest-son-of-a-rich-family_160.0": {
+        "comic_id": "the-youngest-son-of-a-rich-family",
+        "title": "The Youngest Son Of A Rich Family",
+        "chapter": 160.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+        "timestamp": "2025-07-17T15:48:02.062589"
+    },
+    "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family_81.0": {
+        "comic_id": "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family",
+        "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
+        "chapter": 81.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
+        "timestamp": "2025-07-17T15:48:06.547903"
+    },
+    "the-zenith_40.0": {
+        "comic_id": "the-zenith",
+        "title": "The Zenith",
+        "chapter": 40.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-zenith/manga_thumbnail-A2-The-Zenith.jpg?w=300",
+        "timestamp": "2025-07-17T15:48:16.315834"
+    },
+    "the-zenith_41.0": {
+        "comic_id": "the-zenith",
+        "title": "The Zenith",
+        "chapter": 41.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-zenith/manga_thumbnail-A2-The-Zenith.jpg?w=300",
+        "timestamp": "2025-07-17T15:48:16.811799"
     }
 }
