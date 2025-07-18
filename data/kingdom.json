@@ -20221,8 +20221,32 @@
                 "https://img.komiku.org/upload5/kingdom/842/2025-07-03/18.jpg",
                 "https://img.komiku.org/upload5/kingdom/842/2025-07-03/19.jpg"
             ]
+        },
+        "843.0": {
+            "title": "Chapter 843.0",
+            "url": "https://komiku.org/kingdom-chapter-843/",
+            "images": [
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/1.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/2.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/3.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/4.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/5.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/6.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/7.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/8.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/9.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/10.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/11.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/12.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/13.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/14.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/15.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/16.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/17.jpg",
+                "https://img.komiku.org/upload5/kingdom/843/2025-07-18/18.jpg"
+            ]
         }
     },
-    "total_chapters": 841,
+    "total_chapters": 842,
     "type": "Manga"
 }
