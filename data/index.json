@@ -6,7 +6,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 1161,
+        "total_chapters": 1162,
         "source_url": "https://komiku.org/manga/komik-one-piece-indo"
     },
     "magic-emperor": {
@@ -16,7 +16,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 728,
+        "total_chapters": 729,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
@@ -276,7 +276,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
         "genre": "Aksi",
         "type": "Manga",
-        "total_chapters": 841,
+        "total_chapters": 842,
         "source_url": "https://komiku.org/manga/kingdom"
     },
     "the-last-human": {
@@ -316,7 +316,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 50,
+        "total_chapters": 51,
         "source_url": "https://komiku.org/manga/record-of-the-mightiest-lord/"
     },
     "absolute-necromancer": {
@@ -386,7 +386,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 161,
+        "total_chapters": 162,
         "source_url": "https://komiku.org/manga/return-of-the-mad-demon/"
     }
 }
