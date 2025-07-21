@@ -8661,8 +8661,34 @@
                 "https://img.komiku.org/upload5/blue-lock/310/2025-07-14/19.jpg",
                 "https://img.komiku.org/upload5/blue-lock/310/2025-07-14/20.jpg"
             ]
+        },
+        "311.0": {
+            "title": "Chapter 311.0",
+            "url": "https://komiku.org/blue-lock-chapter-311/",
+            "images": [
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/1.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/2.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/3.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/4.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/5.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/6.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/7.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/8.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/9.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/10.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/11.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/12.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/13.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/14.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/15.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/16.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/17.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/18.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/19.jpg",
+                "https://img.komiku.org/upload5/blue-lock/311/2025-07-20/20.jpg"
+            ]
         }
     },
-    "total_chapters": 314,
+    "total_chapters": 315,
     "type": "Manga"
 }
