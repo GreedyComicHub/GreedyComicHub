@@ -5227,8 +5227,29 @@
                 "https://img.komiku.org/upload5/chainsaw-man/208/2025-07-08/13.jpg",
                 "https://img.komiku.org/upload5/chainsaw-man/208/2025-07-08/14.jpg"
             ]
+        },
+        "209.0": {
+            "title": "Chapter 209.0",
+            "url": "https://komiku.org/chainsaw-man-chapter-209/",
+            "images": [
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/1.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/2.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/3.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/4.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/5.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/6.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/7.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/8.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/9.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/10.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/11.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/12.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/13.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/14.jpg",
+                "https://img.komiku.org/upload5/chainsaw-man/209/2025-07-22/15.jpg"
+            ]
         }
     },
-    "total_chapters": 209,
+    "total_chapters": 210,
     "type": "Manga"
 }
