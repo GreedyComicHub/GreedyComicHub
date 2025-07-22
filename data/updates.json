@@ -14054,5 +14054,40 @@
         "chapter": 156.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kill-the-dragon/manga_thumbnail-Manhwa-Kill-The-Dragon.jpg?w=300",
         "timestamp": "2025-07-22T07:40:16.365755"
+    },
+    "god-of-martial-arts_866.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 866.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-07-22T21:04:55.487749"
+    },
+    "god-of-martial-arts_867.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 867.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-07-22T21:04:55.978787"
+    },
+    "dandadan_203.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 203.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2025-07-22T21:05:00.101802"
+    },
+    "123213-chainsaw-man_209.0": {
+        "comic_id": "123213-chainsaw-man",
+        "title": "Chainsaw Man",
+        "chapter": 209.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
+        "timestamp": "2025-07-22T21:05:06.479774"
+    },
+    "the-cuckoos-fiancee_258.0": {
+        "comic_id": "the-cuckoos-fiancee",
+        "title": "The Cuckoo\u2019s Fiancee",
+        "chapter": 258.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
+        "timestamp": "2025-07-22T21:05:21.283649"
     }
 }
