@@ -388,5 +388,15 @@
         "type": "Manhwa",
         "total_chapters": 162,
         "source_url": "https://komiku.org/manga/return-of-the-mad-demon/"
+    },
+    "solo-leveling-id": {
+        "title": "Solo Leveling",
+        "author": "Chugong",
+        "synopsis": "Di dunia di mana para pemburu bertarung melawan makhluk dari dunia lain melalui portal misterius, sung jinwoo adalah pemburu dengan kekuatan yang sangat lemah, bro! sebagai pemburu kelas terendah, ia sering dianggap tidak berguna dan sering menghadapi bahaya yang mengancam nyawanya dalam setiap misi, bro! namun, semuanya berubah ketika ia mendapatkan kemampuan, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/solo-leveling-sub-indo/manga_thumbnail-Head-I-Alone-Leveling.png?w=500",
+        "genre": "Fantasi",
+        "type": "Manhwa",
+        "total_chapters": 179,
+        "source_url": "https://komiku.org/manga/solo-leveling-id/"
     }
 }
