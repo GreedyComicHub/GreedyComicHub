@@ -14152,5 +14152,33 @@
         "chapter": 844.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
         "timestamp": "2025-07-24T14:36:20.046499"
+    },
+    "magic-emperor_730.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 730.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-07-25T08:03:08.739732"
+    },
+    "god-of-martial-arts_870.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 870.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-07-25T08:03:15.146468"
+    },
+    "god-of-martial-arts_871.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 871.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-07-25T08:03:15.582218"
+    },
+    "soul-land-2_420.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 420.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-07-25T08:03:17.396564"
     }
 }
