@@ -15510,5 +15510,33 @@
         "chapter": 164.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
         "timestamp": "2025-07-27T12:01:40.133541"
+    },
+    "sakamoto-days_223.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 223.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2025-07-28T17:51:25.783545"
+    },
+    "shuumatsu-no-valkyrie-indonesia_105.0": {
+        "comic_id": "shuumatsu-no-valkyrie-indonesia",
+        "title": "Shuumatsu no Valkyrie",
+        "chapter": 105.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/shuumatsu-no-valkyrie-indonesia/manga_thumbnail-A2-Shuumatsu-no-Valkyrie-1.jpg?w=300",
+        "timestamp": "2025-07-28T17:51:32.745799"
+    },
+    "the-cuckoos-fiancee_259.0": {
+        "comic_id": "the-cuckoos-fiancee",
+        "title": "The Cuckoo\u2019s Fiancee",
+        "chapter": 259.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
+        "timestamp": "2025-07-28T17:51:48.850786"
+    },
+    "absolute-necromancer_93.0": {
+        "comic_id": "absolute-necromancer",
+        "title": "Absolute Necromancer",
+        "chapter": 93.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/absolute-necromancer/manga_thumbnail-Head-Absolute-Necromancer.jpeg?w=300",
+        "timestamp": "2025-07-28T17:51:55.501404"
     }
 }
