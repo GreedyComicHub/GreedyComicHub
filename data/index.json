@@ -126,7 +126,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
         "genre": "Horor",
         "type": "Manga",
-        "total_chapters": 210,
+        "total_chapters": 211,
         "source_url": "https://komiku.org/manga/123213-chainsaw-man"
     },
     "the-kings-avatar": {
@@ -398,5 +398,15 @@
         "type": "Manhwa",
         "total_chapters": 179,
         "source_url": "https://komiku.org/manga/solo-leveling-id/"
+    },
+    "alone-leveling-ragnarok": {
+        "title": "Solo Leveling: Ragnarok",
+        "author": "Chugong",
+        "synopsis": "Di dunia di mana gerbang menuju dunia lain muncul secara tiba-tiba dan memunculkan makhluk berbahaya, sung jinwoo adalah pemburu level terendah yang hampir kehilangan segalanya, bro! setelah mengalami sebuah kejadian misterius di dalam sebuah dungeon, ia mendapatkan kemampuan unik yang memberinya kekuatan luar biasa secara diam-diam, bro! dengan kemampuan barunya, jinwoo mulai, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/alone-leveling-ragnarok/manga_thumbnail-A2-Alone-Leveling-Ragnarok.jpg?w=500",
+        "genre": "Fantasi",
+        "type": "Manhwa",
+        "total_chapters": 47,
+        "source_url": "https://komiku.org/manga/alone-leveling-ragnarok/"
     }
 }
