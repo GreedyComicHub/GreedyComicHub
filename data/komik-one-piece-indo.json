@@ -25167,8 +25167,13 @@
                 "https://img.komiku.org/upload5/one-piece/1155/2025-07-18/14.jpg",
                 "https://img.komiku.org/upload5/one-piece/1155/2025-07-18/15.png"
             ]
+        },
+        "1156.0": {
+            "title": "Chapter 1156.0",
+            "url": "https://komiku.org/one-piece-chapter-1156/",
+            "images": []
         }
     },
-    "total_chapters": 1162,
+    "total_chapters": 1163,
     "type": "Manga"
 }
