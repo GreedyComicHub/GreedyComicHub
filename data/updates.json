@@ -15958,5 +15958,19 @@
         "chapter": 845.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
         "timestamp": "2025-07-31T15:21:16.202847"
+    },
+    "komik-one-piece-indo_1156.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 1156.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2025-08-01T04:05:17.324569"
+    },
+    "magic-emperor_733.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 733.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-08-01T04:05:19.814357"
     }
 }
