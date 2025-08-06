@@ -46,7 +46,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 116,
+        "total_chapters": 117,
         "source_url": "https://komiku.org/manga/level-1-player"
     },
     "sakamoto-days": {
@@ -66,7 +66,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
         "genre": "Isekai",
         "type": "Manhua",
-        "total_chapters": 868,
+        "total_chapters": 869,
         "source_url": "https://komiku.org/manga/god-of-martial-arts"
     },
     "soul-land-2": {
@@ -146,7 +146,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 271,
+        "total_chapters": 272,
         "source_url": "https://komiku.org/manga/nano-machine"
     },
     "pick-me-up": {
@@ -156,7 +156,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
         "genre": "Aksi",
         "type": "Manhwa",
-        "total_chapters": 159,
+        "total_chapters": 160,
         "source_url": "https://komiku.org/manga/pick-me-up/"
     },
     "return-of-the-legend": {
@@ -406,7 +406,17 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/alone-leveling-ragnarok/manga_thumbnail-A2-Alone-Leveling-Ragnarok.jpg?w=500",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 47,
+        "total_chapters": 49,
         "source_url": "https://komiku.org/manga/alone-leveling-ragnarok/"
+    },
+    "a-bad-person": {
+        "title": "A Bad Person",
+        "author": "Jang Sung-Lak",
+        "synopsis": "A bad person mengikuti kisah seorang individu yang berjuang menghadapi sisi gelap dalam dirinya dan bagaimana hal tersebut memengaruhi hubungan dengan orang di sekitarnya, bro! dalam perjalanan cerita, karakter utama berusaha memahami akar dari perilaku negatifnya dan mencari cara untuk berubah demi kebaikan diri dan orang lain, bro! konflik batin yang dialami, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
+        "genre": "Aksi",
+        "type": "Manhwa",
+        "total_chapters": 270,
+        "source_url": "https://komiku.org/manga/a-bad-person"
     }
 }
