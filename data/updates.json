@@ -18128,5 +18128,47 @@
         "chapter": 265.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
         "timestamp": "2025-08-06T17:32:36.322208"
+    },
+    "magic-emperor_736.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 736.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:18.648357"
+    },
+    "level-1-player_117.0": {
+        "comic_id": "level-1-player",
+        "title": "Level 1 Player",
+        "chapter": 117.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:23.416686"
+    },
+    "god-of-martial-arts_882.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 882.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:27.127915"
+    },
+    "kingdom_846.0": {
+        "comic_id": "kingdom",
+        "title": "Kingdom",
+        "chapter": 846.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:55.819828"
+    },
+    "the-last-human_600.0": {
+        "comic_id": "the-last-human",
+        "title": "The Last Human",
+        "chapter": 600.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:57.893964"
+    },
+    "the-last-human_601.0": {
+        "comic_id": "the-last-human",
+        "title": "The Last Human",
+        "chapter": 601.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
+        "timestamp": "2025-08-08T06:37:58.481941"
     }
 }
