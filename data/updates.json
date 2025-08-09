@@ -18170,5 +18170,47 @@
         "chapter": 601.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
         "timestamp": "2025-08-08T06:37:58.481941"
+    },
+    "komik-one-piece-indo_250.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 250.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2025-08-09T10:23:47.752928"
+    },
+    "komik-one-piece-indo_455.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 455.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2025-08-09T10:23:48.170819"
+    },
+    "magic-emperor_737.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 737.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-08-09T10:23:50.419739"
+    },
+    "god-of-martial-arts_883.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 883.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-08-09T10:23:58.647759"
+    },
+    "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family_84.0": {
+        "comic_id": "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family",
+        "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
+        "chapter": 84.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
+        "timestamp": "2025-08-09T10:24:22.157895"
+    },
+    "record-of-the-mightiest-lord_54.0": {
+        "comic_id": "record-of-the-mightiest-lord",
+        "title": "Record of The Mightiest Lord",
+        "chapter": 54.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
+        "timestamp": "2025-08-09T10:24:34.216653"
     }
 }
