@@ -5679,8 +5679,33 @@
                 "https://img.komiku.org/upload5/dandadan/205/2025-08-04/18.jpg",
                 "https://img.komiku.org/upload5/dandadan/205/2025-08-04/19.jpg"
             ]
+        },
+        "206.0": {
+            "title": "Chapter 206.0",
+            "url": "https://komiku.org/dandadan-chapter-206/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/1.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/2.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/3.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/4.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/5.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/6.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/7.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/8.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/9.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/10.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/11.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/12.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/13.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/14.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/15.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/16.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/17.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/18.jpg",
+                "https://img.komiku.org/upload5/dandadan/206/2025-08-19/19.jpg"
+            ]
         }
     },
-    "total_chapters": 207,
+    "total_chapters": 208,
     "type": "Manga"
 }
