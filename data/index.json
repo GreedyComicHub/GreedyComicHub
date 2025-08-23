@@ -16,7 +16,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 743,
+        "total_chapters": 745,
         "source_url": "https://komiku.org/manga/magic-emperor"
     },
     "black-clover-indonesia": {
@@ -76,7 +76,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 542,
+        "total_chapters": 544,
         "source_url": "https://komiku.org/manga/soul-land-2"
     },
     "dandadan": {
@@ -156,7 +156,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
         "genre": "Aksi",
         "type": "Manhwa",
-        "total_chapters": 161,
+        "total_chapters": 162,
         "source_url": "https://komiku.org/manga/pick-me-up/"
     },
     "return-of-the-legend": {
@@ -196,7 +196,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
         "genre": "Drama",
         "type": "Manhwa",
-        "total_chapters": 164,
+        "total_chapters": 165,
         "source_url": "https://komiku.org/manga/the-youngest-son-of-a-rich-family"
     },
     "kill-the-dragon": {
@@ -316,7 +316,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 59,
+        "total_chapters": 60,
         "source_url": "https://komiku.org/manga/record-of-the-mightiest-lord/"
     },
     "absolute-necromancer": {
@@ -386,7 +386,7 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
         "genre": "Fantasi",
         "type": "Manhwa",
-        "total_chapters": 165,
+        "total_chapters": 166,
         "source_url": "https://komiku.org/manga/return-of-the-mad-demon/"
     },
     "solo-leveling-id": {
@@ -436,7 +436,17 @@
         "cover": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
         "genre": "Fantasi",
         "type": "Manhua",
-        "total_chapters": 922,
+        "total_chapters": 924,
         "source_url": "https://komiku.org/manga/tales-demons-gods/"
+    },
+    "apotheosis-indonesia": {
+        "title": "Apotheosis",
+        "author": "San Ren Xi",
+        "synopsis": "Apotheosis menceritakan perjalanan seorang pemuda yang awalnya biasa saja namun kemudian menemukan kekuatan luar biasa yang mengubah hidupnya secara drastis, bro! dalam prosesnya, dia harus menghadapi berbagai musuh serta tantangan yang menguji ketangguhan dan tekadnya untuk meraih puncak kekuatan sejati, bro! cerita ini juga menggambarkan konflik batin sang tokoh utama dalam memahami, bro!, bro!, bro!",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/apotheosis-indonesia/manga_thumbnail-Manhua-Apotheosis.jpg?w=500",
+        "genre": "Fantasi",
+        "type": "Manhua",
+        "total_chapters": 948,
+        "source_url": "https://komiku.org/manga/apotheosis-indonesia/"
     }
 }
