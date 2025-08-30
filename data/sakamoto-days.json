@@ -5876,8 +5876,35 @@
                 "https://img.komiku.org/upload5/sakamoto-days/225/2025-08-17/18.jpg",
                 "https://img.komiku.org/upload5/sakamoto-days/225/2025-08-17/19.jpg"
             ]
+        },
+        "226.0": {
+            "title": "Chapter 226.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-226/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/1.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/2.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/3.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/4.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/5.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/6.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/7.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/8.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/9.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/10.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/11.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/12.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/13.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/14.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/15.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/16.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/17.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/18.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/19.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/20.jpg",
+                "https://img.komiku.org/upload5/sakamoto-days/226/2025-08-24/21.jpg"
+            ]
         }
     },
-    "total_chapters": 225,
+    "total_chapters": 226,
     "type": "Manga"
 }
