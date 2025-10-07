@@ -5804,8 +5804,59 @@
                 "https://img.komiku.org/upload5/dandadan/210/2025-09-22/18.webp",
                 "https://img.komiku.org/upload5/dandadan/210/2025-09-22/19.webp"
             ]
+        },
+        "211.0": {
+            "title": "Chapter 211.0",
+            "url": "https://komiku.org/dandadan-chapter-211/",
+            "images": [
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/1.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/2.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/3.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/4.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/5.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/6.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/7.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/8.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/9.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/10.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/11.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/12.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/13.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/14.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/15.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/16.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/17.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/18.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/211/2025-09-29/19.webp"
+            ]
+        },
+        "212.0": {
+            "title": "Chapter 212.0",
+            "url": "https://komiku.org/dandadan-chapter-212/",
+            "images": [
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/1.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/2.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/3.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/4.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/5.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/6.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/7.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/8.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/9.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/10.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/11.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/12.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/13.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/14.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/15.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/16.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/17.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/18.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/19.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/20.webp"
+            ]
         }
     },
-    "total_chapters": 212,
+    "total_chapters": 214,
     "type": "Manga"
 }
