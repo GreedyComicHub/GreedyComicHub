@@ -15834,8 +15834,24 @@
                 "https://img.komiku.org/upload5/tales-of-demons-and-gods/505/2025-09-16/9.webp",
                 "https://img.komiku.org/upload5/tales-of-demons-and-gods/505/2025-09-16/10.webp"
             ]
+        },
+        "505.5": {
+            "title": "Chapter 505.5",
+            "url": "https://komiku.org/tales-of-demons-and-gods-chapter-505-5/",
+            "images": [
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/1.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/2.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/3.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/4.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/5.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/6.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/7.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/8.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/9.jpg",
+                "https://gambar-id.komiku.org/upload5/tales-of-demons-and-gods/505.5/2025-10-07/10.jpg"
+            ]
         }
     },
-    "total_chapters": 926,
+    "total_chapters": 927,
     "type": "Manhua"
 }
