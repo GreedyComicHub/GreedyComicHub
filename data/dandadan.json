@@ -5855,8 +5855,34 @@
                 "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/19.webp",
                 "https://gambar-id.komiku.org/upload5/dandadan/212/2025-10-07/20.webp"
             ]
+        },
+        "213.0": {
+            "title": "Chapter 213.0",
+            "url": "https://komiku.org/dandadan-chapter-213/",
+            "images": [
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/1.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/2.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/3.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/4.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/5.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/6.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/7.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/8.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/9.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/10.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/11.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/12.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/13.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/14.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/15.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/16.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/17.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/18.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/19.webp",
+                "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/20.webp"
+            ]
         }
     },
-    "total_chapters": 214,
+    "total_chapters": 215,
     "type": "Manga"
 }
