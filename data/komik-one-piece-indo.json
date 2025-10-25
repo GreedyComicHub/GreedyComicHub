@@ -25597,8 +25597,29 @@
                 "https://gambar-id.komiku.org/upload5/one-piece/1162/2025-10-10/16.jpg",
                 "https://gambar-id.komiku.org/upload5/one-piece/1162/2025-10-10/17.jpg"
             ]
+        },
+        "1163.0": {
+            "title": "Chapter 1163.0",
+            "url": "https://komiku.org/one-piece-chapter-1163/",
+            "images": [
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/1.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/2.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/3.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/4.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/5.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/6.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/7.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/8.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/9.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/10.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/11.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/12.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/13.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/14.webp",
+                "https://img.komiku.org/upload5/one-piece/1163/2025-10-24/15.webp"
+            ]
         }
     },
-    "total_chapters": 1182,
+    "total_chapters": 1183,
     "type": "Manga"
 }

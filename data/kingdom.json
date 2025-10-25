@@ -20474,8 +20474,24 @@
                 "https://img.komiku.org/upload5/kingdom/851/2025-09-26/17.webp",
                 "https://img.komiku.org/upload5/kingdom/851/2025-09-26/18.webp"
             ]
+        },
+        "852.0": {
+            "title": "Chapter 852.0",
+            "url": "https://komiku.org/kingdom-chapter-852/",
+            "images": [
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/1_part1.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/1_part2.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/1_part3.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/1_part4.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/2_part1.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/2_part2.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/2_part3.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/2_part4.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/3_part1.webp",
+                "https://img.komiku.org/upload5/kingdom/852/2025-10-16/3_part2.webp"
+            ]
         }
     },
-    "total_chapters": 851,
+    "total_chapters": 852,
     "type": "Manga"
 }

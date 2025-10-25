@@ -5881,8 +5881,34 @@
                 "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/19.webp",
                 "https://gambar-id.komiku.org/upload5/dandadan/213/2025-10-14/20.webp"
             ]
+        },
+        "214.0": {
+            "title": "Chapter 214.0",
+            "url": "https://komiku.org/dandadan-chapter-214/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/1.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/2.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/3.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/4.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/5.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/6.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/7.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/8.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/9.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/10.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/11.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/12.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/13.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/14.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/15.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/16.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/17.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/18.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/19.webp",
+                "https://img.komiku.org/upload5/dandadan/214/2025-10-21/20.webp"
+            ]
         }
     },
-    "total_chapters": 215,
+    "total_chapters": 216,
     "type": "Manga"
 }
