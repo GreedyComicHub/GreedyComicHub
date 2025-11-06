@@ -6077,8 +6077,58 @@
                 "https://img.komiku.org/upload5/sakamoto-days/233/2025-10-23/16.webp",
                 "https://img.komiku.org/upload5/sakamoto-days/233/2025-10-23/17.webp"
             ]
+        },
+        "234.0": {
+            "title": "Chapter 234.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-234/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/1.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/2.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/3.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/4.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/5.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/6.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/7.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/8.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/9.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/10.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/11.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/12.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/13.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/14.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/15.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/16.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/17.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/18.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/19.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/20.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/234/2025-10-31/21.webp"
+            ]
+        },
+        "235.0": {
+            "title": "Chapter 235.0",
+            "url": "https://komiku.org/sakamoto-days-chapter-235/",
+            "images": [
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/1.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/2.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/3.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/4.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/5.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/6.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/7.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/8.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/9.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/10.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/11.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/12.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/13.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/14.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/15.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/16.webp",
+                "https://img.komiku.org/upload5/sakamoto-days/235/2025-11-05/17.webp"
+            ]
         }
     },
-    "total_chapters": 233,
+    "total_chapters": 235,
     "type": "Manga"
 }
