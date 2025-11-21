@@ -5936,8 +5936,62 @@
                 "https://img.komiku.org/upload5/dandadan/215/2025-10-29/22.webp",
                 "https://img.komiku.org/upload5/dandadan/215/2025-10-29/23.webp"
             ]
+        },
+        "216.0": {
+            "title": "Chapter 216.0",
+            "url": "https://komiku.org/dandadan-chapter-216/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/1.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/2.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/3.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/4.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/5.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/6.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/7.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/8.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/9.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/10.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/11.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/12.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/13.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/14.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/15.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/16.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/17.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/18.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/19.webp",
+                "https://img.komiku.org/upload5/dandadan/216/2025-11-05/20.webp"
+            ]
+        },
+        "217.0": {
+            "title": "Chapter 217.0",
+            "url": "https://komiku.org/dandadan-chapter-217/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/1.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/2.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/3.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/4.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/5.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/6.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/7.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/8.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/9.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/10.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/11.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/12.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/13.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/14.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/15.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/16.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/17.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/18.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/19.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/20.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/21.webp",
+                "https://img.komiku.org/upload5/dandadan/217/2025-11-19/22.webp"
+            ]
         }
     },
-    "total_chapters": 217,
+    "total_chapters": 219,
     "type": "Manga"
 }
