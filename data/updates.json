@@ -37525,5 +37525,761 @@
         "chapter": 506.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
         "timestamp": "2025-11-06T11:53:41.490526"
+    },
+    "komik-one-piece-indo_1165.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 1165.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:48.360961"
+    },
+    "komik-one-piece-indo_1166.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 1166.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:49.005038"
+    },
+    "magic-emperor_776.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 776.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:52.932313"
+    },
+    "magic-emperor_777.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 777.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:53.602478"
+    },
+    "magic-emperor_778.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 778.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:54.246882"
+    },
+    "magic-emperor_779.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 779.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:54.944473"
+    },
+    "magic-emperor_780.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 780.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:55.640209"
+    },
+    "magic-emperor_781.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 781.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2025-11-21T12:17:56.364996"
+    },
+    "blue-lock_325.0": {
+        "comic_id": "blue-lock",
+        "title": "Blue Lock",
+        "chapter": 325.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:03.642519"
+    },
+    "blue-lock_326.0": {
+        "comic_id": "blue-lock",
+        "title": "Blue Lock",
+        "chapter": 326.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:04.278964"
+    },
+    "sakamoto-days_236.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 236.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:09.670639"
+    },
+    "sakamoto-days_237.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 237.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:10.620413"
+    },
+    "god-of-martial-arts_937.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 937.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:17.183736"
+    },
+    "god-of-martial-arts_938.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 938.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:17.849679"
+    },
+    "god-of-martial-arts_939.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 939.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:18.490353"
+    },
+    "god-of-martial-arts_940.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 940.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:20.166827"
+    },
+    "god-of-martial-arts_941.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 941.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:20.812041"
+    },
+    "god-of-martial-arts_942.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 942.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:21.888249"
+    },
+    "god-of-martial-arts_943.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 943.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:23.201550"
+    },
+    "god-of-martial-arts_944.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 944.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:24.205572"
+    },
+    "god-of-martial-arts_945.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 945.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:24.839910"
+    },
+    "god-of-martial-arts_946.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 946.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:25.817047"
+    },
+    "god-of-martial-arts_947.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 947.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:26.522818"
+    },
+    "god-of-martial-arts_948.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 948.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:27.184516"
+    },
+    "god-of-martial-arts_949.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 949.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:27.810821"
+    },
+    "god-of-martial-arts_950.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 950.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:28.400739"
+    },
+    "god-of-martial-arts_951.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 951.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:29.026471"
+    },
+    "god-of-martial-arts_952.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 952.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:29.638697"
+    },
+    "god-of-martial-arts_953.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 953.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:30.935536"
+    },
+    "god-of-martial-arts_954.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 954.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:31.614592"
+    },
+    "god-of-martial-arts_955.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 955.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:32.382037"
+    },
+    "god-of-martial-arts_956.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 956.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:33.027360"
+    },
+    "god-of-martial-arts_957.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 957.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:33.847640"
+    },
+    "god-of-martial-arts_958.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 958.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:35.417231"
+    },
+    "god-of-martial-arts_959.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 959.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:36.112527"
+    },
+    "god-of-martial-arts_960.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 960.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:36.842596"
+    },
+    "god-of-martial-arts_961.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 961.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:37.570370"
+    },
+    "god-of-martial-arts_962.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 962.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:38.206889"
+    },
+    "god-of-martial-arts_963.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 963.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:39.110776"
+    },
+    "god-of-martial-arts_964.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 964.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:39.793232"
+    },
+    "god-of-martial-arts_965.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 965.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:40.521812"
+    },
+    "god-of-martial-arts_966.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 966.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:41.160888"
+    },
+    "god-of-martial-arts_967.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 967.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:41.783884"
+    },
+    "god-of-martial-arts_968.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 968.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:42.390196"
+    },
+    "god-of-martial-arts_969.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 969.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:43.030163"
+    },
+    "god-of-martial-arts_970.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 970.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:43.692780"
+    },
+    "god-of-martial-arts_971.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 971.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:44.289082"
+    },
+    "god-of-martial-arts_972.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 972.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:44.917547"
+    },
+    "god-of-martial-arts_973.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 973.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:47.753253"
+    },
+    "god-of-martial-arts_974.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 974.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:48.712378"
+    },
+    "god-of-martial-arts_975.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 975.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:49.741498"
+    },
+    "god-of-martial-arts_976.0": {
+        "comic_id": "god-of-martial-arts",
+        "title": "God of Martial Arts",
+        "chapter": 976.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+        "timestamp": "2025-11-21T12:18:50.588585"
+    },
+    "soul-land-2_450.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 450.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:56.199407"
+    },
+    "soul-land-2_451.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 451.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:56.843038"
+    },
+    "soul-land-2_452.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 452.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:57.473682"
+    },
+    "soul-land-2_453.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 453.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:58.228625"
+    },
+    "soul-land-2_454.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 454.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:58.893344"
+    },
+    "soul-land-2_455.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 455.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:18:59.545101"
+    },
+    "soul-land-2_456.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 456.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:19:00.195992"
+    },
+    "soul-land-2_457.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 457.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:19:00.968626"
+    },
+    "soul-land-2_458.0": {
+        "comic_id": "soul-land-2",
+        "title": "Soul Land 2",
+        "chapter": 458.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+        "timestamp": "2025-11-21T12:19:01.769691"
+    },
+    "dandadan_216.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 216.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:04.807602"
+    },
+    "dandadan_217.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 217.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:05.480821"
+    },
+    "manga-one-punch-man_270.0": {
+        "comic_id": "manga-one-punch-man",
+        "title": "One Punch Man",
+        "chapter": 270.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/manga-one-punch-man/manga_thumbnail-Komik-One-Punch-Man.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:09.972869"
+    },
+    "manga-one-punch-man_271.0": {
+        "comic_id": "manga-one-punch-man",
+        "title": "One Punch Man",
+        "chapter": 271.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/manga-one-punch-man/manga_thumbnail-Komik-One-Punch-Man.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:10.602688"
+    },
+    "123213-chainsaw-man_220.0": {
+        "comic_id": "123213-chainsaw-man",
+        "title": "Chainsaw Man",
+        "chapter": 220.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:19.785435"
+    },
+    "nano-machine_286.0": {
+        "comic_id": "nano-machine",
+        "title": "Nano Machine",
+        "chapter": 286.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+        "timestamp": "2025-11-21T12:19:27.158096"
+    },
+    "nano-machine_287.0": {
+        "comic_id": "nano-machine",
+        "title": "Nano Machine",
+        "chapter": 287.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+        "timestamp": "2025-11-21T12:19:28.886552"
+    },
+    "pick-me-up_175.0": {
+        "comic_id": "pick-me-up",
+        "title": "Pick Me Up",
+        "chapter": 175.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "timestamp": "2025-11-21T12:19:31.195017"
+    },
+    "pick-me-up_176.0": {
+        "comic_id": "pick-me-up",
+        "title": "Pick Me Up",
+        "chapter": 176.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+        "timestamp": "2025-11-21T12:19:31.829043"
+    },
+    "genjitsu-shugi-yuusha-no-oukoku-saikenki_72.0": {
+        "comic_id": "genjitsu-shugi-yuusha-no-oukoku-saikenki",
+        "title": "Genjitsu Shugi Yuusha no Oukoku Saikenki",
+        "chapter": 72.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki/manga_thumbnail-Komik-Genjitsu-Shugi-Yuusha-no-Oukoku-Saikenki.jpeg?w=300",
+        "timestamp": "2025-11-21T12:19:36.439763"
+    },
+    "the-youngest-son-of-a-rich-family_175.0": {
+        "comic_id": "the-youngest-son-of-a-rich-family",
+        "title": "The Youngest Son Of A Rich Family",
+        "chapter": 175.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:41.280455"
+    },
+    "the-youngest-son-of-a-rich-family_176.0": {
+        "comic_id": "the-youngest-son-of-a-rich-family",
+        "title": "The Youngest Son Of A Rich Family",
+        "chapter": 176.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:42.609597"
+    },
+    "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family_96.0": {
+        "comic_id": "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family",
+        "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
+        "chapter": 96.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:51.255004"
+    },
+    "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family_97.0": {
+        "comic_id": "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family",
+        "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
+        "chapter": 97.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:52.226904"
+    },
+    "magical-realm-shopkeeper_77.0": {
+        "comic_id": "magical-realm-shopkeeper",
+        "title": "Magical Realm Shopkeeper",
+        "chapter": 77.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:57.265283"
+    },
+    "magical-realm-shopkeeper_78.0": {
+        "comic_id": "magical-realm-shopkeeper",
+        "title": "Magical Realm Shopkeeper",
+        "chapter": 78.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:58.003447"
+    },
+    "magical-realm-shopkeeper_79.0": {
+        "comic_id": "magical-realm-shopkeeper",
+        "title": "Magical Realm Shopkeeper",
+        "chapter": 79.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:59.000082"
+    },
+    "magical-realm-shopkeeper_80.0": {
+        "comic_id": "magical-realm-shopkeeper",
+        "title": "Magical Realm Shopkeeper",
+        "chapter": 80.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "timestamp": "2025-11-21T12:19:59.674769"
+    },
+    "magical-realm-shopkeeper_81.0": {
+        "comic_id": "magical-realm-shopkeeper",
+        "title": "Magical Realm Shopkeeper",
+        "chapter": 81.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:00.315761"
+    },
+    "kingdom_856.0": {
+        "comic_id": "kingdom",
+        "title": "Kingdom",
+        "chapter": 856.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:13.113841"
+    },
+    "kingdom_857.0": {
+        "comic_id": "kingdom",
+        "title": "Kingdom",
+        "chapter": 857.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:13.753688"
+    },
+    "51231-battle-through-the-heavens_490.0": {
+        "comic_id": "51231-battle-through-the-heavens",
+        "title": "Battle Through the Heavens",
+        "chapter": 490.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/51231-battle-through-the-heavens/manga_thumbnail-Manhua-Battle-Through-the-Heavens-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:19.210752"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_226.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 226.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:21.649502"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_227.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 227.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:22.273958"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_228.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 228.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:22.832270"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_229.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 229.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:23.540522"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_230.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 230.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:24.157328"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_231.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 231.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:24.840753"
+    },
+    "im-trapped-in-this-day-for-one-thousand-years_232.0": {
+        "comic_id": "im-trapped-in-this-day-for-one-thousand-years",
+        "title": "I\u2019m Trapped in This Day for One Thousand Years",
+        "chapter": 232.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:25.728363"
+    },
+    "the-veteran-healer-is-overpowered_43.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 43.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:31.372323"
+    },
+    "the-veteran-healer-is-overpowered_44.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 44.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:32.061254"
+    },
+    "the-veteran-healer-is-overpowered_45.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 45.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:32.700514"
+    },
+    "the-veteran-healer-is-overpowered_46.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 46.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:33.364863"
+    },
+    "the-veteran-healer-is-overpowered_47.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 47.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:34.018234"
+    },
+    "the-veteran-healer-is-overpowered_48.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 48.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:34.670974"
+    },
+    "the-veteran-healer-is-overpowered_49.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 49.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:35.256947"
+    },
+    "the-veteran-healer-is-overpowered_50.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 50.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:35.873866"
+    },
+    "the-veteran-healer-is-overpowered_51.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 51.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:36.679491"
+    },
+    "the-veteran-healer-is-overpowered_52.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 52.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:37.328260"
+    },
+    "the-veteran-healer-is-overpowered_53.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 53.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:37.967922"
+    },
+    "the-veteran-healer-is-overpowered_54.0": {
+        "comic_id": "the-veteran-healer-is-overpowered",
+        "title": "The Veteran Healer Is Overpowered",
+        "chapter": 54.0,
+        "thumbnail": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:38.675858"
+    },
+    "return-of-the-mad-demon_177.0": {
+        "comic_id": "return-of-the-mad-demon",
+        "title": "Return of the Mad Demon",
+        "chapter": 177.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:44.956128"
+    },
+    "return-of-the-mad-demon_178.0": {
+        "comic_id": "return-of-the-mad-demon",
+        "title": "Return of the Mad Demon",
+        "chapter": 178.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
+        "timestamp": "2025-11-21T12:20:45.621567"
+    },
+    "alone-leveling-ragnarok_62.0": {
+        "comic_id": "alone-leveling-ragnarok",
+        "title": "Solo Leveling: Ragnarok",
+        "chapter": 62.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/alone-leveling-ragnarok/manga_thumbnail-A2-Alone-Leveling-Ragnarok.jpg?w=500",
+        "timestamp": "2025-11-21T12:20:48.411139"
+    },
+    "a-bad-person_276.0": {
+        "comic_id": "a-bad-person",
+        "title": "A Bad Person",
+        "chapter": 276.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
+        "timestamp": "2025-11-21T12:20:51.016508"
+    },
+    "a-bad-person_277.0": {
+        "comic_id": "a-bad-person",
+        "title": "A Bad Person",
+        "chapter": 277.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
+        "timestamp": "2025-11-21T12:20:51.852661"
+    },
+    "tales-demons-gods_506.5": {
+        "comic_id": "tales-demons-gods",
+        "title": "Tales of Demons and Gods",
+        "chapter": 506.5,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
+        "timestamp": "2025-11-21T12:21:00.518829"
     }
 }
