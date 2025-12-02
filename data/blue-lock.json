@@ -9072,8 +9072,26 @@
                 "https://img.komiku.org/upload5/blue-lock/326/2025-11-20/21.webp",
                 "https://img.komiku.org/upload5/blue-lock/326/2025-11-20/22.webp"
             ]
+        },
+        "327.0": {
+            "title": "Chapter 327.0",
+            "url": "https://komiku.org/blue-lock-chapter-327/",
+            "images": [
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/1.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/2.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/3.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/4.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/5.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/6.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/7.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/8.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/9.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/10.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/11.webp",
+                "https://img.komiku.org/upload5/blue-lock/327/2025-11-26/12.webp"
+            ]
         }
     },
-    "total_chapters": 330,
+    "total_chapters": 331,
     "type": "Manga"
 }

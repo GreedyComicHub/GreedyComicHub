@@ -5990,8 +5990,39 @@
                 "https://img.komiku.org/upload5/dandadan/217/2025-11-19/21.webp",
                 "https://img.komiku.org/upload5/dandadan/217/2025-11-19/22.webp"
             ]
+        },
+        "218.0": {
+            "title": "Chapter 218.0",
+            "url": "https://komiku.org/dandadan-chapter-218/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/1.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/2.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/3.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/4.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/5.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/6.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/7.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/8.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/9.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/10.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/11.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/12.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/13.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/14.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/15.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/16.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/17.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/18.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/19.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/20.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/21.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/22.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/23.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/24.webp",
+                "https://img.komiku.org/upload5/dandadan/218/2025-11-26/25.webp"
+            ]
         }
     },
-    "total_chapters": 219,
+    "total_chapters": 220,
     "type": "Manga"
 }
