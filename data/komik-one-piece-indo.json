@@ -25705,8 +25705,30 @@
                 "https://img.komiku.org/upload5/one-piece/1167/2025-11-28/16.webp",
                 "https://img.komiku.org/upload5/one-piece/1167/2025-11-28/17.webp"
             ]
+        },
+        "1168.0": {
+            "title": "Chapter 1168.0",
+            "url": "https://komiku.org/one-piece-chapter-1168/",
+            "images": [
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/1.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/2.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/3.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/4.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/5.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/6.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/7.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/8.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/9.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/10.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/11.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/12.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/13.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/14.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/15.webp",
+                "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/16.webp"
+            ]
         }
     },
-    "total_chapters": 1187,
+    "total_chapters": 1188,
     "type": "Manga"
 }
