@@ -5531,8 +5531,54 @@
                 "https://img.komiku.org/upload5/chainsaw-man/222/2025-12-06/16.webp",
                 "https://img.komiku.org/upload5/chainsaw-man/222/2025-12-06/17.webp"
             ]
+        },
+        "223.0": {
+            "title": "Chapter 223.0",
+            "url": "https://komiku.org/chainsaw-man-chapter-223/",
+            "images": [
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/1.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/2.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/3.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/4.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/5.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/6.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/7.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/8.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/9.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/10.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/11.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/12.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/13.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/14.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/15.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/16.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/223 Fix/2025-12-31/17.webp"
+            ]
+        },
+        "224.0": {
+            "title": "Chapter 224.0",
+            "url": "https://komiku.org/chainsaw-man-chapter-224/",
+            "images": [
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/1.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/2.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/3.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/4.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/5.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/6.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/7.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/8.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/9.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/10.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/11.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/12.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/13.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/14.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/15.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/16.webp",
+                "https://img.komiku.org/upload5/chainsaw-man/224/2025-12-26/17.webp"
+            ]
         }
     },
-    "total_chapters": 223,
+    "total_chapters": 225,
     "type": "Manga"
 }

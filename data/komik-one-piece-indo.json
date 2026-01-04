@@ -25727,8 +25727,55 @@
                 "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/15.webp",
                 "https://img.komiku.org/upload5/one-piece/1168/2025-12-05/16.webp"
             ]
+        },
+        "1169.0": {
+            "title": "Chapter 1169.0",
+            "url": "https://komiku.org/one-piece-chapter-1169/",
+            "images": [
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/1.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/2.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/3.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/4.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/5.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/6.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/7.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/8.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/9.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/10.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/11.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/12.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/13.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/14.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/15.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/16.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/17.webp",
+                "https://img.komiku.org/upload5/one-piece/1169/2025-12-19/18.webp"
+            ]
+        },
+        "1170.0": {
+            "title": "Chapter 1170.0",
+            "url": "https://komiku.org/one-piece-chapter-1170/",
+            "images": [
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/1.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/2.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/3.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/4.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/5.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/6.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/7.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/8.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/9.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/10.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/11.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/12.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/13.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/14.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/15.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/16.webp",
+                "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/17.webp"
+            ]
         }
     },
-    "total_chapters": 1188,
+    "total_chapters": 1190,
     "type": "Manga"
 }

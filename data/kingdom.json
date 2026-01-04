@@ -20676,8 +20676,61 @@
                 "https://img.komiku.org/upload5/kingdom/859/2025-12-04/20.webp",
                 "https://img.komiku.org/upload5/kingdom/859/2025-12-04/21.webp"
             ]
+        },
+        "860.0": {
+            "title": "Chapter 860.0",
+            "url": "https://komiku.org/kingdom-chapter-860/",
+            "images": [
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/1.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/2.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/3.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/4.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/5.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/6.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/7.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/8.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/9.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/10.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/11.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/12.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/13.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/14.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/15.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/16.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/17.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/18.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/19.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/20.webp",
+                "https://img.komiku.org/upload5/kingdom/860/2025-12-25/21.webp"
+            ]
+        },
+        "861.0": {
+            "title": "Chapter 861.0",
+            "url": "https://komiku.org/kingdom-chapter-861/",
+            "images": [
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/1.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/2.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/3.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/4.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/5.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/6.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/7.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/8.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/9.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/10.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/11.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/12.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/13.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/14.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/15.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/16.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/17.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/18.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/19.webp",
+                "https://img.komiku.org/upload5/kingdom/861/2025-12-25/20.webp"
+            ]
         }
     },
-    "total_chapters": 859,
+    "total_chapters": 861,
     "type": "Manga"
 }
