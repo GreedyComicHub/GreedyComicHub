@@ -16044,8 +16044,40 @@
                 "https://img.komiku.org/upload5/tales-of-demons-and-gods/509/2026-01-03/10.webp",
                 "https://img.komiku.org/upload5/tales-of-demons-and-gods/509/2026-01-03/11.webp"
             ]
+        },
+        "509.5": {
+            "title": "Chapter 509.5",
+            "url": "https://komiku.org/tales-of-demons-and-gods-chapter-509-5/",
+            "images": [
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/1.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/2.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/3.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/4.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/5.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/6.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/7.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/8.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/9.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/509.5/2026-01-11/10.webp"
+            ]
+        },
+        "510.0": {
+            "title": "Chapter 510.0",
+            "url": "https://komiku.org/tales-of-demons-and-gods-chapter-510/",
+            "images": [
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/1.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/2.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/3.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/4.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/5.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/6.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/7.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/8.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/9.webp",
+                "https://img.komiku.org/upload5/tales-of-demons-and-gods/510/2026-01-11/10.webp"
+            ]
         }
     },
-    "total_chapters": 939,
+    "total_chapters": 941,
     "type": "Manhua"
 }
