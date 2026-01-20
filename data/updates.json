@@ -40906,5 +40906,698 @@
         "chapter": 510.0,
         "thumbnail": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
         "timestamp": "2026-01-16T15:56:47.619034"
+    },
+    "komik-one-piece-indo_1171.0": {
+        "comic_id": "komik-one-piece-indo",
+        "title": "One Piece",
+        "chapter": 1171.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:36.861793"
+    },
+    "magic-emperor_802.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 802.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:40.315779"
+    },
+    "magic-emperor_803.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 803.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:41.045598"
+    },
+    "magic-emperor_804.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 804.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:41.694080"
+    },
+    "magic-emperor_805.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 805.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:42.220282"
+    },
+    "magic-emperor_806.0": {
+        "comic_id": "magic-emperor",
+        "title": "Magic Emperor",
+        "chapter": 806.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:42.759494"
+    },
+    "blue-lock_330.0": {
+        "comic_id": "blue-lock",
+        "title": "Blue Lock",
+        "chapter": 330.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:46.415336"
+    },
+    "blue-lock_331.0": {
+        "comic_id": "blue-lock",
+        "title": "Blue Lock",
+        "chapter": 331.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:46.904029"
+    },
+    "level-1-player_121.0": {
+        "comic_id": "level-1-player",
+        "title": "Level 1 Player",
+        "chapter": 121.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:49.382679"
+    },
+    "level-1-player_122.0": {
+        "comic_id": "level-1-player",
+        "title": "Level 1 Player",
+        "chapter": 122.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:49.910704"
+    },
+    "level-1-player_123.0": {
+        "comic_id": "level-1-player",
+        "title": "Level 1 Player",
+        "chapter": 123.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:50.458620"
+    },
+    "sakamoto-days_243.0": {
+        "comic_id": "sakamoto-days",
+        "title": "Sakamoto Days",
+        "chapter": 243.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:52.814151"
+    },
+    "dandadan_223.0": {
+        "comic_id": "dandadan",
+        "title": "DANDADAN",
+        "chapter": 223.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
+        "timestamp": "2026-01-20T17:19:58.989598"
+    },
+    "return-of-the-mad-demon_187.0": {
+        "comic_id": "return-of-the-mad-demon",
+        "title": "Return of the Mad Demon",
+        "chapter": 187.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
+        "timestamp": "2026-01-20T17:20:39.547265"
+    },
+    "the-max-leveled-hero-will-return_222.0": {
+        "comic_id": "the-max-leveled-hero-will-return",
+        "title": "The MAX leveled hero will return!",
+        "chapter": 222.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-max-leveled-hero-will-return/manga_thumbnail-Komik-The-MAX-leveled-hero-will-return.jpg?w=500",
+        "timestamp": "2026-01-20T17:20:44.721951"
+    },
+    "the-max-leveled-hero-will-return_223.0": {
+        "comic_id": "the-max-leveled-hero-will-return",
+        "title": "The MAX leveled hero will return!",
+        "chapter": 223.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-max-leveled-hero-will-return/manga_thumbnail-Komik-The-MAX-leveled-hero-will-return.jpg?w=500",
+        "timestamp": "2026-01-20T17:20:45.504724"
+    },
+    "the-max-leveled-hero-will-return_224.0": {
+        "comic_id": "the-max-leveled-hero-will-return",
+        "title": "The MAX leveled hero will return!",
+        "chapter": 224.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/the-max-leveled-hero-will-return/manga_thumbnail-Komik-The-MAX-leveled-hero-will-return.jpg?w=500",
+        "timestamp": "2026-01-20T17:20:46.129454"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_1.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 1.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:51.787839"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_2.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 2.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:52.374160"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_3.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 3.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:53.249045"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_4.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 4.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:53.836065"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_5.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 5.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:54.379497"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_6.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 6.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:54.995726"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_7.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 7.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:55.546764"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_8.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 8.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:56.346200"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_9.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 9.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:56.867605"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_11.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 11.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:57.435881"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_12.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 12.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:58.015160"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_12.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 12.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:58.558564"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_12.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 12.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:59.117490"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_13.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 13.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:20:59.686205"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_13.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 13.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:00.223676"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_14.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 14.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:00.777464"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_14.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 14.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:02.015295"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_15.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 15.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:02.567245"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_15.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 15.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:03.090297"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_15.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 15.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:03.665832"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_16.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 16.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:04.234174"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_17.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 17.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:04.788880"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_17.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 17.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:05.356226"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_18.0": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 18.0,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:05.888571"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_19.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 19.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:06.647598"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_19.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 19.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:07.269083"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_19.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 19.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:07.833000"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_20.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 20.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:08.459812"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_20.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 20.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:09.036131"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_20.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 20.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:09.576438"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_21.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 21.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:10.112704"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_21.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 21.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:10.750392"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_21.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 21.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:11.252517"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_22.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 22.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:11.814328"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_22.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 22.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:12.340967"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_23.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 23.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:12.896376"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_23.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 23.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:13.438520"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_24.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 24.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:14.011918"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_24.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 24.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:14.519405"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_24.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 24.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:15.030536"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_25.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 25.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:15.589820"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_25.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 25.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:16.159734"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_26.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 26.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:16.748060"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_26.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 26.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:17.747386"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_26.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 26.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:18.349789"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_27.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 27.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:18.885041"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_27.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 27.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:19.426353"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_27.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 27.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:19.936103"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_28.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 28.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:20.463949"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_28.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 28.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:20.981233"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_29.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 29.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:21.529435"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_29.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 29.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:22.069528"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_29.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 29.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:22.622443"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_30.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 30.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:23.188114"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_30.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 30.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:23.792238"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_30.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 30.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:24.331215"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_31.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 31.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:24.955620"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_31.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 31.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:25.505967"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_31.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 31.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:26.131724"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_32.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 32.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:26.753035"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_32.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 32.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:27.599396"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_32.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 32.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:28.263534"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_33.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 33.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:28.822665"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_33.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 33.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:29.348374"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_34.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 34.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:29.873463"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_34.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 34.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:30.417903"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_35.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 35.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:30.965909"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_35.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 35.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:31.551304"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_35.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 35.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:32.099622"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_36.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 36.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:32.688945"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_36.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 36.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:33.200177"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_36.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 36.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:33.774265"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_37.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 37.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:34.334039"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_37.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 37.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:34.884523"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_37.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 37.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:35.409147"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_38.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 38.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:35.960357"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_38.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 38.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:36.469627"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_39.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 39.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:37.033917"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_39.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 39.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:37.608461"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_40.1": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 40.1,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:38.340390"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_40.2": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 40.2,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:39.024549"
+    },
+    "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic_40.3": {
+        "comic_id": "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic",
+        "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+        "chapter": 40.3,
+        "thumbnail": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+        "timestamp": "2026-01-20T17:21:39.593835"
     }
 }
