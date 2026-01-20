@@ -25774,8 +25774,29 @@
                 "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/16.webp",
                 "https://img.komiku.org/upload5/one-piece/1170/2025-12-27/17.webp"
             ]
+        },
+        "1171.0": {
+            "title": "Chapter 1171.0",
+            "url": "https://komiku.org/one-piece-chapter-1171/",
+            "images": [
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/1.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/2.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/3.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/4.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/5.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/6.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/7.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/8.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/9.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/10.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/11.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/12.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/13.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/14.webp",
+                "https://img.komiku.org/upload5/one-piece/1171/2026-01-16/15.webp"
+            ]
         }
     },
-    "total_chapters": 1190,
+    "total_chapters": 1191,
     "type": "Manga"
 }

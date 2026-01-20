@@ -6129,8 +6129,35 @@
                 "https://img.komiku.org/upload5/dandadan/222/2026-01-13/20.webp",
                 "https://img.komiku.org/upload5/dandadan/222/2026-01-13/21.webp"
             ]
+        },
+        "223.0": {
+            "title": "Chapter 223.0",
+            "url": "https://komiku.org/dandadan-chapter-223/",
+            "images": [
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/1.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/2.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/3.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/4.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/5.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/6.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/7.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/8.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/9.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/10.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/11.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/12.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/13.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/14.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/15.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/16.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/17.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/18.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/19.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/20.webp",
+                "https://img.komiku.org/upload5/dandadan/223/2026-01-19/21.webp"
+            ]
         }
     },
-    "total_chapters": 224,
+    "total_chapters": 225,
     "type": "Manga"
 }

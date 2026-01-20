@@ -9166,8 +9166,64 @@
                 "https://img.komiku.org/upload5/blue-lock/329/2025-12-30/23.webp",
                 "https://img.komiku.org/upload5/blue-lock/329/2025-12-30/24.webp"
             ]
+        },
+        "330.0": {
+            "title": "Chapter 330.0",
+            "url": "https://komiku.org/blue-lock-chapter-330/",
+            "images": [
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/1_37d6e5.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/2_fb42fd.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/3_bcc75a.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/4_03f6cb.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/5_e22f19.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/6_ed6a42.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/7_a93ad0.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/8_c56047.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/9_300c9a.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/10_e287ab.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/11_50ee59.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/12_be12ec.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/13_fcd731.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/14_e2e8a2.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/15_91e5cf.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/16_d60022.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/17_235b70.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/18_c62680.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/19_4c853f.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/20_1f4d3b.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/21_e46f95.webp",
+                "https://img.komiku.org/upload5/blue-lock/330/2026-01-07/22_e7f680.webp"
+            ]
+        },
+        "331.0": {
+            "title": "Chapter 331.0",
+            "url": "https://komiku.org/blue-lock-chapter-331/",
+            "images": [
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/1.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/2.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/3.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/4.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/5.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/6.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/7.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/8.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/9.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/10.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/11.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/12.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/13.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/14.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/15.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/16.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/17.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/18.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/19.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/20.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/21.webp",
+                "https://img.komiku.org/upload5/blue-lock/331/2026-01-14/22.webp"
+            ]
         }
     },
-    "total_chapters": 334,
+    "total_chapters": 336,
     "type": "Manga"
 }
