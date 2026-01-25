@@ -1,0 +1,393 @@
+===============================================================================
+                    GREEDY COMIC HUB - PROJECT STRUCTURE REPORT
+                              Generated: January 2026
+===============================================================================
+
+PROJECT OVERVIEW
+================================================================================
+Project Name: GreedyComicHub
+Type: Comic Reader Web Application + Web Scraper
+Primary Language: Python (backend) + HTML/CSS/JavaScript (frontend)
+Deployment: Netlify (GitHub integration)
+Domain: greedycomichub.netlify.app
+Purpose: Web scraper untuk komik online + platform membaca komik terintegrasi
+
+
+===============================================================================
+                            FOLDER STRUCTURE (TREE VIEW)
+===============================================================================
+
+GreedyComicHub/
+│
+├── Root HTML Pages (Frontend Entry Points)
+│   ├── index.html                  # Homepage - list semua komik & updates
+│   ├── comic.html                  # Detail halaman komik (per judul)
+│   ├── chapter.html                # Reader halaman chapter (per bab)
+│   ├── genre.html                  # Filter komik berdasarkan genre
+│   ├── debug.html                  # Debug/test page (unused)
+│   ├── style.css                   # Stylesheet utama untuk semua pages
+│   └── script.js                   # JavaScript global (jika ada)
+│
+├── Python Scripts (Backend/CLI Tools)
+│   ├── main.py                     # CLI utama - entry point untuk update
+│   ├── scraper.py                  # Web scraper utama (Komiku.org)
+│   ├── scraper_404.py              # Scraper alternatif untuk komik 404
+│   ├── add_comic.py                # CLI: Tambah komik baru ke database
+│   ├── list_comics.py              # CLI: List semua komik tersimpan
+│   ├── update_all.py               # CLI: Update semua komik sekaligus
+│   ├── update_comic.py             # CLI: Update komik spesifik
+│   ├── update_chapters.py          # CLI: Update chapter-chapter komik
+│   ├── update_source_url.py        # CLI: Update source_url komik
+│   ├── update_source_domain.py     # CLI: Ganti domain scraper
+│   ├── processor.py                # Data processor/transformer
+│   ├── push.py                     # Deploy ke GitHub + Netlify
+│   └── utils.py                    # Utility functions (logging, API calls, etc)
+│
+├── Data & Configuration
+│   ├── config.ini                  # Config sensitif (API keys, tokens)
+│   ├── queue.json                  # Task queue untuk scraping
+│   ├── queue.json.backup           # Backup queue.json
+│   │
+│   ├── data/                       # Comic database (JSON files)
+│   │   ├── index.json              # Master index: semua komik + metadata
+│   │   ├── updates.json            # List update terbaru (untuk homepage)
+│   │   ├── queue.json              # Copy queue di folder data
+│   │   ├── README.md               # Dokumentasi format data
+│   │   └── [50+ comic files]       # Individual comic data
+│   │       ├── magic-emperor.json
+│   │       ├── solo-leveling-id.json
+│   │       ├── blue-lock.json
+│   │       ├── chainsaw-man.json
+│   │       └── ... (dan 46 komik lainnya)
+│   │
+│   ├── data404/                    # Folder untuk komik yang 404 (jika ada)
+│   │
+│   └── temp_images/                # Temporary storage untuk image scraping
+│
+├── Deployment & Version Control
+│   ├── .git/                       # Git repository
+│   ├── .gitignore                  # Git ignore rules
+│   ├── sitemap.xml                 # XML sitemap untuk SEO
+│   ├── public/                     # Static files untuk deployment
+│   │   └── about.html              # About page
+│   │
+│   ├── logs/                       # Application logs
+│   │   ├── update.log              # Current update log
+│   │   ├── update.log.1            # Backup log
+│   │   └── queue_status.log        # Queue status log
+│   │
+│   └── queue_status.log            # Queue status log (root)
+│
+├── System Files
+│   ├── chromedriver.exe            # Selenium WebDriver (untuk scraping?)
+│   ├── python                      # Python executable/symlink (Windows)
+│   ├── __pycache__/                # Python bytecode cache
+│   └── -p/                         # Unknown directory (possibly legacy)
+
+
+===============================================================================
+                        IMPORTANT FILES AT ROOT LEVEL
+===============================================================================
+
+Main Entry Points:
+  main.py                ✓ Core CLI application (updates, imports, domain changes)
+  config.ini             ⚠ SENSITIVE - API keys, GitHub token, Netlify token
+  utils.py               ✓ Shared utilities (logging, GitHub API, Cloudinary)
+
+Frontend Core:
+  index.html             ✓ Homepage (SEO: meta tags + sitemap)
+  comic.html             ✓ Comic detail page (dynamic from JSON)
+  chapter.html           ✓ Chapter reader (image viewer)
+  style.css              ✓ Global CSS styling
+  script.js              ? JavaScript (not found - check if embedded in HTML)
+
+SEO & Configuration:
+  sitemap.xml            ✓ XML sitemap for search engines
+  robots.txt             ✗ NOT FOUND - recommendation: create robots.txt
+
+Public Assets:
+  public/about.html      ✓ About page
+
+Data Storage:
+  data/                  ✓ 50+ comic JSON files + metadata
+  queue.json             ✓ Scraping task queue
+  config.ini             ⚠ SENSITIVE - exposed configuration
+
+
+===============================================================================
+                    DEAD/UNUSED FILES & CLEANUP RECOMMENDATIONS
+===============================================================================
+
+UNUSED FILES:
+  1. debug.html              - Debug/test page, not referenced anywhere
+  2. genre.html              - Exists but may be incomplete/unused
+  3. -p/                     - Empty directory with cryptic name (legacy?)
+  4. python                  - Windows symlink/executable (not needed)
+  5. chromedriver.exe        - Selenium WebDriver (Selenium not used in scraper.py)
+
+POTENTIALLY UNUSED SCRIPTS:
+  1. scraper_404.py          - Alternative scraper for 404 comics
+  2. push.py                 - Deployment script (check if used in automation)
+
+CONFIGURATION ISSUES:
+  1. config.ini              - SECURITY RISK: sensitive credentials in repo!
+                               (Should use environment variables instead)
+
+
+===============================================================================
+                        FOLDER FUNCTIONS (BRIEF DESCRIPTION)
+===============================================================================
+
+ROOT DIRECTORY
+  Purpose: Main project folder containing all source code, data, and config
+  Contains: HTML pages, Python scripts, configuration files
+  
+data/
+  Purpose: Comic database storage
+  Contents: 50+ JSON files, each representing one comic with metadata, chapters, images
+  Format: 
+    - index.json: Master list with comic IDs, titles, genres, source_urls
+    - updates.json: Recent updates for homepage display
+    - [comic-name].json: Individual comic data structure
+  
+public/
+  Purpose: Static files for web deployment
+  Contents: about.html - static pages deployed to Netlify
+  
+logs/
+  Purpose: Application logging and status tracking
+  Contents: update.log, queue_status.log for debugging & monitoring
+  
+data404/
+  Purpose: Handling failed scraping attempts (404 errors)
+  Contents: Comics that failed to scrape or need re-scraping
+  
+temp_images/
+  Purpose: Temporary storage during image scraping process
+  Contents: Downloaded images before final processing
+  
+
+===============================================================================
+                            SEO ANALYSIS & FINDINGS
+===============================================================================
+
+✓ IMPLEMENTED SEO FEATURES:
+  
+  1. Meta Tags (index.html):
+     - <meta name="description" content="...">
+     - <meta name="keywords" content="...">
+     - <meta name="robots" content="index, follow">
+     - <meta name="author" content="...">
+     - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     - <meta name="google-site-verification" content="...">
+  
+  2. Sitemap:
+     - sitemap.xml exists with properly formatted URLs
+     - Contains: homepage (priority 1.0), comic pages (priority 0.8)
+     - Includes lastmod and changefreq attributes
+  
+  3. Analytics:
+     - Histats script integrated for traffic tracking
+     - Links: https://www.histats.com/viewstats/?act=2&sid=4960328
+
+⚠ SEO IMPROVEMENTS NEEDED:
+
+  1. Missing robots.txt File:
+     - No robots.txt found in root directory
+     - Recommendation: Create robots.txt to:
+       * Allow crawlers to index HTML pages
+       * Disallow: /data/, /temp_images/, /logs/
+       * Sitemap: /sitemap.xml
+  
+  2. Missing Canonical Tags:
+     - HTML pages don't have <link rel="canonical"> tags
+     - Risk: Duplicate content issues, especially for paginated results
+     - Recommendation: Add canonical URLs in head of each page
+  
+  3. Limited Open Graph Tags:
+     - No og:title, og:description, og:image tags
+     - Missing for social media sharing (Facebook, Twitter, Discord)
+     - Recommendation: Add OG tags for better sharing preview
+  
+  4. No Schema.org Markup:
+     - Missing JSON-LD for structured data
+     - Could add: CreativeWork, Book, ImageObject schemas
+     - Helps search engines understand content better
+  
+  5. Sitemap Completeness:
+     - Sitemap.xml only has ~3 example URLs
+     - Should include ALL comic pages generated dynamically
+     - Recommendation: Auto-generate sitemap from data/index.json
+  
+  6. Comic Pages SEO:
+     - comic.html & chapter.html lack individual meta tags per comic
+     - Each comic should have unique description, title, og:image
+     - Recommendation: Dynamically generate meta tags from JSON data
+
+
+===============================================================================
+                        PROJECT STATISTICS & METRICS
+===============================================================================
+
+Code Files:
+  Total Python Scripts: 14 files
+  HTML Pages: 5 files (index, comic, chapter, genre, debug, about)
+  CSS Files: 1 file
+  JavaScript: Embedded in HTML (not separate file)
+
+Data:
+  Total Comics: 50+
+  Data Files: JSON format (structure: title, author, genre, chapters, images)
+  Storage: data/ directory with index.json + individual comic files
+
+Configuration:
+  API Integrations: Cloudinary, GitHub, Netlify (in config.ini)
+  Tokens: 3 (GitHub, Netlify, Cloudinary)
+  Deployment: Netlify with GitHub integration
+
+Deployment:
+  Domain: greedycomichub.netlify.app
+  Version Control: GitHub (git repository)
+  Build Tool: Netlify (auto-deploy on push)
+
+
+===============================================================================
+                    ARCHITECTURE & WORKFLOW SUMMARY
+===============================================================================
+
+SCRAPING WORKFLOW:
+  1. User runs: python main.py update (or specific comic update)
+  2. scraper.py fetches data from komiku.org
+  3. BeautifulSoup parses HTML, extracts: title, chapters, images
+  4. Cloudinary uploads images to CDN
+  5. JSON saved to data/[comic-id].json
+  6. index.json updated with new comic metadata
+  7. push.py deploys changes to GitHub → Netlify
+
+WEB READER WORKFLOW:
+  1. User visits index.html (greedycomichub.netlify.app)
+  2. JavaScript fetches data/index.json and data/updates.json
+  3. Comics displayed in grid layout (styled with CSS)
+  4. User clicks comic → comic.html with query param ?comic=[id]
+  5. Dynamic content loaded from data/[id].json
+  6. User selects chapter → chapter.html with ?comic=[id]&chapter=[num]
+  7. Chapter images displayed via image gallery
+
+
+===============================================================================
+                        CRITICAL SECURITY NOTES
+===============================================================================
+
+⚠ SECURITY ISSUES:
+
+  1. EXPOSED CREDENTIALS IN config.ini:
+     - Cloudinary API keys in plain text
+     - GitHub personal access token exposed
+     - Netlify Site ID and token exposed
+     
+     RECOMMENDATION:
+     - Remove config.ini from Git (add to .gitignore)
+     - Use environment variables instead
+     - Regenerate all exposed tokens immediately
+
+  2. Chromedriver.exe Included:
+     - Large binary file in repository
+     - Unnecessary if not using Selenium
+     - Recommendation: Remove and document alternative
+
+  3. Queue.json Contains Sensitive Data:
+     - Task queue may contain scraping URLs/logs
+     - Recommendation: Add queue files to .gitignore
+
+
+===============================================================================
+                    DEPLOYMENT CHECKLIST & RECOMMENDATIONS
+===============================================================================
+
+Before Production:
+  □ Move config.ini credentials to environment variables
+  □ Create robots.txt file (allow /, disallow /data/, /logs/)
+  □ Generate complete sitemap.xml from data/index.json
+  □ Add canonical tags to all HTML pages
+  □ Add Open Graph tags for social sharing
+  □ Add JSON-LD structured data for SEO
+  □ Implement dynamic meta tags per comic page
+  □ Remove debug.html from production
+  □ Clean up __pycache__, -p/, and other unused directories
+  □ Add .gitignore entries for config.ini, logs/, temp_images/
+  □ Document API keys management in README.md
+  □ Set up monitoring/alerting for scraping failures
+
+Performance:
+  □ Implement caching for data/index.json (static pages)
+  □ Optimize images (use CDN: Cloudinary already integrated)
+  □ Minify CSS and JavaScript
+  □ Enable GZIP compression on Netlify
+  □ Consider lazy-loading for comic grid
+
+Monitoring:
+  □ Track update.log for scraping errors
+  □ Monitor queue.json for stuck tasks
+  □ Set up alerts for failed deployments
+  □ Monitor 404 errors for broken comics
+
+
+===============================================================================
+                            TECHNOLOGY STACK
+===============================================================================
+
+Frontend:
+  - HTML5 (semantic markup)
+  - CSS3 (responsive design)
+  - JavaScript (vanilla - no frameworks detected)
+  - Client-side data fetching via Fetch API
+
+Backend/Scraping:
+  - Python 3.x
+  - BeautifulSoup4 (HTML parsing)
+  - Requests library (HTTP requests)
+  - ConfigParser (config management)
+  - Logging module (error tracking)
+
+Storage & CDN:
+  - Local JSON files (no database)
+  - Cloudinary (image CDN)
+
+Deployment:
+  - Netlify (hosting + auto-deploy)
+  - GitHub (version control + automation)
+  - Git (local repository)
+
+External Services:
+  - Komiku.org (scraping source)
+  - Histats (analytics)
+
+
+===============================================================================
+                                CONCLUSION
+===============================================================================
+
+PROJECT MATURITY: Mid-stage (Beta)
+  - Core functionality working
+  - Basic SEO in place
+  - Deployment pipeline functional
+
+PRIMARY CONCERNS:
+  1. Security: Exposed credentials in config.ini ⚠
+  2. SEO: Missing robots.txt, canonical tags, structured data
+  3. Code Quality: Some unused files, debug pages still present
+  4. Data Management: No database, relying on JSON files
+
+NEXT STEPS:
+  1. Immediate: Move credentials to environment variables
+  2. Short-term: Implement complete SEO optimization
+  3. Medium-term: Refactor to use database (MongoDB, PostgreSQL)
+  4. Long-term: Add user accounts, favorites, reading history
+
+
+===============================================================================
+                            END OF REPORT
+===============================================================================
+Generated: January 22, 2026
+Report Type: Full Project Structure Analysis
+Document: PROJECT_REPORT.txt

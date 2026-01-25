@@ -17349,8 +17349,25 @@
                 "https://img.komiku.org/upload5/battle-through-the-heavens/498/2026-01-13/6_part2.webp",
                 "https://img.komiku.org/upload5/battle-through-the-heavens/498/2026-01-13/7.webp"
             ]
+        },
+        "499.0": {
+            "title": "Chapter 499.0",
+            "url": "https://komiku.org/battle-through-the-heavens-chapter-499/",
+            "images": [
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/1_part1.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/1_part2.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/2_part1.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/2_part2.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/3_part1.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/3_part2.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/4_part1.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/4_part2.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/5_part1.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/5_part2.webp",
+                "https://img.komiku.org/upload5/battle-through-the-heavens/499/2026-01-23/6.webp"
+            ]
         }
     },
-    "total_chapters": 500,
+    "total_chapters": 501,
     "type": "Manhua"
 }

@@ -20756,8 +20756,36 @@
                 "https://img.komiku.org/upload5/kingdom/862/2026-01-09/20.webp",
                 "https://img.komiku.org/upload5/kingdom/862/2026-01-09/21.webp"
             ]
+        },
+        "863.0": {
+            "title": "Chapter 863.0",
+            "url": "https://komiku.org/kingdom-chapter-863/",
+            "images": [
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/1.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/2.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/3.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/4.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/5.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/6.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/7.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/8.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/9.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/10.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/11.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/12.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/13.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/14.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/15.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/16.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/17.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/18.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/19.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/20.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/21.webp",
+                "https://img.komiku.org/upload5/kingdom/863/2026-01-24/22.webp"
+            ]
         }
     },
-    "total_chapters": 862,
+    "total_chapters": 863,
     "type": "Manga"
 }
