@@ -11,6 +11,7 @@ from .update_source_url import update_source_url
 from .list_comics import list_comics
 from .utils import read_json, write_json, setup_logging, DATA_DIR, ROOT_DIR, CONFIG_PATH
 from .scraper_komiku import scrape_komiku_detail, scrape_komiku_chapter
+from .batch_scrape import batch_scrape
 
 # Setup logging immediately
 logging.basicConfig(
@@ -218,6 +219,11 @@ Contoh penggunaan:
     scrape_chapter_parser.add_argument("slug", help="Manga slug")
     scrape_chapter_parser.add_argument("chapter", help="Chapter number (e.g., 1 atau 1.5)")
     
+    # Parser untuk batch-scrape
+    batch_scrape_parser = subparsers.add_parser("batch-scrape", help="Batch scrape semua manga dari komiku.org")
+    batch_scrape_parser.add_argument("--resume", help="Resume dari manga slug tertentu (opsional)")
+    batch_scrape_parser.add_argument("--limit", type=int, help="Limit jumlah manga yang di-scrape (opsional)")
+    
     args = parser.parse_args()
     
     if not args.command:
@@ -246,6 +252,8 @@ Contoh penggunaan:
             scrape_komiku_manga(args.slug)
         elif args.command == "scrape-komiku-chapter":
             scrape_komiku_chapter_cmd(args.slug, args.chapter)
+        elif args.command == "batch-scrape":
+            batch_scrape(resume_from=args.resume)
         logging.info(f"Command '{args.command}' completed successfully")
     except Exception as e:
         logging.error(f"Error executing '{args.command}': {e}", exc_info=True)
