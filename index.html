@@ -67,6 +67,7 @@
         ])
         .then(([indexData, updates]) => {
             allComics = Object.keys(indexData).map(comicId => ({ id: comicId, ...indexData[comicId] }));
+            console.log('First comic:', allComics[0]); // Debug logging
             originalComics = [...allComics];
             updatesData = updates;
             currentPages = allComics.reduce((acc, comic) => {
