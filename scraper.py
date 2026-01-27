@@ -2,418 +2,555 @@
 # -*- coding: utf-8 -*-
 """
 Komiku.org Manga Scraper
-Scrape manga data, chapters, and images from komiku.org
+Scrapes manga list, details, chapters, and images from komiku.org
+Focus: tipe=manga only
 """
 
+import json
+import os
+import re
+import random
+import time
+from typing import Dict, List, Optional, Tuple
 import requests
 from bs4 import BeautifulSoup
-import json
-import time
-import random
-import os
-from datetime import datetime
-from pathlib import Path
-import re
-import sys
 
-# Force UTF-8 output
-if sys.stdout.encoding != 'utf-8':
-    sys.stdout.reconfigure(encoding='utf-8')
-
-# Configuration
+# Constants
 BASE_URL = "https://komiku.org"
-DATA_DIR = "data"
+MANGA_LIST_URL = f"{BASE_URL}/daftar-komik/?tipe=manga"
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+DATA_DIR = "data"
+LIMIT = 5  # Change to larger number for full scrape or None for all
+
+# Synonyms dictionary for paraphrasing
+SYNONYMS = {
+    'wanita': 'cewek',
+    'wanita muda': 'gadis',
+    'muda': 'remaja',
+    'anak': 'bocah',
+    'anak muda': 'pemuda',
+    'pemuda': 'anak laki',
+    'berat': 'gemuk',
+    'badan': 'tubuh',
+    'tubuh': 'badan',
+    'percaya diri': 'pede',
+    'perjalanan': 'petualangan',
+    'petualangan': 'jalan',
+    'menurunkan': 'ngecilin',
+    'cerita': 'kisah',
+    'mengikuti': 'ngeikutin',
+    'melawan': 'hadapi',
+    'menghadapi': 'melawan',
+    'kekuatan': 'kekuatan magis',
+    'dunia': 'alam',
+    'alam': 'dunia',
+    'tiba-tiba': 'tiba2',
+    'mendapat': 'dapet',
+    'kehidupan': 'hidup',
+    'hidup': 'kehidupan',
+    'kehidupan baru': 'awal baru',
+    'kembali': 'balik',
+    'balik': 'kembali',
+    'menghilang': 'hilang',
+    'disebut': 'dipanggil',
+    'dipanggil': 'disebut',
+    'hebat': 'kuat',
+    'kuat': 'powerful',
+    'ingin': 'pengen',
+    'pengen': 'ingin',
+    'terbang': 'terbang tinggi',
+    'bertemu': 'ketemu',
+    'ketemu': 'bertemu',
+    'membunuh': 'bunuh',
+    'bunuh': 'membunuh',
+    'seni': 'teknik',
+    'teknik': 'seni',
+    'bela diri': 'martial arts',
+    'martial arts': 'bela diri',
+    'perkara': 'masalah',
+    'masalah': 'perkara',
+    'raksasa': 'giant',
+    'makhluk': 'monster',
+    'monster': 'makhluk',
 }
 
-# Synonym map for paraphrasing
-PARAPHRASE_MAP = {
-    'wanita': ['perempuan', 'gadis', 'putri'],
-    'muda': ['remaja', 'belia', 'putra'],
-    'cerita': ['kisah', 'tale', 'narasi', 'plot'],
-    'hidup': ['kehidupan', 'eksistensi', 'keberadaan'],
-    'diri': ['dirinya', 'pribadi', 'self'],
-    'menjadi': ['berubah menjadi', 'bertransformasi', 'menjadi'],
-    'memiliki': ['punya', 'mempunyai', 'memiliki'],
-    'dunia': ['alam', 'realm', 'dimensi'],
-    'kekuatan': ['power', 'kemampuan', 'kekuatan supernatural'],
-    'musuh': ['lawan', 'antagonis', 'musuh tajam'],
-    'teman': ['sahabat', 'kawan', 'sekutu'],
-    'mencari': ['mengais', 'mencari-cari', 'memburu'],
-    'menemukan': ['meraih', 'mendapatkan', 'menemukan'],
-}
+CASUAL_SUFFIXES = [
+    " bro!",
+    " nih!",
+    " gitu loh!",
+    " gampang aja!",
+    " mantap!",
+    " asik!",
+    " oke deh!",
+]
+
 
 def delay():
-    """Human-like delay between requests"""
-    time.sleep(random.uniform(0.5, 1.5))
+    """Add random delay between requests"""
+    time.sleep(random.uniform(2, 4))
 
-def paraphrase_synopsis(text):
-    """Paraphrase synopsis by replacing words with synonyms"""
+
+def paraphrase(text: str) -> str:
+    """
+    Paraphrase text by replacing 20-40% of words with synonyms
+    and adding casual Indonesian suffixes
+    """
     if not text:
-        return ""
+        return text
     
     words = text.split()
-    paraphrased = []
+    replacement_count = max(1, int(len(words) * random.uniform(0.2, 0.4)))
+    indices_to_replace = random.sample(range(len(words)), min(replacement_count, len(words)))
     
-    for word in words:
-        word_lower = word.lower()
-        # Simple replacement: 30% chance if word is in map
-        if word_lower in PARAPHRASE_MAP and random.random() < 0.3:
-            replacement = random.choice(PARAPHRASE_MAP[word_lower])
-            # Maintain capitalization
-            if word[0].isupper():
-                paraphrased.append(replacement.capitalize())
-            else:
-                paraphrased.append(replacement)
-        else:
-            paraphrased.append(word)
+    for idx in indices_to_replace:
+        word = words[idx].lower().strip('.,!?;:')
+        if word in SYNONYMS:
+            words[idx] = SYNONYMS[word]
     
-    return ' '.join(paraphrased)
+    result = ' '.join(words)
+    result += random.choice(CASUAL_SUFFIXES)
+    return result
 
-def ensure_data_dir():
-    """Create data directory if not exists"""
-    Path(DATA_DIR).mkdir(exist_ok=True)
 
-def get_manga_list(limit=None):
-    """Scrape list of manga from komiku.org daftar-komik"""
-    manga_list = []
-    halaman = 1
-    max_pages = 5  # Start with 5 pages for testing
-    
-    print("[*] Scraping manga list (limit: {})...".format(limit))
+def extract_chapter_number(chapter_text: str) -> str:
+    """Extract chapter number from text like 'Chapter 1', 'Chapter 2.5'"""
+    match = re.search(r'(\d+(?:\.\d+)?)', chapter_text)
+    if match:
+        return match.group(1)
+    return chapter_text.strip()
+
+
+def get_manga_list(page: int = 1) -> Tuple[List[Dict], Optional[int]]:
+    """
+    Fetch manga list from komiku.org
+    Returns: (list of manga dict with slug/title, next_page or None)
+    """
+    url = f"{MANGA_LIST_URL}&halaman={page}" if page > 1 else MANGA_LIST_URL
     
     try:
-        while halaman <= max_pages:
-            if limit and len(manga_list) >= limit:
-                break
-            
-            # Try with halaman parameter
-            url = "{}/daftar-komik/?tipe=manga&halaman={}".format(BASE_URL, halaman)
-            print("    [>] Page {}: {}".format(halaman, url))
-            
-            try:
-                response = requests.get(url, headers=HEADERS, timeout=15)
-                response.raise_for_status()
-            except requests.exceptions.RequestException as e:
-                print("    [!] Error on page {}: {}".format(halaman, e))
-                break
-            
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            # Find manga grid
-            grid = soup.find('div', class_='manga-grid')
-            if not grid:
-                print("    [!] No manga-grid found on page {}".format(halaman))
-                break
-            
-            # Find all articles
-            articles = grid.find_all('article', class_='manga-card')
-            print("    [*] Found {} manga on page {}".format(len(articles), halaman))
-            
-            if not articles:
-                break
-            
-            for article in articles:
-                if limit and len(manga_list) >= limit:
-                    break
-                
-                try:
-                    # Get link
-                    link = article.find('a', href=re.compile(r'/manga/'))
-                    if not link:
-                        continue
-                    
-                    href = link.get('href', '')
-                    slug = href.strip('/').split('/')[-1]
-                    
-                    # Get title
-                    h4 = article.find('h4')
-                    if h4:
-                        title_link = h4.find('a')
-                        title = title_link.text.strip() if title_link else "Unknown"
-                    else:
-                        title = "Unknown"
-                    
-                    # Get meta info (genre, status)
-                    meta = article.find('p', class_='meta')
-                    status = "Unknown"
-                    if meta:
-                        meta_text = meta.text
-                        if 'Ongoing' in meta_text:
-                            status = "Ongoing"
-                        elif 'Completed' in meta_text or 'Tamat' in meta_text:
-                            status = "Completed"
-                    
-                    # Get thumbnail
-                    img = article.find('img', class_='lazy')
-                    cover = ""
-                    if img:
-                        cover = img.get('data-src', img.get('src', ''))
-                    
-                    manga_list.append({
-                        'slug': slug,
-                        'title': title,
-                        'url': "{}/manga/{}/".format(BASE_URL, slug),
-                        'status': status,
-                        'cover': cover
-                    })
-                    
-                except Exception as e:
-                    print("    [!] Error parsing manga: {}".format(e))
-                    continue
-            
-            delay()
-            halaman += 1
+        print(f"[LIST] Fetching page {page}: {url}")
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.content, 'html.parser')
         
-        print("[*] Total manga found: {}".format(len(manga_list)))
-        return manga_list
+        manga_list = []
+        manga_grid = soup.find('div', class_='manga-grid')
+        
+        if not manga_grid:
+            print(f"[ERROR] Manga grid not found on page {page}")
+            return [], None
+        
+        articles = manga_grid.find_all('article', class_='manga-card')
+        print(f"[LIST] Found {len(articles)} manga on page {page}")
+        
+        for article in articles:
+            link = article.find('a', href=True)
+            if not link:
+                continue
+            
+            href = link['href']
+            # Extract slug from /manga/slug/ or manga/slug/ format
+            if '/manga/' in href:
+                slug = href.split('/manga/')[-1].strip('/')
+            else:
+                continue
+            
+            if not slug:
+                continue
+            
+            title_elem = article.find('h3') or article.find('a')
+            title = title_elem.get_text(strip=True) if title_elem else slug
+            
+            cover_img = article.find('img')
+            cover = cover_img.get('src', '') if cover_img else ''
+            if cover and not cover.startswith('http'):
+                cover = f"{BASE_URL}{cover}"
+            
+            manga_list.append({
+                'slug': slug,
+                'title': title,
+                'cover': cover,
+                'source_url': f"{BASE_URL}/manga/{slug}/"
+            })
+        
+        # Check for next page
+        next_page = None
+        pagination = soup.find('ul', class_=re.compile('paginasi|pagination', re.I))
+        if pagination:
+            next_link = pagination.find('a', text=re.compile('>|next', re.I))
+            if next_link:
+                next_page = page + 1
+        
+        delay()
+        return manga_list, next_page
     
     except Exception as e:
-        print("[!] Error scraping manga list: {}".format(e))
-        return manga_list
+        print(f"[ERROR] Failed to fetch manga list page {page}: {e}")
+        return [], None
 
-def get_manga_detail(url, slug):
-    """Scrape manga detail page"""
-    print("  [>] Scraping detail: {}".format(slug))
+
+def get_detail(slug: str) -> Optional[Dict]:
+    """
+    Fetch manga detail page
+    Returns: dict with title, author, genres, synopsis, etc.
+    """
+    url = f"{BASE_URL}/manga/{slug}/"
     
     try:
-        response = requests.get(url, headers=HEADERS, timeout=15)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        print("  [!] Error fetching {}: {}".format(url, e))
+        print(f"  [DETAIL] Fetching: {url}")
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Title
+        title_elem = soup.find('h1')
+        title = title_elem.get_text(strip=True) if title_elem else slug
+        
+        # Cover image - try to find high-quality version
+        cover = ''
+        cover_img = soup.find('img', class_=re.compile('komik-thumb|cover|thumb', re.I))
+        if not cover_img:
+            cover_parent = soup.find('div', class_=re.compile('cover', re.I))
+            cover_img = cover_parent.find('img') if cover_parent else None
+        
+        if cover_img:
+            cover = cover_img.get('src', '') or cover_img.get('data-src', '')
+            if cover and not cover.startswith('http'):
+                cover = f"{BASE_URL}{cover}"
+        
+        # Genre from table or ul
+        genres = []
+        info_table = soup.find('table', class_=re.compile('inftable|infotable', re.I))
+        if info_table:
+            for row in info_table.find_all('tr'):
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    header = cells[0].get_text(strip=True).lower()
+                    if 'genre' in header or 'kategori' in header:
+                        genre_links = cells[1].find_all('a')
+                        genres = [g.get_text(strip=True) for g in genre_links]
+                        break
+        
+        if not genres:
+            genre_ul = soup.find('ul', class_=re.compile('genre', re.I))
+            if genre_ul:
+                genre_items = genre_ul.find_all('li')
+                genres = [g.get_text(strip=True) for g in genre_items]
+        
+        # Author from table
+        author = ''
+        if info_table:
+            for row in info_table.find_all('tr'):
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    header = cells[0].get_text(strip=True).lower()
+                    if 'penulis' in header or 'author' in header:
+                        author = cells[1].get_text(strip=True)
+                        break
+        
+        # Status from table
+        status = 'Unknown'
+        if info_table:
+            for row in info_table.find_all('tr'):
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    header = cells[0].get_text(strip=True).lower()
+                    if 'status' in header:
+                        status = cells[1].get_text(strip=True)
+                        break
+        
+        # Synopsis - get full text
+        synopsis = ''
+        synopsis_section = soup.find('div', class_=re.compile('sinopsis|synopsis|description', re.I))
+        if not synopsis_section:
+            for elem in soup.find_all(['p', 'div']):
+                text = elem.get_text(strip=True).lower()
+                if 'sinopsis' in text or 'deskripsi' in text:
+                    synopsis_section = elem.parent
+                    break
+        
+        if synopsis_section:
+            paragraphs = synopsis_section.find_all('p')
+            if paragraphs:
+                synopsis = ' '.join([p.get_text(strip=True) for p in paragraphs])
+            else:
+                synopsis = synopsis_section.get_text(strip=True)
+        
+        # Clean synopsis
+        synopsis = re.sub(r'Sinopsis[:\s]*', '', synopsis, flags=re.I).strip()
+        
+        detail = {
+            'title': title,
+            'author': author,
+            'genre': ', '.join(genres) if genres else '',
+            'status': status,
+            'synopsis': synopsis,
+            'cover': cover,
+            'source_url': url
+        }
+        
+        delay()
+        return detail
+    
+    except Exception as e:
+        print(f"  [ERROR] Failed to fetch detail for {slug}: {e}")
         return None
+
+
+def get_chapter_images(chapter_url: str) -> List[str]:
+    """
+    Fetch all images from a chapter page
+    Returns: list of image URLs
+    """
+    try:
+        print(f"    [IMAGES] Fetching: {chapter_url}")
+        response = requests.get(chapter_url, headers=HEADERS, timeout=10)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        images = []
+        
+        # Try to find images in various containers
+        image_containers = [
+            soup.find('div', id=re.compile('Baca_Komik|baca-komik|chapter-content', re.I)),
+            soup.find('div', class_=re.compile('chapter-content|images|viewer', re.I)),
+        ]
+        
+        for container in image_containers:
+            if container:
+                imgs = container.find_all('img', class_=re.compile('klazy|lazy|image', re.I))
+                for img in imgs:
+                    src = img.get('src', '') or img.get('data-src', '')
+                    if src and ('img' in src or 'image' in src or 'komiku' in src):
+                        if not src.startswith('http'):
+                            src = f"{BASE_URL}{src}"
+                        images.append(src)
+                
+                if images:
+                    break
+        
+        # Fallback: get all images in body
+        if not images:
+            all_imgs = soup.find_all('img')
+            for img in all_imgs:
+                src = img.get('src', '') or img.get('data-src', '')
+                if src and ('uploads' in src or 'img' in src):
+                    if not src.startswith('http'):
+                        src = f"{BASE_URL}{src}"
+                    if src not in images:
+                        images.append(src)
+        
+        print(f"    [IMAGES] Found {len(images)} images")
+        delay()
+        return images
     
-    soup = BeautifulSoup(response.content, 'html.parser')
+    except Exception as e:
+        print(f"    [ERROR] Failed to fetch images from {chapter_url}: {e}")
+        return []
+
+
+def get_chapters(slug: str) -> Dict[str, Dict]:
+    """
+    Fetch all chapters for a manga
+    Returns: dict with chapter_number as key
+    """
+    url = f"{BASE_URL}/manga/{slug}/"
+    chapters = {}
     
-    data = {
-        'title': 'Unknown',
-        'alternative_title': '',
+    try:
+        print(f"  [CHAPTERS] Fetching chapter list for {slug}")
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Find chapter table
+        chapter_table = soup.find('table', id=re.compile('Daftar_Chapter|chapter', re.I))
+        if not chapter_table:
+            print(f"  [WARN] No chapter table found for {slug}")
+            return {}
+        
+        rows = chapter_table.find_all('tr')
+        chapter_count = 0
+        
+        for row in rows[1:]:  # Skip header
+            cells = row.find_all('td')
+            if len(cells) < 2:
+                continue
+            
+            # Chapter title and link
+            link = cells[0].find('a', href=True)
+            if not link:
+                continue
+            
+            chapter_title = link.get_text(strip=True)
+            chapter_url = link['href']
+            
+            if not chapter_url.startswith('http'):
+                chapter_url = f"{BASE_URL}{chapter_url}"
+            
+            # Extract chapter number
+            chapter_num = extract_chapter_number(chapter_title)
+            
+            # Get images for this chapter
+            images = get_chapter_images(chapter_url)
+            
+            chapters[chapter_num] = {
+                'title': chapter_title,
+                'url': chapter_url,
+                'images': images
+            }
+            
+            chapter_count += 1
+        
+        print(f"  [CHAPTERS] Found {chapter_count} chapters for {slug}")
+        delay()
+        return chapters
+    
+    except Exception as e:
+        print(f"  [ERROR] Failed to fetch chapters for {slug}: {e}")
+        return {}
+
+
+def save_manga_data(slug: str, detail: Dict, chapters: Dict):
+    """Save manga data to JSON file"""
+    if not detail:
+        return False
+    
+    try:
+        # Prepare full data with paraphrased synopsis
+        full_synopsis = paraphrase(detail.get('synopsis', '')) if detail.get('synopsis') else ''
+        
+        manga_data = {
+            'title': detail.get('title', ''),
+            'author': detail.get('author', ''),
+            'genre': detail.get('genre', ''),
+            'synopsis': full_synopsis,
+            'cover': detail.get('cover', ''),
+            'source_url': detail.get('source_url', ''),
+            'chapters': chapters
+        }
+        
+        # Save to data/{slug}.json
+        file_path = os.path.join(DATA_DIR, f"{slug}.json")
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(manga_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"[SAVE] Saved {slug}.json")
+        return True
+    
+    except Exception as e:
+        print(f"[ERROR] Failed to save {slug}.json: {e}")
+        return False
+
+
+def update_index(index: Dict, slug: str, detail: Dict, chapters: Dict):
+    """Update index.json with manga summary"""
+    if not detail:
+        return index
+    
+    # Short synopsis for index (truncate)
+    short_synopsis = detail.get('synopsis', '')
+    if len(short_synopsis) > 250:
+        short_synopsis = short_synopsis[:250] + '...'
+    
+    index[slug] = {
+        'title': detail.get('title', ''),
+        'author': detail.get('author', ''),
+        'synopsis': short_synopsis,
+        'cover': detail.get('cover', ''),
+        'genre': detail.get('genre', ''),
         'type': 'Manga',
-        'genres': [],
-        'author': '',
-        'status': 'Unknown',
-        'synopsis': '',
-        'chapters': []
+        'total_chapters': len(chapters),
+        'source_url': detail.get('source_url', '')
     }
     
-    # Get title
-    h1 = soup.find('h1')
-    if h1:
-        span = h1.find('span')
-        if span:
-            data['title'] = span.text.strip()
-    
-    # Get genres
-    genre_list = soup.find('ul', class_='genre')
-    if genre_list:
-        for li in genre_list.find_all('li'):
-            span = li.find('span')
-            if span:
-                data['genres'].append(span.text.strip())
-    
-    # Get author, status, alternative title from table
-    table = soup.find('table', class_='inftable')
-    if table:
-        rows = table.find_all('tr')
-        for row in rows:
-            tds = row.find_all('td')
-            if len(tds) >= 2:
-                label = tds[0].text.strip().lower()
-                value = tds[1].text.strip()
-                
-                if 'pengarang' in label:
-                    data['author'] = value
-                elif 'status' in label:
-                    if 'tamat' in value.lower() or 'completed' in value.lower():
-                        data['status'] = 'Completed'
-                    elif 'ongoing' in value.lower():
-                        data['status'] = 'Ongoing'
-                    else:
-                        data['status'] = value
-                elif 'judul indonesia' in label or 'judul lain' in label:
-                    data['alternative_title'] = value
-    
-    # Get synopsis
-    synopsis_section = soup.find('section', id='Sinopsis')
-    if synopsis_section:
-        paragraphs = synopsis_section.find_all('p')
-        synopsis_text = ' '.join([p.text.strip() for p in paragraphs])
-        data['synopsis'] = paraphrase_synopsis(synopsis_text)
-    
-    # Get chapters
-    chapters_table = soup.find('table', id='Daftar_Chapter')
-    if chapters_table:
-        tbody = chapters_table.find('tbody')
-        if tbody:
-            rows = tbody.find_all('tr')
-            for row in rows:
-                try:
-                    td = row.find('td', class_='judulseries')
-                    if not td:
-                        continue
-                    
-                    link = td.find('a')
-                    if not link:
-                        continue
-                    
-                    chapter_url = link.get('href', '')
-                    if not chapter_url:
-                        continue
-                    
-                    chapter_text = link.text.strip()
-                    # Extract chapter number
-                    match = re.search(r'Chapter\s+([\d.]+)', chapter_text, re.IGNORECASE)
-                    if match:
-                        chapter_num = match.group(1)
-                    else:
-                        chapter_num = chapter_text
-                    
-                    # Make absolute URL
-                    if not chapter_url.startswith('http'):
-                        chapter_url = "{}{}".format(BASE_URL, chapter_url)
-                    
-                    data['chapters'].append({
-                        'number': chapter_num,
-                        'url': chapter_url,
-                        'images': []
-                    })
-                except Exception as e:
-                    print("  [!] Error parsing chapter: {}".format(e))
-                    continue
-    
-    delay()
-    return data
+    return index
 
-def get_chapter_images(chapter_url, chapter_num):
-    """Scrape images from chapter page"""
-    try:
-        response = requests.get(chapter_url, headers=HEADERS, timeout=15)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        print("    [!] Error fetching chapter {}: {}".format(chapter_num, e))
-        return []
-    
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    images = []
-    
-    # Find image container
-    baca_komik = soup.find('div', id='Baca_Komik')
-    if baca_komik:
-        img_tags = baca_komik.find_all('img', class_='klazy')
-        for img in img_tags:
-            src = img.get('src', img.get('data-src', ''))
-            if src:
-                # Make absolute URL
-                if not src.startswith('http'):
-                    src = "{}{}".format(BASE_URL, src)
-                images.append(src)
-    
-    delay()
-    return images
 
-def save_manga_data(data, slug):
-    """Save manga data to JSON file"""
-    filepath = os.path.join(DATA_DIR, "{}.json".format(slug))
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print("  [*] Saved: {}".format(filepath))
-    except Exception as e:
-        print("  [!] Error saving {}: {}".format(slug, e))
-
-def update_index(manga_list):
-    """Update index.json with manga list"""
+def load_existing_index() -> Dict:
+    """Load existing index.json if available"""
     index_path = os.path.join(DATA_DIR, 'index.json')
-    
-    try:
-        # Load existing index
-        if os.path.exists(index_path):
+    if os.path.exists(index_path):
+        try:
             with open(index_path, 'r', encoding='utf-8') as f:
-                index = json.load(f)
-        else:
-            index = {}
-        
-        # Update with new manga
-        for manga in manga_list:
-            slug = manga['slug']
-            if slug not in index:
-                index[slug] = {
-                    'title': manga['title'],
-                    'status': manga['status'],
-                    'type': 'Manga',
-                    'last_scraped': datetime.now().strftime('%Y-%m-%d')
-                }
-        
-        # Save index
+                return json.load(f)
+        except:
+            return {}
+    return {}
+
+
+def save_index(index: Dict):
+    """Save index.json"""
+    try:
+        index_path = os.path.join(DATA_DIR, 'index.json')
         with open(index_path, 'w', encoding='utf-8') as f:
             json.dump(index, f, ensure_ascii=False, indent=2)
-        
-        print("[*] Index updated: {}".format(index_path))
-    
+        print(f"\n[SAVE] Updated index.json with {len(index)} manga")
     except Exception as e:
-        print("[!] Error updating index: {}".format(e))
+        print(f"[ERROR] Failed to save index.json: {e}")
+
 
 def main():
     """Main scraping function"""
-    print("\n" + "="*60)
-    print("  KOMIKU.ORG MANGA SCRAPER")
-    print("="*60 + "\n")
+    # Create data directory
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)
+        print(f"[SETUP] Created {DATA_DIR} directory")
     
-    ensure_data_dir()
+    # Load existing index
+    index = load_existing_index()
+    print(f"[SETUP] Loaded existing index with {len(index)} entries")
     
-    # Scrape manga list
-    limit = 20  # Change this to scrape more (or None for all)
-    manga_list = get_manga_list(limit=limit)
+    # Scrape all manga pages
+    all_manga = []
+    page = 1
     
-    if not manga_list:
-        print("[!] No manga found. Exiting.")
-        return
-    
-    print("\n[*] Scraping details for {} manga...\n".format(len(manga_list)))
-    
-    successful = 0
-    failed = 0
-    
-    for idx, manga in enumerate(manga_list, 1):
-        try:
-            print("[{}/{}] {}".format(idx, len(manga_list), manga['title']))
-            
-            # Get detail
-            detail = get_manga_detail(manga['url'], manga['slug'])
-            if not detail:
-                failed += 1
-                continue
-            
-            # Scrape chapters
-            print("  [>] Scraping {} chapters...".format(len(detail['chapters'])))
-            for chapter in detail['chapters'][:10]:  # Limit to 10 chapters per manga for testing
-                images = get_chapter_images(chapter['url'], chapter['number'])
-                chapter['images'] = images
-                print("    [*] Chapter {}: {} images".format(chapter['number'], len(images)))
-            
-            # Save to JSON
-            save_manga_data(detail, manga['slug'])
-            successful += 1
-            
-        except Exception as e:
-            print("[!] Error processing {}: {}".format(manga['title'], e))
-            failed += 1
+    while True:
+        manga_list, next_page = get_manga_list(page)
+        if not manga_list:
+            break
         
-        print()
+        all_manga.extend(manga_list)
+        
+        # Check limit
+        if LIMIT and len(all_manga) >= LIMIT:
+            all_manga = all_manga[:LIMIT]
+            break
+        
+        if next_page is None:
+            break
+        
+        page = next_page
     
-    # Update index
-    update_index(manga_list)
+    print(f"\n[SCRAPE] Total manga to process: {len(all_manga)}")
     
-    # Summary
-    print("="*60)
-    print("Scraping selesai.")
-    print("Total manga: {}".format(len(manga_list)))
-    print("Successful: {}".format(successful))
-    print("Failed: {}".format(failed))
-    print("Data saved di folder: {}/".format(DATA_DIR))
-    print("="*60 + "\n")
+    # Process each manga
+    for idx, manga_item in enumerate(all_manga, 1):
+        slug = manga_item['slug']
+        print(f"\n[{idx}/{len(all_manga)}] Processing: {slug}")
+        
+        # Get detail (always fetch for freshness or use LIMIT to test)
+        detail = get_detail(slug)
+        if not detail:
+            print(f"  [WARN] Skipping {slug} - failed to get details")
+            continue
+        
+        # Get chapters
+        chapters = get_chapters(slug)
+        
+        # Save manga data
+        save_manga_data(slug, detail, chapters)
+        
+        # Update index
+        index = update_index(index, slug, detail, chapters)
+    
+    # Save final index
+    save_index(index)
+    
+    print(f"\n[OK] Selesai! Total manga: {len(index)} | File di data/index.json dan data/*.json")
+
 
 if __name__ == '__main__':
     main()
