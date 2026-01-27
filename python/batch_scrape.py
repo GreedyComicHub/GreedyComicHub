@@ -85,19 +85,6 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
     print("="*60)
     
     return successful, skipped, failed
-            continue
-    
-    # Print summary
-    print("\n" + "="*60)
-    print("BATCH SCRAPE SUMMARY")
-    print("="*60)
-    print(f"Total:      {total}")
-    print(f"Successful: {successful}")
-    print(f"Skipped:    {skipped}")
-    print(f"Failed:     {failed}")
-    print("="*60)
-    
-    return successful, skipped, failed
 
 if __name__ == "__main__":
     import logging as log_module

@@ -1,6 +1,7 @@
 """
 scraper_komiku.py: Selenium-based scraper untuk komiku.org manga
 Handles dynamic content, chapters, dan images dengan retry logic.
+Based on actual HTML structure dari komiku.org
 """
 import logging
 import time
@@ -47,7 +48,8 @@ def _get_driver():
 
 def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] = None, max_retries: int = 3) -> List[Dict[str, str]]:
     """
-    Scrape manga list dari komiku.org dengan infinite scroll handling.
+    Scrape manga list dari komiku.org/pustaka/?tipe=manga
+    Menggunakan struktur HTML actual dari komiku.org
     Bisa filter by genre atau scrape semua manga.
     
     Args:
@@ -75,10 +77,22 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
         driver.get(url)
         logging.info(f"Opened: {url}")
         
-        # Wait for content to load (komiku uses HTMX)
-        wait = WebDriverWait(driver, 10)
-        wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "a[href^='/manga/']")))
-        logging.info("Page loaded with manga links")
+        # Wait for content to load - try multiple selectors
+        wait = WebDriverWait(driver, 15)
+        try:
+            # Try common manga link selectors
+            wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.daftar")))
+            logging.info("Page loaded with manga content")
+        except TimeoutException:
+            logging.warning("Timeout on div.daftar, trying alternative selectors...")
+            try:
+                wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "a[href*='/manga/']")))
+                logging.info("Page loaded with manga links (alternative selector)")
+            except TimeoutException:
+                logging.warning("Could not find expected content, continuing anyway...")
+        
+        # Give page extra time for dynamic content
+        time.sleep(2)
         
         # Scroll to load more if exists (infinite scroll)
         last_height = driver.execute_script("return document.body.scrollHeight")
@@ -95,27 +109,44 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
             last_height = new_height
             scroll_attempts += 1
         
-        # Extract manga data
-        manga_elements = driver.find_elements(By.CSS_SELECTOR, "a[href^='/manga/']")
+        # Extract manga data - try multiple selectors
+        manga_elements = []
+        try:
+            # Try primary selector
+            manga_elements = driver.find_elements(By.CSS_SELECTOR, "div.daftar div.bge a")
+            if not manga_elements:
+                # Fallback to alternative
+                manga_elements = driver.find_elements(By.CSS_SELECTOR, "a[href*='/manga/']")
+        except:
+            logging.warning("Could not find manga elements")
+            return []
+        
+        logging.info(f"Found {len(manga_elements)} potential manga links")
         manga_list = []
         
         for elem in manga_elements:
             try:
                 href = elem.get_attribute("href")
-                slug = href.split("/manga/")[1].rstrip("/")
+                if not href or "/manga/" not in href:
+                    continue
+                    
+                slug = href.split("/manga/")[1].rstrip("/").split("/")[0]  # Handle edge cases
                 
                 # Get title
                 title = None
                 try:
                     title = elem.find_element(By.CSS_SELECTOR, "h4, .title, .judul").text.strip()
                 except:
-                    title = elem.text.strip()
+                    try:
+                        title = elem.text.strip()
+                    except:
+                        title = slug
                 
                 # Get cover image
                 cover_url = None
                 try:
                     img = elem.find_element(By.CSS_SELECTOR, "img")
-                    cover_url = img.get_attribute("src")
+                    cover_url = img.get_attribute("src") or img.get_attribute("data-src")
                 except:
                     pass
                 
@@ -131,20 +162,20 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
                     if limit and len(manga_list) >= limit:
                         logging.info(f"Reached limit: {limit} manga")
                         break
-                    })
+                    
                     logging.debug(f"  Added: {slug} - {title}")
             except Exception as e:
-                logging.warning(f"  Failed to extract manga element: {e}")
+                logging.debug(f"  Skipped element: {e}")
                 continue
         
         logging.info(f"Extracted {len(manga_list)} manga from list")
         return manga_list
         
     except TimeoutException:
-        logging.error("✗ Timeout waiting for page to load")
+        logging.error("Timeout waiting for page to load")
         return []
     except Exception as e:
-        logging.error(f"✗ Error scraping manga list: {e}", exc_info=True)
+        logging.error(f"Error scraping manga list: {e}", exc_info=True)
         return []
     finally:
         if driver:
