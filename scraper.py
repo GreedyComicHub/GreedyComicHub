@@ -364,7 +364,7 @@ def main():
     ensure_data_dir()
     
     # Scrape manga list
-    limit = 5  # Change this to scrape more (or None for all)
+    limit = 20  # Change this to scrape more (or None for all)
     manga_list = get_manga_list(limit=limit)
     
     if not manga_list:
