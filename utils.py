@@ -6,6 +6,7 @@ import time
 import requests
 from configparser import ConfigParser
 from filelock import FileLock
+from typing import Dict, Any, Optional
 from urllib.parse import urlparse, parse_qs, urlencode
 
 # Direktori
@@ -42,7 +43,17 @@ def setup_logging():
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-def fetch_page(url, retries=3, delay=2):
+def fetch_page(url: str, retries: int = 3, delay: int = 2) -> Optional[str]:
+    """Fetch page content with retry logic.
+    
+    Args:
+        url: Page URL to fetch.
+        retries: Number of retry attempts.
+        delay: Delay between retries (seconds).
+        
+    Returns:
+        HTML content or None on failure.
+    """
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
@@ -51,14 +62,32 @@ def fetch_page(url, retries=3, delay=2):
         try:
             response = requests.get(url, headers=headers, timeout=10)
             response.raise_for_status()
+            logging.debug(f"Successfully fetched {url} on attempt {attempt + 1}")
             return response.text
+        except requests.exceptions.Timeout:
+            logging.warning(f"Timeout fetching {url} (attempt {attempt + 1}/{retries})")
+            if attempt < retries - 1:
+                time.sleep(delay * (attempt + 1))  # Exponential backoff
+        except requests.exceptions.ConnectionError as e:
+            logging.warning(f"Connection error for {url} (attempt {attempt + 1}/{retries}): {e}")
+            if attempt < retries - 1:
+                time.sleep(delay * (attempt + 1))
         except requests.RequestException as e:
-            logging.warning(f"Gagal mengambil {url} (percobaan {attempt + 1}/{retries}): {e}")
+            logging.warning(f"Failed to fetch {url} (attempt {attempt + 1}/{retries}): {e}")
             if attempt < retries - 1:
                 time.sleep(delay)
+    logging.error(f"Failed to fetch {url} after {retries} attempts")
     return None
 
-def paraphrase_synopsis(original_synopsis):
+def paraphrase_synopsis(original_synopsis: str) -> str:
+    """Convert synopsis to casual Indonesian style.
+    
+    Args:
+        original_synopsis: Original synopsis text.
+        
+    Returns:
+        Paraphrased synopsis with casual tone.
+    """
     if not original_synopsis or original_synopsis == "No synopsis available.":
         return "Petualangan seru di dunia penuh aksi dan misteri, bro!"
     promo_phrases = ["baca komik", "bahasa indonesia", "di komiku"]
@@ -89,22 +118,38 @@ def paraphrase_synopsis(original_synopsis):
     logging.info(f"Sinopsis gaul: {synopsis}")
     return synopsis
 
-def read_json(file_path):
-    lock = FileLock(file_path + ".lock")
+def read_json(file_path: str) -> Dict[str, Any]:
+    """Read JSON file with file lock.
+    
+    Args:
+        file_path: Path to JSON file.
+        
+    Returns:
+        Parsed JSON data or empty dict.
+    """
     with lock:
         if os.path.exists(file_path):
             with open(file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         return {}
 
-def write_json(file_path, data):
-    lock = FileLock(file_path + ".lock")
+def write_json(file_path: str, data: Dict[str, Any]) -> None:
+    """Write data to JSON file with file lock.
+    
+    Args:
+        file_path: Path to JSON file.
+        data: Data to write.
+    """
     with lock:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
 
-def push_to_github():
-    logging.info("Push perubahan ke GitHub...")
+def push_to_github() -> bool:
+    """Push git changes to GitHub repository.
+    
+    Returns:
+        True if push successful, False otherwise.
+    """
     try:
         subprocess.run(["git", "add", "."], check=True)
         status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
@@ -122,7 +167,14 @@ def push_to_github():
         logging.error(f"Error push: {e}")
         return False
 
-def get_comic_id_from_url(url):
-    comic_id = url.rstrip("/").split("/")[-1].lower()
+def get_comic_id_from_url(url: str) -> str:
+    """Extract comic ID from URL.
+    
+    Args:
+        url: Comic URL.
+        
+    Returns:
+        Comic ID string.
+    """
     logging.info(f"Nama komik dari URL: ID={comic_id}, Display={comic_id.capitalize()}")
     return comic_id

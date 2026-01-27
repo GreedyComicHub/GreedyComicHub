@@ -1,11 +1,20 @@
 import os
 import logging
+from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from utils import fetch_page, write_json, read_json, DATA_DIR, get_comic_id_from_url
 from scraper import scrape_komiku_details
 
-def add_comic(url):
+def add_comic(url: str) -> Optional[bool]:
+    """Add new comic to database.
+    
+    Args:
+        url: Comic source URL.
+        
+    Returns:
+        True on success, None on failure.
+    """
     logging.info(f"Mulai tambah komik: {url}")
     comic_id = get_comic_id_from_url(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
@@ -63,3 +72,5 @@ def add_comic(url):
 
     except Exception as e:
         logging.error(f"Error tambah komik {url}: {e}")
+        return None
+    return True

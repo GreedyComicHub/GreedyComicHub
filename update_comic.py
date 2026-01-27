@@ -1,11 +1,23 @@
 import os
 import logging
+from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from utils import fetch_page, read_json, write_json, DATA_DIR, get_comic_id_from_url
 from scraper import scrape_chapter_images
 
-def update_comic(url, start, end, overwrite=False):
+def update_comic(url: str, start: float, end: float, overwrite: bool = False) -> Optional[bool]:
+    """Update comic chapters in range.
+    
+    Args:
+        url: Comic source URL.
+        start: Start chapter number.
+        end: End chapter number.
+        overwrite: Whether to overwrite existing chapters.
+        
+    Returns:
+        True on success, None on failure.
+    """
     logging.info(f"Mulai update: {url}")
     comic_id = get_comic_id_from_url(url)
     comic_file = os.path.join(DATA_DIR, f"{comic_id}.json")
@@ -95,3 +107,5 @@ def update_comic(url, start, end, overwrite=False):
             logging.info(f"Updated {comic_id} in {index_file}")
     except Exception as e:
         logging.error(f"Error scraping {url}: {e}")
+        return None
+    return True

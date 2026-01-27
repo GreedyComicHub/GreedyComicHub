@@ -1,7 +1,39 @@
+# Python
 __pycache__/
-*.pyc
-logs/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Project specific
+chromedriver.exe
+chromedriver
 *.log
+temp_images/
+logs/
+queue_status.log
+queue.json.backup
+.env
 config.ini
-*.env
 data/*.backup
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Backups
+*.backup
+*.bak
+*~

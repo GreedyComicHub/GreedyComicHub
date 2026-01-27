@@ -1,6 +1,7 @@
 import logging
 import re
 import requests
+from typing import Tuple, Dict, List, Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from utils import fetch_page, paraphrase_synopsis
@@ -12,16 +13,31 @@ HEADERS = {
     "Referer": "https://komiku.org/"
 }
 
-def get_comic_id_and_display_name(url):
-    path = urlparse(url).path
+def get_comic_id_and_display_name(url: str) -> Tuple[str, str]:
+    """Extract comic ID and display name from URL.
+    
+    Args:
+        url: Comic URL path.
+        
+    Returns:
+        Tuple of (comic_id, display_name).
+    """
     comic_id = path.split("/")[-2] if path.endswith("/") else path.split("/")[-1]
     comic_id = comic_id.replace("manga-", "").replace("/", "")
     display_name = " ".join(word.capitalize() for word in comic_id.split("-"))
     logging.info(f"Nama komik dari URL: ID={comic_id}, Display={display_name}")
     return comic_id, display_name
 
-def scrape_komiku_details(url, soup):
-    title_element = soup.find("h1")
+def scrape_komiku_details(url: str, soup: BeautifulSoup) -> Tuple[str, str, str, str, BeautifulSoup, str, str]:
+    """Scrape comic metadata from page.
+    
+    Args:
+        url: Comic page URL.
+        soup: BeautifulSoup parsed HTML.
+        
+    Returns:
+        Tuple of (title, author, synopsis, cover_url, soup, genre, comic_type).
+    """
     title = title_element.text.strip().replace("Komik ", "").strip() if title_element else "Unknown Title"
     logging.info(f"Nama komik dari <h1>: {title}")
     author = "Unknown Author"
@@ -139,15 +155,30 @@ def scrape_komiku_details(url, soup):
     logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, type={comic_type}, synopsis={synopsis}, cover={cover_url}")
     return title, author, synopsis, cover_url, soup, genre, comic_type
 
-def scrape_comic_details(url):
-    html = fetch_page(url)
+def scrape_comic_details(url: str) -> Tuple[Optional[str], Optional[str], Optional[str], Optional[str], Optional[BeautifulSoup], Optional[str], Optional[str]]:
+    """Fetch and scrape comic details from URL.
+    
+    Args:
+        url: Comic page URL.
+        
+    Returns:
+        Tuple of (title, author, synopsis, cover_url, soup, genre, comic_type) or Nones on error.
+    """
     if not html:
         return None, None, None, None, None, None, None
     soup = BeautifulSoup(html, "html.parser")
     return scrape_komiku_details(url, soup)
 
-def scrape_chapter_list(url, soup):
-    chapters = {}
+def scrape_chapter_list(url: str, soup: BeautifulSoup) -> Dict[str, str]:
+    """Extract chapter list from page.
+    
+    Args:
+        url: Comic page URL.
+        soup: BeautifulSoup parsed HTML.
+        
+    Returns:
+        Dictionary of {chapter_num: chapter_url}.
+    """
     logging.info(f"Mencari daftar chapter dari {url}...")
     # Selector utama dan fallback
     selectors = [
@@ -180,30 +211,47 @@ def scrape_chapter_list(url, soup):
         logging.warning(f"Tidak ditemukan chapter di {url}. HTML mungkin berubah.")
     return chapters
 
-def scrape_chapter_images(chapter_url):
+def scrape_chapter_images(chapter_url: str) -> List[str]:
+    """Extract image URLs from chapter.
+    
+    Args:
+        chapter_url: Chapter page URL.
+        
+    Returns:
+        List of image URLs.
+    """
     full_url = urljoin("https://komiku.org", chapter_url)
-    html = fetch_page(full_url)
+    html = fetch_page(full_url, retries=3, delay=2)
     if not html:
+        logging.error(f"Failed to fetch chapter: {chapter_url}")
         return []
-    soup = BeautifulSoup(html, "html.parser")
-    title_element = soup.find("h1")
-    chapter_title = title_element.text.strip() if title_element else "Unknown Chapter"
-    logging.info(f"Judul chapter: {chapter_title}")
-    image_urls = []
-    selectors = [
-        'img[itemprop="image"]',
-        '#readerarea img',
-        'div.komik img',
-        'img[src*="img.komiku.org"]'
-    ]
-    for selector in selectors:
-        image_elements = soup.select(selector)
-        if image_elements:
-            for img in image_elements:
-                src = img.get("src", "")
-                if src and src.startswith("http"):
-                    image_urls.append(src)
-            break
-    if not image_urls:
-        logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
-    return image_urls
+    
+    try:
+        soup = BeautifulSoup(html, "html.parser")
+        title_element = soup.find("h1")
+        chapter_title = title_element.text.strip() if title_element else "Unknown Chapter"
+        logging.info(f"Judul chapter: {chapter_title}")
+        
+        image_urls = []
+        selectors = [
+            'img[itemprop="image"]',
+            '#readerarea img',
+            'div.komik img',
+            'img[src*="img.komiku.org"]'
+        ]
+        for selector in selectors:
+            image_elements = soup.select(selector)
+            if image_elements:
+                for img in image_elements:
+                    src = img.get("src", "")
+                    if src and src.startswith("http"):
+                        image_urls.append(src)
+                break
+        if not image_urls:
+            logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
+        else:
+            logging.info(f"Extracted {len(image_urls)} images from {chapter_title}")
+        return image_urls
+    except Exception as e:
+        logging.error(f"Error parsing chapter images from {chapter_url}: {e}")
+        return []
