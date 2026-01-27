@@ -21,16 +21,21 @@ class GreedyComicHub:
         self.scraper = KomikuScraper()
         self.data_manager = DataManager()
     
-    def scrape_manga(self, url=None, manga_type="manga"):
+    def scrape_manga(self, url=None, manga_type="manga", limit=None):
         """
         Scrape manga - if URL provided, scrape that manga; otherwise scrape all
+        
+        Args:
+            url: Specific manga URL (optional)
+            manga_type: Type of manga to scrape (manga, manhua, manhwa)
+            limit: Maximum number of manga to scrape
         """
         if url:
             # Scrape specific manga from URL
             self._scrape_single_manga(url)
         else:
             # Scrape all manga of specified type
-            self._scrape_all_manga(manga_type)
+            self._scrape_all_manga(manga_type, limit)
     
     def _scrape_single_manga(self, url):
         """Scrape a single manga from URL"""
@@ -108,13 +113,13 @@ class GreedyComicHub:
             logger.error(f"Failed to scrape {slug}: {e}")
             raise
     
-    def _scrape_all_manga(self, manga_type="manga"):
+    def _scrape_all_manga(self, manga_type="manga", limit=None):
         """Scrape all manga of specified type"""
-        logger.info(f"Scraping all manga (type: {manga_type})")
+        logger.info(f"Scraping manga (type: {manga_type}, limit: {limit if limit else 'unlimited'})")
         
         try:
-            # Get manga list
-            manga_list = self.scraper.scrape_manga_list(manga_type)
+            # Get manga list with limit
+            manga_list = self.scraper.scrape_manga_list(manga_type, limit=limit)
             
             successful = 0
             skipped = 0
@@ -296,10 +301,11 @@ AVAILABLE COMMANDS:
 1. SCRAPE MANGA
    
    a) Scrape all manga of a specific type:
-      python -m python scrape [TYPE]
+      python -m python scrape [TYPE] [--limit N]
       
       TYPE options: manga, manhua, manhwa (default: manga)
       Example: python -m python scrape manga
+               python -m python scrape manga --limit 2
    
    b) Scrape a single manga from URL:
       python -m python scrape [URL]
@@ -307,7 +313,7 @@ AVAILABLE COMMANDS:
       Example: python -m python scrape https://komiku.org/manga/50kg-cinderella/
 
 2. UPDATE CHAPTERS
-   
+
    a) Update all registered manga (only new chapters):
       python -m python update-chapters
       
@@ -337,20 +343,11 @@ AVAILABLE COMMANDS:
 
 EXAMPLES:
 
-   # Scrape all manga
-   python -m python scrape manga
+   # Scrape all manga (with limit)
+   python -m python scrape manga --limit 5
 
-   # Scrape specific manga
-   python -m python scrape https://komiku.org/manga/50kg-cinderella/
-
-   # Update all manga (new chapters only)
-   python -m python update
-
-   # Update single manga (all chapters)
-   python -m python update-chapters https://komiku.org/manga/50kg-cinderella/
-
-   # Show help
-   python -m python -help
+   # Scrape manga, skip first page
+   python -m python scrape manhua --limit 10
 
 NOTES:
 - Image URLs are extracted, not downloaded
@@ -373,6 +370,7 @@ def main():
     parser.add_argument('-help', '--help', action='store_true', help='Show help message')
     parser.add_argument('command', nargs='?', help='Command to run')
     parser.add_argument('arg', nargs='?', help='Argument for command')
+    parser.add_argument('--limit', '-limit', type=int, help='Limit number of manga to scrape')
     
     args = parser.parse_args()
     
@@ -389,13 +387,13 @@ def main():
             if args.arg:
                 if args.arg.startswith('http'):
                     # Single manga URL
-                    hub.scrape_manga(url=args.arg)
+                    hub.scrape_manga(url=args.arg, limit=args.limit)
                 else:
                     # Type (manga/manhua/manhwa)
-                    hub.scrape_manga(manga_type=args.arg)
+                    hub.scrape_manga(manga_type=args.arg, limit=args.limit)
             else:
                 # Default: scrape all manga
-                hub.scrape_manga()
+                hub.scrape_manga(limit=args.limit)
         
         elif command == 'update-chapters':
             if args.arg and args.arg.startswith('http'):

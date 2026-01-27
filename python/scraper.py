@@ -35,14 +35,23 @@ class KomikuScraper:
         """Add human-like delay between requests"""
         time.sleep(random.uniform(2, 5))
 
-    def scrape_manga_list(self, manga_type="manga"):
-        """Scrape list of manga from komiku.org"""
+    def scrape_manga_list(self, manga_type="manga", limit=None):
+        """Scrape list of manga from komiku.org
+        
+        Args:
+            manga_type: Type of manga (manga, manhua, manhwa)
+            limit: Maximum number of manga to scrape (None = unlimited)
+        """
         manga_list = []
         page = 1
         max_pages = 50
         
         try:
             while page <= max_pages:
+                # Stop if limit reached
+                if limit and len(manga_list) >= limit:
+                    break
+                
                 url = f"{self.base_url}/daftar-komik/?tipe={manga_type}&page={page}"
                 logger.info(f"Scraping page {page}: {url}")
                 
@@ -58,6 +67,10 @@ class KomikuScraper:
                 items = soup.find_all("a", class_=re.compile("komik|manga", re.I))
                 
                 for item in items:
+                    # Stop if limit reached
+                    if limit and len(manga_list) >= limit:
+                        break
+                    
                     href = item.get("href")
                     if not href or "/manga/" not in href:
                         continue
@@ -92,6 +105,10 @@ class KomikuScraper:
                 if manga["slug"] not in seen:
                     seen.add(manga["slug"])
                     unique_manga.append(manga)
+                # Stop if limit reached
+                if limit and len(unique_manga) >= limit:
+                    unique_manga = unique_manga[:limit]
+                    break
             
             logger.info(f"Found {len(unique_manga)} unique manga")
             return unique_manga
