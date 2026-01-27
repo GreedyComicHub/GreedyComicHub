@@ -1,34 +1,50 @@
 <!DOCTYPE html>
-<!-- chapter.html: Tampilkan gambar chapter dari data/<comic>.json -->
+<!-- chapter.html: Chapter reader page displaying images from data/<comic>.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chapter Reader - GreedyComicHub</title>
+    <meta name="description" content="Read manga and comics online on GreedyComicHub with smooth scrolling and image preloading.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
     <header class="main-header">
         <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
-        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">🌙</button>
     </header>
-    <div id="chapter-content">
+    
+    <div class="progress-bar" id="progress-bar"></div>
+    
+    <main id="chapter-content">
         <div class="chapter-nav">
-            <a id="prev-chapter" href="#">Previous</a>
-            <a id="next-chapter" href="#">Next</a>
+            <a id="prev-chapter" href="#">← Previous</a>
             <a id="back-to-comic" href="#">Back to Comic</a>
+            <a id="next-chapter" href="#">Next →</a>
         </div>
-        <div id="chapter-images"></div>
+        <div id="reader"></div>
         <div class="chapter-nav">
-            <a id="prev-chapter-bottom" href="#">Previous</a>
-            <a id="next-chapter-bottom" href="#">Next</a>
+            <a id="prev-chapter-bottom" href="#">← Previous</a>
             <a id="back-to-comic-bottom" href="#">Back to Comic</a>
+            <a id="next-chapter-bottom" href="#">Next →</a>
         </div>
-    </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 GreedyComicHub. All rights reserved.</p>
+    </footer>
+    
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Back to top">↑</button>
+    
+    <script src="script.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
         const chapterNum = params.get('chapter');
+        
         if (comicId && chapterNum) {
             const timestamp = new Date().getTime();
             fetch(`data/${comicId}.json?ts=${timestamp}`)
@@ -38,30 +54,35 @@
                 })
                 .then(data => {
                     const chapters = Object.keys(data.chapters || {}).sort((a, b) => parseFloat(a) - parseFloat(b));
-                    const chapterImages = document.getElementById('chapter-images');
+                    const reader = document.getElementById('reader');
                     const chapterData = data.chapters[chapterNum];
+                    
                     if (chapterData && chapterData.images) {
-                        chapterImages.innerHTML = '';
-                        chapterData.images.forEach(imgSrc => {
+                        reader.innerHTML = '';
+                        chapterData.images.forEach((imgSrc, index) => {
                             const frame = document.createElement('div');
                             frame.className = 'image-frame';
                             const img = document.createElement('img');
                             img.src = imgSrc;
                             img.className = 'chapter-image';
+                            img.loading = 'lazy';
                             img.setAttribute('oncontextmenu', 'return false;');
                             img.setAttribute('draggable', 'false');
+                            img.alt = `Page ${index + 1}`;
                             img.onerror = () => {
-                                img.alt = 'Gambar gagal dimuat';
+                                img.alt = 'Failed to load image';
                                 img.style.display = 'none';
                             };
                             frame.appendChild(img);
-                            chapterImages.appendChild(frame);
+                            reader.appendChild(frame);
                         });
-                        // Disable klik kanan global
+                        
+                        // Disable right-click globally
                         document.addEventListener('contextmenu', e => e.preventDefault());
                     } else {
-                        chapterImages.innerHTML = '<p>Chapter not found.</p>';
+                        reader.innerHTML = '<p style="text-align: center; padding: 40px;">Chapter not found.</p>';
                     }
+                    
                     const currentIndex = chapters.indexOf(chapterNum.toString());
                     const prevLink = document.getElementById('prev-chapter');
                     const nextLink = document.getElementById('next-chapter');
@@ -69,29 +90,39 @@
                     const prevLinkBottom = document.getElementById('prev-chapter-bottom');
                     const nextLinkBottom = document.getElementById('next-chapter-bottom');
                     const backLinkBottom = document.getElementById('back-to-comic-bottom');
+                    
                     backLink.href = `comic.html?comic=${comicId}`;
                     backLinkBottom.href = `comic.html?comic=${comicId}`;
+                    
                     if (currentIndex > 0) {
-                        prevLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex - 1]}`;
-                        prevLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex - 1]}`;
+                        const prevChapter = chapters[currentIndex - 1];
+                        prevLink.href = `chapter.html?comic=${comicId}&chapter=${prevChapter}`;
+                        prevLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${prevChapter}`;
                     } else {
                         prevLink.style.display = 'none';
                         prevLinkBottom.style.display = 'none';
                     }
+                    
                     if (currentIndex < chapters.length - 1) {
-                        nextLink.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex + 1]}`;
-                        nextLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${chapters[currentIndex + 1]}`;
+                        const nextChapter = chapters[currentIndex + 1];
+                        nextLink.href = `chapter.html?comic=${comicId}&chapter=${nextChapter}`;
+                        nextLinkBottom.href = `chapter.html?comic=${comicId}&chapter=${nextChapter}`;
                     } else {
                         nextLink.style.display = 'none';
                         nextLinkBottom.style.display = 'none';
                     }
+                    
+                    // Set document title
+                    const chapterNum_parsed = parseFloat(chapterNum);
+                    const displayChapter = chapterNum_parsed % 1 === 0 ? Math.floor(chapterNum_parsed) : chapterNum_parsed;
+                    document.title = `${data.title} - Chapter ${displayChapter} | GreedyComicHub`;
                 })
                 .catch(err => {
                     console.error('Error loading chapter:', err);
-                    document.getElementById('chapter-content').innerHTML = '<p>Error loading chapter.</p>';
+                    document.getElementById('reader').innerHTML = '<p style="text-align: center; padding: 40px;">Error loading chapter.</p>';
                 });
         } else {
-            document.getElementById('chapter-content').innerHTML = '<p>Invalid comic or chapter.</p>';
+            document.getElementById('reader').innerHTML = '<p style="text-align: center; padding: 40px;">Invalid comic or chapter.</p>';
         }
     </script>
 </body>

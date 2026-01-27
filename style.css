@@ -1,92 +1,181 @@
-/* style.css: Styling untuk semua halaman (diperbaiki, HP 3 komik 1 baris, kartu besar, ngepas ujung ke ujung) */
+/* style.css: Modernized Premium Dark Theme - GreedyComicHub */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg: #121212;
+    --bg-secondary: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --text: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --accent: #00d4ff;
+    --accent-hover: #00ffff;
+    --accent-dim: #0099cc;
+    --border: #333333;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+    
+    /* Light Mode */
+    --light-bg: #f8f9fa;
+    --light-bg-secondary: #ffffff;
+    --light-card-bg: #f0f2f5;
+    --light-text: #111111;
+    --light-text-secondary: #666666;
+    --light-accent: #0086d6;
+}
+
+/* Light Mode Toggle */
+body.light {
+    --bg: var(--light-bg);
+    --bg-secondary: var(--light-bg-secondary);
+    --card-bg: var(--light-card-bg);
+    --text: var(--light-text);
+    --text-secondary: var(--light-text-secondary);
+    --accent: var(--light-accent);
+    --accent-hover: #0066cc;
+    --accent-dim: #0052a3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     align-items: center;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
+/* Header - Premium Fixed Top */
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #111;
+    padding: 12px 20px;
+    background-color: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
     width: 100%;
-    max-width: 1200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
     box-sizing: border-box;
-    border-bottom: 2px solid #1e90ff;
 }
+
 .logo {
     margin: 0;
-    font-size: 2.2em;
-    color: #1e90ff;
+    font-size: 1.6em;
+    color: var(--accent);
     text-decoration: none;
-    transition: color 0.5s, text-shadow 0.5s;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
     display: inline-block;
-    animation: blink 1.5s infinite;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
 }
+
 .logo:hover {
-    color: #0066cc;
-    text-shadow: 0 0 15px #0066cc;
+    color: var(--accent-hover);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
 }
+
 .logo span {
-    color: #fff;
-    font-weight: bold;
-    animation: blink 1.5s infinite;
-}
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+    color: var(--text);
+    font-weight: 700;
 }
 .search-group {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    gap: 8px;
+    margin: 0 auto;
+    flex: 1;
+    max-width: 500px;
+    padding: 0 20px;
 }
-.genre-select {
-    padding: 8px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    background-color: #333;
-    color: #fff;
-    margin: 0;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.genre-select:hover {
-    background-color: #444;
-}
+
+.genre-select,
 .search-bar {
-    padding: 8px;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #333;
-    color: #fff;
-    width: 150px;
-    max-width: 100%;
-    margin: 0;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background-color: var(--card-bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9em;
+    font-family: 'Inter', sans-serif;
 }
+
+.genre-select:hover,
+.search-bar:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent);
+}
+
+.genre-select:focus,
+.search-bar:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.search-bar {
+    flex: 1;
+    min-width: 200px;
+}
+
 .search-bar::placeholder {
-    color: #bbb;
+    color: var(--text-secondary);
 }
-.histats-link {
-    margin-left: 15px;
+
+#theme-toggle {
     padding: 8px 12px;
-    background-color: #1e90ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.2s;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.1em;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#theme-toggle:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+
+.histats-link {
+    margin-left: 10px;
+    padding: 8px 12px;
+    background-color: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
 .histats-link:hover {
-    background-color: #0066cc;
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
 }
 
 /* Main Content */
@@ -94,79 +183,87 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 100px 20px 40px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Updates */
-#update-section {
-    padding: 0;
-    width: 100%;
-    max-width: 800px;
-}
-#update-section h2 {
-    font-size: 1.6em;
-    margin: 15px 0 8px;
-    color: #fff;
-    background-color: #1e1e90;
-    padding: 5px 10px;
-    display: inline-block;
-    border-radius: 4px;
-}
+/* Responsive Grid - Mobile First */
 .comic-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    padding-bottom: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%;
 }
+
+/* Comic Card - Premium Modern Design */
 .comic-card {
-    background: #222;
+    background: var(--card-bg);
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
     overflow: hidden;
     text-align: center;
-    transition: transform 0.2s;
-    min-width: 100px;
-    max-width: 120px;
-    padding: 5px 0;
-    height: 200px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
+
 .comic-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), var(--shadow-lg);
+    filter: brightness(1.1);
 }
+
+.comic-card:focus-within {
+    outline: 2px solid var(--accent);
+}
+
 .comic-card img {
     width: 100%;
-    height: 140px;
+    height: 220px;
     object-fit: cover;
-    max-width: 120px;
+    flex-shrink: 0;
 }
-.comic-card .card-text {
-    padding: 0 5px;
-    height: 50px;
-    background-color: #1e1e90;
+
+.card-text {
+    padding: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 60px;
 }
+
 .comic-card h3 {
-    font-size: 0.8em;
-    margin: 2px 0;
-    color: #fff;
+    font-size: 0.9em;
+    margin: 0;
+    color: var(--bg);
     word-wrap: break-word;
-    height: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
 }
+
 .comic-card .last-chapter {
     font-size: 0.75em;
-    color: #ddd;
-    margin: 2px 0;
-    height: 25px;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0;
+    font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .comic-card a {
     text-decoration: none;
     color: inherit;
@@ -176,175 +273,311 @@ body {
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin: 30px 0;
     align-items: center;
-}
-.page-btn {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #333;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 3px;
-}
-.page-btn.active {
-    background-color: #1e1e90;
-    font-weight: bold;
-}
-.page-btn:hover:not(.disabled) {
-    background-color: #444;
-}
-.page-btn.disabled {
-    background-color: #222;
-    cursor: not-allowed;
-    color: #666;
-}
-.ellipsis {
-    margin: 0 5px;
-    color: #ddd;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-/* No Updates Text */
+.page-btn {
+    padding: 8px 14px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.page-btn:hover:not(.disabled) {
+    background-color: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.page-btn.active {
+    background-color: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 700;
+}
+
+.page-btn.disabled {
+    background-color: var(--bg-secondary);
+    cursor: not-allowed;
+    color: var(--text-secondary);
+    border-color: var(--border);
+}
+
+.page-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.ellipsis {
+    margin: 0 4px;
+    color: var(--text-secondary);
+}
+
+/* Section Titles */
+#update-section,
+#comic-list-section {
+    width: 100%;
+    padding: 20px 0;
+}
+
+#update-section h2,
+#comic-list-section h2 {
+    font-size: 2em;
+    margin: 20px 0 30px;
+    color: var(--accent);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: left;
+}
+
 .no-updates {
     text-align: center;
-    padding: 10px;
-    color: #ddd;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+    font-size: 1.1em;
 }
 
-/* Halaman Detail */
+/* Comic Detail Page */
 #comic-detail {
-    max-width: 800px;
-    margin: 15px auto;
-    background: #222;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 100%;
+    margin: 100px auto 40px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
 }
+
 .comic-header {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
+
 .comic-header img {
-    max-width: 180px;
-    border-radius: 8px;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
 }
+
 .comic-info {
     flex: 1;
+    min-width: 250px;
 }
+
 .comic-info h1 {
-    margin: 0 0 8px;
+    margin: 0 0 12px;
     text-align: left;
-    color: #fff;
+    color: var(--accent);
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
 }
+
 .comic-info p {
-    margin: 5px 0;
-    color: #ddd;
+    margin: 10px 0;
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
+
 .comic-info a {
-    color: #1e90ff;
+    color: var(--accent);
     text-decoration: none;
+    transition: all 0.2s ease;
 }
+
 .comic-info a:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
+
+.comic-info a:focus-visible {
+    outline: 2px solid var(--accent);
+}
+
 #synopsis {
-    margin: 15px 0;
-    line-height: 1.6;
-    color: #ddd;
+    margin: 30px 0;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-size: 1em;
 }
+
 #latest-chapter-info {
-    margin: 10px 0;
-    font-size: 0.9em;
-    color: #ddd;
+    margin: 15px 0;
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
 }
+
 #latest-chapter-btn {
     display: inline-block;
-    margin: 10px 0;
-    padding: 6px 12px;
-    background: #1e90ff;
-    color: #fff;
+    margin: 15px 0 30px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: var(--bg);
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9em;
-    transition: background 0.2s;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
+
 #latest-chapter-btn:hover {
-    background: #0066cc;
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
+
+#latest-chapter-btn:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+#comic-detail h3 {
+    font-size: 1.3em;
+    margin: 30px 0 15px;
+    color: var(--accent);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
 #chapter-list {
-    margin-top: 15px;
+    margin-top: 20px;
 }
+
 .chapter-scroll {
-    max-height: 250px;
+    max-height: 400px;
     overflow-y: auto;
     padding-right: 8px;
 }
+
 .chapter-scroll::-webkit-scrollbar {
-    width: 6px;
-}
-.chapter-scroll::-webkit-scrollbar-thumb {
-    background: #1e90ff;
-    border-radius: 4px;
-}
-.chapter-scroll::-webkit-scrollbar-track {
-    background: #333;
-}
-.chapter-link {
-    margin: 5px 0;
-}
-.chapter-link a {
-    display: block;
-    padding: 8px;
-    background: #1e90ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.2s;
-}
-.chapter-link a:hover {
-    background: #0066cc;
+    width: 8px;
 }
 
-/* Halaman Chapter */
-#chapter-content {
-    max-width: 800px;
-    margin: 0 auto;
+.chapter-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
 }
-.chapter-nav {
-    margin: 15px 0;
-    text-align: center;
+
+.chapter-scroll::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
 }
-.chapter-nav a {
-    margin: 0 8px;
-    padding: 8px 12px;
-    background: #1e90ff;
-    color: #fff;
+
+.chapter-link {
+    margin: 8px 0;
+}
+
+.chapter-link a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    color: var(--text);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    font-weight: 500;
 }
+
+.chapter-link a:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-left-color: var(--accent-hover);
+    transform: translateX(4px);
+}
+
+.chapter-link a:focus-visible {
+    outline: 2px solid var(--accent);
+}
+
+/* Chapter Reader */
+#chapter-content {
+    max-width: 1000px;
+    width: 100%;
+    margin: 100px auto 40px;
+    padding: 20px;
+}
+
+#reader {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.chapter-nav {
+    margin: 20px 0;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapter-nav a {
+    padding: 10px 18px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .chapter-nav a:hover {
-    background: #0066cc;
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
+
+.chapter-nav a:focus-visible {
+    outline: 2px solid var(--text);
+}
+
 #chapter-images {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
+
 .image-frame {
-    max-width: 800px;
+    max-width: 100%;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
+    background: var(--bg-secondary);
 }
+
 .chapter-image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0;
     image-rendering: auto;
     margin: 0;
     pointer-events: none;
@@ -352,240 +585,337 @@ body {
     -webkit-user-drag: none;
 }
 
+/* Floating Chapter Navigation */
+.floating-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 100;
+    padding: 12px;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+}
+
+.floating-nav button {
+    padding: 10px 16px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-size: 0.95em;
+}
+
+.floating-nav button:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+.floating-nav button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    z-index: 999;
+    transition: width 0.2s ease;
+}
+
 /* Footer */
 footer {
     text-align: center;
-    padding: 15px;
-    background-color: #111;
-    margin-top: 15px;
+    padding: 30px 20px;
+    background-color: var(--bg-secondary);
+    margin-top: 60px;
     width: 100%;
-    max-width: 1200px;
+    border-top: 1px solid var(--border);
 }
+
 footer p {
-    margin: 0;
-    color: #ddd;
+    margin: 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.95em;
 }
 
-/* Fancy Titles */
-.fancy-title {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #ff6f61;
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-.fancy-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 4px;
-    background: linear-gradient(to right, #ff6f61, #ff8e53);
-    animation: glow 2s infinite alternate;
-}
-.fancy-type {
-    font-size: 2em;
-    font-weight: 600;
-    color: #2c3e50;
-    text-transform: capitalize;
-    position: relative;
-    padding: 5px 15px;
-    margin-bottom: 15px;
-    background: linear-gradient(to right, #ecf0f1, #bdc3c7);
-    border-radius: 10px;
-    display: inline-block;
-    animation: slideIn 1s ease-out;
-}
-.type-section {
-    margin-bottom: 30px;
+/* Scroll to Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
 
-/* Animations */
-@keyframes glow {
-    from { width: 50%; }
-    to { width: 100%; }
-}
-@keyframes slideIn {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+#scroll-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
 }
 
-/* Media Query (Diperbarui buat HP, 3 komik 1 baris, kartu besar, ngepas ujung ke ujung) */
+#scroll-to-top.show {
+    display: flex;
+}
+
+/* Responsive Design - Tablet */
+@media (min-width: 768px) {
+    .main-header {
+        padding: 14px 30px;
+    }
+    
+    .logo {
+        font-size: 1.8em;
+    }
+    
+    .comic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 24px;
+    }
+    
+    .comic-card {
+        height: 300px;
+    }
+    
+    .comic-card img {
+        height: 240px;
+    }
+}
+
+/* Responsive Design - Desktop */
+@media (min-width: 1024px) {
+    .main-header {
+        padding: 16px 40px;
+    }
+    
+    .comic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 28px;
+    }
+    
+    .comic-card {
+        height: 320px;
+    }
+    
+    .comic-card img {
+        height: 260px;
+    }
+    
+    #comic-detail {
+        padding: 50px;
+    }
+    
+    .comic-header {
+        gap: 40px;
+    }
+    
+    .comic-header img {
+        max-width: 250px;
+    }
+}
+
+/* Responsive Design - Large Desktop */
+@media (min-width: 1440px) {
+    .comic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 32px;
+    }
+    
+    .comic-card {
+        height: 340px;
+    }
+    
+    .comic-card img {
+        height: 280px;
+    }
+}
+
+/* Mobile-First: Small Screens */
 @media (max-width: 767px) {
     .main-header {
-        display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .logo {
-        font-size: 1.4em;
-        margin: 0;
-    }
-    .search-group {
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        width: auto;
-    }
-    .genre-select {
-        padding: 5px;
-        font-size: 0.75em;
-        border-radius: 5px 0 0 5px;
-        width: 70px;
-    }
-    .search-bar {
-        padding: 5px;
-        font-size: 0.75em;
-        width: 90px;
-        border-radius: 0 5px 5px 0;
-    }
-    .histats-link {
-        padding: 5px 8px;
-        font-size: 0.75em;
-        margin-left: 8px;
-    }
-    #update-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
-        gap: 4px !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    .type-section .comic-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr; /* Hanya 1 baris, 3 komik */
-        gap: 4px !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    .comic-card {
-        width: calc(100% / 3 - 8px) !important; /* Ngepas ujung ke ujung */
-        height: 180px !important; /* Kartu lebih besar */
-        padding: 5px 0;
-        margin: 0;
-    }
-    .comic-card img {
-        height: 120px !important; /* Gambar lebih besar */
-        width: 100% !important;
-        max-width: none !important;
-    }
-    .comic-card .card-text {
-        height: 50px;
-    }
-    .comic-card h3 {
-        font-size: 0.75em;
-        height: 25px;
-    }
-    .comic-card .last-chapter {
-        font-size: 0.7em;
-        height: 25px;
-    }
-    .main-content {
-        max-width: 100%;
-        padding: 5px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    #update-section {
-        max-width: 100%;
-        padding: 5px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    #comic-detail {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .comic-header {
-        flex-direction: column;
-        align-items: center;
-    }
-    .comic-header img {
-        max-width: 120px;
-    }
-    .comic-info h1 {
-        font-size: 1.2em;
-    }
-    .comic-info p {
-        font-size: 0.9em;
-    }
-    #synopsis {
-        font-size: 0.9em;
-    }
-    .chapter-scroll {
-        max-height: 200px;
-    }
-    .chapter-link a {
-        font-size: 0.9em;
-        padding: 6px;
-    }
-    #chapter-content {
-        max-width: 100%;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .image-frame {
-        max-width: 100%;
-        width: 100%;
-    }
-    .chapter-nav a {
-        display: block;
-        margin: 5px 0;
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 1024px) {
-    .comic-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        padding: 10px;
         gap: 10px;
     }
+    
+    .logo {
+        font-size: 1.2em;
+        flex: 0 1 auto;
+    }
+    
+    .search-group {
+        order: 3;
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 0;
+        gap: 6px;
+    }
+    
+    .genre-select,
+    .search-bar {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    #theme-toggle {
+        order: 2;
+        margin: 0;
+        flex: 0 1 auto;
+    }
+    
+    .histats-link {
+        order: 4;
+        display: none;
+    }
+    
+    .main-content {
+        padding: 100px 15px 30px;
+    }
+    
+    #update-section,
+    #comic-list-section {
+        padding: 10px 0;
+    }
+    
+    #update-section h2,
+    #comic-list-section h2 {
+        font-size: 1.5em;
+        margin: 15px 0 20px;
+    }
+    
+    .comic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 10px 0;
+    }
+    
     .comic-card {
-        min-width: 90px;
-        max-width: 110px;
+        height: 240px;
+    }
+    
+    .comic-card img {
         height: 180px;
     }
-    .comic-card img {
-        height: 120px;
-        max-width: 110px;
+    
+    .card-text {
+        min-height: 55px;
+        padding: 8px;
     }
-    .comic-card .card-text {
-        height: 50px;
-    }
+    
     .comic-card h3 {
-        height: 25px;
+        font-size: 0.8em;
+        -webkit-line-clamp: 2;
     }
+    
     .comic-card .last-chapter {
-        height: 25px;
+        font-size: 0.7em;
     }
-    .main-content {
-        max-width: 1000px;
-    }
+    
     #comic-detail {
-        max-width: 600px;
+        margin: 100px 0 30px;
+        padding: 20px;
+        max-width: 100%;
     }
+    
     .comic-header {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
+    
     .comic-header img {
         max-width: 150px;
     }
-    #chapter-content {
-        max-width: 600px;
+    
+    .comic-info h1 {
+        font-size: 1.4em;
+        text-align: center;
     }
+    
+    .comic-info p {
+        text-align: center;
+        font-size: 0.9em;
+    }
+    
+    #synopsis {
+        font-size: 0.95em;
+        text-align: justify;
+    }
+    
+    #chapter-content {
+        margin: 100px 0 30px;
+        padding: 12px;
+    }
+    
+    .chapter-nav {
+        margin: 15px 0;
+        gap: 6px;
+    }
+    
+    .chapter-nav a {
+        padding: 8px 14px;
+        font-size: 0.85em;
+    }
+    
+    .floating-nav {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+    
+    .floating-nav button {
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+    
+    #scroll-to-top {
+        width: 44px;
+        height: 44px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2em;
+    }
+}
+
+/* Accessibility */
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button, a {
+    transition: all 0.2s ease;
 }

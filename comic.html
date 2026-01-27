@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<!-- comic.html: Tampilkan detail komik dari data/<comic>.json -->
+<!-- comic.html: Comic detail page from data/<comic>.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Details</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Comic Details - GreedyComicHub</title>
+    <meta name="description" content="Read detailed information about your favorite comics on GreedyComicHub.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
     <header class="main-header">
         <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
-        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
-    </header>
-    <div id="comic-detail">
-        <div class="comic-header">
-            <img id="cover" src="" alt="Comic Cover" oncontextmenu="return false;" draggable="false">
-            <div class="comic-info">
-                <h1 id="comic-title"></h1>
-                <p id="genre"></p>
-                <p id="type"></p>
-                <p id="author"></p>
-            </div>
+        <div class="search-group" style="flex: 1; max-width: 500px;">
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search comics..." aria-label="Search comics">
         </div>
-        <p id="synopsis"></p>
-        <p id="latest-chapter-info" class="last-chapter" style="margin: 10px 0; display: none;"></p>
-        <a id="latest-chapter-btn" class="chapter-link" href="#" style="display: none;">Chapter </a>
-        <h3>Chapters</h3>
-        <div id="chapter-list" class="chapter-scroll"></div>
-    </div>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">🌙</button>
+    </header>
+    
+    <main class="main-content">
+        <article id="comic-detail">
+            <div class="comic-header">
+                <img id="cover" src="" alt="Comic Cover" loading="lazy" oncontextmenu="return false;" draggable="false">
+                <div class="comic-info">
+                    <h1 id="comic-title"></h1>
+                    <p id="genre"></p>
+                    <p id="type"></p>
+                    <p id="author"></p>
+                </div>
+            </div>
+            <p id="synopsis"></p>
+            <p id="latest-chapter-info" style="display: none;"></p>
+            <a id="latest-chapter-btn" href="#" style="display: none;"></a>
+            <h3>Chapters</h3>
+            <div id="chapter-list" class="chapter-scroll"></div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 GreedyComicHub. All rights reserved.</p>
+    </footer>
+    
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Back to top">↑</button>
+    
+    <script src="script.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const comicId = params.get('comic');
+        
         if (comicId) {
             fetch(`data/${comicId}.json`)
                 .then(res => {
@@ -40,42 +59,53 @@
                 .then(data => {
                     document.getElementById('cover').src = data.cover || 'placeholder.jpg';
                     document.getElementById('comic-title').textContent = data.title || 'Unknown Title';
+                    
                     const genreElement = document.getElementById('genre');
                     const genre = data.genre || 'Unknown Genre';
-                    genreElement.innerHTML = `Genre: <a href="genre.html?genre=${encodeURIComponent(genre)}">${genre}</a>`;
-                    document.getElementById('type').textContent = `Type: ${data.type || 'Unknown Type'}`;
-                    document.getElementById('author').textContent = `Author: ${data.author || 'Unknown Author'}`;
-                    document.getElementById('synopsis').textContent = `Synopsis: ${data.synopsis || 'No synopsis available.'}`;
+                    genreElement.innerHTML = `<strong>Genre:</strong> <a href="genre.html?genre=${encodeURIComponent(genre)}">${genre}</a>`;
+                    
+                    document.getElementById('type').innerHTML = `<strong>Type:</strong> ${data.type || 'Unknown Type'}`;
+                    document.getElementById('author').innerHTML = `<strong>Author:</strong> ${data.author || 'Unknown Author'}`;
+                    document.getElementById('synopsis').innerHTML = `<strong>Synopsis:</strong> ${data.synopsis || 'No synopsis available.'}`;
+                    
                     const chapterList = document.getElementById('chapter-list');
-                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => a - b);
+                    const chapters = Object.keys(data.chapters || {}).sort((a, b) => parseFloat(a) - parseFloat(b));
+                    
                     if (chapters.length === 0) {
                         chapterList.innerHTML = '<p>No chapters available.</p>';
                     } else {
                         chapters.forEach(chapter => {
                             const link = document.createElement('div');
                             link.className = 'chapter-link';
-                            link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${chapter}</a>`;
+                            const chapterNum = parseFloat(chapter);
+                            const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
+                            link.innerHTML = `<a href="chapter.html?comic=${comicId}&chapter=${chapter}">Chapter ${displayChapter}</a>`;
                             chapterList.appendChild(link);
                         });
-                        // Tambah info dan tombol chapter terakhir
+                        
+                        // Latest chapter info and button
                         const latestChapterInfo = document.getElementById('latest-chapter-info');
                         const latestChapterBtn = document.getElementById('latest-chapter-btn');
                         const latestChapter = chapters[chapters.length - 1];
-                        latestChapterInfo.textContent = `Latest: Chapter ${latestChapter}`;
+                        const latestChapterNum = parseFloat(latestChapter);
+                        const displayLatest = latestChapterNum % 1 === 0 ? Math.floor(latestChapterNum) : latestChapterNum;
+                        
+                        latestChapterInfo.textContent = `Latest Chapter: ${displayLatest}`;
                         latestChapterInfo.style.display = 'block';
-                        latestChapterBtn.textContent = `Chapter ${latestChapter}`;
+                        latestChapterBtn.textContent = `Read Latest Chapter (${displayLatest})`;
                         latestChapterBtn.href = `chapter.html?comic=${comicId}&chapter=${latestChapter}`;
                         latestChapterBtn.style.display = 'inline-block';
                     }
-                    // Disable klik kanan global
+                    
+                    // Disable right-click globally
                     document.addEventListener('contextmenu', e => e.preventDefault());
                 })
                 .catch(err => {
                     console.error('Error loading comic details:', err);
-                    document.getElementById('comic-detail').innerHTML = '<p>Error loading comic details.</p>';
+                    document.getElementById('comic-detail').innerHTML = '<p style="text-align: center; padding: 40px;">Error loading comic details.</p>';
                 });
         } else {
-            document.getElementById('comic-detail').innerHTML = '<p>Invalid comic ID.</p>';
+            document.getElementById('comic-detail').innerHTML = '<p style="text-align: center; padding: 40px;">Invalid comic ID.</p>';
         }
     </script>
 </body>

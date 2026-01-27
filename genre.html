@@ -1,25 +1,49 @@
 <!DOCTYPE html>
-<!-- genre.html: Tampilkan daftar komik berdasarkan genre -->
+<!-- genre.html: Browse comics by genre -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comics by Genre</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Histats Start -->
+    <title>Comics by Genre - GreedyComicHub</title>
+    <meta name="description" content="Browse comics by genre on GreedyComicHub.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <!-- Histats Analytics -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
-    <!-- Histats End -->
 </head>
 <body>
-    <a href="index.html" class="back-link">Back to Home</a>
-    <h1 id="genre-title"></h1>
-    <div id="comic-list"></div>
+    <header class="main-header">
+        <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
+        <div class="search-group" style="flex: 1; max-width: 500px;">
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search comics..." aria-label="Search comics">
+        </div>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">🌙</button>
+    </header>
+    
+    <main class="main-content">
+        <h1 id="genre-title" style="font-size: 2.2em; margin: 120px 0 40px; text-align: center; color: var(--accent); font-family: 'Poppins', sans-serif; font-weight: 700;"></h1>
+        <div id="comic-list" class="comic-grid"></div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 GreedyComicHub. All rights reserved.</p>
+    </footer>
+    
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Back to top">↑</button>
+    
+    <script src="script.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const genre = params.get('genre');
+        
         if (genre) {
-            document.getElementById('genre-title').textContent = `Comics in ${decodeURIComponent(genre)}`;
+            const decodedGenre = decodeURIComponent(genre);
+            document.title = `${decodedGenre} Comics | GreedyComicHub`;
+            document.getElementById('genre-title').textContent = `${decodedGenre}`;
+            
             fetch('data/index.json')
                 .then(res => {
                     if (!res.ok) throw new Error('Failed to load index.json');
@@ -28,33 +52,40 @@
                 .then(data => {
                     const comicList = document.getElementById('comic-list');
                     let hasComics = false;
+                    
                     for (let comicId in data) {
                         const comic = data[comicId];
-                        if (comic.genre && comic.genre.toLowerCase() === genre.toLowerCase()) {
+                        if (comic.genre && comic.genre.toLowerCase() === decodedGenre.toLowerCase()) {
                             hasComics = true;
                             const card = document.createElement('div');
                             card.className = 'comic-card';
                             card.innerHTML = `
                                 <a href="comic.html?comic=${comicId}">
-                                    <img src="${comic.cover}" alt="${comic.title}" oncontextmenu="return false;" draggable="false">
-                                    <h2>${comic.title}</h2>
+                                    <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" loading="lazy" oncontextmenu="return false;" draggable="false">
+                                    <div class="card-text">
+                                        <h3>${comic.title}</h3>
+                                        <p class="last-chapter">${comic.genre}</p>
+                                    </div>
                                 </a>
                             `;
                             comicList.appendChild(card);
                         }
                     }
+                    
                     if (!hasComics) {
-                        comicList.innerHTML = '<p>No comics found for this genre.</p>';
+                        comicList.innerHTML = '<p class="no-updates" style="grid-column: 1 / -1;">No comics found for this genre.</p>';
                     }
-                    // Disable klik kanan global
+                    
+                    // Disable right-click globally
                     document.addEventListener('contextmenu', e => e.preventDefault());
                 })
                 .catch(err => {
                     console.error('Error loading comics:', err);
-                    document.getElementById('comic-list').innerHTML = '<p>Error loading comics.</p>';
+                    document.getElementById('comic-list').innerHTML = '<p class="no-updates" style="grid-column: 1 / -1;">Error loading comics.</p>';
                 });
         } else {
-            document.getElementById('comic-list').innerHTML = '<p>Invalid genre.</p>';
+            document.getElementById('genre-title').textContent = 'Invalid Genre';
+            document.getElementById('comic-list').innerHTML = '<p class="no-updates" style="grid-column: 1 / -1;">Invalid genre specified.</p>';
         }
     </script>
 </body>

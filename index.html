@@ -1,55 +1,66 @@
 <!DOCTYPE html>
-<!-- index.html: Halaman utama menampilkan semua komik dari data/index.json dan update dari data/updates.json -->
+<!-- index.html: Homepage with comics from data/index.json and updates from data/updates.json -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="gYzqR5FT6BN_7xVgfMnzNsaEOBA_ojcYypM_knTHWow" />
-    <title>GreedyComicHub - Baca Komik Online Gratis</title>
-    <meta name="description" content="GreedyComicHub adalah tempat baca komik online gratis. Temukan komik favoritmu seperti Magic Emperor di Greedy Comic Hub!">
-    <meta name="keywords" content="greedycomichub, greedy comic, greedy comichub, greedy comic hub, baca komik online, komik gratis">
+    <title>GreedyComicHub - Read Comics Online Free</title>
+    <meta name="description" content="GreedyComicHub is your free online comic reading destination. Discover and read your favorite comics!">
+    <meta name="keywords" content="greedycomichub, greedy comic, comic reading, manga, webtoon, free comics online">
     <meta name="robots" content="index, follow">
     <meta name="author" content="GreedyComicHub Team">
-    <link rel="stylesheet" href="style.css?v=1">
-    <!-- Histats Start -->
+    <meta name="theme-color" content="#121212">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <!-- Histats Analytics -->
     <script type="text/javascript" src="https://s10.histats.com/js15.js" async></script>
     <noscript><a href="https://www.histats.com" target="_blank"><img src="https://s10.histats.com/counters/cc_4960328.php" alt="web stats" border="0"></a></noscript>
-    <!-- Histats End -->
 </head>
 <body>
     <header class="main-header">
         <a href="index.html" class="logo">Greedy<span>Comic</span>Hub</a>
         <div class="search-group">
-            <select id="genre-filter" class="genre-select"></select>
-            <input type="text" id="search-bar" class="search-bar" placeholder="Search comics by title or genre...">
+            <select id="genre-filter" class="genre-select" aria-label="Filter by genre"></select>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search comics..." aria-label="Search comics">
         </div>
-        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link">Histats</a>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">🌙</button>
+        <a href="https://www.histats.com/viewstats/?act=2&sid=4960328" target="_blank" class="histats-link" aria-label="View statistics">Stats</a>
     </header>
+    
     <main class="main-content">
         <section id="update-section">
-            <h2 class="fancy-title">Update</h2>
+            <h2>Latest Updates</h2>
             <div id="update-list" class="comic-grid"></div>
-            <div id="update-pagination" class="pagination"></div>
+            <div id="update-pagination" class="pagination" role="navigation" aria-label="Update pagination"></div>
         </section>
+        
         <section id="comic-list-section">
-            <h2 class="fancy-title">Komik</h2>
+            <h2>All Comics</h2>
             <div id="comic-list"></div>
         </section>
     </main>
+    
     <footer>
-        <p>© 2025 GreedyComicHub. All rights reserved.</p>
+        <p>&copy; 2025 GreedyComicHub. All rights reserved.</p>
     </footer>
+    
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Back to top">↑</button>
+    
+    <script src="script.js"></script>
     <script>
         let allComics = [];
         let updatesData = {};
-        let currentPages = { updates: 1, comics: {} }; // Page buat updates dan comics per tipe
-        const isMobile = window.innerWidth <= 600; // Cek apakah HP
-        const comicsPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
-        const updatesPerPage = isMobile ? 3 : 10; // 3 di HP, 10 di desktop
-        let originalComics = []; // Simpan komik asli
-        let comicChapterCache = {}; // Cache buat chapter data
+        let currentPages = { updates: 1, comics: {} };
+        const isMobile = window.innerWidth <= 600;
+        const comicsPerPage = isMobile ? 3 : 10;
+        const updatesPerPage = isMobile ? 3 : 10;
+        let originalComics = [];
+        let comicChapterCache = {};
 
-        // Ambil index.json dan updates.json sekali aja di awal
+        // Load data on page start
         Promise.all([
             fetch('data/index.json').then(res => res.json()),
             fetch('data/updates.json').then(res => res.json())
@@ -63,6 +74,7 @@
                 if (!acc.comics[type]) acc.comics[type] = 1;
                 return acc;
             }, { updates: 1, comics: {} });
+            
             // Pre-fetch chapter data
             allComics.forEach(comic => {
                 fetch(`data/${comic.id}.json`)
@@ -72,13 +84,13 @@
                     })
                     .catch(err => console.error(`Error fetching ${comic.id}:`, err));
             });
+            
             populateGenreFilter();
             renderComics();
             renderUpdates();
         })
         .catch(err => console.error('Error loading data:', err));
 
-        // Fungsi untuk populate dropdown genre
         function populateGenreFilter() {
             const genreFilter = document.getElementById('genre-filter');
             const genres = new Set(allComics.map(comic => comic.genre).filter(genre => genre));
@@ -105,7 +117,7 @@
             });
         }
 
-        // Render komik utama dengan paginasi dinamis
+        // Render main comics with pagination
         function renderComics() {
             const comicList = document.getElementById('comic-list');
             comicList.innerHTML = '';
@@ -118,7 +130,7 @@
             Object.keys(comicsByType).forEach(type => {
                 const typeSection = document.createElement('div');
                 typeSection.className = 'type-section';
-                typeSection.innerHTML = `<h2 class="fancy-type">${type}</h2>`;
+                typeSection.innerHTML = `<h3 style="font-size: 1.5em; margin: 30px 0 20px; color: var(--accent); font-family: 'Poppins', sans-serif; font-weight: 700;">${type}</h3>`;
                 const typeGrid = document.createElement('div');
                 typeGrid.className = 'comic-grid';
                 const startIndex = (currentPages.comics[type] - 1) * comicsPerPage;
@@ -128,10 +140,10 @@
                     const card = document.createElement('div');
                     card.id = `comic-card-${comic.id}`;
                     card.className = 'comic-card';
-                    const latestChapter = comicChapterCache[comic.id] || 'N/A'; // Pake cache
+                    const latestChapter = comicChapterCache[comic.id] || 'N/A';
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
-                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover">
+                            <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover" loading="lazy">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
                                 <p class="last-chapter">${latestChapter}</p>
@@ -152,7 +164,7 @@
             });
         }
 
-        // Render update dengan paginasi dinamis
+        // Render updates with pagination
         function renderUpdates() {
             const updateList = document.getElementById('update-list');
             const updatePagination = document.getElementById('update-pagination');
@@ -175,10 +187,11 @@
                     const chapterNum = parseFloat(update.chapter);
                     const displayChapter = chapterNum % 1 === 0 ? Math.floor(chapterNum) : chapterNum;
                     card.innerHTML = `
-                        <a href="comic.html?comic=${update.comic_id}&chapter=${update.chapter}">
-                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover">
+                        <a href="comic.html?comic=${update.comic_id}">
+                            <img src="${update.thumbnail || 'placeholder.jpg'}" alt="${update.title} - GreedyComicHub" class="comic-cover" loading="lazy">
                             <div class="card-text">
-                                <h3>${update.title} - Ch ${displayChapter}</h3>
+                                <h3>${update.title}</h3>
+                                <p class="last-chapter">Ch ${displayChapter}</p>
                             </div>
                         </a>
                     `;
@@ -188,25 +201,23 @@
                 const totalPages = Math.ceil(recentUpdates.length / updatesPerPage);
                 renderDynamicPagination(updatePagination, totalPages, currentPages.updates, 'updates', 'updates');
             } else {
-                updateList.innerHTML = '<p class="no-updates">Belum ada update baru.</p>';
+                updateList.innerHTML = '<p class="no-updates">No recent updates.</p>';
             }
         }
 
-        // Fungsi paginasi dinamis
+        // Dynamic pagination function
         function renderDynamicPagination(paginationElement, totalPages, currentPage, sectionKey, sectionType = 'updates') {
             paginationElement.innerHTML = '';
-            const visiblePages = 5; // Tampilkan 5 halaman
+            const visiblePages = 5;
             let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
             let endPage = Math.min(totalPages, startPage + visiblePages - 1);
 
-            // Adjust kalau mendekati akhir
             if (endPage - startPage < visiblePages - 1) {
                 startPage = Math.max(1, endPage - visiblePages + 1);
             }
 
-            // Tombol Previous
             const prevButton = document.createElement('button');
-            prevButton.textContent = '<';
+            prevButton.textContent = '←';
             prevButton.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
             prevButton.addEventListener('click', () => {
                 if (currentPage > 1) {
@@ -221,7 +232,6 @@
             });
             paginationElement.appendChild(prevButton);
 
-            // Ellipsis kiri kalau startPage > 1
             if (startPage > 1) {
                 const ellipsisLeft = document.createElement('span');
                 ellipsisLeft.textContent = '...';
@@ -229,7 +239,6 @@
                 paginationElement.appendChild(ellipsisLeft);
             }
 
-            // Render nomor halaman
             for (let i = startPage; i <= endPage; i++) {
                 const pageButton = document.createElement('button');
                 pageButton.textContent = i;
@@ -246,7 +255,6 @@
                 paginationElement.appendChild(pageButton);
             }
 
-            // Ellipsis kanan kalau endPage < totalPages
             if (endPage < totalPages) {
                 const ellipsisRight = document.createElement('span');
                 ellipsisRight.textContent = '...';
@@ -254,9 +262,8 @@
                 paginationElement.appendChild(ellipsisRight);
             }
 
-            // Tombol Next
             const nextButton = document.createElement('button');
-            nextButton.textContent = '>';
+            nextButton.textContent = '→';
             nextButton.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
             nextButton.addEventListener('click', () => {
                 if (currentPage < totalPages) {
@@ -272,7 +279,7 @@
             paginationElement.appendChild(nextButton);
         }
 
-        // Search bar
+        // Search functionality
         document.getElementById('search-bar').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (!query) {
