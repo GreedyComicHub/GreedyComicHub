@@ -1,9 +1,9 @@
 import logging
 import time
 import os
-from add_comic import add_comic
-from update_comic import update_comic
-from utils import read_json, write_json, QUEUE_FILE, LOG_DIR
+from .add_comic import add_comic
+from .update_comic import update_comic
+from .utils import read_json, write_json, QUEUE_FILE, LOG_DIR
 
 def process_queue(max_tasks=10):
     logging.info(f"Memproses queue (max {max_tasks} tugas)...")

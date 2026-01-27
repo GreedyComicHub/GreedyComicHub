@@ -4,9 +4,9 @@ import os
 import subprocess
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
-from scraper import scrape_chapter_list, scrape_chapter_images
-from update_comic import get_comic_id_from_url
+from .utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
+from .scraper import scrape_chapter_list, scrape_chapter_images
+from .update_comic import get_comic_id_from_url
 from datetime import datetime
 
 def update_all_chapters(start=None, overwrite=False):

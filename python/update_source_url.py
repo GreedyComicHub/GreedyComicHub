@@ -1,6 +1,6 @@
 import logging
 import os
-from utils import read_json, write_json, DATA_DIR
+from .utils import read_json, write_json, DATA_DIR
 
 def update_source_url(old_url, new_url):
     logging.info(f"Mengganti URL dari {old_url} ke {new_url}...")

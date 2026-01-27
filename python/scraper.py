@@ -4,7 +4,7 @@ import requests
 from typing import Tuple, Dict, List, Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
-from utils import fetch_page, paraphrase_synopsis
+from .utils import fetch_page, paraphrase_synopsis
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",

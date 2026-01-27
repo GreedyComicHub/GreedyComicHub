@@ -3,8 +3,8 @@ import logging
 from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from utils import fetch_page, read_json, write_json, DATA_DIR, get_comic_id_from_url
-from scraper import scrape_chapter_images
+from .utils import fetch_page, read_json, write_json, DATA_DIR, get_comic_id_from_url
+from .scraper import scrape_chapter_images
 
 def update_comic(url: str, start: float, end: float, overwrite: bool = False) -> Optional[bool]:
     """Update comic chapters in range.

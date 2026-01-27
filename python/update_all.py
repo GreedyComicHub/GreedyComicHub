@@ -2,9 +2,9 @@
 import logging
 import os
 import subprocess
-from scraper import scrape_chapter_list
-from update_comic import update_comic
-from utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
+from .scraper import scrape_chapter_list
+from .update_comic import update_comic
+from .utils import read_json, write_json, fetch_page, DATA_DIR, push_to_github
 from bs4 import BeautifulSoup
 from datetime import datetime
 

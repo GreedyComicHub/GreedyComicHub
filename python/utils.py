@@ -9,22 +9,72 @@ from filelock import FileLock
 from typing import Dict, Any, Optional
 from urllib.parse import urlparse, parse_qs, urlencode
 
-# Direktori
-DATA_DIR = "data"
-TEMP_IMAGES_DIR = "temp_images"
-LOG_DIR = "logs"
-QUEUE_FILE = "queue.json"
+# Root directory and paths
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(ROOT_DIR, "config.ini")
+
+# Direktori - relative to ROOT
+DATA_DIR = os.path.join(ROOT_DIR, "data")
+TEMP_IMAGES_DIR = os.path.join(ROOT_DIR, "temp_images")
+LOG_DIR = os.path.join(ROOT_DIR, "logs")
+QUEUE_FILE = os.path.join(ROOT_DIR, "queue.json")
 
 # Setup direktori
 for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-# Load konfigurasi
-config = ConfigParser()
-config.read("config.ini")
-GITHUB_TOKEN = config.get("GitHub", "GitHubToken")
-GITHUB_REPO = config.get("GitHub", "GitHubRepo")
+# Load konfigurasi - robust with fallback
+def _load_github_credentials():
+    """Load GitHub credentials from env var or config.ini with robust fallback."""
+    # Try environment variable first
+    github_token = os.getenv("GITHUB_TOKEN")
+    if github_token:
+        logging.info(f"✓ Loaded GitHub token from environment variable GITHUB_TOKEN")
+        return github_token, None
+    
+    # Try config.ini
+    if not os.path.exists(CONFIG_PATH):
+        error_msg = (
+            f"\n❌ Config file not found at: {CONFIG_PATH}\n"
+            f"Please create config.ini in the root repo with:\n"
+            f"[GitHub]\n"
+            f"GitHubToken=your_personal_access_token\n"
+            f"GitHubRepo=owner/repo\n"
+            f"\nOR set environment variable: GITHUB_TOKEN=your_token"
+        )
+        raise FileNotFoundError(error_msg)
+    
+    config = ConfigParser()
+    config.read(CONFIG_PATH)
+    
+    try:
+        github_token = config.get("GitHub", "GitHubToken")
+        logging.info(f"✓ Loaded GitHub token from config.ini at: {CONFIG_PATH}")
+        return github_token, config
+    except Exception as e:
+        error_msg = (
+            f"\n❌ Failed to load GitHub credentials from {CONFIG_PATH}\n"
+            f"Error: {e}\n"
+            f"Ensure config.ini has:\n"
+            f"[GitHub]\n"
+            f"GitHubToken=your_token\n"
+            f"GitHubRepo=owner/repo\n"
+            f"\nOR set environment variable: GITHUB_TOKEN"
+        )
+        raise ValueError(error_msg) from e
+
+# Load credentials
+try:
+    GITHUB_TOKEN, _config = _load_github_credentials()
+    if _config:
+        GITHUB_REPO = _config.get("GitHub", "GitHubRepo", fallback="")
+    else:
+        GITHUB_REPO = os.getenv("GITHUB_REPO", "GreedyComicHub/GreedyComicHub")
+except (FileNotFoundError, ValueError) as e:
+    logging.error(str(e))
+    GITHUB_TOKEN = None
+    GITHUB_REPO = None
 
 def setup_logging():
     LOG_FILE = os.path.join(LOG_DIR, "update.log")

@@ -2,13 +2,20 @@
 import argparse
 import logging
 import os
+import sys
 import json
-from add_comic import add_comic
-from update_all import update_all
-from update_comic import update_comic
-from update_source_url import update_source_url
-from list_comics import list_comics
-from utils import read_json, write_json, setup_logging, DATA_DIR
+from .add_comic import add_comic
+from .update_all import update_all
+from .update_comic import update_comic
+from .update_source_url import update_source_url
+from .list_comics import list_comics
+from .utils import read_json, write_json, setup_logging, DATA_DIR, ROOT_DIR, CONFIG_PATH
+
+# Setup logging immediately
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def update_domain(old_domain, new_domain):
     """Update domain untuk semua komik di index.json dan file JSON komik."""
@@ -71,62 +78,92 @@ def update_path(old_url, new_url):
 
 def main():
     setup_logging()
-    parser = argparse.ArgumentParser(description="GreedyComicHub CLI")
-    subparsers = parser.add_subparsers(dest="command")
+    
+    # Debug info
+    logging.info(f"Working directory: {os.getcwd()}")
+    logging.info(f"Root directory: {ROOT_DIR}")
+    logging.info(f"Config file: {CONFIG_PATH}")
+    logging.info(f"Data directory: {DATA_DIR}")
+    
+    parser = argparse.ArgumentParser(
+        description="GreedyComicHub CLI - Scraper & Manager untuk Komik",
+        epilog="""
+Contoh penggunaan:
+  python -m python main add-comic https://komiku.org/manga/hell-mode-yarikomi-suki-no-gamer/
+  python -m python main update-all
+  python -m python main update-chapters
+  python -m python main list-comics --limit 10
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Command yang tersedia")
+    
     # Parser untuk add-comic
-    add_parser = subparsers.add_parser("add-comic", help="Tambah komik baru")
-    add_parser.add_argument("url", help="URL komik di komiku.org")
+    add_parser = subparsers.add_parser("add-comic", help="Tambah komik baru dari URL")
+    add_parser.add_argument("url", help="URL komik di komiku.org (contoh: https://komiku.org/manga/hell-mode/)")
+    
     # Parser untuk update-all
-    update_all_parser = subparsers.add_parser("update-all", help="Update semua komik")
+    update_all_parser = subparsers.add_parser("update-all", help="Update chapter terbaru untuk semua komik")
+    
+    # Parser untuk update-chapters
+    update_chapters_parser = subparsers.add_parser("update-chapters", help="Update ALL chapters untuk semua komik (batch)")
+    update_chapters_parser.add_argument("--start", type=float, help="Chapter mulai (opsional)")
+    update_chapters_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter yang sudah ada")
+    
     # Parser untuk update
-    update_parser = subparsers.add_parser("update", help="Update chapter tertentu")
+    update_parser = subparsers.add_parser("update", help="Update chapter spesifik dari URL komik")
     update_parser.add_argument("url", help="URL komik")
     update_parser.add_argument("--start", type=float, required=True, help="Chapter mulai")
     update_parser.add_argument("--end", type=float, required=True, help="Chapter akhir")
-    update_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter")
+    update_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter yang sudah ada")
+    
     # Parser untuk update-source-url
-    source_url_parser = subparsers.add_parser("update-source-url", help="Ganti URL lama ke URL baru")
+    source_url_parser = subparsers.add_parser("update-source-url", help="Ganti source URL dari komik")
     source_url_parser.add_argument("old_url", help="URL lama")
     source_url_parser.add_argument("new_url", help="URL baru")
+    
     # Parser untuk update-domain
-    domain_parser = subparsers.add_parser("update-domain", help="Ganti domain semua komik")
-    domain_parser.add_argument("old_domain", help="Domain lama (misalnya, komiku.org)")
-    domain_parser.add_argument("new_domain", help="Domain baru (misalnya, komiku.id)")
+    domain_parser = subparsers.add_parser("update-domain", help="Ganti domain untuk semua komik")
+    domain_parser.add_argument("old_domain", help="Domain lama (misalnya: komiku.org)")
+    domain_parser.add_argument("new_domain", help="Domain baru (misalnya: komiku.id)")
+    
     # Parser untuk update-path
     path_parser = subparsers.add_parser("update-path", help="Ganti source_url komik spesifik")
     path_parser.add_argument("old_url", help="URL komik yang error")
     path_parser.add_argument("new_url", help="URL komik yang baru")
+    
     # Parser untuk list-comics
-    list_comics_parser = subparsers.add_parser("list-comics", help="List komik yang sudah ada dan belum ada di komiku.org")
-    list_comics_parser.add_argument('--limit', type=int, help="Jumlah komik yang ditampilkan (contoh: --limit 5)")
-    # Parser untuk update-chapters (baru)
-    update_chapters_parser = subparsers.add_parser("update-chapters", help="Update semua chapter untuk semua komik")
-    update_chapters_parser.add_argument("--start", type=float, help="Chapter mulai (opsional)")
-    update_chapters_parser.add_argument("--overwrite", action="store_true", help="Overwrite chapter")
-    # Parser untuk help
-    help_parser = subparsers.add_parser("help", help="Tampilkan bantuan")
+    list_comics_parser = subparsers.add_parser("list-comics", help="List komik (sudah ada vs belum ada)")
+    list_comics_parser.add_argument('--limit', type=int, help="Batasi jumlah komik (contoh: --limit 5)")
+    
     args = parser.parse_args()
-    if args.command == "add-comic":
-        add_comic(args.url)
-    elif args.command == "update-all":
-        update_all()
-    elif args.command == "update":
-        update_comic(args.url, args.start, args.end, args.overwrite)
-    elif args.command == "update-source-url":
-        update_source_url(args.old_url, args.new_url)
-    elif args.command == "update-domain":
-        update_domain(args.old_domain, args.new_domain)
-    elif args.command == "update-path":
-        update_path(args.old_url, args.new_url)
-    elif args.command == "list-comics":
-        list_comics(args.limit)
-    elif args.command == "update-chapters":
-        from update_chapters import update_all_chapters
-        update_all_chapters(args.start, args.overwrite)
-    elif args.command == "help" or not args.command:
+    
+    if not args.command:
         parser.print_help()
-    else:
-        parser.print_help()
+        return
+    
+    try:
+        logging.info(f"Executing command: {args.command}")
+        if args.command == "add-comic":
+            add_comic(args.url)
+        elif args.command == "update-all":
+            update_all()
+        elif args.command == "update":
+            update_comic(args.url, args.start, args.end, args.overwrite)
+        elif args.command == "update-source-url":
+            update_source_url(args.old_url, args.new_url)
+        elif args.command == "update-domain":
+            update_domain(args.old_domain, args.new_domain)
+        elif args.command == "update-path":
+            update_path(args.old_url, args.new_url)
+        elif args.command == "list-comics":
+            list_comics(args.limit)
+        elif args.command == "update-chapters":
+            update_all_chapters(args.start, args.overwrite)
+        logging.info(f"✓ Command '{args.command}' completed successfully")
+    except Exception as e:
+        logging.error(f"✗ Error executing '{args.command}': {e}", exc_info=True)
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

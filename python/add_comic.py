@@ -3,8 +3,8 @@ import logging
 from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from utils import fetch_page, write_json, read_json, DATA_DIR, get_comic_id_from_url
-from scraper import scrape_komiku_details
+from .utils import fetch_page, write_json, read_json, DATA_DIR, get_comic_id_from_url
+from .scraper import scrape_komiku_details
 
 def add_comic(url: str) -> Optional[bool]:
     """Add new comic to database.

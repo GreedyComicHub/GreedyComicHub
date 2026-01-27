@@ -1,6 +1,6 @@
 import logging
 import os
-from utils import read_json, write_json, DATA_DIR
+from .utils import read_json, write_json, DATA_DIR
 
 def update_source_domain(old_domain, new_domain):
     logging.info(f"Mengganti domain dari {old_domain} ke {new_domain}...")
