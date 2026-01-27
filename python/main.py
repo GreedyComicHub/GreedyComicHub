@@ -10,6 +10,7 @@ from .update_comic import update_comic
 from .update_source_url import update_source_url
 from .list_comics import list_comics
 from .utils import read_json, write_json, setup_logging, DATA_DIR, ROOT_DIR, CONFIG_PATH
+from .scraper_komiku import scrape_komiku_detail, scrape_komiku_chapter
 
 # Setup logging immediately
 logging.basicConfig(
@@ -76,6 +77,78 @@ def update_path(old_url, new_url):
     write_json(index_file, index_data)
     logging.info(f"Berhasil update index.json dengan source_url baru.")
 
+def scrape_komiku_manga(slug: str):
+    """Scrape komiku.org manga by slug dan simpan ke JSON."""
+    logging.info(f"Scraping komiku manga: {slug}")
+    detail = scrape_komiku_detail(slug)
+    
+    if not detail:
+        logging.error(f"Failed to scrape {slug}")
+        return
+    
+    # Save to data/{slug}.json
+    comic_file = os.path.join(DATA_DIR, f"{slug}.json")
+    comic_data = {
+        "title": detail["title"],
+        "slug": slug,
+        "cover": detail["cover_url"],
+        "sinopsis": detail["sinopsis"],
+        "genre": detail["genres"],
+        "type": "Manga",
+        "source_url": f"https://komiku.org/manga/{slug}/",
+        "chapters": {},
+        "total_chapters": 0
+    }
+    
+    write_json(comic_file, comic_data)
+    logging.info(f"Saved to {comic_file}")
+    
+    # Update index.json
+    index_file = os.path.join(DATA_DIR, "index.json")
+    index_data = read_json(index_file) or {}
+    index_data[slug] = {
+        "title": detail["title"],
+        "cover": detail["cover_url"],
+        "sinopsis": detail["sinopsis"],
+        "genre": detail["genres"],
+        "type": "Manga",
+        "source_url": f"https://komiku.org/manga/{slug}/",
+        "total_chapters": 0
+    }
+    write_json(index_file, index_data)
+    logging.info(f"Updated index.json")
+
+def scrape_komiku_chapter_cmd(slug: str, chapter_num: str):
+    """Scrape komiku.org chapter images dan simpan ke JSON."""
+    logging.info(f"Scraping komiku chapter: {slug} - {chapter_num}")
+    
+    comic_file = os.path.join(DATA_DIR, f"{slug}.json")
+    comic_data = read_json(comic_file)
+    
+    if not comic_data:
+        logging.error(f"Comic file not found: {comic_file}")
+        return
+    
+    # Find chapter URL from data
+    if not comic_data.get("chapters"):
+        logging.error(f"No chapters data for {slug}")
+        return
+    
+    chapter_key = str(chapter_num)
+    if chapter_key not in comic_data["chapters"]:
+        logging.error(f"Chapter {chapter_num} not found")
+        return
+    
+    chapter_url = comic_data["chapters"][chapter_key]["url"]
+    images = scrape_komiku_chapter(chapter_url)
+    
+    if images:
+        comic_data["chapters"][chapter_key]["images"] = images
+        write_json(comic_file, comic_data)
+        logging.info(f"Saved {len(images)} images for chapter {chapter_num}")
+    else:
+        logging.warning(f"No images found for chapter {chapter_num}")
+
 def main():
     setup_logging()
     
@@ -136,6 +209,15 @@ Contoh penggunaan:
     list_comics_parser = subparsers.add_parser("list-comics", help="List komik (sudah ada vs belum ada)")
     list_comics_parser.add_argument('--limit', type=int, help="Batasi jumlah komik (contoh: --limit 5)")
     
+    # Parser untuk scrape-komiku-manga
+    scrape_manga_parser = subparsers.add_parser("scrape-komiku", help="Scrape komiku.org manga by slug")
+    scrape_manga_parser.add_argument("slug", help="Manga slug (e.g., lostend)")
+    
+    # Parser untuk scrape-komiku-chapter
+    scrape_chapter_parser = subparsers.add_parser("scrape-komiku-chapter", help="Scrape komiku chapter images")
+    scrape_chapter_parser.add_argument("slug", help="Manga slug")
+    scrape_chapter_parser.add_argument("chapter", help="Chapter number (e.g., 1 atau 1.5)")
+    
     args = parser.parse_args()
     
     if not args.command:
@@ -160,9 +242,13 @@ Contoh penggunaan:
             list_comics(args.limit)
         elif args.command == "update-chapters":
             update_all_chapters(args.start, args.overwrite)
-        logging.info(f"✓ Command '{args.command}' completed successfully")
+        elif args.command == "scrape-komiku":
+            scrape_komiku_manga(args.slug)
+        elif args.command == "scrape-komiku-chapter":
+            scrape_komiku_chapter_cmd(args.slug, args.chapter)
+        logging.info(f"Command '{args.command}' completed successfully")
     except Exception as e:
-        logging.error(f"✗ Error executing '{args.command}': {e}", exc_info=True)
+        logging.error(f"Error executing '{args.command}': {e}", exc_info=True)
         sys.exit(1)
 
 if __name__ == "__main__":

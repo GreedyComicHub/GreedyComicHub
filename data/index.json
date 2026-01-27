@@ -80,14 +80,18 @@
         "source_url": "https://komiku.org/manga/soul-land-2"
     },
     "dandadan": {
-        "title": "DANDADAN",
-        "author": "Nugroho Joko Prasetyo",
-        "synopsis": "Dandadan adalah cerita yang mengikuti perjalanan momo ayase, seorang gadis yang percaya pada hal-hal gaib, dan okarun, seorang pengagum science yang skeptis, bro! mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat bromance mereka semakin unik dan penuh warna, bro! konflik antara pandangan mistis dan ilmiah menjadi inti, bro!, bro!, bro!",
-        "cover": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=300",
-        "genre": "Fiksi Sains",
+        "title": "Komik DANDADAN",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=500",
+        "sinopsis": "Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal gaib, dan Okarun, seorang pengagum science yang skeptis. Mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat persahabatan mereka semakin unik dan penuh warna. Konflik antara pandangan mistis dan ilmiah menjadi inti dari cerita ini dan menambah keseruan setiap petualangan yang mereka alami. Seiring berjalannya waktu, Momo dan Okarun harus bekerjasama untuk menghadapi berbagai tantangan dari dunia gaib dan alien. Mereka belajar untuk saling mengerti dan menghargai pandangan satu sama lain, meskipun berbeda, dan tumbuh bersama dalam menghadapi berbagai situasi tak terduga. Dandadan pun menjadi kisah seru yang memadukan unsur supranatural dengan persahabatan remaja yang penuh energi.",
+        "genre": [
+            "Action",
+            "Sci-fi",
+            "Shounen",
+            "Supernatural"
+        ],
         "type": "Manga",
-        "total_chapters": 225,
-        "source_url": "https://komiku.org/manga/dandadan"
+        "source_url": "https://komiku.org/manga/dandadan/",
+        "total_chapters": 0
     },
     "manga-one-punch-man": {
         "title": "One Punch Man",
@@ -468,5 +472,22 @@
         "type": "Manga",
         "total_chapters": 82,
         "source_url": "https://komiku.org/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/"
+    },
+    "lostend": {
+        "title": "Komik LOSTEND",
+        "cover": "https://thumbnail.komiku.org/img/upload/lostend/img_690c517143bde3.00272689.jpg?w=500",
+        "sinopsis": "Lostend mengisahkan seorang pria bernama Rogue yang terjebak dalam dunia misterius penuh dengan makhluk aneh dan bahaya tanpa akhir. Dia berjuang untuk menemukan jalan kembali ke kehidupannya yang normal sambil menghadapi berbagai rintangan yang menguji keberanian dan kecerdasannya. Dalam perjalanan tersebut, Rogue bertemu dengan sekutu yang juga berjuang mengungkap rahasia dunia yang hilang ini. Bersama-sama mereka mencoba menguak misteri besar yang menjadi kunci untuk bisa keluar dari dunia tersebut sekaligus menyelamatkan diri mereka dan yang lain dari kehancuran total.",
+        "genre": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Horror",
+            "Mature",
+            "Seinen",
+            "Supernatural"
+        ],
+        "type": "Manga",
+        "source_url": "https://komiku.org/manga/lostend/",
+        "total_chapters": 0
     }
 }

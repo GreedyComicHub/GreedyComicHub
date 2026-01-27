@@ -4,6 +4,7 @@ import os
 import subprocess
 import time
 import requests
+import shutil
 from configparser import ConfigParser
 from filelock import FileLock
 from typing import Dict, Any, Optional
@@ -23,6 +24,10 @@ QUEUE_FILE = os.path.join(ROOT_DIR, "queue.json")
 for directory in [DATA_DIR, TEMP_IMAGES_DIR, LOG_DIR]:
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+# File lock for thread-safe JSON operations
+_lock_file = os.path.join(QUEUE_FILE + ".lock")
+lock = FileLock(_lock_file)
 
 # Load konfigurasi - robust with fallback
 def _load_github_credentials():
@@ -80,9 +85,13 @@ def setup_logging():
     LOG_FILE = os.path.join(LOG_DIR, "update.log")
     if os.path.exists(LOG_FILE):
         backup_file = os.path.join(LOG_DIR, "update.log.1")
-        if os.path.exists(backup_file):
-            os.remove(backup_file)
-        os.rename(LOG_FILE, backup_file)
+        try:
+            if os.path.exists(backup_file):
+                os.remove(backup_file)
+            shutil.move(LOG_FILE, backup_file)
+        except (OSError, PermissionError):
+            # If file is locked or can't be moved, just append to it
+            pass
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
