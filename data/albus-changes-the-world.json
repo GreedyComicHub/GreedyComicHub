@@ -1,16 +1,12 @@
 {
-    "title": "Komik Albus Changes the World",
+    "title": "Albus Changes the World",
     "slug": "albus-changes-the-world",
+    "author": "EFK Kc",
     "cover": "https://thumbnail.komiku.org/img/upload/albus_changes_the_world/img_682d9c56f29cb7.11670516.jpg?w=500",
     "sinopsis": "Albus adalah seorang pemuda dengan kemampuan luar biasa yang bertekad mengubah dunia melalui inovasi dan keberanian. Dalam perjalanannya, ia menghadapi berbagai tantangan mulai dari konflik pribadi hingga perjuangan melawan sistem yang korup. Melalui interaksi dengan beragam karakter dan situasi kompleks, Albus belajar tentang kekuatan harapan dan pentingnya kerja sama untuk menciptakan perubahan nyata. Komik ini menyajikan kisah inspiratif tentang bagaimana seorang individu bisa membawa dampak besar bagi masyarakat luas.",
-    "genre": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-    ],
+    "genre": "Action, Adventure, Fantasy, Shounen",
     "type": "Manga",
     "source_url": "https://komiku.org/manga/albus-changes-the-world/",
     "chapters": {},
-    "total_chapters": 0
+    "total_chapters": 77
 }

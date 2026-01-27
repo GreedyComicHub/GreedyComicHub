@@ -222,16 +222,17 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
             driver.quit()
             logging.info("Driver closed")
 
-def scrape_komiku_detail(slug: str, max_retries: int = 3) -> Optional[Dict]:
+def scrape_komiku_detail(slug: str, max_retries: int = 3, scrape_chapters: bool = False) -> Optional[Dict]:
     """
     Scrape manga detail from https://komiku.org/manga/{slug}/
     Returns format matching index.json structure.
     
     Args:
         slug: Manga slug (e.g., "lostend")
+        scrape_chapters: Whether to scrape chapter URLs and images (time-consuming)
         
     Returns:
-        Dict with: title, author, synopsis, cover, genre, type, total_chapters, source_url
+        Dict with: title, author, synopsis, cover, genre, type, total_chapters, source_url, chapters
     """
     logging.info(f"Starting detail scrape for slug: {slug}")
     driver = None
@@ -334,7 +335,8 @@ def scrape_komiku_detail(slug: str, max_retries: int = 3) -> Optional[Dict]:
             "genre": genre_str,
             "type": manga_type,
             "total_chapters": total_chapters,
-            "source_url": url
+            "source_url": url,
+            "chapters": {}  # Initialize empty chapters dict
         }
         
         logging.info(f"Detail scrape completed for {slug}")
@@ -363,25 +365,46 @@ def scrape_komiku_chapter(chapter_url: str) -> List[str]:
     try:
         driver = _get_driver()
         driver.get(chapter_url)
+        time.sleep(random.uniform(1, 2))  # Wait for images to load
         logging.info(f"Opened chapter page")
         
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 15)
         
-        # Wait for images to load
-        wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div#Baca_Komik img.klazy, div#Baca_Komik img")))
+        # Wait for images to load in the chapter reader div
+        try:
+            wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div#Baca_Komik img")))
+        except:
+            logging.warning("Timeout waiting for images, trying alternative selector")
+        
         logging.info("✓ Chapter page loaded")
         
-        # Extract image URLs
-        image_elements = driver.find_elements(By.CSS_SELECTOR, "div#Baca_Komik img.klazy, div#Baca_Komik img")
+        # Extract image URLs - use multiple strategies
         image_urls = []
+        image_elements = []
         
+        # Strategy 1: Images in div#Baca_Komik
+        try:
+            image_elements = driver.find_elements(By.CSS_SELECTOR, "div#Baca_Komik img")
+            logging.info(f"Found {len(image_elements)} images using primary selector")
+        except:
+            pass
+        
+        # Extract URLs from elements - try both src and data-src
         for img in image_elements:
             try:
+                # Try src first (actual image source)
                 src = img.get_attribute("src")
-                if src and src.startswith("http"):
+                if src and src.startswith("http") and "lazy" not in src.lower():
                     image_urls.append(src)
-                    logging.debug(f"  Image: {src[:60]}...")
-            except:
+                    logging.debug(f"  Image (src): {src[:70]}...")
+                else:
+                    # Try data-src (lazy load images)
+                    data_src = img.get_attribute("data-src")
+                    if data_src and data_src.startswith("http"):
+                        image_urls.append(data_src)
+                        logging.debug(f"  Image (data-src): {data_src[:70]}...")
+            except Exception as e:
+                logging.debug(f"  Failed to extract image: {e}")
                 continue
         
         logging.info(f"✓ Extracted {len(image_urls)} images from chapter")

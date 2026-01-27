@@ -8,11 +8,11 @@ import sys
 import time
 import random
 from pathlib import Path
-from .scraper_komiku import scrape_komiku_detail, scrape_komiku_manga_list
+from .scraper_komiku import scrape_komiku_detail, scrape_komiku_manga_list, scrape_komiku_chapter
 from .utils import DATA_DIR, write_json, read_json
 
 def batch_scrape(genre=None, resume_from=None, limit=None):
-    """Scrape semua manga dari komiku.org, opsional by genre
+    """Scrape semua manga dari komiku.org dengan chapters, opsional by genre
     
     Args:
         genre: Filter by genre (e.g., 'action', 'horror', 'romance')
@@ -65,12 +65,32 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
             # Scrape manga details
             result = scrape_komiku_detail(slug)
             if result:
-                # Add to index data
-                index_data[slug] = result
-                logging.info(f"  Success! Total chapters: {result.get('total_chapters', 0)}")
+                # Convert genre list to string for index.json
+                genre_val = result.get("genre", "")
+                if isinstance(genre_val, list):
+                    genre_str = ", ".join(genre_val)
+                else:
+                    genre_str = genre_val
+                
+                # Format for index.json (remove "Komik " prefix from title)
+                title = result.get("title", "Unknown").replace("Komik ", "").strip()
+                
+                # Add to index data in proper format
+                index_data[slug] = {
+                    "title": title,
+                    "author": result.get("author", "Unknown"),
+                    "cover": result.get("cover", "N/A"),
+                    "sinopsis": result.get("synopsis", ""),
+                    "genre": genre_str,
+                    "type": result.get("type", "Manga"),
+                    "source_url": result.get("source_url", f"https://komiku.org/manga/{slug}/"),
+                    "total_chapters": result.get("total_chapters", 0)
+                }
+                logging.info(f"  ✓ Added manga: {title}")
+                logging.info(f"    Total chapters: {result.get('total_chapters', 0)}")
                 successful += 1
             else:
-                logging.info(f"  Failed to scrape {slug}")
+                logging.info(f"  ✗ Failed to scrape {slug}")
                 failed += 1
             
             # Random delay between scrapes to avoid detection (2-5 seconds)

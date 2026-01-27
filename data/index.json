@@ -491,18 +491,14 @@
         "total_chapters": 0
     },
     "albus-changes-the-world": {
-        "title": "Komik Albus Changes the World",
+        "title": "Albus Changes the World",
+        "author": "EFK Kc",
         "cover": "https://thumbnail.komiku.org/img/upload/albus_changes_the_world/img_682d9c56f29cb7.11670516.jpg?w=500",
         "sinopsis": "Albus adalah seorang pemuda dengan kemampuan luar biasa yang bertekad mengubah dunia melalui inovasi dan keberanian. Dalam perjalanannya, ia menghadapi berbagai tantangan mulai dari konflik pribadi hingga perjuangan melawan sistem yang korup. Melalui interaksi dengan beragam karakter dan situasi kompleks, Albus belajar tentang kekuatan harapan dan pentingnya kerja sama untuk menciptakan perubahan nyata. Komik ini menyajikan kisah inspiratif tentang bagaimana seorang individu bisa membawa dampak besar bagi masyarakat luas.",
-        "genre": [
-            "Action",
-            "Adventure",
-            "Fantasy",
-            "Shounen"
-        ],
+        "genre": "Action, Adventure, Fantasy, Shounen",
         "type": "Manga",
         "source_url": "https://komiku.org/manga/albus-changes-the-world/",
-        "total_chapters": 0
+        "total_chapters": 77
     },
     "ballroom-e-youkoso": {
         "title": "Komik Ballroom e Youkoso",
@@ -1163,5 +1159,27 @@
         "type": "Manga",
         "total_chapters": 6,
         "source_url": "https://komiku.org/manga/moriagaranai-date/"
+    },
+    "keiyaku-shimai": {
+        "title": "Komik Keiyaku Shimai",
+        "author": "Mekimeki",
+        "synopsis": "Komik ini mengisahkan dua saudari yang terikat dalam sebuah kontrak unik untuk mempertahankan hubungan mereka yang rapuh sekaligus menjalin kehidupan bersama yang harmonis. Berawal dari sebuah kesepakatan, mereka menghadapi berbagai tantangan dan rahasia yang menjadi ujian bagi ikatan persaudaraan mereka. Seiring berjalannya waktu, mereka belajar arti sebenarnya dari kepercayaan dan pengorbanan. Konflik dan kebahagiaan silih berganti memperlihatkan dinamika emosional yang membuat hubungan mereka semakin kuat dan penuh makna.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/keiyaku-shimai/manga_thumbnail-Manga-Keiyaku-Shimai.jpg?w=500",
+        "genre": "Comedy, Romance, Yuri",
+        "type": "Manga",
+        "total_chapters": 34,
+        "source_url": "https://komiku.org/manga/keiyaku-shimai/",
+        "chapters": {}
+    },
+    "marriagetoxin": {
+        "title": "Komik Marriagetoxin",
+        "author": "Han Yu-Rang",
+        "synopsis": "Di sebuah dunia di mana pernikahan menjadi alat politik dan kekuasaan, seorang wanita muda bernama Aria terpaksa menikah dengan pria yang dingin dan misterius bernama Leon. Perjodohan yang tidak diinginkan ini membawa Aria ke dalam dunia intrik dan bahaya yang penuh dengan rahasia tersembunyi serta konflik keluarga yang kompleks. Meski awalnya saling menjauh, mereka mulai memahami satu sama lain dan menghadapi musuh bersama, membuka lembaran baru dalam hubungan mereka. Seiring perjalanan waktu, Aria dan Leon berjuang untuk menyelamatkan cinta mereka dari racun yang tersebar di lingkungan mereka. Mereka tidak hanya harus melawan tekanan dari keluarga dan tradisi, tetapi juga menghadapi ancaman dari pihak luar yang tidak ingin mereka bahagia. Dalam proses itu, Aria menemukan kekuatan dalam dirinya yang selama ini tersembunyi, menjadikan pernikahan mereka bukan lagi sekadar ikatan, melainkan batu loncatan menuju kebebasan dan kebahagiaan sejati.",
+        "cover": "https://thumbnail.komiku.org/uploads/manga/marriagetoxin/manga_thumbnail-Manga-Marriagetoxin.jpg?w=500",
+        "genre": "Action, Comedy, Drama, Gender Bender, Romance, Shounen",
+        "type": "Manga",
+        "total_chapters": 75,
+        "source_url": "https://komiku.org/manga/marriagetoxin/",
+        "chapters": {}
     }
 }

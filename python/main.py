@@ -87,34 +87,44 @@ def scrape_komiku_manga(slug: str):
         logging.error(f"Failed to scrape {slug}")
         return
     
-    # Save to data/{slug}.json
+    # Save to data/{slug}.json - format matches index.json
     comic_file = os.path.join(DATA_DIR, f"{slug}.json")
+    
+    # Convert genre list to string if needed (for index.json compatibility)
+    genre_val = detail.get("genre", "")
+    if isinstance(genre_val, list):
+        genre_str = ", ".join(genre_val)
+    else:
+        genre_str = genre_val
+    
     comic_data = {
-        "title": detail["title"],
+        "title": detail.get("title", "Unknown").replace("Komik ", "").strip(),
         "slug": slug,
-        "cover": detail["cover_url"],
-        "sinopsis": detail["sinopsis"],
-        "genre": detail["genres"],
-        "type": "Manga",
-        "source_url": f"https://komiku.org/manga/{slug}/",
-        "chapters": {},
-        "total_chapters": 0
+        "author": detail.get("author", "Unknown"),
+        "cover": detail.get("cover", "N/A"),
+        "sinopsis": detail.get("synopsis", ""),
+        "genre": genre_str,
+        "type": detail.get("type", "Manga"),
+        "source_url": detail.get("source_url", f"https://komiku.org/manga/{slug}/"),
+        "chapters": detail.get("chapters", {}),
+        "total_chapters": detail.get("total_chapters", 0)
     }
     
     write_json(comic_file, comic_data)
     logging.info(f"Saved to {comic_file}")
     
-    # Update index.json
+    # Update index.json with same format
     index_file = os.path.join(DATA_DIR, "index.json")
     index_data = read_json(index_file) or {}
     index_data[slug] = {
-        "title": detail["title"],
-        "cover": detail["cover_url"],
-        "sinopsis": detail["sinopsis"],
-        "genre": detail["genres"],
-        "type": "Manga",
-        "source_url": f"https://komiku.org/manga/{slug}/",
-        "total_chapters": 0
+        "title": detail.get("title", "Unknown").replace("Komik ", "").strip(),
+        "author": detail.get("author", "Unknown"),
+        "cover": detail.get("cover", "N/A"),
+        "sinopsis": detail.get("synopsis", ""),
+        "genre": genre_str,
+        "type": detail.get("type", "Manga"),
+        "source_url": detail.get("source_url", f"https://komiku.org/manga/{slug}/"),
+        "total_chapters": detail.get("total_chapters", 0)
     }
     write_json(index_file, index_data)
     logging.info(f"Updated index.json")
