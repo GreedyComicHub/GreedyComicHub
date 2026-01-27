@@ -185,12 +185,13 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
 def scrape_komiku_detail(slug: str, max_retries: int = 3) -> Optional[Dict]:
     """
     Scrape manga detail from https://komiku.org/manga/{slug}/
+    Returns format matching index.json structure.
     
     Args:
         slug: Manga slug (e.g., "lostend")
         
     Returns:
-        Dict with: title, cover_url, sinopsis, genres, chapters
+        Dict with: title, author, synopsis, cover, genre, type, total_chapters, source_url
     """
     logging.info(f"Starting detail scrape for slug: {slug}")
     driver = None
@@ -216,75 +217,84 @@ def scrape_komiku_detail(slug: str, max_retries: int = 3) -> Optional[Dict]:
                 logging.warning("  Could not find title")
         
         # Cover image
-        cover_url = None
+        cover = None
         try:
             img = driver.find_element(By.CSS_SELECTOR, ".cv img, img[alt*='Bahasa Indonesia']")
-            cover_url = img.get_attribute("src")
-            logging.info(f"  Cover: {cover_url[:50]}...")
+            cover = img.get_attribute("src")
+            logging.info(f"  Cover: {cover[:50]}...")
         except:
             logging.warning("  Could not find cover image")
         
         # Synopsis
-        sinopsis = ""
+        synopsis = ""
         try:
-            sinopsis = driver.find_element(By.CSS_SELECTOR, "p.desc, #Sinopsis p").text.strip()
+            synopsis = driver.find_element(By.CSS_SELECTOR, "p.desc, #Sinopsis p").text.strip()
             logging.info(f"  Synopsis: {sinopsis[:100]}...")
         except:
             logging.warning("  Could not find synopsis")
         
-        # Genres
+        # Genre (as single string, comma-separated like in index.json)
         genres = []
         try:
             genre_elements = driver.find_elements(By.CSS_SELECTOR, "ul.genre li, .genre li")
             genres = [li.text.strip() for li in genre_elements if li.text.strip()]
-            logging.info(f"  Genres: {', '.join(genres)}")
+            genre_str = ", ".join(genres) if genres else "Unknown"
+            logging.info(f"  Genre: {genre_str}")
         except:
+            genre_str = "Unknown"
             logging.warning("  Could not find genres")
         
-        # Chapters - wait for table to load
-        chapters = []
+        # Type (Manga/Manhua/Manhwa)
+        manga_type = "Manga"  # Default
+        try:
+            type_cell = driver.find_element(By.CSS_SELECTOR, "table.inftable td:contains('Jenis Komik') + td")
+            manga_type = type_cell.text.strip()
+            logging.info(f"  Type: {manga_type}")
+        except:
+            # Try alternative selector
+            try:
+                rows = driver.find_elements(By.CSS_SELECTOR, "table.inftable tr")
+                for row in rows:
+                    cells = row.find_elements(By.CSS_SELECTOR, "td")
+                    if len(cells) >= 2 and "Jenis Komik" in cells[0].text:
+                        manga_type = cells[1].text.strip()
+                        logging.info(f"  Type: {manga_type}")
+                        break
+            except:
+                logging.warning("  Could not find manga type")
+        
+        # Extract chapter count from the table
+        total_chapters = 0
         try:
             wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table#Daftar_Chapter tbody tr")))
             chapter_rows = driver.find_elements(By.CSS_SELECTOR, "table#Daftar_Chapter tbody tr")
-            
-            for row in chapter_rows:
-                try:
-                    # Get chapter link and number
-                    a = row.find_element(By.CSS_SELECTOR, "td a")
-                    chapter_url = a.get_attribute("href")
-                    
-                    # Extract chapter number from text
-                    chapter_text = a.find_element(By.CSS_SELECTOR, "span").text.strip()
-                    
-                    # Get date if available
-                    date_text = ""
-                    try:
-                        date_elem = row.find_element(By.CSS_SELECTOR, "td.tanggalseries")
-                        date_text = date_elem.text.strip()
-                    except:
-                        pass
-                    
-                    if chapter_url:
-                        chapters.append({
-                            "number": chapter_text,
-                            "url": chapter_url,
-                            "date": date_text
-                        })
-                except Exception as e:
-                    logging.debug(f"  Skipped chapter row: {e}")
-                    continue
-            
-            logging.info(f"  Found {len(chapters)} chapters")
+            total_chapters = len([r for r in chapter_rows if r.find_elements(By.CSS_SELECTOR, "td")])
+            logging.info(f"  Found {total_chapters} chapters")
         except Exception as e:
-            logging.warning(f"  Could not extract chapters: {e}")
+            logging.warning(f"  Could not extract chapter count: {e}")
+        
+        # Author - extract from table if available
+        author = "Unknown"
+        try:
+            rows = driver.find_elements(By.CSS_SELECTOR, "table.inftable tr")
+            for row in rows:
+                cells = row.find_elements(By.CSS_SELECTOR, "td")
+                if len(cells) >= 2 and "Pengarang" in cells[0].text:
+                    author = cells[1].text.strip()
+                    logging.info(f"  Author: {author}")
+                    break
+        except:
+            logging.warning("  Could not find author")
         
         result = {
-            "slug": slug,
             "title": title or "Unknown",
-            "cover_url": cover_url or "N/A",
-            "sinopsis": sinopsis,
-            "genres": genres,
-            "chapters": chapters
+            "author": author,
+            "synopsis": synopsis,
+            "cover": cover or "N/A",
+            "genre": genre_str,
+            "type": manga_type,
+            "total_chapters": total_chapters,
+            "source_url": url
         }
         
         logging.info(f"Detail scrape completed for {slug}")

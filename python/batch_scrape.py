@@ -19,6 +19,13 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
         limit: Limit jumlah manga yang di-scrape
     """
     
+    # Load existing index.json
+    index_file = os.path.join(DATA_DIR, "index.json")
+    if os.path.exists(index_file):
+        index_data = read_json(index_file)
+    else:
+        index_data = {}
+    
     # Fetch manga list dari website dengan infinite scroll handling
     logging.info("Fetching manga list from komiku.org...")
     manga_list = scrape_komiku_manga_list(genre=genre, limit=limit)
@@ -48,9 +55,8 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
             slug = manga_info['slug']
             logging.info(f"\n[{idx}/{total}] Scraping: {slug}")
             
-            # Check if already exists
-            comic_file = os.path.join(DATA_DIR, f"{slug}.json")
-            if os.path.exists(comic_file):
+            # Check if already exists in index
+            if slug in index_data:
                 logging.info(f"  Already exists, skipping...")
                 skipped += 1
                 continue
@@ -58,9 +64,9 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
             # Scrape manga details
             result = scrape_komiku_detail(slug)
             if result:
-                write_json(comic_file, result)
-                num_chapters = len(result.get('chapters', []))
-                logging.info(f"  Success! Saved {num_chapters} chapters")
+                # Add to index data
+                index_data[slug] = result
+                logging.info(f"  Success! Total chapters: {result.get('total_chapters', 0)}")
                 successful += 1
             else:
                 logging.warning(f"  Failed to scrape {slug}")
@@ -73,6 +79,10 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
             logging.error(f"  Error scraping {slug}: {e}")
             failed += 1
             continue
+    
+    # Save updated index.json
+    write_json(index_file, index_data)
+    logging.info(f"Updated {index_file}")
     
     # Print summary
     print("\n" + "="*60)
