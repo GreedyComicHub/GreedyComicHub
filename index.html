@@ -75,14 +75,9 @@
                 return acc;
             }, { updates: 1, comics: {} });
             
-            // Pre-fetch chapter data
+            // Use total_chapters from index.json
             allComics.forEach(comic => {
-                fetch(`data/${comic.id}.json`)
-                    .then(res => res.json())
-                    .then(data => {
-                        comicChapterCache[comic.id] = Object.keys(data.chapters || {}).sort((a, b) => a - b).pop() || 'N/A';
-                    })
-                    .catch(err => console.error(`Error fetching ${comic.id}:`, err));
+                comicChapterCache[comic.id] = comic.total_chapters || 'N/A';
             });
             
             populateGenreFilter();
