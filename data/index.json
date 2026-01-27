@@ -1,234 +1,130 @@
 {
-  "komik-one-piece-indo": {
-    "title": "One Piece",
-    "author": "Eiichiro Oda",
-    "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak laut dengan nyari harta karun legendaris bernama one piece, bro! dalam perjalanannya, luffy ngumpulin geng yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri, bro! bersama-sama, mereka ngehadepin macem-macem drama, musuh kece,, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 1191,
-    "source_url": "https://komiku.org/manga/komik-one-piece-indo"
-  },
-  "magic-emperor": {
-    "title": "Magic Emperor",
-    "author": "Rui Tsukiyo",
-    "synopsis": "Magic emperor menceritakan tentang kisah seorang pemuda yang terlahir kembali dengan keahlian sihir tingkat tinggi di dunia fantasi yang dipenuhi dengan konflik dan intrik politik, bro! dengan kekuatan sihir yang luar biasa, ia berusaha membangun kekaisaran yang damai sekaligus menghadapi berbagai ancaman baik dari dalam maupun luar kerajaannya, bro! dalam perjalanannya, sang, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 812,
-    "source_url": "https://komiku.org/manga/magic-emperor"
-  },
-  "black-clover-indonesia": {
-    "title": "Black Clover",
-    "author": "Yūki Tabata",
-    "synopsis": "Bersetting di dunia di mana sihir adalah bagian penting dalam kehidupan sehari-hari, cerita ini mengikuti asta, seorang anak laki-laki yang terlahir tanpa kemampuan sihir, bro! meski begitu, dia nggak sabar jadi raja penyihir, sosok terkuat yang melindungi kerajaan, bro! dengan tekad yang kuat dan semangat pantang menyerah, asta berusaha mengalahkan segala rintangan yang, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 388,
-    "source_url": "https://komiku.org/manga/black-clover-indonesia"
-  },
-  "blue-lock": {
-    "title": "Blue Lock",
-    "author": "Muneyuki Kaneshiro",
-    "synopsis": "Blue lock mengisahkan tentang program unik yang diselenggarakan jepang untuk menemukan striker terbaik bagi tim nasional sepak bola mereka, bro! setelah kegagalan di piala dunia, ribuan pemain muda dikumpulkan di fasilitas khusus bernama blue lock agar mereka bisa bertarung mengasah kemampuan dan mencetak gol yang tak tertandingi, bro! fokus utama program ini, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
-    "genre": "Olahraga",
-    "type": "Manga",
-    "total_chapters": 336,
-    "source_url": "https://komiku.org/manga/blue-lock"
-  },
-  "level-1-player": {
-    "title": "Level 1 Player",
-    "author": "Team Arcane",
-    "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual sebagai karakter level satu, bro! dia harus memanfaatkan kecerdasan dan ketekunannya untuk bertahan hidup dan naik level di dunia yang penuh dengan tantangan dan makhluk berbahaya, bro! di tengah perjuangannya, ia bertemu dengan berbagai teman dan musuh yang, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 124,
-    "source_url": "https://komiku.org/manga/level-1-player"
-  },
-  "sakamoto-days": {
-    "title": "Sakamoto Days",
-    "author": "Yuto Suzuki",
-    "synopsis": "Sakamoto adalah mantan pembunuh bayaran yang kini menjalani kehidupan normal sebagai pemilik toko kelontong, bro! meski sudah pensiun dari dunia gelap, kemampuan tempurnya yang luar biasa membuatnya harus selalu siap menghadapi berbagai bahaya yang mengancam kesehariannya, bro! kehidupan damai sakamoto berubah ketika lawan-lawan lama mulai muncul kembali dan mencoba menggoyahkan ketenangannya, bro! dalam, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
-    "genre": "Komedi",
-    "type": "Manga",
-    "total_chapters": 243,
-    "source_url": "https://komiku.org/manga/sakamoto-days"
-  },
-  "god-of-martial-arts": {
-    "title": "God of Martial Arts",
-    "author": "Jolly Jae",
-    "synopsis": "God of martial arts mengisahkan perjalanan seorang pemuda berbakat yang berjuang menguasai seni bela diri tertinggi di dunia yang dipenuhi tantangan dan rival, bro! dalam usahanya, dia tidak hanya menghadapi musuh kuat, tetapi juga menggali potensi diri serta mempelajari makna sejati kekuatan dan kehormatan, bro! cerita ini menyoroti pertumbuhan karakter utama dari, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
-    "genre": "Isekai",
-    "type": "Manhua",
-    "total_chapters": 1021,
-    "source_url": "https://komiku.org/manga/god-of-martial-arts"
-  },
-  "soul-land-2": {
-    "title": "Soul Land 2",
-    "author": "Tang Jia San Shao",
-    "synopsis": "Setelah kejadian di soul land pertama, kehidupan di dunia ini memasuki era baru yang penuh dengan tantangan dan kesempatan bagi para jiwa petarung, bro! tokoh utama melanjutkan perjalanan untuk mengembangkan kekuatan jiwa mereka dengan menghadapi lawan-lawan yang semakin kuat dan misteri yang tersembunyi di balik dunia jiwa, bro! dalam perjalanannya, mereka menemukan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 572,
-    "source_url": "https://komiku.org/manga/soul-land-2"
-  },
-  "dandadan": {
-    "title": "Komik DANDADAN",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/dandadan/manga_thumbnail-Manga-DANDADAN.jpg?w=500",
-    "sinopsis": "Dandadan adalah cerita yang mengikuti perjalanan Momo Ayase, seorang gadis yang percaya pada hal-hal gaib, dan Okarun, seorang pengagum science yang skeptis. Mereka berdua sering kali bertemu dengan makhluk supranatural dan makhluk alien, yang membuat persahabatan mereka semakin unik dan penuh warna. Konflik antara pandangan mistis dan ilmiah menjadi inti dari cerita ini dan menambah keseruan setiap petualangan yang mereka alami. Seiring berjalannya waktu, Momo dan Okarun harus bekerjasama untuk menghadapi berbagai tantangan dari dunia gaib dan alien. Mereka belajar untuk saling mengerti dan menghargai pandangan satu sama lain, meskipun berbeda, dan tumbuh bersama dalam menghadapi berbagai situasi tak terduga. Dandadan pun menjadi kisah seru yang memadukan unsur supranatural dengan persahabatan remaja yang penuh energi.",
-    "genre": [
-      "Action",
-      "Sci-fi",
-      "Shounen",
-      "Supernatural"
-    ],
-    "type": "Manga",
-    "source_url": "https://komiku.org/manga/dandadan/",
-    "total_chapters": 0
-  },
-  "manga-one-punch-man": {
-    "title": "One Punch Man",
-    "author": "ONE",
-    "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan satu pukulan, bro! meskipun kekuatannya luar biasa, ia merasa bosan dan kesepian karena tidak ada lawan yang menantang, bro! petualangannya dimulai saat ia bergabung dengan asosiasi pahlawan dan bertemu dengan berbagai pahlawan dan monster yang unik, bro! dalam perjalanannya,, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/manga-one-punch-man/manga_thumbnail-Komik-One-Punch-Man.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 346,
-    "source_url": "https://komiku.org/manga/manga-one-punch-man"
-  },
-  "shuumatsu-no-valkyrie-indonesia": {
-    "title": "Shuumatsu no Valkyrie",
-    "author": "Takumi Fukui, Shinya Umemura",
-    "synopsis": "Dalam dunia yang akan menghadapi kiamat, para dewa dari berbagai mitologi berkumpul untuk menentukan nasib umat manusia melalui sebuah turnamen ekstreme, bro! mereka memilih pejuang manusia terbaik dari berbagai era untuk bertarung satu-sama lain dan membuktikan siapa yang layak hidup atau mati, bro! pertarungan epik ini penuh aksi menegangkan dari mulai strategi, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/shuumatsu-no-valkyrie-indonesia/manga_thumbnail-A2-Shuumatsu-no-Valkyrie-1.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 186,
-    "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
-  },
-  "the-beginning-after-the-end": {
-    "title": "The Beginning After The End",
-    "author": "TurtleMe",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang raja kuat bernama arthur leywin yang meninggal dan terlahir kembali di dunia baru bernama dicathen, bro! di dunia ini, ia memulai hidup baru sebagai seorang anak bernama ace dengan kemampuan sihir yang luar biasa, bro! perjalanan ace dipenuhi oleh tantangan dan petualangan untuk melindungi orang-orang yang ia, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-beginning-after-the-end/manga_thumbnail-Manhwa-The-Beginning-After-The-End-1.jpg?w=300",
-    "genre": "Isekai",
-    "type": "Manhwa",
-    "total_chapters": 226,
-    "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
-  },
   "123213-chainsaw-man": {
     "title": "Chainsaw Man",
     "author": "Tatsuki Fujimoto",
-    "synopsis": "Chainsaw man mengisahkan denji, seorang pemuda yang hidupnya penuh dengan hutang warisan ayahnya dan berjuang untuk bertahan hidup dengan bekerja sebagai pemburu iblis bersama anjing setan peliharaannya yang juga menjadi gergaji mesin, bro! suatu hari, setelah dikhianati dan dibunuh, denji berhasil dihidupkan kembali dengan menyatu bersama anjing setan tersebut sehingga ia, bro!, bro!, bro!",
+    "synopsis": "Chainsaw man mengisahkan denji, seorang pemuda yang hidupnya penuh dengan hutang warisan ayahnya dan...",
     "cover": "https://thumbnail.komiku.org/uploads/manga/123213-chainsaw-man/manga_thumbnail-Manga-Chainsaw-Man.jpg?w=300",
-    "genre": "Horor",
+    "genre": "",
     "type": "Manga",
     "total_chapters": 227,
     "source_url": "https://komiku.org/manga/123213-chainsaw-man"
   },
-  "the-kings-avatar": {
-    "title": "The King’s Avatar",
-    "author": "Butterfly Blue",
-    "synopsis": "The king's avatar menceritakan tentang ye xiu, seorang pemain profesional game glory yang terkenal dan sangat dihormati, bro! setelah dipaksa keluar dari tim esports utamanya, ia memulai kembali perjalanannya dari nol dengan akun baru dan tekad kuat untuk merebut kembali statusnya sebagai yang terbaik, bro! dalam prosesnya, ye xiu bertemu dengan berbagai, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-kings-avatar/manga_thumbnail-Head-The-Kings-Avatar.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 178,
-    "source_url": "https://komiku.org/manga/the-kings-avatar"
-  },
-  "nano-machine": {
-    "title": "Nano Machine",
-    "author": "Hwang Yongjae",
-    "synopsis": "Nano machine mengisahkan seorang pewaris klan yang dianggap lemah dan rendah oleh anggota keluarganya, bro! hidupnya mulai berubah saat menerima teknologi nano canggih yang memberikannya kekuatan luar biasa dan kemampuan yang sebelumnya tidak pernah dia miliki, bro! dengan bantuan mesin nano ini, ia memulai perjalanan untuk membuktikan kekuatannya dan memulihkan kehormatan keluarganya, bro!, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 296,
-    "source_url": "https://komiku.org/manga/nano-machine"
-  },
-  "pick-me-up": {
-    "title": "Pick Me Up",
-    "author": "Jinwoo Kim",
-    "synopsis": "Pick me up mengisahkan tentang kisah cinta dan perjuangan seorang pemuda yang berusaha menemukan jati dirinya di tengah tekanan sosial dan harapan keluarga, bro! di perjalanan hidupnya, ia bertemu dengan berbagai karakter yang mengubah pandangannya tentang cinta dan kehidupan, bro! dalam perjalanan tersebut, dia menghadapi konflik internal dan eksternal yang menguji keteguhan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
-    "genre": "Aksi",
-    "type": "Manhwa",
-    "total_chapters": 185,
-    "source_url": "https://komiku.org/manga/pick-me-up/"
-  },
-  "return-of-the-legend": {
-    "title": "Return of the Legend",
-    "author": "Jeon Geuk-jin",
-    "synopsis": "Return of the legend mengikuti kisah seorang pria muda yang terlahir kembali dengan kekuatan luar biasa dari kehidupan sebelumnya, bro! dia bertekad untuk mengubah takdirnya dan melindungi orang-orang yang dicintainya dengan menghadapi berbagai tantangan dan musuh yang kuat dalam perjalanan penuh bahaya, bro! dalam usahanya, ia mengumpulkan sekutu dan mengungkap rahasia dari, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-legend/manga_thumbnail-Head-Return-of-the-Legend.jpg?w=300",
+  "50kg-cinderella": {
+    "title": "Komik -50kg Cinderella",
+    "author": "Jung Min-a",
+    "synopsis": "Kisah ini mengikuti perjalanan seorang wanita muda yang merasa kurang percaya self karena berat bada...",
+    "cover": "",
     "genre": "Drama",
-    "type": "Manhwa",
-    "total_chapters": 174,
-    "source_url": "https://komiku.org/manga/return-of-the-legend"
-  },
-  "genjitsu-shugi-yuusha-no-oukoku-saikenki": {
-    "title": "Genjitsu Shugi Yuusha no Oukoku Saikenki",
-    "author": "Dojyomaru",
-    "synopsis": "Setelah melakukan perjalanan penuh bahaya, seorang pahlawan yang realistis akhirnya kembali ke kerajaannya yang hancur, bro! dengan pendekatan praktis dan rasional, ia bertekad untuk membangun kembali negaranya dari puing-puing dan mengatasi berbagai tantangan politik serta ancaman eksternal yang mengintai, bro! dalam prosesnya, pahlawan ini tidak hanya menggunakan kekuatan dan kemampuan tempurnya, tetapi, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki/manga_thumbnail-Komik-Genjitsu-Shugi-Yuusha-no-Oukoku-Saikenki.jpeg?w=300",
-    "genre": "Isekai",
     "type": "Manga",
-    "total_chapters": 80,
-    "source_url": "https://komiku.org/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki"
+    "total_chapters": 10,
+    "source_url": "https://komiku.org/manga/50kg-cinderella/"
   },
-  "i-was-forced-by-the-system-to-become-a-villain": {
-    "title": "I Was Forced by the System to Become a Villain",
-    "author": "Lumen",
-    "synopsis": "Dalam dunia di mana sistem menentukan peran setiap individu, protagonis utama menghadapi takdir menjadi penjahat, bro! meskipun berusaha melawan peran yang dipaksakan, dia harus menerima kenyataan pahit dan menjalani kehidupan sebagai musuh yang ditakuti, bro! seiring cerita berlangsung, protagonis memperlihatkan perjuangan batin antara menjalankan tugas yang diperintahkan sistem dan mempertahankan moralitasnya, bro! konflik, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/i-was-forced-by-the-system-to-become-a-villain/manga_thumbnail-A2-I-Was-Forced-by-the-System-to-Become-a-Villain.jpg?w=300",
-    "genre": "Martial Arts",
+  "51231-battle-through-the-heavens": {
+    "title": "Battle Through the Heavens",
+    "author": "Tian Can Tu Dou",
+    "synopsis": "Cerita ini mengikuti perjalanan xiao yan yang dulunya jenius bela diri tapi tiba-tiba kehilangan kek...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/51231-battle-through-the-heavens/manga_thumbnail-Manhua-Battle-Through-the-Heavens-1.jpg?w=300",
+    "genre": "",
     "type": "Manhua",
-    "total_chapters": 160,
-    "source_url": "https://komiku.org/manga/i-was-forced-by-the-system-to-become-a-villain"
+    "total_chapters": 501,
+    "source_url": "https://komiku.org/manga/51231-battle-through-the-heavens/"
   },
-  "the-youngest-son-of-a-rich-family": {
-    "title": "The Youngest Son Of A Rich Family",
-    "author": "Siphon",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pemuda yang terlahir sebagai anak bungsu dari keluarga paling tajir di kotanya, bro! meskipun memiliki segala kemewahan sejak lahir, ia harus berjuang untuk membuktikan dirinya dan menghadapi berbagai konflik internal dalam keluarganya yang penuh intrik dan persaingan, bro! di tengah usaha mencari jati diri, ia menemukan kekuatan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
-    "genre": "Drama",
+  "a-bad-person": {
+    "title": "A Bad Person",
+    "author": "Jang Sung-Lak",
+    "synopsis": "A bad person mengikuti kisah seorang individu yang berjuang menghadapi sisi gelap dalam dirinya dan ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
+    "genre": "",
     "type": "Manhwa",
-    "total_chapters": 186,
-    "source_url": "https://komiku.org/manga/the-youngest-son-of-a-rich-family"
+    "total_chapters": 291,
+    "source_url": "https://komiku.org/manga/a-bad-person"
   },
-  "kill-the-dragon": {
-    "title": "Kill The Dragon",
-    "author": "Isekai Publishing",
-    "synopsis": "Bunuh naga menceritakan petualangan heroik seorang ksatria yang menghadapi makhluk raksasa yang mengancam kedamaian kerajaannya, bro! dalam perjalanan ini, dia tidak hanya berhadapan dengan naga yang kuat, tetapi juga menghadapi konflik batin dan pengkhianatan dari orang terdekatnya, bro! melalui tantangan dan pertarungan sengit, sang ksatria belajar arti sejati nyali gede dan pengorbanan, bro! cerita, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/kill-the-dragon/manga_thumbnail-Manhwa-Kill-The-Dragon.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 169,
-    "source_url": "https://komiku.org/manga/kill-the-dragon"
-  },
-  "lv999-no-murabito": {
-    "title": "Lv999 no Murabito",
-    "author": "Koge Donbo",
-    "synopsis": "Cerita ngejar petualangan seorang pria yang merupakan penduduk desa biasa dengan level terendah dalam sebuah dunia game mmorpg, bro! meski berada di level satu, ia memiliki kemampuan dan strategi yang unik sehingga mampu bertahan dan berkembang dalam dunia yang dipenuhi dengan karakter berlevel tinggi, bro! tokoh utama ini punya semangat pantang menyerah, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/lv999-no-murabito/manga_thumbnail-Komik-Lv999-no-Murabito.jpg?w=300",
-    "genre": "Fantasi",
+  "a-court-magician-who-was-focused-on-supportive-magic-because-his-allies-were-too-weak-aims-to-become-the-strongest-after-being-banished": {
+    "title": "Komik A Court Magician, Who Was Focused On Supportive Magic Because His Allies Were Too Weak, Aims To Become The Strongest After Being Banished",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "total_chapters": 85,
-    "source_url": "https://komiku.org/manga/lv999-no-murabito"
+    "total_chapters": 184,
+    "source_url": "https://komiku.org/manga/a-court-magician-who-was-focused-on-supportive-magic-because-his-allies-were-too-weak-aims-to-become-the-strongest-after-being-banished/"
+  },
+  "absolute-necromancer": {
+    "title": "Absolute Necromancer",
+    "author": "Mana",
+    "synopsis": "Dalam dunia di mana kekuatan sihir sangat dihargai, seorang pemuda sederhana yang memiliki kemampuan...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/absolute-necromancer/manga_thumbnail-Head-Absolute-Necromancer.jpeg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 96,
+    "source_url": "https://komiku.org/manga/absolute-necromancer/"
+  },
+  "albus-changes-the-world": {
+    "title": "Albus Changes the World",
+    "author": "EFK Kc",
+    "synopsis": "",
+    "cover": "https://thumbnail.komiku.org/img/upload/albus_changes_the_world/img_682d9c56f29cb7.11670516.jpg?w=500",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 23,
+    "source_url": "https://komiku.org/manga/albus-changes-the-world/"
+  },
+  "alone-leveling-ragnarok": {
+    "title": "Solo Leveling: Ragnarok",
+    "author": "Chugong",
+    "synopsis": "Di dunia di mana gerbang menuju dunia lain muncul secara tiba-tiba dan memunculkan makhluk berbahaya...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/alone-leveling-ragnarok/manga_thumbnail-A2-Alone-Leveling-Ragnarok.jpg?w=500",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 68,
+    "source_url": "https://komiku.org/manga/alone-leveling-ragnarok/"
+  },
+  "aoppella-hajimari-no-playlist": {
+    "title": "Komik -Aoppella!?- Hajimari no Playlist",
+    "author": "Kentarou Kawashima",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang remaja yang penuh semangat dalam menemukan cinta dan persaha...",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 11,
+    "source_url": "https://komiku.org/manga/aoppella-hajimari-no-playlist/"
+  },
+  "apotheosis-indonesia": {
+    "title": "Apotheosis",
+    "author": "San Ren Xi",
+    "synopsis": "Apotheosis menceritakan perjalanan seorang pemuda yang awalnya biasa saja namun kemudian menemukan k...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/apotheosis-indonesia/manga_thumbnail-Manhua-Apotheosis.jpg?w=500",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 1091,
+    "source_url": "https://komiku.org/manga/apotheosis-indonesia/"
+  },
+  "ballroom-e-youkoso": {
+    "title": "Komik Ballroom e Youkoso",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 6,
+    "source_url": "https://komiku.org/manga/ballroom-e-youkoso/"
+  },
+  "be-born-again": {
+    "title": "Komik Be Born Again",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 8,
+    "source_url": "https://komiku.org/manga/be-born-again/"
   },
   "becoming-a-legendary-ace-employee": {
     "title": "Becoming a Legendary Ace Employee",
     "author": "Min Seok",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pemuda yang memulai kariernya di sebuah perusahaan besar dengan tekad kuat untuk menjadi karyawan terbaik, bro! dalam menghadapi berbagai tantangan dan persaingan di kantor, ia belajar pentingnya kerja sama, ketekunan, dan inovasi untuk mencapai kesuksesan sebagai pegawai legendaris, bro! seiring berjalannya waktu, ia tidak hanya mengembangkan kemampuan, bro!, bro!, bro!",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang pemuda yang memulai kariernya di sebuah perusahaan besar den...",
     "cover": "https://thumbnail.komiku.org/uploads/manga/becoming-a-legendary-ace-employee/manga_thumbnail-Head-Becoming-a-Legendary-Ace-Employee.jpeg?w=300",
-    "genre": "Fantasi",
+    "genre": "",
     "type": "Manhwa",
     "total_chapters": 112,
     "source_url": "https://komiku.org/manga/becoming-a-legendary-ace-employee"
@@ -236,1020 +132,931 @@
   "becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family": {
     "title": "Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family",
     "author": "Tang Jia San Shao",
-    "synopsis": "Cerita ini mengisahkan perjalanan seorang pemuda yang merupakan pewaris keluarga tang yang berpengaruh di sichuan, bro! meski awalnya dianggap lemah dan tidak berbakat, ia bertekad keras untuk menjadi ahli pedang terbaik demi menjaga kehormatan keluarganya dan menghadapi berbagai tantangan yang datang dari musuh dan pengkhianatan dalam keluarganya sendiri, bro! lewat latihan yang, bro!, bro!, bro!",
+    "synopsis": "Cerita ini mengisahkan perjalanan seorang pemuda yang merupakan pewaris keluarga tang yang berpengar...",
     "cover": "https://thumbnail.komiku.org/uploads/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/manga_thumbnail-Head-BECOMING-THE-SWORDMASTER-RANK-YOUNG-LORD-OF-THE-SICHUAN-TANG-FAMILY.jpg?w=300",
-    "genre": "Fantasi",
+    "genre": "",
     "type": "Manhwa",
     "total_chapters": 106,
     "source_url": "https://komiku.org/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family"
   },
-  "magical-realm-shopkeeper": {
-    "title": "Magical Realm Shopkeeper",
-    "author": "Wuky",
-    "synopsis": "Di dunia di mana sihir dan makhluk fantastis menjadi bagian dari kehidupan sehari-hari, seorang pemuda biasa menemukan dirinya menjadi pemilik toko ajaib yang penuh barang-barang langka dan berharga, bro! dengan tekad yang kuat dan kecerdasan, dia mulai membangun bisnisnya sambil menghadapi berbagai tantangan dari makhluk misterius dan pesaing yang ingin menguasai, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 85,
-    "source_url": "https://komiku.org/manga/magical-realm-shopkeeper"
-  },
-  "the-cuckoos-fiancee": {
-    "title": "The Cuckoo’s Fiancee",
-    "author": "Ummi Hafsa",
-    "synopsis": "The cuckoo’s fiancee mengikuti kisah seorang wanita muda yang tiba-tiba harus menerima kenyataan menjadi tunangan pria misterius yang jauh dari ekspektasinya, bro! di balik perjodohan yang tidak diinginkan, tersimpan rahasia dan intrik keluarga yang menguji kesetiaan dan nyali gede sang tokoh utama, bro! seiring waktu berjalan, hubungan mereka yang awalnya penuh ketegangan mulai, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
-    "genre": "Romantis",
-    "type": "Manga",
-    "total_chapters": 279,
-    "source_url": "https://komiku.org/manga/the-cuckoos-fiancee"
-  },
-  "spirit-farmer": {
-    "title": "Spirit Farmer",
-    "author": "Radioaktif Studio",
-    "synopsis": "Spirit farmer mengisahkan perjuangan seorang petani muda yang memiliki kemampuan unik untuk berkomunikasi dengan roh-roh alam di desanya, bro! dalam perjalanan hidupnya, ia menghadapi berbagai tantangan mulai dari konflik dengan para petani lain hingga ancaman kekuatan gelap yang berusaha menguasai tanahnya, bro! dengan bantuan roh-roh yang setia, ia belajar mengembangkan kekuatannya untuk, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/img/upload/spirit_farmer/img_6853c1b18cc731.95675294.jpg?w=300",
-    "genre": "Slice of Life",
-    "type": "Manhwa",
-    "total_chapters": 190,
-    "source_url": "https://komiku.org/manga/spirit-farmer"
-  },
-  "kingdom": {
-    "title": "Kingdom",
-    "author": "Yasuhisa Hara",
-    "synopsis": "Kerajaan mengikuti kisah xin, seorang pemuda yatim piatu yang bercita-cita menjadi jenderal terhebat di tiongkok pada zaman negara-negara berperang, bro! dalam perjalanannya, xin bertemu dengan sekutu dan musuh yang memiliki ambisi besar yang sama, memperjuangkan perdamaian dan pemersatuan tiongkok yang terpecah-pecah, bro! cerita ini begitu kaya dengan taktik pertempuran dan pembangunan karakter, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 863,
-    "source_url": "https://komiku.org/manga/kingdom"
-  },
-  "the-last-human": {
-    "title": "The Last Human",
-    "author": "WOW Studios",
-    "synopsis": "Dunia telah berubah menjadi tempat yang penuh dengan makhluk-makhluk super kuat dan kecerdasan buatan yang mengendalikan banyak hal, bro! dalam situasi ini, jeon-woo, yang dikenal sebagai manusia terakhir, berjuang untuk bertahan hidup sekaligus mencari arti manusia sejati di tengah kekacauan tersebut, bro! setiap langkahnya dipenuhi dengan konflik dan bahaya dari makhluk-makhluk yang, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
-    "genre": "Horor",
-    "type": "Manhua",
-    "total_chapters": 588,
-    "source_url": "https://komiku.org/manga/the-last-human"
-  },
-  "51231-battle-through-the-heavens": {
-    "title": "Battle Through the Heavens",
-    "author": "Tian Can Tu Dou",
-    "synopsis": "Cerita ini mengikuti perjalanan xiao yan yang dulunya jenius bela diri tapi tiba-tiba kehilangan kekuatannya, bro! meski dipandang sebelah mata oleh orang di sekitarnya, ia bertekad untuk mengembalikan kejayaannya dan membuktikan bahwa dia lebih dari sekadar masa lalu yang kelam, bro! dalam perjalanannya, xiao yan menghadapi berbagai musuh dan tantangan yang menguji, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/51231-battle-through-the-heavens/manga_thumbnail-Manhua-Battle-Through-the-Heavens-1.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 501,
-    "source_url": "https://komiku.org/manga/51231-battle-through-the-heavens/"
-  },
-  "im-trapped-in-this-day-for-one-thousand-years": {
-    "title": "I’m Trapped in This Day for One Thousand Years",
-    "author": "Seok-woo",
-    "synopsis": "Komik ini mengisahkan kehidupan seorang tokoh utama yang mengalami sebuah fenomena luar biasa, yakni terjebak dalam satu hari yang berulang selama seribu tahun, bro! selama waktu itu, ia harus menghadapi berbagai tantangan dan misteri yang tidak hanya menguji ketangguhan fisik tapi juga mental dan emosionalnya, bro! setiap hari yang sama memberikan kesempatan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
-    "genre": "Aksi",
-    "type": "Manhua",
-    "total_chapters": 235,
-    "source_url": "https://komiku.org/manga/im-trapped-in-this-day-for-one-thousand-years/"
-  },
-  "record-of-the-mightiest-lord": {
-    "title": "Record of The Mightiest Lord",
-    "author": "Jeon Geuk-jin",
-    "synopsis": "Dalam dunia di mana kekuatan dan status menentukan segalanya, cerita ini mengikuti perjalanan seorang pria yang memulai dari titik terendah untuk meraih kejayaan tertinggi, bro! dengan tekad baja dan kemampuan luar biasa, ia ngehadepin macem-macem drama, musuh kece, dan intrik yang menggoyahkan dunia di sekitarnya, bro! melalui pertarungan epik dan strategi cerdas,, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 80,
-    "source_url": "https://komiku.org/manga/record-of-the-mightiest-lord/"
-  },
-  "absolute-necromancer": {
-    "title": "Absolute Necromancer",
-    "author": "Mana",
-    "synopsis": "Dalam dunia di mana kekuatan sihir sangat dihargai, seorang pemuda sederhana yang memiliki kemampuan langka di bidang nekromansi berusaha bertahan hidup, bro! ia ngehadepin macem-macem drama dan musuh yang berusaha mengambil kekuatannya yang luar biasa, sambil belajar menguasai kemampuan yang selama ini dianggap tabu dan berbahaya, bro! seiring waktu, ia membentuk aliansi, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/absolute-necromancer/manga_thumbnail-Head-Absolute-Necromancer.jpeg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 96,
-    "source_url": "https://komiku.org/manga/absolute-necromancer/"
-  },
-  "the-zenith": {
-    "title": "The Zenith",
-    "author": "L.O.C",
-    "synopsis": "The zenith mengikuti kisah seorang pria muda yang tiba-tiba menemukan dirinya terlibat dalam dunia rahasia penuh konflik dan kekuatan supernatural, bro! dalam perjalanan ini, dia harus mengungkap misteri keberadaannya sekaligus menghadapi berbagai musuh yang ingin menguasai dunia, bro! di tengah perjuangannya, ia bertemu dengan sekutu-sekutu tak terduga yang membantunya memahami kekuatan yang, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-zenith/manga_thumbnail-A2-The-Zenith.jpg?w=300",
-    "genre": "Martial Arts",
-    "type": "Manhwa",
-    "total_chapters": 41,
-    "source_url": "https://komiku.org/manga/the-zenith/"
-  },
-  "the-veteran-healer-is-overpowered": {
-    "title": "The Veteran Healer Is Overpowered",
-    "author": "Jinhyuk Lee",
-    "synopsis": "Cerita ini mengikuti kehidupan seorang penyembuh berpengalaman yang bangkit kembali di dunia baru dengan kekuatan yang jauh melampaui orang biasa, bro! setelah mengalami berbagai konflik dan tantangan di masa lalunya, dia kini memanfaatkan kemampuan uniknya untuk membantu mereka yang membutuhkan, sekaligus menghadapi berbagai ancaman yang mulai mengganggu kedamaian dunia baru tersebut, bro!, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 64,
-    "source_url": "https://komiku.org/manga/the-veteran-healer-is-overpowered/"
-  },
-  "isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku": {
-    "title": "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku",
-    "author": "Ichiro Takahashi",
-    "synopsis": "Mynoghra adalah sebuah dunia pasca-apokaliptik yang terancam punah setelah peradaban manusia runtuh dan monster mendominasi bumi, bro! seorang protagonis dengan kekuatan luar biasa muncul dari dunia lain dan memulai perjuangan untuk menaklukkan dunia ini, membangun kembali peradaban sambil menghadapi berbagai ancaman dari kekuatan gelap yang tersisa, bro! dalam perjalanan tersebut, ia bertemu, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/manga_thumbnail-A2-Isekai-Mokushiroku-Mynoghra-Hametsu-no-Bunmei-de-Hajimeru-Sekai-Seifuku.jpg?w=300",
-    "genre": "Isekai",
-    "type": "Manga",
-    "total_chapters": 49,
-    "source_url": "https://komiku.org/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/"
-  },
-  "why-i-quit-being-the-demon-king": {
-    "title": "Why I Quit Being The Demon King",
-    "author": "Abaddon",
-    "synopsis": "Komik ini mengisahkan perjalanan raja iblis yang memutuskan untuk meninggalkan takhta dan kehidupan kekuasaannya demi mencari makna kehidupan yang sejati, bro! setelah bertahun-tahun memimpin dengan tangan besi dan menghadapi perlawanan para pahlawan, ia mulai merasakan kelelahan dan kebosanan yang mendalam terhadap dunia kekerasan dan konflik yang ia ciptakan sendiri, bro! dalam upayanya, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/why-i-quit-being-the-demon-king/manga_thumbnail-Head-Why-I-Quit-Being-The-Demon-King.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 80,
-    "source_url": "https://komiku.org/manga/why-i-quit-being-the-demon-king/"
-  },
-  "the-demon-king-who-lost-his-job": {
-    "title": "The Demon King Who Lost His Job",
-    "author": "Bang Dooga",
-    "synopsis": "Setelah bertahun-tahun menjadi penguasa kegelapan yang ditakuti, raja iblis tiba-tiba kehilangan pekerjaannya karena situasi dunia yang berubah drastis, bro! kini ia harus beradaptasi dengan kehidupan baru yang jauh dari kemegahan dan kekuasaan yang dulu ia miliki, bro! dengan tekad yang kuat, ia berusaha menemukan jalan baru untuk bertahan dan mendapatkan kembali rasa, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-demon-king-who-lost-his-job/manga_thumbnail-Komik-The-Demon-King-Who-Lost-His-Job.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 453,
-    "source_url": "https://komiku.org/manga/the-demon-king-who-lost-his-job/"
-  },
-  "return-of-the-mad-demon": {
-    "title": "Return of the Mad Demon",
-    "author": "Lee Yong-Gang",
-    "synopsis": "Return of the mad demon menceritakan tentang seorang pria yang dulunya dikenal sebagai demon yang sangat ditakuti, bro! setelah menghilang selama bertahun-tahun, ia kembali ke dunia yang penuh dengan konflik dan kekacauan, bertekad untuk mengubah nasibnya dan melindungi orang-orang yang ia sayangi, bro! namun, perjalanan itu tidak mudah karena banyak musuh lama, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 187,
-    "source_url": "https://komiku.org/manga/return-of-the-mad-demon/"
-  },
-  "solo-leveling-id": {
-    "title": "Solo Leveling",
-    "author": "Chugong",
-    "synopsis": "Di dunia di mana para pemburu bertarung melawan makhluk dari dunia lain melalui portal misterius, sung jinwoo adalah pemburu dengan kekuatan yang sangat lemah, bro! sebagai pemburu kelas terendah, ia sering dianggap tidak berguna dan sering menghadapi bahaya yang mengancam nyawanya dalam setiap misi, bro! namun, semuanya berubah ketika ia mendapatkan kemampuan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/solo-leveling-sub-indo/manga_thumbnail-Head-I-Alone-Leveling.png?w=500",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 179,
-    "source_url": "https://komiku.org/manga/solo-leveling-id/"
-  },
-  "alone-leveling-ragnarok": {
-    "title": "Solo Leveling: Ragnarok",
-    "author": "Chugong",
-    "synopsis": "Di dunia di mana gerbang menuju dunia lain muncul secara tiba-tiba dan memunculkan makhluk berbahaya, sung jinwoo adalah pemburu level terendah yang hampir kehilangan segalanya, bro! setelah mengalami sebuah kejadian misterius di dalam sebuah dungeon, ia mendapatkan kemampuan unik yang memberinya kekuatan luar biasa secara diam-diam, bro! dengan kemampuan barunya, jinwoo mulai, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/alone-leveling-ragnarok/manga_thumbnail-A2-Alone-Leveling-Ragnarok.jpg?w=500",
-    "genre": "Fantasi",
-    "type": "Manhwa",
-    "total_chapters": 68,
-    "source_url": "https://komiku.org/manga/alone-leveling-ragnarok/"
-  },
-  "a-bad-person": {
-    "title": "A Bad Person",
-    "author": "Jang Sung-Lak",
-    "synopsis": "A bad person mengikuti kisah seorang individu yang berjuang menghadapi sisi gelap dalam dirinya dan bagaimana hal tersebut memengaruhi hubungan dengan orang di sekitarnya, bro! dalam perjalanan cerita, karakter utama berusaha memahami akar dari perilaku negatifnya dan mencari cara untuk berubah demi kebaikan diri dan orang lain, bro! konflik batin yang dialami, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/a-bad-person/manga_thumbnail-Manhwa-A-Bad-Person.jpg?w=500",
-    "genre": "Aksi",
-    "type": "Manhwa",
-    "total_chapters": 291,
-    "source_url": "https://komiku.org/manga/a-bad-person"
-  },
-  "the-max-leveled-hero-will-return": {
-    "title": "The MAX leveled hero will return!",
-    "author": "Jae Hyun",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pahlawan yang pernah mencapai level maksimal, namun menghilang dari dunia petualangan, bro! setelah lama menghilang, ia memutuskan untuk kembali menghadapi tantangan baru di dunia yang penuh dengan bahaya dan rahasia yang belum terungkap, sambil berusaha melindungi orang-orang yang dicintainya, bro! dalam perjalanan kembalinya, sang pahlawan harus berhadapan, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-max-leveled-hero-will-return/manga_thumbnail-Komik-The-MAX-leveled-hero-will-return.jpg?w=500",
-    "genre": "Isekai",
-    "type": "Manhwa",
-    "total_chapters": 232,
-    "source_url": "https://komiku.org/manga/the-max-leveled-hero-will-return/"
-  },
-  "tales-demons-gods": {
-    "title": "Tales of Demons and Gods",
-    "author": "Mad Snail",
-    "synopsis": "Tales of demons and gods mengikuti cerita nie li, seorang pejuang muda dari era modern yang terbunuh dalam pertempuran melawan iblis, bro! namun, ia mendapat kesempatan untuk kembali ke masa lalu saat usianya masih muda, dengan pengetahuan dan pengalaman dari masa depannya, bro! dengan tekad kuat, nie li berusaha mengganti nasib keluarganya, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 941,
-    "source_url": "https://komiku.org/manga/tales-demons-gods/"
-  },
-  "apotheosis-indonesia": {
-    "title": "Apotheosis",
-    "author": "San Ren Xi",
-    "synopsis": "Apotheosis menceritakan perjalanan seorang pemuda yang awalnya biasa saja namun kemudian menemukan kekuatan luar biasa yang mengubah hidupnya secara drastis, bro! dalam prosesnya, dia harus menghadapi berbagai musuh serta tantangan yang menguji ketangguhan dan tekadnya untuk meraih puncak kekuatan sejati, bro! cerita ini juga menggambarkan konflik batin sang tokoh utama dalam memahami, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/apotheosis-indonesia/manga_thumbnail-Manhua-Apotheosis.jpg?w=500",
-    "genre": "Fantasi",
-    "type": "Manhua",
-    "total_chapters": 1091,
-    "source_url": "https://komiku.org/manga/apotheosis-indonesia/"
-  },
-  "kimetsu-no-yaiba-indonesia": {
-    "title": "Kimetsu no Yaiba",
-    "author": "Koyoharu Gotouge",
-    "synopsis": "Kimetsu no yaiba mengisahkan tentang tanjiro kamado, seorang anak yang kehidupannya berubah drastis ketika keluarganya dibantai oleh iblis, bro! satu-satunya anggota keluarga yang selamat adalah adiknya nezuko, yang berubah menjadi iblis, bro! tanjiro kemudian bertekad menjadi pembasmi iblis untuk mencari cara mengembalikan nezuko menjadi manusia dan membalas dendam keluarganya, bro! perjalanan tanjiro membawanya, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/kimetsu-no-yaiba-indonesia/manga_thumbnail-Komik-Kimetsu-no-Yaiba.jpg?w=500",
-    "genre": "Aksi",
-    "type": "Manga",
-    "total_chapters": 223,
-    "source_url": "https://komiku.org/manga/kimetsu-no-yaiba-indonesia/"
-  },
-  "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic": {
-    "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
-    "author": "Touyoru",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang penguasa desa yang dikenal dengan sikap santainya, ketika desa kecil yang tidak dikenal mulai berkembang menjadi kota benteng terkuat di dunia, bro! dengan bantuan sihir produksi yang unik, dia berhasil memperkuat pertahanan desanya dan mengubahnya menjadi wilayah yang sulit ditembus musuh, bro! dalam menghadapi berbagai ancaman dari, bro!, bro!, bro!",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
-    "genre": "Fantasi",
-    "type": "Manga",
-    "total_chapters": 82,
-    "source_url": "https://komiku.org/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/"
-  },
-  "lostend": {
-    "title": "Komik LOSTEND",
-    "cover": "https://thumbnail.komiku.org/img/upload/lostend/img_690c517143bde3.00272689.jpg?w=500",
-    "sinopsis": "Lostend mengisahkan seorang pria bernama Rogue yang terjebak dalam dunia misterius penuh dengan makhluk aneh dan bahaya tanpa akhir. Dia berjuang untuk menemukan jalan kembali ke kehidupannya yang normal sambil menghadapi berbagai rintangan yang menguji keberanian dan kecerdasannya. Dalam perjalanan tersebut, Rogue bertemu dengan sekutu yang juga berjuang mengungkap rahasia dunia yang hilang ini. Bersama-sama mereka mencoba menguak misteri besar yang menjadi kunci untuk bisa keluar dari dunia tersebut sekaligus menyelamatkan diri mereka dan yang lain dari kehancuran total.",
-    "genre": [
-      "Action",
-      "Adventure",
-      "Drama",
-      "Horror",
-      "Mature",
-      "Seinen",
-      "Supernatural"
-    ],
-    "type": "Manga",
-    "source_url": "https://komiku.org/manga/lostend/",
-    "total_chapters": 0
-  },
-  "albus-changes-the-world": {
-    "title": "Albus Changes the World",
-    "author": "EFK Kc",
-    "cover": "https://thumbnail.komiku.org/img/upload/albus_changes_the_world/img_682d9c56f29cb7.11670516.jpg?w=500",
-    "sinopsis": "Albus adalah seorang pemuda dengan kemampuan luar biasa yang bertekad mengubah dunia melalui inovasi dan keberanian. Dalam perjalanannya, ia menghadapi berbagai tantangan mulai dari konflik pribadi hingga perjuangan melawan sistem yang korup. Melalui interaksi dengan beragam karakter dan situasi kompleks, Albus belajar tentang kekuatan harapan dan pentingnya kerja sama untuk menciptakan perubahan nyata. Komik ini menyajikan kisah inspiratif tentang bagaimana seorang individu bisa membawa dampak besar bagi masyarakat luas.",
-    "genre": "Action, Adventure, Fantasy, Shounen",
-    "type": "Manga",
-    "source_url": "https://komiku.org/manga/albus-changes-the-world/",
-    "total_chapters": 77
-  },
-  "ballroom-e-youkoso": {
-    "title": "Komik Ballroom e Youkoso",
-    "author": "Tomomi Taketomi",
-    "synopsis": "Cerita ini mengikuti Tatara Fujita, seorang remaja yang awalnya menjalani hidup biasa dan penuh ketidakpastian. Suatu hari, dia secara tak sengaja menemukan dunia kompetitif tari ballroom yang membuatnya terpesona dan mulai belajar menari dari seorang instruktur berbakat bernama Kaname Sengoku. Melalui proses latihan yang keras dan menghadapi berbagai tantangan, Tatara mulai menemukan jati dirinya serta arti dari semangat dan kerja keras. Tatara kemudian bertemu dengan teman-teman baru yang juga memiliki mimpi besar di dunia tari. Mereka berbagi kisah dan berjuang bersama untuk meraih puncak prestasi di kompetisi tarian. Dengan latar belakang yang penuh dengan dinamika emosi dan persahabatan, komik ini menyajikan perjalanan seorang pemuda mengejar mimpi dan membangun kepercayaan diri lewat seni tari ballroom.",
-    "cover": "https://thumbnail.komiku.org/img/upload/ballroom_e_youkoso/img_6978870411a023.22700817.jpg?w=500",
-    "genre": "Comedy, Drama, Romance, School life, Shounen, Sports",
-    "type": "Manga",
-    "total_chapters": 6,
-    "source_url": "https://komiku.org/manga/ballroom-e-youkoso/"
-  },
-  "be-born-again": {
-    "title": "Komik Be Born Again",
-    "author": "Bee",
-    "synopsis": "Be Born Again mengisahkan perjalanan seorang pemuda yang secara ajaib diberi kesempatan untuk memulai hidupnya dari awal setelah mengalami tragedi besar. Dalam perjalanannya, ia menemukan berbagai tantangan dan kesempatan yang membentuk dirinya menjadi pribadi yang lebih kuat dan bijaksana. Dengan semangat yang baru, ia berusaha memperbaiki kesalahan masa lalu dan menemukan arti sebenarnya dari kehidupan. Cerita ini juga menyoroti hubungan antar karakter yang merangkul tema persahabatan, pengampunan, serta perubahan diri. Dengan latar dunia yang kaya akan berbagai elemen fantasi dan realisme, komik ini menyajikan pengalaman emosional dan inspiratif yang mengajak pembaca untuk merenungkan nilai kehidupan dan kesempatan kedua yang berharga.",
-    "cover": "https://thumbnail.komiku.org/img/upload/be_born_again/img_697886d3c68216.84289210.jpg?w=500",
-    "genre": "Action, Drama, Seinen, Supernatural",
-    "type": "Manga",
-    "total_chapters": 8,
-    "source_url": "https://komiku.org/manga/be-born-again/"
-  },
-  "houkago-no-luminous": {
-    "title": "Komik Houkago no Luminous",
-    "author": "Daisuke Hiyama",
-    "synopsis": "Komik ini berkisah tentang sekelompok siswi yang tergabung dalam klub seni cahaya di sebuah SMA. Mereka mengeksplorasi berbagai teknik seni cahaya dengan menggunakan proyektor dan alat digital, sambil menyusun pertunjukan seni yang memukau di akhir tahun sekolah. Cerita menyoroti persahabatan, kerja sama, dan proses kreatif yang mereka jalani bersama. Selain fokus pada seni, kisah ini juga mengupas tantangan pribadi setiap anggota klub dan bagaimana mereka saling mendukung untuk menghadapi tekanan akademik dan kehidupan sehari-hari. Melalui pengalaman ini, karakter-karakter belajar pentingnya ketekunan dan keindahan dalam menemukan cahaya sendiri, sebagai simbol harapan dan semangat baru.",
-    "cover": "https://thumbnail.komiku.org/img/upload/houkago_no_luminous/img_6978868b8992f4.50523061.jpg?w=500",
-    "genre": "Comedy, Drama, Romance, School life, Sci-fi, Shounen",
+  "bijin-de-okane-mochi-no-kanojo-ga-hoshii-to-ittara-wake-ari-joshi-ga-yattekita-ken": {
+    "title": "Komik “Bijin de Okane Mochi no Kanojo ga Hoshii” to Ittara, Wake Ari Joshi ga Yattekita Ken",
+    "author": "Kenji GS",
+    "synopsis": "Cerita ini mengikuti kehidupan seorang pria biasa yang tiba-tiba kedatangan seorang perempuan cantik...",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
     "total_chapters": 1,
-    "source_url": "https://komiku.org/manga/houkago-no-luminous/"
+    "source_url": "https://komiku.org/manga/bijin-de-okane-mochi-no-kanojo-ga-hoshii-to-ittara-wake-ari-joshi-ga-yattekita-ken/"
   },
-  "yanki-yo-tsue-o-mote": {
-    "title": "Komik Yanki yo, Tsue o mote!",
-    "author": "Hideki Arai",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang remaja nakal bernama Yanki yang memiliki karakter keras kepala dan semangat tidak kenal menyerah. Dalam hidupnya yang penuh benturan dengan aturan dan norma, dia menemukan kekuatan baru melalui sebuah tongkat yang memberikan kemampuan luar biasa. Kisah ini menyoroti persahabatan, pergulatan batin, dan perjuangan untuk mengubah nasib di dunia yang keras. Yanki harus menghadapi berbagai tantangan mulai dari para musuh yang ingin merebut tongkat ajaib hingga rintangan dalam dirinya sendiri yang harus diatasi agar bisa menjadi pribadi yang lebih baik. Cerita ini menggambarkan transformasi seorang remaja yang berusaha menemukan jati diri sambil mempertahankan semangat dan keberanian di tengah tekanan lingkungan sekitarnya.",
-    "cover": "https://thumbnail.komiku.org/img/upload/yanki_yo__tsue_o_mote_/img_6978864c2a5519.21214856.jpg?w=500",
-    "genre": "Comedy, Fantasy, School life",
+  "black-clover-indonesia": {
+    "title": "Black Clover",
+    "author": "Yūki Tabata",
+    "synopsis": "Bersetting di dunia di mana sihir adalah bagian penting dalam kehidupan sehari-hari, cerita ini meng...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/black-clover-indonesia/manga_thumbnail-Manga-Black-Clover.jpg?w=300",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 1,
-    "source_url": "https://komiku.org/manga/yanki-yo-tsue-o-mote/"
+    "total_chapters": 388,
+    "source_url": "https://komiku.org/manga/black-clover-indonesia"
   },
-  "ore-ga-inai-to-sugu-chomeru-hakanagi-kasumi": {
-    "title": "Komik Ore ga Inai to Sugu Chomeru Hakanagi Kasumi",
-    "author": "Haruga Naoki",
-    "synopsis": "Kasumi Hakanagi adalah sosok yang dikenal sangat gampang marah terutama jika temannya, yang selalu siap membantunya, tidak ada di sekitarnya. Hubungan mereka dipenuhi dengan interaksi lucu dan penuh kehangatan meskipun Kasumi kerap menunjukkan sikap cepat marah. Namun, di balik kemarahannya, tersimpan perhatian mendalam dan rasa peduli yang tulus terhadap orang-orang di sekitarnya. Cerita ini menggambarkan bagaimana kisah persahabatan dan dinamika emosional Kasumi berkembang seiring waktu. Kami diajak menyelami momen-momen yang menunjukkan sisi lembut dan penyayang dari Kasumi, serta bagaimana dia belajar menghadapi perasaannya sendiri dan orang lain di sekelilingnya melalui situasi sehari-hari yang sederhana namun bermakna.",
-    "cover": "https://thumbnail.komiku.org/img/upload/ore_ga_inai_to_sugu_chomeru_hakanagi_kasumi/img_69788526348479.73308387.jpg?w=500",
-    "genre": "Comedy, Ecchi, Romance, School life, Seinen",
+  "blue-lock": {
+    "title": "Blue Lock",
+    "author": "Muneyuki Kaneshiro",
+    "synopsis": "Blue lock mengisahkan tentang program unik yang diselenggarakan jepang untuk menemukan striker terba...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/blue-lock/manga_thumbnail-Manga-Blue-Lock.jpg?w=300",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 2,
-    "source_url": "https://komiku.org/manga/ore-ga-inai-to-sugu-chomeru-hakanagi-kasumi/"
+    "total_chapters": 336,
+    "source_url": "https://komiku.org/manga/blue-lock"
   },
   "bungou-stray-dogs-beast": {
     "title": "Komik Bungou Stray Dogs: BEAST",
-    "author": "Kafka Asagiri",
-    "synopsis": "Komik Bungou Stray Dogs: BEAST membawa pembaca ke dalam dunia yang penuh ketegangan dan misteri, di mana para karakter utama adalah anggota dari sebuah organisasi yang memiliki kemampuan supernatural unik. Mereka berjuang melawan berbagai ancaman yang membahayakan keseimbangan dunia, mulai dari kriminal berbahaya hingga makhluk aneh yang muncul dari kekuatan gelap. Cerita ini tidak hanya menampilkan aksi yang intens, tetapi juga menggali latar belakang para karakter dengan sangat mendalam, menunjukkan bagaimana masa lalu mereka membentuk kepribadian serta kekuatan yang dimiliki. Setiap episode menghadirkan konflik emosional dan pertarungan strategi yang membuat pembaca terus ingin tahu bagaimana nasib para anggota organisasi ini serta masa depan dunia mereka.",
-    "cover": "https://thumbnail.komiku.org/img/upload/bungou_stray_dogs__beast/img_697883e9dc03b3.83129396.jpg?w=500",
-    "genre": "Action, Drama, Fantasy, Shounen",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
     "total_chapters": 1,
     "source_url": "https://komiku.org/manga/bungou-stray-dogs-beast/"
   },
-  "muteki-no-ansatsu-ma-shirube-shi-last-boss-musume-to-tabi-wo-suru": {
-    "title": "Komik Muteki No Ansatsu Ma Shirube Shi, Last Boss Musume to Tabi Wo Suru",
-    "author": "Takemoto Makoto",
-    "synopsis": "Di dunia di mana para pembunuh bayaran memiliki keahlian luar biasa, seorang samurai legendaris yang dikenal sebagai Penunjuk Pembunuh Tak Terkalahkan memulai perjalanan barunya. Bersama dengan seorang gadis muda yang merupakan putri dari penguasa terakhir kerajaan, mereka menghadapi berbagai tantangan berbahaya dan misteri yang mengancam kedamaian dunia mereka. Perjalanan ini tidak hanya menguji kemampuan bertarung mereka, tetapi juga ikatan yang terbentuk di antara mereka. Dalam petualangan mereka, sang samurai dan putri menghadapi musuh-musuh kuat, pengkhianatan, serta konflik internal yang mengubah jalan hidup mereka. Cerita ini menggali sisi kemanusiaan di balik kekuatan luar biasa, serta perjuangan untuk menjaga harapan dan keadilan di tengah kekacauan yang melanda negeri mereka.",
-    "cover": "https://thumbnail.komiku.org/img/upload/muteki_no_ansatsu_ma_shirube/img_696df0dbcd65f8.92141980.jpg?w=500",
-    "genre": "Action, Adventure, Drama, Fantasy, Seinen",
-    "type": "Manga",
-    "total_chapters": 2,
-    "source_url": "https://komiku.org/manga/muteki-no-ansatsu-ma-shirube-shi-last-boss-musume-to-tabi-wo-suru/"
-  },
-  "hima-ten": {
-    "title": "Komik Hima-Ten!",
-    "author": "TAKAYAMA Asami",
-    "synopsis": "Cerita ini mengikuti kehidupan sehari-hari Hima, seorang siswa SMA yang dikenal dengan sifatnya yang sangat santai dan tidak pernah merasa stres meskipun dikelilingi oleh teman-teman yang penuh semangat dan ambisi. Hima sering kali menjadi pusat perhatian karena pendekatannya yang unik dalam menghadapi berbagai situasi di sekolah, membuat suasana kelas menjadi lebih ringan dan menyenangkan. Seiring berjalannya waktu, Hima mulai membuka sisi lain dari dirinya yang jarang diketahui oleh teman-teman sekelasnya. Dia menunjukkan bahwa di balik ketenangannya, ada kepedulian mendalam terhadap orang-orang di sekitarnya. Komik ini mengajak pembaca untuk melihat bahwa ketenangan dan sikap santai bisa menjadi kekuatan dalam membangun hubungan dan menghadapi tekanan hidup remaja.",
-    "cover": "https://thumbnail.komiku.org/img/upload/hima-ten_/img_684bcf86a53381.21525023.jpg?w=500",
-    "genre": "Comedy, Romance, School life, Shounen",
-    "type": "Manga",
-    "total_chapters": 75,
-    "source_url": "https://komiku.org/manga/hima-ten/"
-  },
-  "enishi-kun-wa-masho-harem-taishitsu-ni-mezamemashita": {
-    "title": "Komik Enishi-kun wa Masho (Harem) Taishitsu ni Mezamemashita",
-    "author": "Isehara Kana",
-    "synopsis": "Enishi-kun tiba-tiba menyadari bahwa dirinya memiliki kepribadian yang cocok untuk harem magis, sebuah dunia di mana pesona dan hubungan romantis berkembang secara ajaib. Dalam perjalanannya, ia bertemu dengan berbagai gadis yang memiliki kekuatan dan keunikan masing-masing, yang membuat kehidupannya semakin rumit dan penuh warna. Setiap interaksi dan konflik yang dihadapinya memperkuat hubungan mereka sekaligus mengungkap rahasia di balik 'kepribadian harem' yang dimilikinya. Dengan semangat dan tekad, Enishi-kun mencoba memahami peran barunya sambil mencari cara untuk menjaga harmoni dalam lingkaran pertemanan yang makin erat.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/enishi-kun-wa-masho-harem-taishitsu-ni-mezamemashita/manga_thumbnail-Manga-Enishi-kun-wa-Masho-Harem-Taishitsu-ni-Mezamemashita.jpg?w=500",
-    "genre": "Comedy, Drama, Ecchi, Harem, Romance, School life",
-    "type": "Manga",
-    "total_chapters": 38,
-    "source_url": "https://komiku.org/manga/enishi-kun-wa-masho-harem-taishitsu-ni-mezamemashita/"
-  },
-  "a-court-magician-who-was-focused-on-supportive-magic-because-his-allies-were-too-weak-aims-to-become-the-strongest-after-being-banished": {
-    "title": "Komik A Court Magician, Who Was Focused On Supportive Magic Because His Allies Were Too Weak, Aims To Become The Strongest After Being Banished",
-    "author": "Sajojo",
-    "synopsis": "Cerita ini mengikuti seorang penyihir pengadilan yang selama ini mengandalkan sihir pendukung untuk melindungi sekutunya yang lemah. Karena kelemahan teman-temannya, ia sering diremehkan dan akhirnya diusir dari istana. Tidak terima dengan perlakuan tersebut, ia memutuskan untuk membuktikan kekuatannya dengan menjadi penyihir terkuat. Dalam perjalanan baru setelah pengusiran, ia menghadapi berbagai tantangan dan bertemu dengan berbagai tokoh yang memperkuat kemampuannya. Dengan tekad yang kuat dan pengalaman dari masa lalunya, ia berjuang untuk meraih kekuatan tanpa batas dan membuktikan bahwa dukungan sekaligus kekuatan adalah kombinasi yang tak terkalahkan.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/a-court-magician-who-was-focused-on-supportive-magic-because-his-allies-were-too-weak-aims-to-become-the-strongest-after-being-banished/manga_thumbnail-Manga-A-Court-Magician-Who-Was-Focused-On-Supportive-Magic-Because-His-Allies-Were-Too-Weak-Aims-To-Become-The-Strongest-After-Being-Banished.jpg?w=500",
-    "genre": "Action, Adventure, Fantasy, Magic, Shounen",
-    "type": "Manga",
-    "total_chapters": 184,
-    "source_url": "https://komiku.org/manga/a-court-magician-who-was-focused-on-supportive-magic-because-his-allies-were-too-weak-aims-to-become-the-strongest-after-being-banished/"
-  },
-  "hell-mode-yarikomi-suki-no-gamer-wa-hai-settei-no-isekai-de-musou-suru": {
-    "title": "Komik Hell Mode: Yarikomi Suki no Gamer wa Hai Settei no Isekai de Musou Suru",
-    "author": "Shun Matsushita",
-    "synopsis": "Seorang gamer yang gemar bermain game dengan cara berlebihan dan penuh dedikasi tiba-tiba terlempar ke dunia paralel yang penuh dengan petualangan dan tantangan. Di dunia baru ini, ia mendapatkan kemampuan luar biasa yang memungkinkannya untuk mengatasi berbagai rintangan dengan mudah, menjadikannya legenda di antara para penghuni dunia tersebut. Meski menghadapi berbagai musuh yang kuat dan situasi berbahaya, gamer ini terus mengandalkan keterampilan dan instingnya dalam bermain untuk melaju tanpa hambatan. Perjalanan penuh aksi dan strategi ini memperlihatkan bagaimana semangatnya sebagai penggemar game membantu ia bertahan dan menguasai dunia isekai yang sangat berbeda dari dunia asalnya.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/hell-mode-yarikomi-suki-no-gamer-wa-hai-settei-no-isekai-de-musou-suru/manga_thumbnail-Manga-Hell-Mode-Yarikomi-Suki-no-Gamer-wa-Hai-Settei-no-Isekai-de-Musou-Suru.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Isekai",
-    "type": "Manga",
-    "total_chapters": 97,
-    "source_url": "https://komiku.org/manga/hell-mode-yarikomi-suki-no-gamer-wa-hai-settei-no-isekai-de-musou-suru/"
-  },
-  "welcome-to-cheap-restaurant-of-outcasts": {
-    "title": "Komik Tsuihousha Shokudou e Youkoso! (Welcome to Cheap Restaurant of Outcasts!)",
-    "author": "Kouta Amatsuka",
-    "synopsis": "Komik ini menceritakan tentang sebuah restoran unik yang menjadi tempat berkumpulnya orang-orang yang merasa tersisih dari masyarakat. Restoran ini menawarkan hidangan murah dengan suasana hangat, di mana para pelanggannya bisa merasa diterima tanpa penilaian. Setiap pengunjung membawa cerita hidup mereka yang telah penuh liku dan ketidakadilan. Melalui interaksi antar karakter yang beragam, cerita menggambarkan bagaimana mereka saling mendukung dan menemukan harapan baru dalam kebersamaan. Restoran ini bukan sekadar tempat makan, tapi juga rumah baru yang mengajarkan pentingnya empati dan kekuatan solidaritas di tengah kesulitan hidup.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/welcome-to-cheap-restaurant-of-outcasts/manga_thumbnail-Manga-Welcome-to-Cheap-Restaurant-of-Outcasts.jpg?w=500",
-    "genre": "Adventure, Comedy, Shounen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 57,
-    "source_url": "https://komiku.org/manga/welcome-to-cheap-restaurant-of-outcasts/"
-  },
-  "ikemen-ni-tensei-shita-kedo-cheat-wa-dekimasen-shita": {
-    "title": "Komik Ikemen ni Tensei Shita kedo Cheat wa Dekimasen Shita.",
-    "author": "Koyano Yuki",
-    "synopsis": "Seorang pria yang tiba-tiba terlahir kembali di dunia lain sebagai sosok pria tampan menghadapi kehidupan barunya tanpa kemampuan untuk menggunakan cheat atau kekuatan khusus. Dia harus mengandalkan kecerdasan, kerja keras, dan kepribadiannya untuk menavigasi berbagai tantangan di dunia yang penuh dengan sihir dan petualangan ini. Meski tidak memiliki keistimewaan seperti karakter lain, ia bertekad membuktikan dirinya lewat usaha dan ketulusan hati. Dalam perjalanannya, ia membangun hubungan dengan berbagai karakter yang menemani dan mendukungnya. Kisah ini mengangkat tema tentang kejujuran, usaha, dan bagaimana seseorang dapat berkembang tanpa mengandalkan kekuatan instan. Dengan latar dunia fantasi yang kaya, cerita ini menghidupkan semangat perjuangan dari sudut pandang yang berbeda dan menginspirasi pembaca untuk percaya pada kemampuan diri sendiri tanpa harus mengambil jalan pintas.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/ikemen-ni-tensei-shita-kedo-cheat-wa-dekimasen-shita/manga_thumbnail-Manga-Ikemen-ni-Tensei-Shita-kedo-Cheat-wa-Dekimasen-Shita..jpg?w=500",
-    "genre": "Unknown",
-    "type": "Manga",
-    "total_chapters": 15,
-    "source_url": "https://komiku.org/manga/ikemen-ni-tensei-shita-kedo-cheat-wa-dekimasen-shita/"
-  },
-  "senpai-jitaku-keibiin-no-koyou-wa-ikaga-desu-ka": {
-    "title": "Komik Senpai, Jitaku Keibiin no Koyou wa Ikaga desu ka?",
-    "author": "Ooyama Mayu",
-    "synopsis": "Cerita ini mengikuti kehidupan seorang mahasiswa yang tinggal sendirian dan memutuskan untuk merekrut seorang penjaga rumah profesional demi menjaga keamanan dan kenyamanan rumahnya. Namun, penjaga rumahnya adalah seorang senpai yang memiliki kepribadian unik dan misterius, membuat keadaan sehari-hari mereka penuh dengan momen tak terduga dan interaksi yang menggemaskan. Seiring waktu berjalan, kedekatan antara keduanya semakin berkembang, dari sekadar hubungan profesional menjadi lebih personal dan penuh perhatian. Mereka sama-sama belajar memahami satu sama lain, menghadapi berbagai tantangan hidup bersama, dan menemukan arti sebuah kebersamaan yang hangat dan berarti di tengah kesibukan dan kesendirian yang awalnya mereka alami.",
-    "cover": "https://thumbnail.komiku.org/img/upload/senpai__jitaku_keibiin_no_koyou_wa_ikaga_desu_ka_/img_688887d76ecee7.36030532.jpg?w=500",
-    "genre": "Comedy, Drama, Romance, Seinen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 14,
-    "source_url": "https://komiku.org/manga/senpai-jitaku-keibiin-no-koyou-wa-ikaga-desu-ka/"
-  },
-  "zombie-100-zombie-ni-naru-made-ni-shitai-100-no-koto": {
-    "title": "Komik Zombie 100 ~Zombie ni Naru Made ni Shitai 100 no Koto~",
-    "author": "Haro Aso",
-    "synopsis": "Cerita mengisahkan seorang pria bernama Akira yang hidup di tengah dunia yang tiba-tiba diserbu oleh wabah zombie. Alih-alih hanya bertahan hidup, Akira membuat daftar seratus hal yang ingin dia lakukan sebelum akhirnya berubah menjadi zombie. Dengan semangat dan tekad kuat, dia memulai petualangan yang dipenuhi dengan tantangan, persahabatan, dan penemuan diri. Sepanjang perjalanan, Akira bertemu dengan berbagai karakter yang memiliki alasan dan cara masing-masing menghadapi kiamat zombie tersebut. Kisah ini tidak hanya menggambarkan perjuangan fisik melawan zombie, tetapi juga refleksi mendalam tentang makna hidup, keinginan, dan mimpi yang tetap hidup di tengah kondisi terburuk sekalipun.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/zombie-100-zombie-ni-naru-made-ni-shitai-100-no-koto/manga_thumbnail-Komik-Zombie-100-Zombie-ni-Naru-Made-ni-Shitai-100-no-Koto.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Drama, Horror, Mature, Seinen, Supernatural",
-    "type": "Manga",
-    "total_chapters": 88,
-    "source_url": "https://komiku.org/manga/zombie-100-zombie-ni-naru-made-ni-shitai-100-no-koto/"
-  },
-  "kanan-sama-wa-akumade-choroi": {
-    "title": "Komik Kanan-sama wa Akumade Choroi",
-    "author": "Shimura Kana",
-    "synopsis": "Cerita ini menceritakan tentang Kanan, seorang tokoh yang terkenal dengan sikapnya yang penuh tipu daya dan kecerdikan dalam menghadapi berbagai situasi rumit. Meski terlihat kejam, sebenarnya Kanan memiliki hati yang hangat dan pandai memahami orang-orang di sekitarnya. Ia menggunakan kecerdasannya untuk menyelesaikan masalah dengan cara yang tidak terduga. Dalam perjalanannya, Kanan bertemu dengan berbagai karakter yang menambah warna dalam hidupnya. Setiap pertemuan memberikan pelajaran berharga dan menguji keteguhan hatinya. Komik ini menyajikan perpaduan antara kisah yang menghibur dan pesan moral yang mendalam, cocok untuk pembaca yang menyukai cerita dengan nuansa psikologis dan strategi hidup.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/kanan-sama-wa-akumade-choroi/manga_thumbnail-Kanan-sama-wa-Akumade-Choroi-Cover.jpg?w=500",
-    "genre": "Comedy, Demons, Fantasy, Romance, Shounen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 166,
-    "source_url": "https://komiku.org/manga/kanan-sama-wa-akumade-choroi/"
-  },
   "centuria": {
     "title": "Komik Centuria",
-    "author": "Ardhito Pramono",
-    "synopsis": "Cerita Centuria mengisahkan seorang pemuda yang menjalani petualangan epik untuk menemukan kekuatan tersembunyi di dalam dirinya. Dalam perjalanannya, ia bertemu dengan berbagai karakter yang membantunya melewati tantangan dan rintangan yang menguji keberaniannya. Tidak hanya tentang perjuangan fisik, Centuria juga menggali kisah persahabatan, pengorbanan, dan perjuangan melawan kegelapan yang mengancam dunia. Setiap bab membuka lapisan baru yang memperkaya cerita hingga klimaks yang penuh kejutan.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/centuria/manga_thumbnail-A2-Centuria.jpg?w=500",
-    "genre": "Action, Drama, Fantasy, Shounen, Tragedy",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
     "total_chapters": 81,
     "source_url": "https://komiku.org/manga/centuria/"
   },
-  "soloist-in-a-cage": {
-    "title": "Komik Soloist in a Cage",
-    "author": "Min Chan Kim",
-    "synopsis": "Di dunia yang kejam dan penuh misteri, Solois di Dalam Sangkar mengisahkan seorang musisi jenius yang terperangkap dalam penjara bawah tanah yang mengubahnya menjadi alat musik hidup. Ia harus menghadapi berbagai tantangan berbahaya dan musuh yang memanfaatkan keterbatasannya sambil mencari jalan keluar untuk membebaskan dirinya. Dalam perjuangannya, protagonis juga menggali rahasia gelap yang tersembunyi di balik sangkar tersebut dan menemukan bahwa kebebasannya tidak hanya soal fisik, melainkan juga tentang mencari jati diri dan harapan dalam keadaan paling suram sekalipun.",
-    "cover": "https://thumbnail.komiku.org/img/upload/soloist_in_a_cage/img_695cbb445ba6f9.22481235.jpg?w=500",
-    "genre": "Action, Drama, Police, Psychological, Shounen, Tragedy",
+  "cold": {
+    "title": "Komik “Cold” - Oneshot",
+    "author": "R. B. Clark",
+    "synopsis": "Di tengah musim dingin, seorang pria remaja dengan kemampuan unik menghadapi tantangan besar dalam m...",
+    "cover": "",
+    "genre": "One Shot",
     "type": "Manga",
-    "total_chapters": 2,
-    "source_url": "https://komiku.org/manga/soloist-in-a-cage/"
+    "total_chapters": 0,
+    "source_url": "https://komiku.org/manga/cold/"
   },
-  "jujutsu-kaisen-modulo": {
-    "title": "Komik Jujutsu Kaisen Modulo",
-    "author": "Gege Akutami",
-    "synopsis": "Jujutsu Kaisen Modul mengikuti kisah Yuji Itadori yang menemukan dunia penuh kutukan setelah secara tak sengaja memakan jari Sukuna, makhluk jahat legendaris. Dalam perjalanannya, Yuji bergabung dengan sekolah Jujutsu untuk mempelajari ilmu sihir dan melawan kutukan yang mengancam umat manusia. Dalam setiap bab, Yuji dan teman-temannya menghadapi berbagai kutukan berbahaya dan rahasia kelam terkait dunia Jujutsu. Dengan tekad kuat dan pertarungan seru, mereka berusaha mengungkap misteri di balik kekuatan kutukan dan menyelamatkan dunia dari kehancuran.",
-    "cover": "https://thumbnail.komiku.org/img/upload/jujutsu_kaisen_modulo/img_68bff6e7da51b8.28076817.jpg?w=500",
-    "genre": "Dark Fantasy, Shounen, Supernatural",
+  "douyara-ore-wa-imadoki-gal-na-toshiue-osananajimi-kara-gekiomo-kanjou-wo-mukerareteiru-rashii": {
+    "title": "Komik Douyara Ore wa Imadoki Gal na Toshiue Osananajimi kara Gekiomo Kanjou wo Mukerareteiru Rashii",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "total_chapters": 19,
-    "source_url": "https://komiku.org/manga/jujutsu-kaisen-modulo/"
+    "total_chapters": 16,
+    "source_url": "https://komiku.org/manga/douyara-ore-wa-imadoki-gal-na-toshiue-osananajimi-kara-gekiomo-kanjou-wo-mukerareteiru-rashii/"
   },
-  "next-life": {
-    "title": "Komik Next Life",
-    "author": "Lee Hyunseok",
-    "synopsis": "Next Life menceritakan kisah seorang individu yang mengalami perjalanan luar biasa setelah kematiannya. Dalam dunia baru yang penuh misteri dan tantangan, tokoh utama harus menghadapi berbagai rintangan demi menemukan tujuan sebenarnya dari perjalanan hidupnya yang kedua ini. Berbagai peristiwa dan intrik menuntunnya untuk memahami makna keberadaan dan nilai sejati dari kehidupan yang berulang. Selama petualangannya, ia bertemu dengan berbagai karakter unik yang membantunya melihat perspektif baru tentang dunia dan dirinya sendiri. Konflik batin dan dilema moral yang muncul memperkaya perjalanan tersebut sehingga menampilkan pengalaman yang tidak hanya menarik secara cerita tetapi juga mendalam secara emosional dan filosofis.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/next-life/manga_thumbnail-Komik-Next-Life.jpeg?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Harem, Isekai, Romance, Shounen",
+  "enishi-kun-wa-masho-harem-taishitsu-ni-mezamemashita": {
+    "title": "Komik Enishi-kun wa Masho (Harem) Taishitsu ni Mezamemashita",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "total_chapters": 69,
-    "source_url": "https://komiku.org/manga/next-life/"
+    "total_chapters": 38,
+    "source_url": "https://komiku.org/manga/enishi-kun-wa-masho-harem-taishitsu-ni-mezamemashita/"
   },
-  "the-butcher-blade-that-pierces-all-realms": {
-    "title": "Komik The Butcher Blade That Pierces All Realms",
-    "author": "Mu Ji Kung",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pendekar muda yang menemukan pedang legendaris dikenal sebagai Pedang Jagal. Pedang ini memiliki kekuatan luar biasa yang mampu menembus batas dimensi dan melumpuhkan musuh di berbagai alam. Dalam pencariannya memahami asal usul senjata tersebut, ia harus menghadapi berbagai ancaman dari dunia lain yang mengincar kekuatan pedang tersebut. Di tengah perjalanan, sang pendekar bertemu sekutu dan musuh yang mempengaruhi jalan hidupnya. Ia harus memutuskan ke mana loyalitasnya dan bagaimana memanfaatkan Pedang Jagal demi kebaikan atau kehancuran. Konflik antar dimensi pun membawa petualangan yang memikat, menguji keberanian dan tekadnya menghadapi takdir yang telah disiapkan bagi dirinya.",
-    "cover": "https://thumbnail.komiku.org/img/upload/the_butcher_blade_that_pierces_all_realms/img_68907601226860.88849701.png?w=500",
-    "genre": "Action, Drama, Fantasy, Mature, Psychological, Seinen",
+  "exorcist-wo-otosenai": {
+    "title": "Komik Exorcist wo Otosenai",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "total_chapters": 26,
-    "source_url": "https://komiku.org/manga/the-butcher-blade-that-pierces-all-realms/"
+    "total_chapters": 83,
+    "source_url": "https://komiku.org/manga/exorcist-wo-otosenai/"
   },
-  "maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru": {
-    "title": "Komik Maou ni Natta node, Dungeon Tsukutte Jingai Musume to Honobono suru",
-    "author": "Kouri Yuu",
-    "synopsis": "Setelah bereinkarnasi menjadi Raja Iblis, protagonis memulai petualangan barunya dengan membangun sebuah penjara di dalam dungeon yang dia ciptakan sendiri. Dalam prosesnya, ia bertemu dengan berbagai makhluk non-manusia yang kemudian menjadi teman dekat sekaligus pengikut setianya. Kehadiran mereka membawa suasana hangat dan menyenangkan meski berada di dunia yang penuh dengan bahaya. Bersama para gadis non-manusia, sang Raja Iblis menjalani kehidupan yang damai dan penuh kebersamaan. Meskipun statusnya yang kuat dan mengerikan, dia tetap menunjukkan sisi lembut dan perhatian kepada teman-temannya, menciptakan hubungan yang harmonis dan penuh kasih sayang dalam dunia fantasi yang unik ini.",
-    "cover": "https://thumbnail.komiku.org/img/upload/maou_ni_natta_node__dungeon_tsukutte_jingai_musume_to_honobono_suru/img_6839708669fa88.48952081.jpg?w=500",
-    "genre": "Action, Comedy, Fantasy, Harem, Shounen",
+  "fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic": {
+    "title": "Fun Territory Defense Of The Easy-going Lord ~the Nameless Village Is Made Into The Strongest Fortified City By Production Magic~",
+    "author": "Touyoru",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang penguasa desa yang dikenal dengan sikap santainya, ketika de...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/manga_thumbnail-Manga-Fun-Territory-Defense-Of-The-Easy-going-Lord-the-Nameless-Village-Is-Made-Into-The-Strongest-Fortified-City-By-Production-Magic.jpg",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 127,
-    "source_url": "https://komiku.org/manga/maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/"
+    "total_chapters": 82,
+    "source_url": "https://komiku.org/manga/fun-territory-defense-of-the-easy-going-lord-the-nameless-village-is-made-into-the-strongest-fortified-city-by-production-magic/"
   },
-  "shuumatsu-no-valkyrie-kinden-kamigami-no-apocalypse": {
-    "title": "Komik Shuumatsu no Valkyrie Kinden – Kamigami no Apocalypse",
-    "author": "Amahara dan Shinya Umemura",
-    "synopsis": "Komik ini mengisahkan tentang pertarungan terakhir antara manusia dan para dewa yang ingin menghapuskan umat manusia karena dianggap telah luput dari jalurnya. Dalam upaya mempertahankan keberlangsungan hidup, para manusia terpilih yang kuat dan berani tampil sebagai pejuang untuk melawan entitas-ilahi tersebut dalam sebuah pertempuran yang menentukan nasib dunia. Para Valkyrie, makhluk mitos yang biasanya menjadi pengantar arwah, memegang peranan penting sebagai mediator dan pemandu para pejuang manusia. Cerita berkembang dengan memperlihatkan latar belakang para pejuang dan dewa yang terlibat, serta berbagai strategi dan kekuatan unik yang digunakan dalam pertarungan epik tersebut. Melalui konflik ini, tema tentang keberanian, pengorbanan, dan pertanyaan eksistensial mengenai takdir dan keadilan diangkat dengan intens, sehingga membuat pembaca merenungkan nilai kemanusiaan dan keilahian dalam dunia yang penuh ketidakpastian ini.",
-    "cover": "https://thumbnail.komiku.org/img/upload/shuumatsu_no_valkyrie_kinden_____kamigami_no_apocalypse/img_69314c50823901.29624429.jpg?w=500",
-    "genre": "Action, Drama, Fantasy, Seinen, Supernatural",
+  "g-g-g": {
+    "title": "Komik G.G.G.",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "total_chapters": 20,
-    "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-kinden-kamigami-no-apocalypse/"
-  },
-  "shiunji-ke-no-kodomo-tachi": {
-    "title": "Komik Shiunji-ke no Kodomo-Tachi",
-    "author": "Ichirohanaru",
-    "synopsis": "Komik ini mengisahkan kehidupan sehari-hari anak-anak dari keluarga Shiunji yang penuh dengan dinamika dan kehangatan keluarga. Masing-masing dari mereka menghadapi tantangan serta petualangan unik yang menguji persahabatan dan ikatan keluarga mereka. Seiring berjalannya waktu, mereka belajar tentang pentingnya dukungan, pengertian, dan kerja sama di tengah berbagai situasi. Dalam prosesnya, para karakter tumbuh secara emosional dan memperkuat hubungan satu sama lain. Cerita ini menawarkan gambaran mendalam tentang bagaimana keluarga bisa menjadi sumber kekuatan terbesar dalam menghadapi masalah hidup. Dengan suasana yang hangat dan penuh makna, pembaca diajak untuk menyelami keindahan kebersamaan dan nilai-nilai kekeluargaan yang universal.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/shiunji-ke-no-kodomo-tachi/manga_thumbnail-Manga-Shiunji-ke-no-Kodomo-Tachi.jpg?w=500",
-    "genre": "Comedy, Ecchi, Harem, Romance, School life, Seinen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 63,
-    "source_url": "https://komiku.org/manga/shiunji-ke-no-kodomo-tachi/"
+    "total_chapters": 31,
+    "source_url": "https://komiku.org/manga/g-g-g/"
   },
   "gachi-koi-maou-sama": {
     "title": "Komik Gachi Koi Maou-sama",
-    "author": "Touko Amekawa",
-    "synopsis": "Komik ini mengisahkan seorang Raja Iblis yang dikenal keras kepala dan penuh teka teki. Kehidupannya berubah drastis ketika ia bertemu dengan seorang gadis manusia yang ceria dan penuh semangat, yang tanpa sengaja masuk ke dalam dunianya. Interaksi keduanya membuka pintu bagi cerita penuh emosi dan konflik, di mana cinta dan persahabatan mulai tumbuh meski berbagai rintangan datang menghampiri. Dalam perjalanannya, Raja Iblis berusaha memahami perasaan barunya dan bagaimana ia bisa mempertahankan kedamaian di kerajaannya sekaligus menjaga hubungan dengan gadis tersebut. Komik ini menampilkan konflik batin, pertarungan epik, dan momen manis yang menyentuh hati, memperlihatkan sisi lain dari sosok yang biasanya dianggap menakutkan dan dingin.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/gachi-koi-maou-sama/manga_thumbnail-Head-Gachi-Koi-Maou-sama.jpg?w=500",
-    "genre": "Comedy, Fantasy, Romance, Seinen",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
     "total_chapters": 25,
     "source_url": "https://komiku.org/manga/gachi-koi-maou-sama/"
   },
-  "mikoto-chan-wa-kirawaretakunai": {
-    "title": "Komik Mikoto-chan wa Kirawaretakunai!",
-    "author": "Kazuki Minamura",
-    "synopsis": "Cerita ini mengikuti Mikoto-chan, seorang gadis muda yang memiliki kepribadian ceria dan ingin disukai oleh semua orang di sekitarnya. Meskipun terkadang sikapnya yang terlalu blak-blakan menyebabkan kesalahpahaman, Mikoto terus berusaha membangun hubungan baik dengan teman-temannya dan menyelesaikan konflik yang muncul. Dalam perjalanan ceritanya, Mikoto menghadapi berbagai situasi sosial yang menguji kesabarannya dan kemampuannya untuk berempati. Melalui interaksi dengan karakter lain, ia belajar lebih dalam tentang arti persahabatan dan bagaimana menerima perbedaan tanpa kehilangan jati dirinya.",
-    "cover": "https://thumbnail.komiku.org/img/upload/mikoto-chan_wa_kirawaretakunai_/img_688887ff1fa793.09279856.jpg?w=500",
-    "genre": "Comedy, Drama, Ecchi, Romance, Slice of Life",
+  "gendai-shakai-de-otome-game-no-akuyaku-reijou-wo-suru-no-wa-chotto-taihen": {
+    "title": "Komik Gendai Shakai de Otome Game no Akuyaku Reijou wo suru no wa Chotto Taihen",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Drama",
     "type": "Manga",
-    "total_chapters": 38,
-    "source_url": "https://komiku.org/manga/mikoto-chan-wa-kirawaretakunai/"
+    "total_chapters": 22,
+    "source_url": "https://komiku.org/manga/gendai-shakai-de-otome-game-no-akuyaku-reijou-wo-suru-no-wa-chotto-taihen/"
   },
-  "isshou-senkin": {
-    "title": "Komik Isshou Senkin",
-    "author": "Kozuki Yuuki",
-    "synopsis": "Isshou Senkin menceritakan seorang pria bernama Kazuya yang hidupnya berubah drastis setelah menerima tawaran misterius dari organisasi rahasia. Dalam upaya untuk menyelamatkan orang yang dicintainya, Kazuya harus menjalani serangkaian tantangan dan risiko besar yang menguji tekad dan moralitasnya. Saat semakin dalam terlibat, Kazuya menghadapi konflik batin antara menjaga hukum dan memenuhi keinginannya untuk keadilan. Komik ini menggali tema tentang pengorbanan, nilai kehidupan, dan bagaimana uang dapat mempengaruhi keputusan seseorang dalam situasi yang penuh tekanan.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/isshou-senkin/manga_thumbnail-A2-Isshou-Senkin.jpg?w=500",
-    "genre": "Action, Comedy, Drama, Martial Arts, Shounen",
+  "genjitsu-shugi-yuusha-no-oukoku-saikenki": {
+    "title": "Genjitsu Shugi Yuusha no Oukoku Saikenki",
+    "author": "Dojyomaru",
+    "synopsis": "Setelah melakukan perjalanan penuh bahaya, seorang pahlawan yang realistis akhirnya kembali ke keraj...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki/manga_thumbnail-Komik-Genjitsu-Shugi-Yuusha-no-Oukoku-Saikenki.jpeg?w=300",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 65,
-    "source_url": "https://komiku.org/manga/isshou-senkin/"
+    "total_chapters": 80,
+    "source_url": "https://komiku.org/manga/genjitsu-shugi-yuusha-no-oukoku-saikenki"
+  },
+  "god-of-martial-arts": {
+    "title": "God of Martial Arts",
+    "author": "Jolly Jae",
+    "synopsis": "God of martial arts mengisahkan perjalanan seorang pemuda berbakat yang berjuang menguasai seni bela...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/god-of-martial-arts/manga_thumbnail-Komik-God-of-Martial-Arts.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 1021,
+    "source_url": "https://komiku.org/manga/god-of-martial-arts"
+  },
+  "hack-g-u": {
+    "title": "Komik .hack//G.U.+",
+    "author": "Toshihiro Kawamoto",
+    "synopsis": "Dalam alam virtual bernama The World, seorang pemain bernama Haseo berusaha memulihkan temannya yang...",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 6,
+    "source_url": "https://komiku.org/manga/hack-g-u/"
+  },
+  "hell-mode-yarikomi-suki-no-gamer-wa-hai-settei-no-isekai-de-musou-suru": {
+    "title": "Komik Hell Mode: Yarikomi Suki no Gamer wa Hai Settei no Isekai de Musou Suru",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 97,
+    "source_url": "https://komiku.org/manga/hell-mode-yarikomi-suki-no-gamer-wa-hai-settei-no-isekai-de-musou-suru/"
+  },
+  "hima-ten": {
+    "title": "Komik Hima-Ten!",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 75,
+    "source_url": "https://komiku.org/manga/hima-ten/"
+  },
+  "honyaku-no-sainou-de-ore-dake-ga-sekai-wo-kaihen-dekiru-ken": {
+    "title": "Komik “Honyaku” no Sainou de Ore Dake ga Sekai wo Kaihen Dekiru Ken",
+    "author": "Ani Yuuki",
+    "synopsis": "Cerita ini mengikuti seorang pemuda yang memiliki kemampuan luar biasa dalam menerjemahkan bahasa as...",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 44,
+    "source_url": "https://komiku.org/manga/honyaku-no-sainou-de-ore-dake-ga-sekai-wo-kaihen-dekiru-ken/"
+  },
+  "houkago-no-luminous": {
+    "title": "Komik Houkago no Luminous",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 1,
+    "source_url": "https://komiku.org/manga/houkago-no-luminous/"
+  },
+  "houseki-no-kuni": {
+    "title": "Komik Houseki no Kuni",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 75,
+    "source_url": "https://komiku.org/manga/houseki-no-kuni/"
+  },
+  "i-was-forced-by-the-system-to-become-a-villain": {
+    "title": "I Was Forced by the System to Become a Villain",
+    "author": "Lumen",
+    "synopsis": "Dalam dunia di mana sistem menentukan peran setiap individu, protagonis utama menghadapi takdir menj...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/i-was-forced-by-the-system-to-become-a-villain/manga_thumbnail-A2-I-Was-Forced-by-the-System-to-Become-a-Villain.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 160,
+    "source_url": "https://komiku.org/manga/i-was-forced-by-the-system-to-become-a-villain"
+  },
+  "im-trapped-in-this-day-for-one-thousand-years": {
+    "title": "I’m Trapped in This Day for One Thousand Years",
+    "author": "Seok-woo",
+    "synopsis": "Komik ini mengisahkan kehidupan seorang tokoh utama yang mengalami sebuah fenomena luar biasa, yakni...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/im-trapped-in-this-day-for-one-thousand-years/manga_thumbnail-Im-Trapped-in-This-Day-for-One-Thousand-Years-1.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 235,
+    "source_url": "https://komiku.org/manga/im-trapped-in-this-day-for-one-thousand-years/"
+  },
+  "isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku": {
+    "title": "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku",
+    "author": "Ichiro Takahashi",
+    "synopsis": "Mynoghra adalah sebuah dunia pasca-apokaliptik yang terancam punah setelah peradaban manusia runtuh ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/manga_thumbnail-A2-Isekai-Mokushiroku-Mynoghra-Hametsu-no-Bunmei-de-Hajimeru-Sekai-Seifuku.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 49,
+    "source_url": "https://komiku.org/manga/isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-sekai-seifuku/"
   },
   "isekai-no-binbou-nouka-ni-tensei-shitanode-renga-o-tsukutte-shiro-o-tateru-koto-ni-shimashita": {
     "title": "Komik Isekai no Binbou Nouka ni Tensei Shitanode, Renga o Tsukutte Shiro o Tateru Koto ni Shimashita",
-    "author": "Haku Yuu",
-    "synopsis": "Setelah bereinkarnasi ke dunia lain sebagai seorang petani miskin, tokoh utama memutuskan untuk menjauh dari kehidupan sederhana yang keras. Dengan tekad dan kreativitas, ia memilih membuat bata sebagai bahan utama untuk membangun kastil sendiri. Perjuangannya tidak hanya soal bertahan hidup, tetapi juga membangun sesuatu yang besar di lingkungan baru tersebut. Dalam proses membangun kastil dan tempat tinggal, ia menghadapi berbagai tantangan mulai dari mengumpulkan bahan baku hingga berinteraksi dengan penduduk sekitar. Kisah ini mengisahkan kegigihan serta semangat pembaharuan dalam dunia yang asing sambil terus mengembangkan keahliannya dalam membangun dan bertani dengan cara yang inovatif.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-no-binbou-nouka-ni-tensei-shitanode-renga-o-tsukutte-shiro-o-tateru-koto-ni-shimashita/manga_thumbnail-Manga-Isekai-no-Binbou-Nouka-ni-Tensei-Shitanode-Renga-o-Tsukutte-Shiro-o-Tateru-Koto-ni-Shimashita.jpeg?w=500",
-    "genre": "Adventure, Comedy, Drama, Fantasy, Isekai, Shounen, Slice of Life",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Adventure",
     "type": "Manga",
     "total_chapters": 35,
     "source_url": "https://komiku.org/manga/isekai-no-binbou-nouka-ni-tensei-shitanode-renga-o-tsukutte-shiro-o-tateru-koto-ni-shimashita/"
   },
   "isekai-wa-smartphone-to-tomo-ni": {
     "title": "Komik Isekai wa Smartphone to Tomo ni.",
-    "author": "Patora Fuyuhara",
-    "synopsis": "Setelah kematian yang tak terduga, Tokiya Mochizuki diberi kesempatan kedua untuk hidup di dunia lain oleh seorang dewa. Di dunia baru ini, ia membawa serta smartphone-nya yang canggih, yang membantunya mengatasi berbagai tantangan dan misteri di dunia fantasi tersebut. Tokiya menggunakan teknologi modern yang ada di ponselnya untuk membangun hubungan, belajar sihir, bahkan menghadapi ancaman yang muncul. Dalam petualangannya, Tokiya bertemu dengan berbagai karakter unik mulai dari putri kerajaan hingga makhluk mistis. Bersama mereka, ia berusaha menemukan tempat dan tujuan baru di dunia yang asing namun penuh peluang itu. Smartphone-nya tetap menjadi alat penting yang menghubungkan Tokiya dengan teknologi dan pengetahuan dari dunia asalnya, membuatnya menjadi sosok unik di dunia isekai ini.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-wa-smartphone-to-tomo-ni/manga_thumbnail-Manga-Isekai-wa-Smartphone-to-Tomo-ni..jpg?w=500",
-    "genre": "Adventure, Comedy, Fantasy, Harem, Isekai, Romance",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Adventure",
     "type": "Manga",
     "total_chapters": 111,
     "source_url": "https://komiku.org/manga/isekai-wa-smartphone-to-tomo-ni/"
   },
-  "douyara-ore-wa-imadoki-gal-na-toshiue-osananajimi-kara-gekiomo-kanjou-wo-mukerareteiru-rashii": {
-    "title": "Komik Douyara Ore wa Imadoki Gal na Toshiue Osananajimi kara Gekiomo Kanjou wo Mukerareteiru Rashii",
-    "author": "Muryou Yuu",
-    "synopsis": "Cerita mengikuti kehidupan seorang gadis gal masa kini yang tampak berbeda dari teman masa kecilnya yang lebih tua. Meskipun mereka sudah lama saling mengenal, gadis tersebut mulai menyadari bahwa ada emosi kuat yang tersembunyi di dalam hubungan mereka yang selama ini tidak terlihat. Konflik batin dan perasaan yang mendalam mulai muncul ketika mereka mulai saling menghadapi realitas perasaan satu sama lain. Dalam prosesnya, mereka harus belajar mengatasi perbedaan usia dan cara berpikir yang bertolak belakang. Kisah ini menggambarkan bagaimana dua pribadi dengan latar belakang berbeda dapat tumbuh dan memahami satu sama lain melalui perjuangan mengelola emosi dan kekacauan perasaan yang semakin intens di antara mereka.",
-    "cover": "https://thumbnail.komiku.org/img/upload/douyara_ore_wa_imadoki_gal_na_toshiue_osananajimi_kara_gekiomo/img_684fcd260281e8.54238811.jpg?w=500",
-    "genre": "Comedy, Romance, School life, Seinen",
+  "issho-ni-netaindesu-yo-ne-senpai-to-amaku-sasayakarete-konya-mo-nemurenai": {
+    "title": "Komik “Issho ni Netaindesu yo Ne, Senpai?” to Amaku Sasayakarete Kon’ya mo Nemurenai",
+    "author": "Chiyoko Azuma",
+    "synopsis": "Cerita ini mengikuti kehidupan seorang siswa yang secara perlahan mulai merasakan ketertarikan menda...",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "total_chapters": 16,
-    "source_url": "https://komiku.org/manga/douyara-ore-wa-imadoki-gal-na-toshiue-osananajimi-kara-gekiomo-kanjou-wo-mukerareteiru-rashii/"
+    "total_chapters": 4,
+    "source_url": "https://komiku.org/manga/issho-ni-netaindesu-yo-ne-senpai-to-amaku-sasayakarete-konya-mo-nemurenai/"
   },
-  "raidorl-seiken-senki": {
-    "title": "Komik Raidorl Seiken Senki",
-    "author": "Masato Mitsuka",
-    "synopsis": "Raidorl Seiken Senki mengikuti kisah seorang pahlawan muda yang menemukan pedang suci dengan kekuatan luar biasa. Bersama teman-teman setianya, dia berjuang melawan kekuatan gelap yang ingin menguasai dunia dan menggagalkan takdir kelam yang mengancam umat manusia. Dalam perjalanan mereka, banyak tantangan, konflik, dan pengorbanan yang harus dilalui demi menjaga kedamaian. Di sepanjang cerita, Raidorl tidak hanya berperang dengan kekuatan fisik tetapi juga menghadapi pergumulan batin tentang tanggung jawab dan arti kekuatan sejati. Kisah ini mengajarkan nilai persahabatan, keberanian, dan tekad untuk terus maju meski menghadapi rintangan besar yang menguji iman dan semangat juang para tokoh utamanya.",
-    "cover": "https://thumbnail.komiku.org/img/upload/raidorl_seiken_senki/img_68bffb88f361d7.44220862.jpg?w=500",
-    "genre": "Action, Adventure, Fantasy, Harem, Shounen",
-    "type": "Manga",
-    "total_chapters": 6,
-    "source_url": "https://komiku.org/manga/raidorl-seiken-senki/"
-  },
-  "momose-akira-no-hatsukoi-hatan-chuu": {
-    "title": "Komik Momose Akira no Hatsukoi Hatan-chuu.",
-    "author": "Momose Akira",
-    "synopsis": "Momose Akira adalah seorang siswi SMA yang dikenal pendiam dan fokus pada studinya. Namun, hatinya mulai bergejolak ketika ia bertemu dengan teman sekelas yang ceria dan penuh percaya diri. Meskipun awalnya mereka sering berselisih paham, lambat laun Akira mulai merasakan ketertarikan yang belum pernah ia alami sebelumnya. Kisah ini menggambarkan perjalanan Akira memahami perasaannya dan menghadapi tantangan cinta pertamanya dengan penuh keberanian. Dalam prosesnya, Akira belajar bahwa cinta bukan hanya soal perasaan tapi juga keberanian mengambil langkah dan membuka diri pada orang lain. Bersama teman-temannya, ia menjalani berbagai momen menyenangkan dan konflik kecil yang membuat perjalanan cintanya semakin bermakna. Komik ini menampilkan dinamika hubungan remaja dengan pendekatan yang ringan namun tetap menyentuh hati, cocok untuk pembaca muda yang sedang menjelajahi dunia cinta dan persahabatan.",
-    "cover": "https://thumbnail.komiku.org/img/upload/momose_akira_no_hatsukoi_hatan-chuu/img_6855095443e9d8.93731295.png?w=500",
-    "genre": "Comedy, Romance, School life, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 34,
-    "source_url": "https://komiku.org/manga/momose-akira-no-hatsukoi-hatan-chuu/"
-  },
-  "tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru": {
-    "title": "Komik Tonari no Seki no Yatsu ga Souiu Me de Mitekuru",
-    "author": "Takuma Morishige",
-    "synopsis": "Komik ini menceritakan tentang Seki, seorang siswa yang selalu melakukan berbagai aktivitas unik dan lucu di dalam kelas tanpa diketahui guru. Temannya, Yokoi, selalu penasaran dan mencoba mengawasinya dengan seksama, tapi Seki selalu berhasil membuatnya terkejut dengan aksi-aksinya yang tidak terduga. Setiap bab dalam komik ini menghadirkan situasi baru di mana Seki melakukan eksperimen atau permainan yang penuh kreativitas, sementara Yokoi berusaha keras untuk tetap fokus mengikuti pelajaran meskipun terganggu oleh kelakuan temannya tersebut. Kisah ini memberikan nuansa humor ringan sekaligus menunjukkan dinamika persahabatan yang erat di antara mereka berdua.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru/manga_thumbnail-A2-Tonari-no-Seki-no-Yatsu-ga-Souiu-Me-de-Mitekuru..jpg?w=500",
-    "genre": "Ecchi, Romance, School life",
-    "type": "Manga",
-    "total_chapters": 86,
-    "source_url": "https://komiku.org/manga/tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru/"
-  },
-  "takou-no-hiki-wo-tasuketara-otomodachi-kara-hajimeru-koto-ni-narimashita-after-helping-ice-princess-from-another-school-i-decided-to-start-as-a-friend": {
-    "title": "Komik Takou no Hiki wo Tasuketara, Otomodachi kara Hajimeru Koto ni narimashita (After Helping “Ice Princess” from Another School, I Decided to Start As a Friend)",
-    "author": "Nanairo Moe",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang siswa yang tanpa sengaja membantu sosok gadis dingin dan misterius dari sekolah lain yang dikenal sebagai 'Putri Salju'. Melalui peristiwa tak terduga tersebut, hubungan mereka mulai berubah dari sekadar kenalan menjadi teman sejati. Proses ini menggambarkan bagaimana kehangatan dan perhatian bisa membuka hati seseorang yang biasanya tertutup. Seiring waktu, mereka mulai saling mengenal lebih dalam dan menghadapi tantangan bersama, baik di lingkungan sekolah maupun dalam kehidupan sehari-hari. Kisah ini menyoroti pentingnya persahabatan, pemahaman, dan keberanian untuk membuka diri, terutama ketika datang dari orang yang awalnya tampak jauh dan sulit dijangkau.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/takou-no-hiki-wo-tasuketara-otomodachi-kara-hajimeru-koto-ni-narimashita-after-helping-ice-princess-from-another-school-i-decided-to-start-as-a-friend/manga_thumbnail-A2-Takou-no-Hiki-wo-Tasuketara-Otomodachi-kara-Hajimeru-Koto-ni-narimashita.jpg?w=500",
-    "genre": "Comedy, Romance, School life, Shounen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 25,
-    "source_url": "https://komiku.org/manga/takou-no-hiki-wo-tasuketara-otomodachi-kara-hajimeru-koto-ni-narimashita-after-helping-ice-princess-from-another-school-i-decided-to-start-as-a-friend/"
-  },
-  "exorcist-wo-otosenai": {
-    "title": "Komik Exorcist wo Otosenai",
-    "author": "Katsura Ise",
-    "synopsis": "Komik ini mengikuti Kisah seorang pengusir setan muda yang memiliki kemampuan luar biasa, tapi menghadapi tantangan berat karena roh jahat yang dia temui selalu lebih kuat dari yang dia bayangkan. Dalam setiap bab, ia harus menghadapi entitas yang semakin berbahaya sambil mencari cara untuk tetap mempertahankan keyakinan dan kekuatannya. Selama perjalanannya, ia bertemu dengan berbagai karakter yang membantu dan menguji kemampuannya. Berbagai misteri dunia gaib mulai terungkap, membuat sang pengusir setan harus berhadapan dengan masa lalunya sendiri serta dilema antara kebaikan dan kejahatan yang semakin kompleks.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/exorcist-wo-otosenai/manga_thumbnail-Manga-Exorcist-wo-Otosenai.jpg?w=500",
-    "genre": "Comedy, Gore, Romance, Shounen, Supernatural",
-    "type": "Manga",
-    "total_chapters": 83,
-    "source_url": "https://komiku.org/manga/exorcist-wo-otosenai/"
-  },
-  "ranger-reject-sentai-daishikkaku": {
-    "title": "Komik Ranger Reject (Sentai Daishikkaku)",
-    "author": "Tsutomu Mizushima",
-    "synopsis": "Ranger Reject mengisahkan perjalanan seorang remaja yang secara tak sengaja menjadi bagian dari kelompok pahlawan super yang dikucilkan dan dianggap gagal. Mereka semua memiliki masa lalu yang kelam dan kemampuan yang tidak sepenuhnya sempurna, namun tetap bertekad melindungi dunia dari ancaman yang terus berkembang. Dalam prosesnya, tokoh utama dan timnya menghadapi berbagai konflik internal maupun eksternal yang menguji kekuatan, kepercayaan diri, dan solidaritas mereka. Namun melalui perjuangan, mereka menemukan makna sesungguhnya dari menjadi pahlawan sejati, meskipun berada di luar sorotan masyarakat umum.",
-    "cover": "https://thumbnail.komiku.org/img/upload/ranger_reject/img_68318d7a9d55a3.56753253.jpg?w=500",
-    "genre": "Action, Comedy, Sci-fi, Shounen",
+  "isshou-senkin": {
+    "title": "Komik Isshou Senkin",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
     "total_chapters": 65,
-    "source_url": "https://komiku.org/manga/ranger-reject-sentai-daishikkaku/"
+    "source_url": "https://komiku.org/manga/isshou-senkin/"
   },
-  "tsuma-ga-kanpeki-sugiru-no-de-chotto-midashite-ii-desu-ka": {
-    "title": "Komik Tsuma ga Kanpeki sugiru no de, Chotto Midashite Ii desu ka?",
-    "author": "Miru Inoue",
-    "synopsis": "Komik ini menceritakan kisah seorang pria yang memiliki istri sempurna dalam segala hal, mulai dari kecantikan hingga kepandaian dan sikapnya yang selalu menyenangkan. Namun di balik kesempurnaan itu, pria tersebut merasa ada hal-hal kecil yang membuatnya penasaran dan ingin mendekati sisi lain dari istrinya yang tidak biasa. Kisah ini mengikuti hubungan mereka yang penuh kehangatan namun juga sentuhan kecil nakal demi menjaga gairah dan rasa cinta tetap menyala. Seiring waktu, mereka berdua berusaha saling mengenal lebih dalam dan menemukan bahwa kesempurnaan tidak harus kaku melainkan bisa dinikmati dengan kebebasan dan keaslian satu sama lain. Komik ini menampilkan dinamika rumah tangga unik yang menggabungkan romansa, humor, dan sentuhan emosional, menyoroti bagaimana pasangan mampu menemukan kebahagiaan melalui kesalahan kecil dan kejujuran dalam hubungan mereka.",
-    "cover": "https://thumbnail.komiku.org/img/upload/tsuma_ga_kanpeki_sugiru_no_de__chotto_midashite_ii_desu_ka_/img_68d82c97eef9f9.03308090.jpg?w=500",
-    "genre": "Comedy, Drama, Ecchi, Mature, Romance, Seinen, Slice of Life",
+  "its-too-precious-and-hard-to-read-4p-short-stories": {
+    "title": "Komik “It’s too precious and hard to read !!” 4P Short Stories",
+    "author": "Jane Doe",
+    "synopsis": "Komik ini mengisahkan beragam cerita singkat yang menyentuh hati dan menghadirkan situasi penuh makn...",
+    "cover": "",
+    "genre": "Romance",
     "type": "Manga",
-    "total_chapters": 37,
-    "source_url": "https://komiku.org/manga/tsuma-ga-kanpeki-sugiru-no-de-chotto-midashite-ii-desu-ka/"
-  },
-  "houseki-no-kuni": {
-    "title": "Komik Houseki no Kuni",
-    "author": "Haruko Ichikawa",
-    "synopsis": "Cerita ini berlatar di sebuah dunia yang dihuni oleh makhluk kristal yang dikenal sebagai Permata. Mereka menjalani kehidupan yang abadi dan damai sampai suatu hari mereka diserang oleh makhluk misterius bernama Bulan yang ingin menghancurkan Permata demi ambisinya sendiri. Salah satu Permata bernama Phosphophyllite yang rapuh dan belum berguna bertekad mencari tujuan hidupnya sekaligus melindungi teman-temannya. Sepanjang perjalanannya, Phos mengalami berbagai perubahan dan tantangan yang menguji keberanian serta makna keberadaannya. Namun keterbatasan fisik tidak menghalangi tekadnya untuk berjuang demi menjaga kedamaian di dunia mereka yang penuh bahaya dan mengungkap rahasia di balik asal usul Bulan serta Permata itu sendiri.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/houseki-no-kuni/manga_thumbnail-Komik-Houseki-no-Kuni.png?w=500",
-    "genre": "Action, Drama, Fantasy, Mystery, Psychological, Sci-fi, Seinen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 75,
-    "source_url": "https://komiku.org/manga/houseki-no-kuni/"
-  },
-  "the-mage-next-door": {
-    "title": "Komik The Mage Next Door",
-    "author": "Kim Saras",
-    "synopsis": "Kisah ini mengikuti seorang pemuda biasa yang kehidupannya berubah drastis setelah seorang penyihir muda pindah ke rumah sebelahnya. Mereka mulai menjalin persahabatan yang perlahan mengungkap dunia sihir yang selama ini tersembunyi dari mata awam. Menghadapi berbagai tantangan, keduanya belajar satu sama lain dan menemukan kekuatan baru dalam diri mereka. Namun, tidak semua berjalan mulus karena kehadiran penyihir ini menarik perhatian para musuh yang ingin menguasai kekuatan magis. Sang protagonis harus memilih antara menjalani kehidupan normalnya atau ikut terjun dalam konflik sihir yang penuh bahaya dan misteri.",
-    "cover": "https://thumbnail.komiku.org/img/upload/the_mage_next_door/img_6968b80b607300.22735603.jpg?w=500",
-    "genre": "Comedy, Drama, Magic, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 8,
-    "source_url": "https://komiku.org/manga/the-mage-next-door/"
+    "total_chapters": 6,
+    "source_url": "https://komiku.org/manga/its-too-precious-and-hard-to-read-4p-short-stories/"
   },
   "itsu-demo-jitaku-ni-kaereru-ore-wa-isekai-de-gyoushoujin-o-hajimemashita": {
     "title": "Komik Itsu Demo Jitaku ni Kaereru Ore wa, Isekai de Gyoushoujin o Hajimemashita",
-    "author": "Kousuke Yasuda",
-    "synopsis": "Kisah ini mengikuti seorang pria yang secara misterius dipindahkan ke dunia lain yang penuh dengan makhluk fantastis dan peluang baru. Meski memiliki kemampuan untuk kembali ke rumahnya kapan saja, ia memilih untuk membangun kehidupan baru di dunia tersebut dengan memulai usaha perdagangan yang unik dan berani. Usahanya tidak hanya bertujuan untuk keuntungan materi tetapi juga untuk menjalin hubungan dan memajukan komunitas setempat. Dalam perjalanan usahanya, ia menghadapi berbagai tantangan dan persaingan tapi juga menemukan teman-teman baru serta peluang yang belum pernah ia bayangkan sebelumnya. Cerita ini menggambarkan bagaimana ketekunan dan kreativitas dapat membuka jalan menuju kesuksesan meski dalam situasi yang serba asing dan sulit, serta memperlihatkan perkembangan karakter utama sebagai pengusaha sekaligus individu yang mampu beradaptasi dengan dunia baru.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/itsu-demo-jitaku-ni-kaereru-ore-wa-isekai-de-gyoushoujin-o-hajimemashita/manga_thumbnail-Manga-Itsu-Demo-Jitaku-ni-Kaereru-Ore-wa-Isekai-de-Gyoushoujin-o-Hajimemashita.jpg?w=500",
-    "genre": "Adventure, Comedy, Fantasy, Harem, Isekai, Magic, Romance",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Adventure",
     "type": "Manga",
     "total_chapters": 44,
     "source_url": "https://komiku.org/manga/itsu-demo-jitaku-ni-kaereru-ore-wa-isekai-de-gyoushoujin-o-hajimemashita/"
   },
-  "reincarnated-as-an-aristocrat-with-an-appraisal-skill": {
-    "title": "Komik Reincarnated as an Aristocrat with an Appraisal Skill",
-    "author": "Haruki Kugami",
-    "synopsis": "Cerita ini mengikuti kehidupan seorang pria yang bereinkarnasi sebagai bangsawan muda di dunia fantasi. Dengan kemampuan penilaian yang unik, dia mampu menilai nilai dan potensi benda maupun orang dengan tepat, sehingga membantunya membangun kehidupan yang lebih baik dan meraih posisi penting di masyarakatnya. Berbekal kemampuan tersebut, sang protagonis tidak hanya menghadapi berbagai konflik sosial dan politik di sekitarnya, tetapi juga berupaya mengungkap misteri di balik kematiannya di kehidupan sebelumnya. Perjalanan ini memperlihatkan bagaimana dia menggunakan kecerdasan dan keahliannya untuk menghadapi tantangan serta mencapai tujuan pribadinya dalam dunia baru ini.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/reincarnated-as-an-aristocrat-with-an-appraisal-skill/manga_thumbnail-Manga-Reincarnated-as-an-Aristocrat-with-an-Appraisal-Skill.jpg?w=500",
-    "genre": "Adventure, Fantasy, Shounen",
+  "jako-ni-wa-kaji-ga-oniaida-www-to-iwareta-kaji-level-9999-no-ore-tsuihousareta-no-de-boukensha-ni-tenshoku-suru-saikyou-de-musou-shinagara-guild-de-tanoshiku-kurashimasu": {
+    "title": "Komik “Jako ni wa Kaji ga Oniaida www” to Iwareta Kaji Level 9999 no Ore, Tsuihousareta no de Boukensha ni Tenshoku suru – Saikyou de Musou Shinagara Guild de Tanoshiku Kurashimasu",
+    "author": "Momoaki Natsu",
+    "synopsis": "Di dunia yang mengandalkan level kemampuan untuk menentukan status, Aku dianggap memiliki level keba...",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "total_chapters": 172,
-    "source_url": "https://komiku.org/manga/reincarnated-as-an-aristocrat-with-an-appraisal-skill/"
+    "total_chapters": 21,
+    "source_url": "https://komiku.org/manga/jako-ni-wa-kaji-ga-oniaida-www-to-iwareta-kaji-level-9999-no-ore-tsuihousareta-no-de-boukensha-ni-tenshoku-suru-saikyou-de-musou-shinagara-guild-de-tanoshiku-kurashimasu/"
   },
-  "maou-ni-natte-node-dungeon-tsukutte-jingai-musume-to-honobono-suru": {
-    "title": "Komik Maou ni Natte node – Dungeon Tsukutte Jingai Musume to Honobono suru",
-    "author": "Okano Kei",
-    "synopsis": "Setelah bereinkarnasi sebagai Raja Iblis, protagonis memutuskan untuk menciptakan dungeon yang aman dan ramah. Di dalam dungeon tersebut, ia tinggal bersama para gadis non-manusia yang menjadi pengawalnya sekaligus teman sehari-hari, menciptakan suasana damai dan penuh kehangatan di tengah dunia yang keras. Cerita ini mengeksplorasi perjalanan mereka membangun hubungan yang kuat, menghadapi tantangan bersama, dan membangun kehidupan baru yang harmonis. Dalam prosesnya, protagonis tidak hanya menjadi penguasa yang kuat, tapi juga sosok yang peduli dan menjaga kedamaian bagi teman-teman yang ia anggap keluarga.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/maou-ni-natte-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/manga_thumbnail-Komik-Maou-ni-Natte-node--Dungeon-Tsukutte-Jingai-Musume-to-Honobono-suru.jpg?w=500",
-    "genre": "Action, Adventure, Fantasy, Harem, Isekai, Romance, Slice of Life",
+  "jujutsu-kaisen-modulo": {
+    "title": "Komik Jujutsu Kaisen Modulo",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Dark Fantasy",
     "type": "Manga",
-    "total_chapters": 131,
-    "source_url": "https://komiku.org/manga/maou-ni-natte-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/"
+    "total_chapters": 19,
+    "source_url": "https://komiku.org/manga/jujutsu-kaisen-modulo/"
   },
-  "gendai-shakai-de-otome-game-no-akuyaku-reijou-wo-suru-no-wa-chotto-taihen": {
-    "title": "Komik Gendai Shakai de Otome Game no Akuyaku Reijou wo suru no wa Chotto Taihen",
-    "author": "Nagura Hina",
-    "synopsis": "Komik ini mengisahkan seorang gadis yang terlahir kembali menjadi karakter antagonis dalam sebuah game otome yang populer. Berada di dunia modern, ia berusaha mengubah nasibnya yang awalnya gelap dan berbahaya dengan cara menjalani hidup yang berbeda dari cerita asli game tersebut. Dengan pendekatan yang cerdas dan hati yang penuh tekad, ia menghadapi berbagai tantangan sosial dan emosional agar bisa bertahan dan menemukan kebahagiaan sejati. Selain beradaptasi dengan lingkungan baru yang penuh aturan berbeda, protagonis juga menemukan sisi lain dari karakter-karakter di sekelilingnya yang selama ini dianggap musuh. Hubungan yang awalnya penuh konflik mulai berubah menjadi ikatan persahabatan dan cinta yang tulus. Perjalanan ini menunjukkan bagaimana seseorang bisa merubah takdirnya meski berada di dunia yang asing dan penuh rintangan.",
-    "cover": "https://thumbnail.komiku.org/img/upload/gendai_shakai_de_otome_game_no_akuyaku_reijou/img_6835888f7894b3.04449449.jpg?w=500",
-    "genre": "Drama, School life",
+  "kanan-sama-wa-akumade-choroi": {
+    "title": "Komik Kanan-sama wa Akumade Choroi",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "total_chapters": 22,
-    "source_url": "https://komiku.org/manga/gendai-shakai-de-otome-game-no-akuyaku-reijou-wo-suru-no-wa-chotto-taihen/"
+    "total_chapters": 166,
+    "source_url": "https://komiku.org/manga/kanan-sama-wa-akumade-choroi/"
   },
-  "the-suffering-of-a-26-year-old-unloved-female-doomer": {
-    "title": "Komik The Suffering of a 26 Year Old Unloved Female Doomer",
-    "author": "Rina Tan",
-    "synopsis": "Komik ini mengisahkan kehidupan seorang wanita berusia 26 tahun yang merasa terjebak dalam kesepian dan kegelisahan karena merasa tidak pernah dicintai sepanjang hidupnya. Ia menghadapi berbagai tantangan emosional dan sosial yang membuatnya semakin terpuruk, namun di balik segala kesunyian ini, ada kerinduan yang mendalam untuk menemukan arti dan kebermaknaan hidup. Dalam perjalanannya, ia berusaha untuk memahami diri sendiri dan mencari cara untuk bangkit dari kegelapan yang membelenggunya. Cerita ini menggambarkan pergulatan antara harapan dan keputusasaan, serta bagaimana ia perlahan menemukan kekuatan dalam dirinya untuk menghadapi realitas dan membangun masa depan yang lebih baik.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/the-suffering-of-a-26-year-old-unloved-female-doomer/manga_thumbnail-A2-The-Suffering-of-a-26-Year-Old-Unloved-Female-Doomer.jpeg?w=500",
-    "genre": "Comedy, Seinen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 26,
-    "source_url": "https://komiku.org/manga/the-suffering-of-a-26-year-old-unloved-female-doomer/"
+  "kill-the-dragon": {
+    "title": "Kill The Dragon",
+    "author": "Isekai Publishing",
+    "synopsis": "Bunuh naga menceritakan petualangan heroik seorang ksatria yang menghadapi makhluk raksasa yang meng...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/kill-the-dragon/manga_thumbnail-Manhwa-Kill-The-Dragon.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 169,
+    "source_url": "https://komiku.org/manga/kill-the-dragon"
   },
-  "g-g-g": {
-    "title": "Komik G.G.G.",
-    "author": "Goenawan Muhamad",
-    "synopsis": "Di sebuah dunia dimana kekuatan super adalah hal biasa, tiga sahabat yang dikenal sebagai G.G.G. berjuang melindungi kota mereka dari ancaman yang terus berkembang. Masing-masing memiliki kekuatan unik yang jika digabungkan menjadi senjata yang ampuh melawan kejahatan. Namun, mereka harus belajar bekerja sama dan mengatasi konflik pribadi agar bisa memenangkan setiap pertempuran. Ketika musuh baru datang dengan rencana jahat yang mengancam kedamaian dunia, ketiga pahlawan ini menghadapi dilema besar. Mereka tidak hanya berjuang melawan lawan luar, tetapi juga menghadapi tantangan dalam diri sendiri. Perjalanan mereka untuk menjaga keadilan sekaligus menemukan kekuatan sejati membentuk kisah yang penuh emosi dan aksi seru.",
-    "cover": "https://thumbnail.komiku.org/img/upload/g_g_g_/img_682d5819c1a355.88436162.jpg?w=500",
-    "genre": "Action, Shounen",
+  "kimetsu-no-yaiba-indonesia": {
+    "title": "Kimetsu no Yaiba",
+    "author": "Koyoharu Gotouge",
+    "synopsis": "Kimetsu no yaiba mengisahkan tentang tanjiro kamado, seorang anak yang kehidupannya berubah drastis ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/kimetsu-no-yaiba-indonesia/manga_thumbnail-Komik-Kimetsu-no-Yaiba.jpg?w=500",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 31,
-    "source_url": "https://komiku.org/manga/g-g-g/"
+    "total_chapters": 223,
+    "source_url": "https://komiku.org/manga/kimetsu-no-yaiba-indonesia/"
   },
-  "neko-neko-youjo-no-aijou-gohan-isekai-de-mofumofu-tachi-ni-ryouri-wo-tsukurimasu": {
-    "title": "Komik Neko Neko Youjo no Aijou Gohan ~Isekai de Mofumofu-tachi ni Ryouri wo Tsukurimasu!~",
-    "author": "Touya Saitou",
-    "synopsis": "Cerita mengikuti seorang tokoh utama yang terlempar ke dunia lain penuh dengan makhluk-makhluk lucu berbulu yang disebut Mofumofu. Di tempat baru ini, dia memutuskan menggunakan keahlian memasaknya untuk merawat dan mendekatkan diri dengan para makhluk tersebut, menciptakan hubungan yang hangat dan penuh kasih sayang melalui sajian makanan yang ia buat. Seiring berjalannya waktu, makanan yang ia persiapkan tidak hanya menjadi sumber energi, tapi juga ikatan penting yang mengubah hidupnya dan makhluk-makhluk di sekitarnya. Melalui kombinasi antara memasak dan kasih sayang, dia menemukan tujuan baru dan arti kebahagiaan di dunia yang asing ini.",
-    "cover": "https://thumbnail.komiku.org/img/upload/neko_neko_youjo_no_aijou_gohan/img_683568fe2fa850.27128167.jpg?w=500",
-    "genre": "Cooking, Fantasy, Isekai, Josei, Slice of Life",
+  "kingdom": {
+    "title": "Kingdom",
+    "author": "Yasuhisa Hara",
+    "synopsis": "Kerajaan mengikuti kisah xin, seorang pemuda yatim piatu yang bercita-cita menjadi jenderal terhebat...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/kingdom/manga_thumbnail-Komik-Kingdom.jpg?w=300",
+    "genre": "",
     "type": "Manga",
-    "total_chapters": 14,
-    "source_url": "https://komiku.org/manga/neko-neko-youjo-no-aijou-gohan-isekai-de-mofumofu-tachi-ni-ryouri-wo-tsukurimasu/"
+    "total_chapters": 863,
+    "source_url": "https://komiku.org/manga/kingdom"
+  },
+  "komik-one-piece-indo": {
+    "title": "One Piece",
+    "author": "Eiichiro Oda",
+    "synopsis": "One piece ngejar petualangan monkey d, bro! luffy, seorang pemuda yang nggak sabar jadi raja bajak l...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 1191,
+    "source_url": "https://komiku.org/manga/komik-one-piece-indo"
   },
   "kougekiryoku-zero-kara-hajimeru-kenseitan": {
     "title": "Komik Kougekiryoku Zero Kara Hajimeru Kenseitan",
-    "author": "Akari Kitori",
-    "synopsis": "Cerita ini mengikuti petualangan seorang pemuda yang memulai perjalanan sebagai pendekar pedang tanpa kekuatan khusus. Meski berasal dari latar belakang yang sederhana, ia bertekad mengasah kemampuan pedangnya hingga mencapai puncak kekuatan. Perjalanan ini tidak mudah karena harus menghadapi berbagai musuh yang kuat dan situasi berbahaya yang menguji ketekunan serta keberaniannya. Seiring waktu, protagonis menemukan rahasia tersembunyi di dunia pertarungan dan belajar menggabungkan teknik pedang klasik dengan strategi modern. Di tengah tekanan dan konflik, ia juga menjalin hubungan dengan rekan-rekan yang memiliki tujuan sama, membentuk ikatan kuat yang mendukung perjuangannya untuk menjadi pendekar terhebat dari nol.",
-    "cover": "https://thumbnail.komiku.org/img/upload/kougekiryoku_zero_kara_hajimeru_kenseitan/img_68663200980cc5.11361327.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Romance",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
     "total_chapters": 6,
     "source_url": "https://komiku.org/manga/kougekiryoku-zero-kara-hajimeru-kenseitan/"
   },
-  "blood-wing-hunter": {
-    "title": "Komik Blood Wing Hunter",
-    "author": "Ryo Han",
-    "synopsis": "Di dunia yang penuh dengan makhluk supernatural, seorang pemburu muda bernama Kael berjuang untuk melindungi umat manusia dari ancaman makhluk kegelapan yang dikenal sebagai Blood Wing. Dengan kemampuan khusus dan tekad yang kuat, Kael harus menghadapi konflik batin dan musuh yang semakin kuat demi menjaga kedamaian.",
-    "cover": "https://thumbnail.komiku.org/img/upload/blood_wing_hunter/img_6874b03dce3dd7.83670676.jpg?w=500",
-    "genre": "Action, Fantasy, Shounen",
-    "type": "Manga",
-    "total_chapters": 35,
-    "source_url": "https://komiku.org/manga/blood-wing-hunter/"
+  "level-1-player": {
+    "title": "Level 1 Player",
+    "author": "Team Arcane",
+    "synopsis": "Cerita ini ngejar petualangan seorang pemain game yang tiba-tiba terjebak di dalam dunia virtual seb...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/level-1-player/manga_thumbnail-Manhwa-Level-1-Player.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 124,
+    "source_url": "https://komiku.org/manga/level-1-player"
   },
-  "cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore": {
-    "title": "Komik Cheat Kusushi no Slow Life: Isekai ni Tsukurou Drugstore",
-    "author": "Kennoji Haruki",
-    "synopsis": "Kisah ini bercerita tentang seorang apoteker berbakat yang mendapatkan kemampuan unik untuk menciptakan obat dengan efisiensi luar biasa di dunia lain. Setelah bereinkarnasi di dunia baru, ia memutuskan untuk membuka sebuah toko obat yang membantu penduduk setempat sembuh dari berbagai penyakit dan masalah kesehatan tanpa harus mengandalkan metode tradisional yang lambat. Dalam perjalanannya membangun bisnis baru, ia menghadapi berbagai tantangan mulai dari skeptisisme penduduk hingga konflik dengan penyihir dan alkemis lain yang iri. Namun dengan kemampuan curangnya dalam meracik obat dan sikapnya yang rendah hati, ia berhasil membawa perubahan positif bagi masyarakat di sekitarnya sekaligus menemukan arti baru dalam kehidupannya.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore/manga_thumbnail-Manga-Cheat-Kusushi-no-Slow-Life-Isekai-ni-Tsukurou-Drugstore.jpg?w=500",
-    "genre": "Adventure, Comedy, Fantasy, Isekai",
-    "type": "Manga",
-    "total_chapters": 57,
-    "source_url": "https://komiku.org/manga/cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore/"
-  },
-  "kizokuka-sannan-no-nariagari-life": {
-    "title": "Komik Kizokuka Sannan no Nariagari Life",
-    "author": "Daiichi Yura",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang penakluk hutan yang berusaha membangun kehidupannya dari nol di tengah lingkungan yang keras dan penuh tantangan. Ia harus beradaptasi dengan berbagai makhluk dan situasi sulit di wilayah yang penuh misteri dan bahaya. Seiring waktu, penakluk ini mengembangkan kemampuan dan strategi unik untuk bertahan hidup serta mendapatkan posisi yang kuat di antara penghuni hutan. Perjalanan yang penuh lika-liku ini mengungkap kisah tentang ketekunan, kecerdikan, dan keberanian dalam menghadapi rintangan yang tak terduga.",
-    "cover": "https://thumbnail.komiku.org/img/upload/kizokuka_sannan_no_nariagari_life/img_696df10b849549.70171978.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Isekai",
-    "type": "Manga",
-    "total_chapters": 10,
-    "source_url": "https://komiku.org/manga/kizokuka-sannan-no-nariagari-life/"
-  },
-  "doukyo-shiteiru-kensei-no-onna-shishou-ga-kawaisugite-mainichi-shiawase-desu": {
-    "title": "Komik Doukyo Shiteiru Kensei no Onna Shishou ga Kawaisugite Mainichi Shiawase Desu",
-    "author": "Chisatoco",
-    "synopsis": "Cerita ini mengikuti kehidupan seorang murid lelaki yang mendapat perhatian khusus dari gurunya yang merupakan sosok wanita suci. Meskipun sikap gurunya terlihat tegas dan serius, ternyata dia sangat perhatian dan penuh kasih sayang pada muridnya, menciptakan momen-momen manis yang menghangatkan hati. Hubungan antara keduanya berkembang dengan penuh kelembutan dan pengertian, membuat hari-hari sang murid selalu terasa spesial. Seiring waktu berjalan, mereka menghadapi berbagai tantangan yang menguji kekuatan ikatan mereka. Namun, dengan kehadiran guru wanita yang penuh cinta dan kehangatan itu, setiap rintangan terasa lebih ringan. Komik ini menampilkan perpaduan antara kehangatan hubungan guru dan murid dengan nuansa romantis dan manis yang membuat pembaca terpikat dari awal hingga akhir.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/doukyo-shiteiru-kensei-no-onna-shishou-ga-kawaisugite-mainichi-shiawase-desu/manga_thumbnail-A2-Doukyo-Shiteiru-Kensei-no-Onna-Shishou-ga-Kawaisugite-Mainichi-Shiawase-Desu.jpg?w=500",
-    "genre": "Adventure, Comedy, Romance",
-    "type": "Manga",
-    "total_chapters": 11,
-    "source_url": "https://komiku.org/manga/doukyo-shiteiru-kensei-no-onna-shishou-ga-kawaisugite-mainichi-shiawase-desu/"
-  },
-  "mayonaka-heart-tune": {
-    "title": "Komik Mayonaka Heart Tune",
-    "author": "Akihito Tsukushi",
-    "synopsis": "Mayonaka Heart Tune mengisahkan tentang seorang remaja bernama Haru yang menemukan kekuatan khusus saat tengah malam. Dia mampu mendengar irama hati orang-orang di sekitarnya, yang membantunya memahami perasaan orang lain dengan lebih dalam dan memecahkan masalah yang sulit diungkapkan lewat kata-kata. Namun, kemampuan ini juga membawa tantangan tersendiri karena tidak semua irama hati mudah ditangkap atau diterima. Dalam perjalanan ceritanya, Haru bertemu dengan berbagai tokoh yang memiliki kisah hidup penuh liku. Dia belajar untuk tidak hanya mendengarkan, tetapi juga memahami dan menerima perbedaan perasaan setiap orang. Mayonaka Heart Tune menunjukkan bagaimana empati dan keberanian menghadapi rahasia hati dapat menguatkan hubungan antar manusia dan mengubah hidup Haru serta orang di sekitarnya.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/mayonaka-heart-tune/manga_thumbnail-Head-Mayonaka-Heart-Tune.jpg?w=500",
-    "genre": "Comedy, Harem, Romance, Shounen",
-    "type": "Manga",
-    "total_chapters": 102,
-    "source_url": "https://komiku.org/manga/mayonaka-heart-tune/"
-  },
-  "nageki-no-bourei-wa-intai-shitai-saijiyaku-hanta-ni-yoru-saikiyou-patei-ikusei-jutsu": {
-    "title": "Komik Nageki no Bourei wa Intai Shitai – Saijiyaku Hanta ni Yoru Saikiyou Patei Ikusei Jutsu",
-    "author": "Akihiko Oku",
-    "synopsis": "Komik ini menceritakan tentang seorang arwah yang dulunya seorang nakhoda legendaris namun kini hanya ingin mengakhiri masa jabatannya dan beristirahat setelah melewati berbagai perjuangan keras. Namun keinginannya untuk pensiun terganggu oleh seorang saingan yang berusaha mengambil alih perannya dengan metode terkuat yang dimilikinya. Dalam perjalanan ceritanya, arwah tersebut menggunakan teknik unik untuk membimbing pengganti terbaik yang mampu mengembalikan kejayaan serta menjaga warisan yang telah ditinggalkannya. Semua usaha itu dilakukan agar pewaris tahta mampu bertahan di tengah persaingan ketat dan ancaman dari pihak lain yang mengincar posisi mereka.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/nageki-no-bourei-wa-intai-shitai-saijiyaku-hanta-ni-yoru-saikiyou-patei-ikusei-jutsu/manga_thumbnail-Komik-Nageki-no-Bourei-wa-Intai-Shitai--Saijiyaku-Hanta-ni-Yoru-Saikiyou-Patei-Ikusei-Jutsu.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Isekai, Romance, Seinen",
-    "type": "Manga",
-    "total_chapters": 73,
-    "source_url": "https://komiku.org/manga/nageki-no-bourei-wa-intai-shitai-saijiyaku-hanta-ni-yoru-saikiyou-patei-ikusei-jutsu/"
-  },
-  "renai-no-jugyou": {
-    "title": "Komik Renai no Jugyou",
-    "author": "Miyoshi Tomori",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang guru muda yang baru saja memulai karirnya di sebuah sekolah menengah. Ia dikenal disiplin dan tegas, namun dalam hatinya menyimpan keraguan dan rasa kesepian yang mendalam. Suatu ketika, ia mulai menyadari perasaan yang tumbuh terhadap salah satu muridnya, yang sangat cerdas dan memiliki kepribadian unik. Hubungan antara guru dan murid ini pun berkembang dari sekadar interaksi di kelas menjadi lebih rumit secara emosional. Mereka berdua belajar banyak tentang arti kepercayaan, tanggung jawab, serta batasan yang harus dijaga dalam situasi seperti ini. Melalui berbagai konflik dan momen intim, kisah ini menggambarkan bagaimana cinta bisa muncul di tempat yang tidak terduga dan bagaimana setiap individu harus menghadapi konsekuensi dari pilihan mereka.",
-    "cover": "https://thumbnail.komiku.org/img/upload/renai_no_jugyou/img_68c534fed6b742.95263641.jpg?w=500",
-    "genre": "Comedy, Ecchi, Romance, School life, Shounen",
-    "type": "Manga",
-    "total_chapters": 26,
-    "source_url": "https://komiku.org/manga/renai-no-jugyou/"
-  },
-  "wakaba-sanchi-no-aoi-koi": {
-    "title": "Komik Wakaba-sanchi no Aoi Koi",
-    "author": "Katsuwo",
-    "synopsis": "Cerita ini mengikuti kisah seorang gadis muda yang tumbuh di keluarga Wakaba yang hangat dan penuh kasih sayang. Saat dia melewati masa remaja, dia mulai merasakan perasaan cinta yang membuat hidupnya penuh warna dan tantangan baru. Di tengah dinamika keluarga dan kehidupan sehari-hari, ia belajar tentang arti cinta sejati dan bagaimana menjaga ikatan keluarga tetap kuat. Perjalanan emosional gadis ini juga dipenuhi dengan momen kebahagiaan dan kesedihan yang membentuk kepribadiannya. Dengan latar belakang kehidupan keluarga yang sederhana tetapi kaya dengan nilai, cerita ini menyuguhkan pesan tentang keberanian menghadapi perubahan dan pentingnya dukungan keluarga dalam mengarungi lika-liku cinta pertama.",
-    "cover": "https://thumbnail.komiku.org/img/upload/wakaba-sanchi_no_aoi_koi/img_684bda5fd505d3.11256252.png?w=500",
-    "genre": "Comedy, Romance, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 39,
-    "source_url": "https://komiku.org/manga/wakaba-sanchi-no-aoi-koi/"
-  },
-  "reincarnated-as-the-strongest-monster-eater-revenge-on-the-tyrant-dragon": {
-    "title": "Komik Reincarnated as the Strongest Monster Eater: Revenge on the Tyrant Dragon",
-    "author": "Shu Sakura",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pria yang bereinkarnasi di dunia baru sebagai pemakan monster terkuat. Dengan kekuatan yang luar biasa, ia memutuskan untuk membalas dendam pada naga tirani yang telah menyebabkan kehancuran dan penderitaan di dunia tersebut. Sepanjang perjalanannya, ia mengumpulkan kekuatan, bertemu berbagai makhluk, dan mempelajari rahasia dunia baru ini. Dalam usahanya, ia menghadapi berbagai tantangan dan musuh yang berusaha menggagalkan misinya. Namun tekad dan kekuatannya tidak tergoyahkan, membawa perubahan besar bagi dunia dan membuka jalan bagi keadilan serta perdamaian bagi mereka yang tertindas oleh kekuasaan naga tirani tersebut.",
-    "cover": "https://thumbnail.komiku.org/img/upload/reincarnated_as_the_strongest_monster_eater__revenge_on_the_tyrant_dragon/img_695cbc263998d4.39962437.png?w=500",
-    "genre": "Action, Adventure, Drama, Fantasy, Mangatoon, Shounen",
-    "type": "Manga",
-    "total_chapters": 28,
-    "source_url": "https://komiku.org/manga/reincarnated-as-the-strongest-monster-eater-revenge-on-the-tyrant-dragon/"
-  },
-  "remote-jugyou-ni-nattara-class-1-no-bishoujo-to-doukyo-suru-koto-ni-natta": {
-    "title": "Komik Remote Jugyou ni Nattara Class 1 no Bishoujo to Doukyo Suru Koto ni Natta",
-    "author": "Mind-as",
-    "synopsis": "Cerita ini mengikuti seorang guru yang harus mengajar secara daring. Di tengah proses pembelajaran jarak jauh, ia menjadi semakin dekat dengan salah satu muridnya yang dikenal sebagai cewek cantik dari kelas satu. Interaksi antara guru dan murid ini berkembang unik seiring berjalannya waktu, menghadirkan dinamika baru dalam hubungan mereka. Di tengah tantangan pengajaran online, guru tersebut berusaha menjaga profesionalisme sekaligus menghadapi perasaan yang mulai tumbuh. Kisah ini mengeksplorasi perkembangan hubungan mereka, konflik yang muncul, dan bagaimana mereka menemukan cara untuk saling mendukung dalam situasi yang sulit.",
-    "cover": "https://thumbnail.komiku.org/img/upload/remote_jugyou_ni_nattara_class_1_no_bishoujo_to_doukyo_suru_koto_ni_natta/img_689301126fe292.35086079.jpg?w=500",
-    "genre": "Comedy, Romance, School life, Shounen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 18,
-    "source_url": "https://komiku.org/manga/remote-jugyou-ni-nattara-class-1-no-bishoujo-to-doukyo-suru-koto-ni-natta/"
-  },
-  "isekai-yakkyoku": {
-    "title": "Komik Isekai Yakkyoku",
-    "author": "Rui Nakayama",
-    "synopsis": "Seorang ilmuwan muda yang ahli dalam farmasi tiba-tiba terbangun di dunia paralel dengan kemampuan medis yang masih sangat terbatas. Dengan pengetahuan modernnya, ia bertekad untuk mengubah sistem kesehatan dunia baru ini dan membantu banyak orang melalui apotek yang ia dirikan. Perjalanan ini membawanya bertemu dengan berbagai karakter unik serta menghadapi tantangan politik dan sosial di dunia isekai tersebut. Tidak hanya fokus pada pengobatan, ia juga mengembangkan berbagai obat inovatif yang menjadi kunci dalam menghadapi penyakit dan konflik. Melalui dedikasi dan kecerdasannya, kisah ini mengajarkan tentang pentingnya ilmu pengetahuan, kemanusiaan, dan bagaimana satu individu mampu membawa perubahan besar meski berada di tempat yang asing.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/isekai-yakkyoku/manga_thumbnail-Komik-Isekai-Yakkyoku.jpeg?w=500",
-    "genre": "Fantasy, Isekai",
-    "type": "Manga",
-    "total_chapters": 71,
-    "source_url": "https://komiku.org/manga/isekai-yakkyoku/"
-  },
-  "gokugoku-futsuu-no-fuufu-no-hanashi": {
-    "title": "Komik Gokugoku Futsuu no Fuufu no Hanashi",
-    "author": "Ai Morinaga",
-    "synopsis": "Gokugoku Futsuu no Fuufu no Hanashi mengikuti kehidupan sehari-hari pasangan suami istri yang menjalani hubungan penuh kehangatan dan kesederhanaan. Mereka menghadapi tantangan kecil dan momen bahagia dalam rumah tangga dengan sikap saling pengertian, menunjukkan bahwa kebahagiaan tidak harus datang dari hal besar. Komik ini menyuguhkan cerita yang realistis dan relatable bagi banyak pasangan yang menghargai keseimbangan dalam kehidupan rumah tangga. Di balik keindahan kesederhanaan ini, cerita juga mengeksplorasi dinamika emosional pasangan tersebut. Mereka belajar menghargai perbedaan dan tumbuh bersama melalui setiap konflik maupun kebahagiaan sederhana. Komik ini memberikan perspektif baru tentang arti cinta dan komitmen dalam kehidupan sehari-hari yang penuh kejujuran dan kesetiaan.",
-    "cover": "https://thumbnail.komiku.org/img/upload/gokugoku_futsuu_no_fuufu_no_hanashi/img_693d2108b6a7a8.37635737.jpg?w=500",
-    "genre": "Comedy, Romance, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 13,
-    "source_url": "https://komiku.org/manga/gokugoku-futsuu-no-fuufu-no-hanashi/"
-  },
-  "i-became-a-munchkin-skill-thief": {
-    "title": "Komik I Became a Munchkin Skill Thief",
-    "author": "Baek Jinseong",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang pemuda yang tiba-tiba terjebak di dunia game dengan kemampuan untuk mencuri skill orang lain. Dengan kekuatan unik ini, dia menghadapi berbagai tantangan serta musuh yang kuat, berusaha bertahan hidup dan menemukan tujuan baru di dunia tersebut. Di tengah perjalanannya, ia belajar arti persahabatan dan kepercayaan sambil mengungkap rahasia dunia yang penuh misteri. Setiap langkah yang diambil membuka lebih banyak kemungkinan dan risiko yang harus ia hadapi demi mencapai kekuatan tertinggi.",
-    "cover": "https://thumbnail.komiku.org/img/upload/i_became_a_munchkin_skill_thief/img_695b3947a06586.62165287.png?w=500",
-    "genre": "Action, Adventure, Comedy, Drama, Historical, Mangatoon",
-    "type": "Manga",
-    "total_chapters": 19,
-    "source_url": "https://komiku.org/manga/i-became-a-munchkin-skill-thief/"
-  },
-  "maou-sama-retry-r": {
-    "title": "Komik Maou-sama, Retry! R",
-    "author": "Kurone Kanzaki",
-    "synopsis": "Maou-sama Retry R berkisah tentang Akira Oono yang secara misterius terjebak dalam dunia game yang pernah diciptakannya. Ia mengadopsi identitas Maou, raja iblis, dan berkelana menjelajahi dunia tersebut untuk menemukan jawaban atas perubahan yang terjadi serta mencari cara kembali ke dunia nyata. Sepanjang perjalanannya, Akira bertemu dengan berbagai karakter unik dan menghadapi tantangan yang menguji kemampuannya. Dalam petualangannya, Akira tidak hanya berusaha mengungkap misteri dunia baru ini, tetapi juga melindungi orang-orang yang ditemuinya. Cerita ini menggabungkan unsur aksi, fantasi, dan intrik politik yang membuatnya semakin menarik dan penuh kejutan. Maou-sama Retry R menawarkan perspektif berbeda bagi para pecinta genre isekai dan fantasi modern.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/maou-sama-retry-r/manga_thumbnail-Manga-Maou-sama-Retry-R.jpg?w=500",
-    "genre": "Action, Adventure, Comedy, Drama, Fantasy, Harem, Seinen",
-    "type": "Manga",
-    "total_chapters": 68,
-    "source_url": "https://komiku.org/manga/maou-sama-retry-r/"
-  },
-  "silent-witch-chinmoku-no-majo-no-kakushigoto": {
-    "title": "Komik Silent Witch Chinmoku no Majo no Kakushigoto",
-    "author": "Ogawa Akira",
-    "synopsis": "Cerita ini mengikuti perjalanan seorang penyihir bernama Chinmoku yang memiliki kemampuan magis luar biasa namun memutuskan untuk hidup dalam keheningan agar tidak menarik perhatian dunia sihir. Ia berusaha menjalani kehidupan sehari-hari secara normal sambil menjaga rahasia kemampuannya dari orang lain. Namun, tidak mudah bagi Chinmoku untuk menyembunyikan kekuatan dan identitasnya karena berbagai situasi yang memaksanya untuk berinteraksi dengan dunia luar. Dalam perjalanan ceritanya, Chinmoku bertemu dengan berbagai karakter yang menguji tekad dan prinsipnya dalam mempertahankan kerahasiaannya. Konflik batin dan tantangan magis yang muncul membuat dia harus menemukan cara baru untuk bertahan tanpa mengorbankan dirinya sendiri. Kisah ini menyoroti pentingnya penerimaan diri dan keberanian menghadapi kenyataan demi menjaga kedamaian hidup pribadi.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/silent-witch-chinmoku-no-majo-no-kakushigoto/manga_thumbnail-Silent-Witch-Chinmoku-no-Majo-no-Kakushigoto-1.png?w=500",
-    "genre": "Adventure, Comedy, Fantasy, Magic, Reincarnation, School life, Shoujo",
-    "type": "Manga",
-    "total_chapters": 28,
-    "source_url": "https://komiku.org/manga/silent-witch-chinmoku-no-majo-no-kakushigoto/"
-  },
-  "kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai": {
-    "title": "Komik Kuroiwa Medaka ni Watashi no Kawaii ga Tsuujinai",
-    "author": "Sakuraba Midori",
-    "synopsis": "Kuroiwa Medaka adalah seorang siswa yang tampan dan populer namun memiliki kesulitan memahami ekspresi perasaannya sendiri maupun orang lain. Di sekolah, ia bertemu dengan seorang gadis yang sangat imut dan ceria yang selalu berusaha membuatnya memahami arti perasaan dan perhatian yang tulus. Meskipun Medaka awalnya canggung dengan sikap gadis tersebut, perlahan ia mulai menyadari bahwa ada hal yang lebih penting dari sekadar penampilan luar. Cerita ini mengikuti perjalanan mereka membangun hubungan yang unik di mana Medaka belajar mengungkapkan perasaannya dengan cara yang baru dan berbeda. Melalui interaksi sehari-hari, mereka saling mengubah perspektif satu sama lain dan menemukan arti sebenarnya dari kasih sayang dan pengertian dalam sebuah hubungan yang sederhana namun sangat berarti.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/manga_thumbnail-Manga-Kuroiwa-Medaka-ni-Watashi-no-Kawaii-ga-Tsuujinai.jpg?w=500",
-    "genre": "Comedy, Ecchi, Romance, Shounen, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 208,
-    "source_url": "https://komiku.org/manga/kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai/"
-  },
-  "maigo-ni-natteita-youjo-o-tasuketara-otonari-ni-sumu-bishoujo-ryuugakusei-ga-ie-ni-asobi-ni-kuru-you-ni-natta-ken-ni-tsuite": {
-    "title": "Komik Maigo ni Natteita Youjo o Tasuketara, Otonari ni Sumu Bishoujo Ryuugakusei ga Ie ni Asobi ni Kuru You ni Natta Ken ni Tsuite",
-    "author": "Yoshichi Sakamoto",
-    "synopsis": "Kisah ini berpusat pada seorang pemuda yang secara tak sengaja bertemu dengan seorang bocah perempuan yang tersesat di sekitarnya. Ia memutuskan untuk membantunya hingga akhirnya mereka menjadi teman yang dekat. Bocah tersebut memiliki kepribadian yang ceria dan penuh rasa ingin tahu, membuat hari-hari sang pemuda menjadi lebih berwarna. Seiring waktu, hubungan mereka semakin erat dan membawa perubahan positif dalam kehidupan keduanya. Suatu hari, seorang gadis mahasiswa pertukaran yang tinggal di sebelah rumah datang dan mulai berkunjung secara rutin. Gadis tersebut dikenal karena kecantikan dan sikap ramahnya, membuat atmosfer di lingkungan sekitar menjadi lebih hidup. Kehadiran gadis ini semakin mempererat hubungan antara pemuda dan bocah perempuan tersebut, serta membuka peluang untuk cerita yang lebih menarik dan penuh kehangatan dalam kehidupan mereka sehari-hari.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/maigo-ni-natteita-youjo-o-tasuketara-otonari-ni-sumu-bishoujo-ryuugakusei-ga-ie-ni-asobi-ni-kuru-you-ni-natta-ken-ni-tsuite/manga_thumbnail-A2-Maigo-ni-Natteita-Youjo-wo-Tasuketara.jpg?w=500",
-    "genre": "Comedy, Romance, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 28,
-    "source_url": "https://komiku.org/manga/maigo-ni-natteita-youjo-o-tasuketara-otonari-ni-sumu-bishoujo-ryuugakusei-ga-ie-ni-asobi-ni-kuru-you-ni-natta-ken-ni-tsuite/"
-  },
-  "the-return-of-the-corpse-king-shikabane-ou-no-kikan": {
-    "title": "Komik The Return of the Corpse King (Shikabane Ou no Kikan)",
-    "author": "Takashi Imamura",
-    "synopsis": "Komik ini menceritakan kisah seorang raja yang bangkit kembali dari kematian untuk menuntut balas dendam dan menata ulang dunia yang penuh kekacauan. Ia menghadapi berbagai musuh kuat serta intrik yang terus menguji kekuatan dan tekadnya demi mengembalikan kedamaian. Dalam perjalanan tersebut, sang raja menemukan sekutu dan rahasia gelap dari masa lalu yang akan mengubah arah perjuangannya. Dengan latar dunia fantasi gelap, cerita ini menggabungkan aksi intens serta drama yang mendalam tentang kekuasaan dan keabadian.",
-    "cover": "https://thumbnail.komiku.org/img/upload/the_return_of_the_corpse_king/img_6864c460b574f7.88096505.png?w=500",
-    "genre": "Action, Adventure, Comedy, Fantasy, Harem, Shounen",
-    "type": "Manga",
-    "total_chapters": 9,
-    "source_url": "https://komiku.org/manga/the-return-of-the-corpse-king-shikabane-ou-no-kikan/"
-  },
-  "moriagaranai-date": {
-    "title": "Komik Moriagaranai Date",
-    "author": "Yukari Fujioka",
-    "synopsis": "Dalam dunia yang dipenuhi oleh ketidakpastian dan tekanan sosial, seorang remaja menemukan dirinya terjebak dalam sebuah janji yang tampaknya tidak bisa dihindari. Cerita ini mengikuti perjalanan batin protagonis yang berusaha mengatasi perasaan takut sekaligus berharap agar semuanya berjalan lancar pada tanggal penting tersebut. Konflik dan dinamika sosial yang kuat menjadi latar dalam kisah ini. Seiring berjalannya waktu, tokoh utama mulai mengenal lebih dalam tentang arti tanggung jawab dan keberanian menghadapi konsekuensi. Hubungan yang terbentuk di sekitarnya membuka perspektif baru sehingga membuatnya lebih matang dalam menyikapi kehidupan. Komik ini mengajak pembaca untuk merenungkan nilai komitmen serta kekuatan diri dalam situasi penuh tantangan.",
-    "cover": "https://thumbnail.komiku.org/img/upload/moriagaranai_date/img_695b2366da53c1.00394060.jpg?w=500",
-    "genre": "Comedy, Josei, Romance, Slice of Life",
-    "type": "Manga",
-    "total_chapters": 6,
-    "source_url": "https://komiku.org/manga/moriagaranai-date/"
-  },
-  "keiyaku-shimai": {
-    "title": "Komik Keiyaku Shimai",
-    "author": "Mekimeki",
-    "synopsis": "Komik ini mengisahkan dua saudari yang terikat dalam sebuah kontrak unik untuk mempertahankan hubungan mereka yang rapuh sekaligus menjalin kehidupan bersama yang harmonis. Berawal dari sebuah kesepakatan, mereka menghadapi berbagai tantangan dan rahasia yang menjadi ujian bagi ikatan persaudaraan mereka. Seiring berjalannya waktu, mereka belajar arti sebenarnya dari kepercayaan dan pengorbanan. Konflik dan kebahagiaan silih berganti memperlihatkan dinamika emosional yang membuat hubungan mereka semakin kuat dan penuh makna.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/keiyaku-shimai/manga_thumbnail-Manga-Keiyaku-Shimai.jpg?w=500",
-    "genre": "Comedy, Romance, Yuri",
+  "lostend": {
+    "title": "Komik LOSTEND",
+    "author": "",
+    "synopsis": "",
+    "cover": "https://thumbnail.komiku.org/img/upload/lostend/img_690c517143bde3.00272689.jpg?w=500",
+    "genre": "",
     "type": "Manga",
     "total_chapters": 34,
-    "source_url": "https://komiku.org/manga/keiyaku-shimai/",
-    "chapters": {}
+    "source_url": "https://komiku.org/manga/lostend/"
+  },
+  "lv999-no-murabito": {
+    "title": "Lv999 no Murabito",
+    "author": "Koge Donbo",
+    "synopsis": "Cerita ngejar petualangan seorang pria yang merupakan penduduk desa biasa dengan level terendah dala...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/lv999-no-murabito/manga_thumbnail-Komik-Lv999-no-Murabito.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 85,
+    "source_url": "https://komiku.org/manga/lv999-no-murabito"
+  },
+  "magic-emperor": {
+    "title": "Magic Emperor",
+    "author": "Rui Tsukiyo",
+    "synopsis": "Magic emperor menceritakan tentang kisah seorang pemuda yang terlahir kembali dengan keahlian sihir ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 812,
+    "source_url": "https://komiku.org/manga/magic-emperor"
+  },
+  "magical-realm-shopkeeper": {
+    "title": "Magical Realm Shopkeeper",
+    "author": "Wuky",
+    "synopsis": "Di dunia di mana sihir dan makhluk fantastis menjadi bagian dari kehidupan sehari-hari, seorang pemu...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/magical-realm-shopkeeper/manga_thumbnail-A2-Magical-Realm-Shopkeeper.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 85,
+    "source_url": "https://komiku.org/manga/magical-realm-shopkeeper"
+  },
+  "manga-one-punch-man": {
+    "title": "One Punch Man",
+    "author": "ONE",
+    "synopsis": "One punch man mengikuti kisah saitama, seorang pahlawan yang bisa mengalahkan musuh hanya dengan sat...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/manga-one-punch-man/manga_thumbnail-Komik-One-Punch-Man.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 346,
+    "source_url": "https://komiku.org/manga/manga-one-punch-man"
+  },
+  "maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru": {
+    "title": "Komik Maou ni Natta node, Dungeon Tsukutte Jingai Musume to Honobono suru",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 127,
+    "source_url": "https://komiku.org/manga/maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/"
+  },
+  "maou-ni-natte-node-dungeon-tsukutte-jingai-musume-to-honobono-suru": {
+    "title": "Komik Maou ni Natte node – Dungeon Tsukutte Jingai Musume to Honobono suru",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 131,
+    "source_url": "https://komiku.org/manga/maou-ni-natte-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/"
   },
   "marriagetoxin": {
     "title": "Komik Marriagetoxin",
-    "author": "Han Yu-Rang",
-    "synopsis": "Di sebuah dunia di mana pernikahan menjadi alat politik dan kekuasaan, seorang wanita muda bernama Aria terpaksa menikah dengan pria yang dingin dan misterius bernama Leon. Perjodohan yang tidak diinginkan ini membawa Aria ke dalam dunia intrik dan bahaya yang penuh dengan rahasia tersembunyi serta konflik keluarga yang kompleks. Meski awalnya saling menjauh, mereka mulai memahami satu sama lain dan menghadapi musuh bersama, membuka lembaran baru dalam hubungan mereka. Seiring perjalanan waktu, Aria dan Leon berjuang untuk menyelamatkan cinta mereka dari racun yang tersebar di lingkungan mereka. Mereka tidak hanya harus melawan tekanan dari keluarga dan tradisi, tetapi juga menghadapi ancaman dari pihak luar yang tidak ingin mereka bahagia. Dalam proses itu, Aria menemukan kekuatan dalam dirinya yang selama ini tersembunyi, menjadikan pernikahan mereka bukan lagi sekadar ikatan, melainkan batu loncatan menuju kebebasan dan kebahagiaan sejati.",
-    "cover": "https://thumbnail.komiku.org/uploads/manga/marriagetoxin/manga_thumbnail-Manga-Marriagetoxin.jpg?w=500",
-    "genre": "Action, Comedy, Drama, Gender Bender, Romance, Shounen",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "total_chapters": 75,
-    "source_url": "https://komiku.org/manga/marriagetoxin/",
-    "chapters": {}
+    "total_chapters": 74,
+    "source_url": "https://komiku.org/manga/marriagetoxin/"
+  },
+  "mikoto-chan-wa-kirawaretakunai": {
+    "title": "Komik Mikoto-chan wa Kirawaretakunai!",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 38,
+    "source_url": "https://komiku.org/manga/mikoto-chan-wa-kirawaretakunai/"
+  },
+  "momose-akira-no-hatsukoi-hatan-chuu": {
+    "title": "Komik Momose Akira no Hatsukoi Hatan-chuu.",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 34,
+    "source_url": "https://komiku.org/manga/momose-akira-no-hatsukoi-hatan-chuu/"
+  },
+  "muteki-no-ansatsu-ma-shirube-shi-last-boss-musume-to-tabi-wo-suru": {
+    "title": "Komik Muteki No Ansatsu Ma Shirube Shi, Last Boss Musume to Tabi Wo Suru",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 2,
+    "source_url": "https://komiku.org/manga/muteki-no-ansatsu-ma-shirube-shi-last-boss-musume-to-tabi-wo-suru/"
+  },
+  "nano-machine": {
+    "title": "Nano Machine",
+    "author": "Hwang Yongjae",
+    "synopsis": "Nano machine mengisahkan seorang pewaris klan yang dianggap lemah dan rendah oleh anggota keluargany...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/nano-machine/manga_thumbnail-Manhwa-Nano-Machine.jpeg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 296,
+    "source_url": "https://komiku.org/manga/nano-machine"
+  },
+  "neko-neko-youjo-no-aijou-gohan-isekai-de-mofumofu-tachi-ni-ryouri-wo-tsukurimasu": {
+    "title": "Komik Neko Neko Youjo no Aijou Gohan ~Isekai de Mofumofu-tachi ni Ryouri wo Tsukurimasu!~",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Cooking",
+    "type": "Manga",
+    "total_chapters": 14,
+    "source_url": "https://komiku.org/manga/neko-neko-youjo-no-aijou-gohan-isekai-de-mofumofu-tachi-ni-ryouri-wo-tsukurimasu/"
+  },
+  "next-life": {
+    "title": "Komik Next Life",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 69,
+    "source_url": "https://komiku.org/manga/next-life/"
+  },
+  "ore-ga-inai-to-sugu-chomeru-hakanagi-kasumi": {
+    "title": "Komik Ore ga Inai to Sugu Chomeru Hakanagi Kasumi",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 2,
+    "source_url": "https://komiku.org/manga/ore-ga-inai-to-sugu-chomeru-hakanagi-kasumi/"
+  },
+  "pick-me-up": {
+    "title": "Pick Me Up",
+    "author": "Jinwoo Kim",
+    "synopsis": "Pick me up mengisahkan tentang kisah cinta dan perjuangan seorang pemuda yang berusaha menemukan jat...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/pick-me-up/manga_thumbnail-Pick-Me-Up-1.png?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 185,
+    "source_url": "https://komiku.org/manga/pick-me-up/"
+  },
+  "piquant": {
+    "title": "Komik -PIQUANT-",
+    "author": "Kanan Minami",
+    "synopsis": "Komik PIQUANT menggambarkan perjalanan seorang chef muda yang penuh semangat dalam menguasai seni me...",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 2,
+    "source_url": "https://komiku.org/manga/piquant/"
+  },
+  "raidorl-seiken-senki": {
+    "title": "Komik Raidorl Seiken Senki",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 6,
+    "source_url": "https://komiku.org/manga/raidorl-seiken-senki/"
+  },
+  "ranger-reject-sentai-daishikkaku": {
+    "title": "Komik Ranger Reject (Sentai Daishikkaku)",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 65,
+    "source_url": "https://komiku.org/manga/ranger-reject-sentai-daishikkaku/"
+  },
+  "record-of-the-mightiest-lord": {
+    "title": "Record of The Mightiest Lord",
+    "author": "Jeon Geuk-jin",
+    "synopsis": "Dalam dunia di mana kekuatan dan status menentukan segalanya, cerita ini mengikuti perjalanan seoran...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/record-of-the-mightiest-lord/manga_thumbnail-Manhua-Record-of-The-Mightiest-Lord.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 80,
+    "source_url": "https://komiku.org/manga/record-of-the-mightiest-lord/"
+  },
+  "reincarnated-as-an-aristocrat-with-an-appraisal-skill": {
+    "title": "Komik Reincarnated as an Aristocrat with an Appraisal Skill",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Adventure",
+    "type": "Manga",
+    "total_chapters": 172,
+    "source_url": "https://komiku.org/manga/reincarnated-as-an-aristocrat-with-an-appraisal-skill/"
+  },
+  "return-of-the-legend": {
+    "title": "Return of the Legend",
+    "author": "Jeon Geuk-jin",
+    "synopsis": "Return of the legend mengikuti kisah seorang pria muda yang terlahir kembali dengan kekuatan luar bi...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-legend/manga_thumbnail-Head-Return-of-the-Legend.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 174,
+    "source_url": "https://komiku.org/manga/return-of-the-legend"
+  },
+  "return-of-the-mad-demon": {
+    "title": "Return of the Mad Demon",
+    "author": "Lee Yong-Gang",
+    "synopsis": "Return of the mad demon menceritakan tentang seorang pria yang dulunya dikenal sebagai demon yang sa...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/return-of-the-mad-demon/manga_thumbnail-Manhwa-Return-of-the-Mad-Demon.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 187,
+    "source_url": "https://komiku.org/manga/return-of-the-mad-demon/"
+  },
+  "sakamoto-days": {
+    "title": "Sakamoto Days",
+    "author": "Yuto Suzuki",
+    "synopsis": "Sakamoto adalah mantan pembunuh bayaran yang kini menjalani kehidupan normal sebagai pemilik toko ke...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/sakamoto-days/manga_thumbnail-Manga-Sakamoto-Days.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 243,
+    "source_url": "https://komiku.org/manga/sakamoto-days"
+  },
+  "senpai-jitaku-keibiin-no-koyou-wa-ikaga-desu-ka": {
+    "title": "Komik Senpai, Jitaku Keibiin no Koyou wa Ikaga desu ka?",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 14,
+    "source_url": "https://komiku.org/manga/senpai-jitaku-keibiin-no-koyou-wa-ikaga-desu-ka/"
+  },
+  "shiunji-ke-no-kodomo-tachi": {
+    "title": "Komik Shiunji-ke no Kodomo-Tachi",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 63,
+    "source_url": "https://komiku.org/manga/shiunji-ke-no-kodomo-tachi/"
+  },
+  "shuumatsu-no-valkyrie-indonesia": {
+    "title": "Shuumatsu no Valkyrie",
+    "author": "Takumi Fukui, Shinya Umemura",
+    "synopsis": "Dalam dunia yang akan menghadapi kiamat, para dewa dari berbagai mitologi berkumpul untuk menentukan...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/shuumatsu-no-valkyrie-indonesia/manga_thumbnail-A2-Shuumatsu-no-Valkyrie-1.jpg?w=300",
+    "genre": "",
+    "type": "Manga",
+    "total_chapters": 186,
+    "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-indonesia"
+  },
+  "shuumatsu-no-valkyrie-kinden-kamigami-no-apocalypse": {
+    "title": "Komik Shuumatsu no Valkyrie Kinden – Kamigami no Apocalypse",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 20,
+    "source_url": "https://komiku.org/manga/shuumatsu-no-valkyrie-kinden-kamigami-no-apocalypse/"
+  },
+  "solo-leveling-id": {
+    "title": "Solo Leveling",
+    "author": "Chugong",
+    "synopsis": "Di dunia di mana para pemburu bertarung melawan makhluk dari dunia lain melalui portal misterius, su...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/solo-leveling-sub-indo/manga_thumbnail-Head-I-Alone-Leveling.png?w=500",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 179,
+    "source_url": "https://komiku.org/manga/solo-leveling-id/"
   },
   "solo-leveling": {
     "title": "Unknown",
     "author": "Unknown",
+    "synopsis": "Manga: Unknown....",
     "cover": "",
-    "sinopsis": "Manga: Unknown.",
     "genre": "",
     "type": "Manga",
-    "source_url": "https://komiku.org/manga/solo-leveling/",
-    "total_chapters": 0
+    "total_chapters": 0,
+    "source_url": "https://komiku.org/manga/solo-leveling/"
   },
-  "50kg-cinderella": {
-    "title": "-50kg Cinderella",
-    "status": "Ongoing",
+  "soloist-in-a-cage": {
+    "title": "Komik Soloist in a Cage",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "last_scraped": "2026-01-27"
+    "total_chapters": 2,
+    "source_url": "https://komiku.org/manga/soloist-in-a-cage/"
   },
-  "aoppella-hajimari-no-playlist": {
-    "title": "-Aoppella!?- Hajimari no Playlist",
-    "status": "Ongoing",
-    "type": "Manga",
-    "last_scraped": "2026-01-27"
+  "soul-land-2": {
+    "title": "Soul Land 2",
+    "author": "Tang Jia San Shao",
+    "synopsis": "Setelah kejadian di soul land pertama, kehidupan di dunia ini memasuki era baru yang penuh dengan ta...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/soul-land-2/manga_thumbnail-Komik-Soul-Land-2.png?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 572,
+    "source_url": "https://komiku.org/manga/soul-land-2"
   },
-  "piquant": {
-    "title": "-PIQUANT-",
-    "status": "Ongoing",
-    "type": "Manga",
-    "last_scraped": "2026-01-27"
+  "spirit-farmer": {
+    "title": "Spirit Farmer",
+    "author": "Radioaktif Studio",
+    "synopsis": "Spirit farmer mengisahkan perjuangan seorang petani muda yang memiliki kemampuan unik untuk berkomun...",
+    "cover": "https://thumbnail.komiku.org/img/upload/spirit_farmer/img_6853c1b18cc731.95675294.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 190,
+    "source_url": "https://komiku.org/manga/spirit-farmer"
   },
-  "hack-g-u": {
-    "title": ".hack//G.U.+",
-    "status": "Ongoing",
+  "takou-no-hiki-wo-tasuketara-otomodachi-kara-hajimeru-koto-ni-narimashita-after-helping-ice-princess-from-another-school-i-decided-to-start-as-a-friend": {
+    "title": "Komik Takou no Hiki wo Tasuketara, Otomodachi kara Hajimeru Koto ni narimashita (After Helping “Ice Princess” from Another School, I Decided to Start As a Friend)",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "last_scraped": "2026-01-27"
+    "total_chapters": 25,
+    "source_url": "https://komiku.org/manga/takou-no-hiki-wo-tasuketara-otomodachi-kara-hajimeru-koto-ni-narimashita-after-helping-ice-princess-from-another-school-i-decided-to-start-as-a-friend/"
   },
-  "bijin-de-okane-mochi-no-kanojo-ga-hoshii-to-ittara-wake-ari-joshi-ga-yattekita-ken": {
-    "title": "“Bijin de Okane Mochi no Kanojo ga Hoshii” to Ittara, Wake Ari Joshi ga Yattekita Ken",
-    "status": "Ongoing",
-    "type": "Manga",
-    "last_scraped": "2026-01-27"
+  "tales-demons-gods": {
+    "title": "Tales of Demons and Gods",
+    "author": "Mad Snail",
+    "synopsis": "Tales of demons and gods mengikuti cerita nie li, seorang pejuang muda dari era modern yang terbunuh...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?w=500",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 941,
+    "source_url": "https://komiku.org/manga/tales-demons-gods/"
   },
-  "cold": {
-    "title": "“Cold” - Oneshot",
-    "status": "Completed",
-    "type": "Manga",
-    "last_scraped": "2026-01-27"
+  "the-beginning-after-the-end": {
+    "title": "The Beginning After The End",
+    "author": "TurtleMe",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang raja kuat bernama arthur leywin yang meninggal dan terlahir ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-beginning-after-the-end/manga_thumbnail-Manhwa-The-Beginning-After-The-End-1.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 226,
+    "source_url": "https://komiku.org/manga/the-beginning-after-the-end"
   },
-  "honyaku-no-sainou-de-ore-dake-ga-sekai-wo-kaihen-dekiru-ken": {
-    "title": "“Honyaku” no Sainou de Ore Dake ga Sekai wo Kaihen Dekiru Ken",
-    "status": "Ongoing",
+  "the-butcher-blade-that-pierces-all-realms": {
+    "title": "Komik The Butcher Blade That Pierces All Realms",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
     "type": "Manga",
-    "last_scraped": "2026-01-27"
+    "total_chapters": 26,
+    "source_url": "https://komiku.org/manga/the-butcher-blade-that-pierces-all-realms/"
   },
-  "issho-ni-netaindesu-yo-ne-senpai-to-amaku-sasayakarete-konya-mo-nemurenai": {
-    "title": "“Issho ni Netaindesu yo Ne, Senpai?” to Amaku Sasayakarete Kon’ya mo Nemurenai",
-    "status": "Ongoing",
+  "the-cuckoos-fiancee": {
+    "title": "The Cuckoo’s Fiancee",
+    "author": "Ummi Hafsa",
+    "synopsis": "The cuckoo’s fiancee mengikuti kisah seorang wanita muda yang tiba-tiba harus menerima kenyataan men...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-cuckoos-fiancee/manga_thumbnail-The-Cuckoos-Fiancee.jpg?w=300",
+    "genre": "",
     "type": "Manga",
-    "last_scraped": "2026-01-27"
+    "total_chapters": 279,
+    "source_url": "https://komiku.org/manga/the-cuckoos-fiancee"
   },
-  "its-too-precious-and-hard-to-read-4p-short-stories": {
-    "title": "“It’s too precious and hard to read !!” 4P Short Stories",
-    "status": "Ongoing",
-    "type": "Manga",
-    "last_scraped": "2026-01-27"
+  "the-demon-king-who-lost-his-job": {
+    "title": "The Demon King Who Lost His Job",
+    "author": "Bang Dooga",
+    "synopsis": "Setelah bertahun-tahun menjadi penguasa kegelapan yang ditakuti, raja iblis tiba-tiba kehilangan pek...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-demon-king-who-lost-his-job/manga_thumbnail-Komik-The-Demon-King-Who-Lost-His-Job.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 453,
+    "source_url": "https://komiku.org/manga/the-demon-king-who-lost-his-job/"
   },
-  "jako-ni-wa-kaji-ga-oniaida-www-to-iwareta-kaji-level-9999-no-ore-tsuihousareta-no-de-boukensha-ni-tenshoku-suru-saikyou-de-musou-shinagara-guild-de-tanoshiku-kurashimasu": {
-    "title": "“Jako ni wa Kaji ga Oniaida www” to Iwareta Kaji Level 9999 no Ore, Tsuihousareta no de Boukensha ni Tenshoku suru – Saikyou de Musou Shinagara Guild de Tanoshiku Kurashimasu",
-    "status": "Ongoing",
+  "the-kings-avatar": {
+    "title": "The King’s Avatar",
+    "author": "Butterfly Blue",
+    "synopsis": "The king's avatar menceritakan tentang ye xiu, seorang pemain profesional game glory yang terkenal d...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-kings-avatar/manga_thumbnail-Head-The-Kings-Avatar.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 178,
+    "source_url": "https://komiku.org/manga/the-kings-avatar"
+  },
+  "the-last-human": {
+    "title": "The Last Human",
+    "author": "WOW Studios",
+    "synopsis": "Dunia telah berubah menjadi tempat yang penuh dengan makhluk-makhluk super kuat dan kecerdasan buata...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-last-human/manga_thumbnail-Komik-The-Last-Human.jpg?w=300",
+    "genre": "",
+    "type": "Manhua",
+    "total_chapters": 588,
+    "source_url": "https://komiku.org/manga/the-last-human"
+  },
+  "the-mage-next-door": {
+    "title": "Komik The Mage Next Door",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
     "type": "Manga",
-    "last_scraped": "2026-01-27"
+    "total_chapters": 8,
+    "source_url": "https://komiku.org/manga/the-mage-next-door/"
+  },
+  "the-max-leveled-hero-will-return": {
+    "title": "The MAX leveled hero will return!",
+    "author": "Jae Hyun",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang pahlawan yang pernah mencapai level maksimal, namun menghila...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-max-leveled-hero-will-return/manga_thumbnail-Komik-The-MAX-leveled-hero-will-return.jpg?w=500",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 232,
+    "source_url": "https://komiku.org/manga/the-max-leveled-hero-will-return/"
+  },
+  "the-suffering-of-a-26-year-old-unloved-female-doomer": {
+    "title": "Komik The Suffering of a 26 Year Old Unloved Female Doomer",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 26,
+    "source_url": "https://komiku.org/manga/the-suffering-of-a-26-year-old-unloved-female-doomer/"
+  },
+  "the-veteran-healer-is-overpowered": {
+    "title": "The Veteran Healer Is Overpowered",
+    "author": "Jinhyuk Lee",
+    "synopsis": "Cerita ini mengikuti kehidupan seorang penyembuh berpengalaman yang bangkit kembali di dunia baru de...",
+    "cover": "https://thumbnail.komiku.org/img/upload/the_veteran_healer_is_overpowered/img_6836b62c941a46.30646330.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 64,
+    "source_url": "https://komiku.org/manga/the-veteran-healer-is-overpowered/"
+  },
+  "the-youngest-son-of-a-rich-family": {
+    "title": "The Youngest Son Of A Rich Family",
+    "author": "Siphon",
+    "synopsis": "Cerita ini mengikuti perjalanan seorang pemuda yang terlahir sebagai anak bungsu dari keluarga palin...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-youngest-son-of-a-rich-family/manga_thumbnail-The-Youngest-Son-Of-A-Rich-Family-1.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 186,
+    "source_url": "https://komiku.org/manga/the-youngest-son-of-a-rich-family"
+  },
+  "the-zenith": {
+    "title": "The Zenith",
+    "author": "L.O.C",
+    "synopsis": "The zenith mengikuti kisah seorang pria muda yang tiba-tiba menemukan dirinya terlibat dalam dunia r...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/the-zenith/manga_thumbnail-A2-The-Zenith.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 41,
+    "source_url": "https://komiku.org/manga/the-zenith/"
+  },
+  "tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru": {
+    "title": "Komik Tonari no Seki no Yatsu ga Souiu Me de Mitekuru",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Ecchi",
+    "type": "Manga",
+    "total_chapters": 86,
+    "source_url": "https://komiku.org/manga/tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru/"
+  },
+  "tsuma-ga-kanpeki-sugiru-no-de-chotto-midashite-ii-desu-ka": {
+    "title": "Komik Tsuma ga Kanpeki sugiru no de, Chotto Midashite Ii desu ka?",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 37,
+    "source_url": "https://komiku.org/manga/tsuma-ga-kanpeki-sugiru-no-de-chotto-midashite-ii-desu-ka/"
+  },
+  "welcome-to-cheap-restaurant-of-outcasts": {
+    "title": "Komik Tsuihousha Shokudou e Youkoso! (Welcome to Cheap Restaurant of Outcasts!)",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Adventure",
+    "type": "Manga",
+    "total_chapters": 57,
+    "source_url": "https://komiku.org/manga/welcome-to-cheap-restaurant-of-outcasts/"
+  },
+  "why-i-quit-being-the-demon-king": {
+    "title": "Why I Quit Being The Demon King",
+    "author": "Abaddon",
+    "synopsis": "Komik ini mengisahkan perjalanan raja iblis yang memutuskan untuk meninggalkan takhta dan kehidupan ...",
+    "cover": "https://thumbnail.komiku.org/uploads/manga/why-i-quit-being-the-demon-king/manga_thumbnail-Head-Why-I-Quit-Being-The-Demon-King.jpg?w=300",
+    "genre": "",
+    "type": "Manhwa",
+    "total_chapters": 80,
+    "source_url": "https://komiku.org/manga/why-i-quit-being-the-demon-king/"
+  },
+  "yanki-yo-tsue-o-mote": {
+    "title": "Komik Yanki yo, Tsue o mote!",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Comedy",
+    "type": "Manga",
+    "total_chapters": 1,
+    "source_url": "https://komiku.org/manga/yanki-yo-tsue-o-mote/"
+  },
+  "zombie-100-zombie-ni-naru-made-ni-shitai-100-no-koto": {
+    "title": "Komik Zombie 100 ~Zombie ni Naru Made ni Shitai 100 no Koto~",
+    "author": "",
+    "synopsis": "",
+    "cover": "",
+    "genre": "Action",
+    "type": "Manga",
+    "total_chapters": 88,
+    "source_url": "https://komiku.org/manga/zombie-100-zombie-ni-naru-made-ni-shitai-100-no-koto/"
   }
 }

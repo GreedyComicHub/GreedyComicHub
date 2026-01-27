@@ -1,19 +1,156 @@
 {
-    "title": "Komik LOSTEND",
-    "slug": "lostend",
-    "cover": "https://thumbnail.komiku.org/img/upload/lostend/img_690c517143bde3.00272689.jpg?w=500",
-    "sinopsis": "Lostend mengisahkan seorang pria bernama Rogue yang terjebak dalam dunia misterius penuh dengan makhluk aneh dan bahaya tanpa akhir. Dia berjuang untuk menemukan jalan kembali ke kehidupannya yang normal sambil menghadapi berbagai rintangan yang menguji keberanian dan kecerdasannya. Dalam perjalanan tersebut, Rogue bertemu dengan sekutu yang juga berjuang mengungkap rahasia dunia yang hilang ini. Bersama-sama mereka mencoba menguak misteri besar yang menjadi kunci untuk bisa keluar dari dunia tersebut sekaligus menyelamatkan diri mereka dan yang lain dari kehancuran total.",
-    "genre": [
-        "Action",
-        "Adventure",
-        "Drama",
-        "Horror",
-        "Mature",
-        "Seinen",
-        "Supernatural"
-    ],
-    "type": "Manga",
-    "source_url": "https://komiku.org/manga/lostend/",
-    "chapters": {},
-    "total_chapters": 0
+  "title": "Komik LOSTEND",
+  "slug": "lostend",
+  "cover": "https://thumbnail.komiku.org/img/upload/lostend/img_690c517143bde3.00272689.jpg?w=500",
+  "sinopsis": "Lostend mengisahkan seorang pria bernama Rogue yang terjebak dalam dunia misterius penuh dengan makhluk aneh dan bahaya tanpa akhir. Dia berjuang untuk menemukan jalan kembali ke kehidupannya yang normal sambil menghadapi berbagai rintangan yang menguji keberanian dan kecerdasannya. Dalam perjalanan tersebut, Rogue bertemu dengan sekutu yang juga berjuang mengungkap rahasia dunia yang hilang ini. Bersama-sama mereka mencoba menguak misteri besar yang menjadi kunci untuk bisa keluar dari dunia tersebut sekaligus menyelamatkan diri mereka dan yang lain dari kehancuran total.",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Horror",
+    "Mature",
+    "Seinen",
+    "Supernatural"
+  ],
+  "type": "Manga",
+  "source_url": "https://komiku.org/manga/lostend/",
+  "chapters": {
+    "34": {
+      "url": "https://komiku.org/lostend-chapter-34/",
+      "images": []
+    },
+    "33": {
+      "url": "https://komiku.org/lostend-chapter-33/",
+      "images": []
+    },
+    "32": {
+      "url": "https://komiku.org/lostend-chapter-32/",
+      "images": []
+    },
+    "31": {
+      "url": "https://komiku.org/lostend-chapter-31/",
+      "images": []
+    },
+    "30": {
+      "url": "https://komiku.org/lostend-chapter-30/",
+      "images": []
+    },
+    "29": {
+      "url": "https://komiku.org/lostend-chapter-29/",
+      "images": []
+    },
+    "28": {
+      "url": "https://komiku.org/lostend-chapter-28/",
+      "images": []
+    },
+    "27": {
+      "url": "https://komiku.org/lostend-chapter-27/",
+      "images": []
+    },
+    "26": {
+      "url": "https://komiku.org/lostend-chapter-26/",
+      "images": []
+    },
+    "25": {
+      "url": "https://komiku.org/lostend-chapter-25/",
+      "images": []
+    },
+    "24": {
+      "url": "https://komiku.org/lostend-chapter-24/",
+      "images": []
+    },
+    "23": {
+      "url": "https://komiku.org/lostend-chapter-23/",
+      "images": []
+    },
+    "22": {
+      "url": "https://komiku.org/lostend-chapter-22/",
+      "images": []
+    },
+    "21": {
+      "url": "https://komiku.org/lostend-chapter-21/",
+      "images": []
+    },
+    "20": {
+      "url": "https://komiku.org/lostend-chapter-20/",
+      "images": []
+    },
+    "19": {
+      "url": "https://komiku.org/lostend-chapter-19/",
+      "images": []
+    },
+    "18": {
+      "url": "https://komiku.org/lostend-chapter-18/",
+      "images": []
+    },
+    "17": {
+      "url": "https://komiku.org/lostend-chapter-17/",
+      "images": []
+    },
+    "16": {
+      "url": "https://komiku.org/lostend-chapter-16/",
+      "images": []
+    },
+    "15": {
+      "url": "https://komiku.org/lostend-chapter-15/",
+      "images": []
+    },
+    "14": {
+      "url": "https://komiku.org/lostend-chapter-14/",
+      "images": []
+    },
+    "13": {
+      "url": "https://komiku.org/lostend-chapter-13/",
+      "images": []
+    },
+    "12": {
+      "url": "https://komiku.org/lostend-chapter-12/",
+      "images": []
+    },
+    "11": {
+      "url": "https://komiku.org/lostend-chapter-11/",
+      "images": []
+    },
+    "10": {
+      "url": "https://komiku.org/lostend-chapter-10/",
+      "images": []
+    },
+    "9": {
+      "url": "https://komiku.org/lostend-chapter-9/",
+      "images": []
+    },
+    "8": {
+      "url": "https://komiku.org/lostend-chapter-8/",
+      "images": []
+    },
+    "7": {
+      "url": "https://komiku.org/lostend-chapter-7/",
+      "images": []
+    },
+    "6": {
+      "url": "https://komiku.org/lostend-chapter-6/",
+      "images": []
+    },
+    "5": {
+      "url": "https://komiku.org/lostend-chapter-5/",
+      "images": []
+    },
+    "4": {
+      "url": "https://komiku.org/lostend-chapter-4/",
+      "images": []
+    },
+    "3": {
+      "url": "https://komiku.org/lostend-chapter-3/",
+      "images": []
+    },
+    "2": {
+      "url": "https://komiku.org/lostend-chapter-2/",
+      "images": []
+    },
+    "1": {
+      "url": "https://komiku.org/lostend-chapter-1/",
+      "images": []
+    }
+  },
+  "total_chapters": 34
 }
