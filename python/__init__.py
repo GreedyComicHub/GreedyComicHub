@@ -1,1 +1,0 @@
-# GreedyComicHub Python Package

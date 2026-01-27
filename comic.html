@@ -57,7 +57,13 @@
                     return res.json();
                 })
                 .then(data => {
-                    document.getElementById('cover').src = data.cover || 'placeholder.jpg';
+                    const coverImg = document.getElementById('cover');
+                    if (data.cover && data.cover.trim()) {
+                        coverImg.src = data.cover;
+                        coverImg.style.display = 'block';
+                    } else {
+                        coverImg.style.display = 'none';
+                    }
                     document.getElementById('comic-title').textContent = data.title || 'Unknown Title';
                     
                     const genreElement = document.getElementById('genre');
