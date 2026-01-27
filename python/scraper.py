@@ -35,6 +35,19 @@ class KomikuScraper:
         """Add human-like delay between requests"""
         time.sleep(random.uniform(2, 5))
 
+    def _default_manga_data(self):
+        """Return default/empty manga data structure"""
+        return {
+            "title": "Unknown",
+            "author": "Unknown",
+            "genre": "",
+            "type": "Manga",
+            "cover": "",
+            "synopsis": "Failed to load - check komiku.org availability",
+            "chapter_links": {},
+            "total_chapters": 0
+        }
+
     def scrape_manga_list(self, manga_type="manga", limit=None):
         """Scrape list of manga from komiku.org
         
@@ -55,8 +68,12 @@ class KomikuScraper:
                 url = f"{self.base_url}/daftar-komik/?tipe={manga_type}&page={page}"
                 logger.info(f"Scraping page {page}: {url}")
                 
-                response = self.session.get(url, headers=self._get_headers(), timeout=15)
-                response.raise_for_status()
+                try:
+                    response = self.session.get(url, headers=self._get_headers(), timeout=15)
+                    response.raise_for_status()
+                except Exception as e:
+                    logger.warning(f"Page {page} failed: {e}. Stopping.")
+                    break
                 
                 soup = BeautifulSoup(response.content, "html.parser")
                 
@@ -122,8 +139,18 @@ class KomikuScraper:
         try:
             logger.info(f"Scraping detail: {url}")
             
-            response = self.session.get(url, headers=self._get_headers(), timeout=15)
-            response.raise_for_status()
+            try:
+                response = self.session.get(url, headers=self._get_headers(), timeout=15)
+                response.raise_for_status()
+            except requests.exceptions.Timeout:
+                logger.error(f"Timeout scraping {url}")
+                return self._default_manga_data()
+            except requests.exceptions.HTTPError as e:
+                logger.error(f"HTTP Error scraping {url}: {e.response.status_code}")
+                return self._default_manga_data()
+            except Exception as e:
+                logger.error(f"Connection error scraping {url}: {e}")
+                return self._default_manga_data()
             
             soup = BeautifulSoup(response.content, "html.parser")
             
@@ -228,16 +255,7 @@ class KomikuScraper:
             
         except Exception as e:
             logger.error(f"Error scraping detail: {e}")
-            return {
-                "title": "Unknown",
-                "author": "Unknown",
-                "genre": "",
-                "type": "Manga",
-                "cover": "",
-                "synopsis": "Failed to load synopsis",
-                "chapter_links": {},
-                "total_chapters": 0
-            }
+            return self._default_manga_data()
 
     def scrape_chapter_images(self, chapter_url):
         """Scrape image URLs from chapter page"""
@@ -246,8 +264,18 @@ class KomikuScraper:
         try:
             logger.info(f"Scraping chapter: {chapter_url}")
             
-            response = self.session.get(chapter_url, headers=self._get_headers(), timeout=15)
-            response.raise_for_status()
+            try:
+                response = self.session.get(chapter_url, headers=self._get_headers(), timeout=15)
+                response.raise_for_status()
+            except requests.exceptions.Timeout:
+                logger.warning(f"Timeout loading chapter: {chapter_url}")
+                return []
+            except requests.exceptions.HTTPError:
+                logger.warning(f"HTTP error loading chapter: {chapter_url}")
+                return []
+            except Exception as e:
+                logger.warning(f"Error loading chapter: {e}")
+                return []
             
             soup = BeautifulSoup(response.content, "html.parser")
             
@@ -272,7 +300,7 @@ class KomikuScraper:
             return images
             
         except Exception as e:
-            logger.warning(f"Error loading chapter: {e}")
+            logger.warning(f"Error in chapter scraping: {e}")
             return []
 
     def paraphrase_synopsis(self, text):
