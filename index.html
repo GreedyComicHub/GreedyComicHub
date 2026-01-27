@@ -136,12 +136,13 @@
                     card.id = `comic-card-${comic.id}`;
                     card.className = 'comic-card';
                     const latestChapter = comicChapterCache[comic.id] || 'N/A';
+                    const displayChapter = latestChapter === 'N/A' ? 'N/A' : `Ch ${latestChapter}`;
                     card.innerHTML = `
                         <a href="comic.html?comic=${comic.id}">
                             <img src="${comic.cover || 'placeholder.jpg'}" alt="${comic.title} - GreedyComicHub" class="comic-cover" loading="lazy">
                             <div class="card-text">
                                 <h3>${comic.title}</h3>
-                                <p class="last-chapter">${latestChapter}</p>
+                                <p class="last-chapter">${displayChapter}</p>
                             </div>
                         </a>
                     `;
