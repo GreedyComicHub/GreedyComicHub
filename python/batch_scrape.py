@@ -6,6 +6,7 @@ import json
 import os
 import sys
 import time
+import random
 from pathlib import Path
 from .scraper_komiku import scrape_komiku_detail, scrape_komiku_manga_list
 from .utils import DATA_DIR, write_json, read_json
@@ -69,11 +70,13 @@ def batch_scrape(genre=None, resume_from=None, limit=None):
                 logging.info(f"  Success! Total chapters: {result.get('total_chapters', 0)}")
                 successful += 1
             else:
-                logging.warning(f"  Failed to scrape {slug}")
+                logging.info(f"  Failed to scrape {slug}")
                 failed += 1
             
-            # Small delay between scrapes
-            time.sleep(0.5)
+            # Random delay between scrapes to avoid detection (2-5 seconds)
+            delay = random.uniform(2, 5)
+            logging.info(f"  Waiting {delay:.1f}s before next scrape...")
+            time.sleep(delay)
                 
         except Exception as e:
             logging.error(f"  Error scraping {slug}: {e}")

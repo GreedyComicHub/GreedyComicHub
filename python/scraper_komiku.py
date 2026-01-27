@@ -25,22 +25,58 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
 ]
 
 def _get_driver():
-    """Initialize Chrome driver with options."""
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # Run in background
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu")  # Disable GPU acceleration
-    options.add_argument("--disable-web-resources")
-    options.add_argument(f"user-agent={random.choice(USER_AGENTS)}")
-    
+    """Initialize Chrome driver with anti-detection and stealth measures."""
     try:
+        options = webdriver.ChromeOptions()
+        
+        # Stealth mode options
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-software-rasterizer")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-plugins")
+        options.add_argument("--disable-sync")
+        options.add_argument("--disable-translate")
+        options.add_argument("--disable-default-apps")
+        
+        # Disable webdriver detection
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        
+        # Random user agent
+        options.add_argument(f"user-agent={random.choice(USER_AGENTS)}")
+        
+        # Headless with specific version
+        options.add_argument("--headless=new")  # New headless syntax
+        
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=options)
-        logging.info("Chrome driver initialized")
+        
+        # Inject stealth JavaScript
+        driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+            'source': '''
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => false,
+                });
+                Object.defineProperty(navigator, 'plugins', {
+                    get: () => [1, 2, 3, 4, 5],
+                });
+                Object.defineProperty(navigator, 'languages', {
+                    get: () => ['en-US', 'en'],
+                });
+                window.chrome = {
+                    runtime: {}
+                };
+            '''
+        })
+        
+        logging.info("Chrome driver initialized with anti-detection measures")
         return driver
     except Exception as e:
         logging.error(f"Failed to initialize Chrome driver: {e}")
@@ -77,8 +113,11 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
         driver.get(url)
         logging.info(f"Opened: {url}")
         
+        # Add random delay to avoid detection
+        time.sleep(random.uniform(2, 4))
+        
         # Wait for content to load - try multiple selectors
-        wait = WebDriverWait(driver, 15)
+        wait = WebDriverWait(driver, 20)  # Increased timeout
         try:
             # Try common manga link selectors
             wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.daftar")))
@@ -92,7 +131,7 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
                 logging.warning("Could not find expected content, continuing anyway...")
         
         # Give page extra time for dynamic content
-        time.sleep(2)
+        time.sleep(random.uniform(2, 4))
         
         # Scroll to load more if exists (infinite scroll)
         last_height = driver.execute_script("return document.body.scrollHeight")
@@ -101,7 +140,8 @@ def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] =
         
         while scroll_attempts < max_scrolls:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(random.uniform(1, 2))
+            # Add variable delay between scrolls to seem more human
+            time.sleep(random.uniform(0.5, 1.5))
             new_height = driver.execute_script("return document.body.scrollHeight")
             if new_height == last_height:
                 logging.info("Reached end of page")
