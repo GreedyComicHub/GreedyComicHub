@@ -1,61 +1,51 @@
 #!/usr/bin/env python3
-"""Batch scrape multiple manga from komiku.org"""
+"""Batch scrape multiple manga from komiku.org dengan infinite scroll + genre support"""
 
 import logging
 import json
 import os
 import sys
+import time
 from pathlib import Path
-from .scraper_komiku import scrape_komiku_detail
+from .scraper_komiku import scrape_komiku_detail, scrape_komiku_manga_list
 from .utils import DATA_DIR, write_json, read_json
 
-def get_manga_list(search_term=None):
-    """Get list of manga slugs to scrape from index.json or user input"""
-    index_file = os.path.join(DATA_DIR, "index.json")
+def batch_scrape(genre=None, resume_from=None, limit=None):
+    """Scrape semua manga dari komiku.org, opsional by genre
     
-    if os.path.exists(index_file):
-        try:
-            index_data = read_json(index_file)
-            if isinstance(index_data, list):
-                slugs = [item.get("slug") for item in index_data if item.get("slug")]
-                logging.info(f"Found {len(slugs)} manga in index.json")
-                return slugs
-        except Exception as e:
-            logging.warning(f"Could not read index.json: {e}")
+    Args:
+        genre: Filter by genre (e.g., 'action', 'horror', 'romance')
+        resume_from: Resume dari manga tertentu
+        limit: Limit jumlah manga yang di-scrape
+    """
     
-    # Default manga list if index not available
-    default_manga = [
-        "dandadan", "solo-leveling-id", "lostend", "blue-lock",
-        "kimetsu-no-yaiba-indonesia", "komik-one-piece-indo",
-        "shuumatsu-no-valkyrie-indonesia", "kingdom", "nano-machine",
-        "magic-emperor", "return-of-the-legend", "kill-the-dragon"
-    ]
+    # Fetch manga list dari website dengan infinite scroll handling
+    logging.info("Fetching manga list from komiku.org...")
+    manga_list = scrape_komiku_manga_list(genre=genre, limit=limit)
     
-    logging.info(f"Using default manga list: {len(default_manga)} titles")
-    return default_manga
-
-def batch_scrape(manga_list=None, resume_from=None):
-    """Scrape multiple manga in batch"""
+    if not manga_list:
+        logging.error("Failed to fetch manga list!")
+        return
     
-    if manga_list is None:
-        manga_list = get_manga_list()
+    logging.info(f"Found {len(manga_list)} manga to scrape")
     
     total = len(manga_list)
     start_index = 0
     
     if resume_from:
         try:
-            start_index = manga_list.index(resume_from)
+            start_index = next(i for i, m in enumerate(manga_list) if m['slug'] == resume_from)
             logging.info(f"Resuming from {resume_from} (index {start_index})")
-        except ValueError:
+        except StopIteration:
             logging.warning(f"Manga {resume_from} not found in list")
     
     successful = 0
     failed = 0
     skipped = 0
     
-    for idx, slug in enumerate(manga_list[start_index:], start=start_index + 1):
+    for idx, manga_info in enumerate(manga_list[start_index:], start=start_index + 1):
         try:
+            slug = manga_info['slug']
             logging.info(f"\n[{idx}/{total}] Scraping: {slug}")
             
             # Check if already exists
@@ -69,15 +59,32 @@ def batch_scrape(manga_list=None, resume_from=None):
             result = scrape_komiku_detail(slug)
             if result:
                 write_json(comic_file, result)
-                logging.info(f"  Success! Saved {len(result.get('chapters', []))} chapters")
+                num_chapters = len(result.get('chapters', []))
+                logging.info(f"  Success! Saved {num_chapters} chapters")
                 successful += 1
             else:
                 logging.warning(f"  Failed to scrape {slug}")
                 failed += 1
+            
+            # Small delay between scrapes
+            time.sleep(0.5)
                 
         except Exception as e:
             logging.error(f"  Error scraping {slug}: {e}")
             failed += 1
+            continue
+    
+    # Print summary
+    print("\n" + "="*60)
+    print("BATCH SCRAPE SUMMARY")
+    print("="*60)
+    print(f"Total:      {total}")
+    print(f"Successful: {successful}")
+    print(f"Skipped:    {skipped}")
+    print(f"Failed:     {failed}")
+    print("="*60)
+    
+    return successful, skipped, failed
             continue
     
     # Print summary

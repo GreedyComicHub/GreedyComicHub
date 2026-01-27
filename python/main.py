@@ -222,6 +222,7 @@ Contoh penggunaan:
     # Parser untuk batch-scrape
     batch_scrape_parser = subparsers.add_parser("batch-scrape", help="Batch scrape semua manga dari komiku.org")
     batch_scrape_parser.add_argument("--resume", help="Resume dari manga slug tertentu (opsional)")
+    batch_scrape_parser.add_argument("--genre", help="Filter by genre: action, horror, romance, etc (opsional)")
     batch_scrape_parser.add_argument("--limit", type=int, help="Limit jumlah manga yang di-scrape (opsional)")
     
     args = parser.parse_args()
@@ -253,7 +254,7 @@ Contoh penggunaan:
         elif args.command == "scrape-komiku-chapter":
             scrape_komiku_chapter_cmd(args.slug, args.chapter)
         elif args.command == "batch-scrape":
-            batch_scrape(resume_from=args.resume)
+            batch_scrape(genre=args.genre, resume_from=args.resume, limit=args.limit)
         logging.info(f"Command '{args.command}' completed successfully")
     except Exception as e:
         logging.error(f"Error executing '{args.command}': {e}", exc_info=True)

@@ -45,20 +45,33 @@ def _get_driver():
         logging.error(f"Failed to initialize Chrome driver: {e}")
         raise
 
-def scrape_komiku_manga_list(max_retries: int = 3) -> List[Dict[str, str]]:
+def scrape_komiku_manga_list(genre: Optional[str] = None, limit: Optional[int] = None, max_retries: int = 3) -> List[Dict[str, str]]:
     """
-    Scrape manga list from https://komiku.org/pustaka/?tipe=manga
-    Handles HTMX dynamic loading.
+    Scrape manga list dari komiku.org dengan infinite scroll handling.
+    Bisa filter by genre atau scrape semua manga.
+    
+    Args:
+        genre: Filter by genre (action, horror, romance, etc) - opsional
+        limit: Limit jumlah manga - opsional
+        max_retries: Retry attempts jika error
     
     Returns:
-        List of dicts: [{"slug": str, "title": str, "cover_url": str}, ...]
+        List of dicts dengan {slug, title, url, cover_url}
     """
     logging.info("Starting manga list scrape from komiku.org/pustaka/?tipe=manga")
     driver = None
     
     try:
         driver = _get_driver()
-        url = "https://komiku.org/pustaka/?tipe=manga"
+        
+        # Build URL with genre filter jika ada
+        if genre:
+            url = f"https://komiku.org/genre/{genre}/"
+            logging.info(f"Scraping manga by genre: {genre}")
+        else:
+            url = "https://komiku.org/pustaka/?tipe=manga"
+            logging.info("Scraping all manga")
+        
         driver.get(url)
         logging.info(f"Opened: {url}")
         
@@ -67,12 +80,14 @@ def scrape_komiku_manga_list(max_retries: int = 3) -> List[Dict[str, str]]:
         wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "a[href^='/manga/']")))
         logging.info("Page loaded with manga links")
         
-        # Scroll to load more if exists
+        # Scroll to load more if exists (infinite scroll)
         last_height = driver.execute_script("return document.body.scrollHeight")
         scroll_attempts = 0
-        while scroll_attempts < 5:
+        max_scrolls = 50 if not limit else min(50, (limit // 10) + 5)  # Adjust scrolls based on limit
+        
+        while scroll_attempts < max_scrolls:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(random.uniform(1, 3))
+            time.sleep(random.uniform(1, 2))
             new_height = driver.execute_script("return document.body.scrollHeight")
             if new_height == last_height:
                 logging.info("Reached end of page")
@@ -89,7 +104,7 @@ def scrape_komiku_manga_list(max_retries: int = 3) -> List[Dict[str, str]]:
                 href = elem.get_attribute("href")
                 slug = href.split("/manga/")[1].rstrip("/")
                 
-                # Get title - try different selectors
+                # Get title
                 title = None
                 try:
                     title = elem.find_element(By.CSS_SELECTOR, "h4, .title, .judul").text.strip()
@@ -104,11 +119,18 @@ def scrape_komiku_manga_list(max_retries: int = 3) -> List[Dict[str, str]]:
                 except:
                     pass
                 
-                if slug and title:
+                if slug and title and slug not in [m['slug'] for m in manga_list]:
                     manga_list.append({
                         "slug": slug,
                         "title": title,
+                        "url": f"https://komiku.org/manga/{slug}/",
                         "cover_url": cover_url or "N/A"
+                    })
+                    
+                    # Check if reached limit
+                    if limit and len(manga_list) >= limit:
+                        logging.info(f"Reached limit: {limit} manga")
+                        break
                     })
                     logging.debug(f"  Added: {slug} - {title}")
             except Exception as e:
