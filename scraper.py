@@ -22,7 +22,7 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
 DATA_DIR = "data"
-LIMIT = 5  # Change to larger number for full scrape or None for all
+LIMIT = None  # Change to larger number for testing or specific number (5, 20, 50, etc.)
 
 # Synonyms dictionary for paraphrasing
 SYNONYMS = {
