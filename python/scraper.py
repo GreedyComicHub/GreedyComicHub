@@ -1,257 +1,324 @@
 import logging
+import time
+import random
 import re
 import requests
-from typing import Tuple, Dict, List, Optional
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
-from .utils import fetch_page, paraphrase_synopsis
+from urllib.parse import urljoin
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5",
-    "Referer": "https://komiku.org/"
-}
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-def get_comic_id_and_display_name(url: str) -> Tuple[str, str]:
-    """Extract comic ID and display name from URL.
-    
-    Args:
-        url: Comic URL path.
-        
-    Returns:
-        Tuple of (comic_id, display_name).
-    """
-    comic_id = path.split("/")[-2] if path.endswith("/") else path.split("/")[-1]
-    comic_id = comic_id.replace("manga-", "").replace("/", "")
-    display_name = " ".join(word.capitalize() for word in comic_id.split("-"))
-    logging.info(f"Nama komik dari URL: ID={comic_id}, Display={display_name}")
-    return comic_id, display_name
-
-def scrape_komiku_details(url: str, soup: BeautifulSoup) -> Tuple[str, str, str, str, BeautifulSoup, str, str]:
-    """Scrape comic metadata from page.
-    
-    Args:
-        url: Comic page URL.
-        soup: BeautifulSoup parsed HTML.
-        
-    Returns:
-        Tuple of (title, author, synopsis, cover_url, soup, genre, comic_type).
-    """
-    title = title_element.text.strip().replace("Komik ", "").strip() if title_element else "Unknown Title"
-    logging.info(f"Nama komik dari <h1>: {title}")
-    author = "Unknown Author"
-    selectors = [
-        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Pengarang" in t if t else False)),
-        (soup.find, "span", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("span")),
-        (soup.find, "td", {"string": lambda x: "Author" in x if x else False}, lambda x: x.find_next("td")),
-        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: "Author" in t if t else False)),
-        (soup.find_all, "span", {}, lambda x: x if "Author" in x.text else None)
-    ]
-    for find_method, tag, attrs, next_step in selectors:
-        element = find_method(tag, **attrs) if attrs else find_method(tag)
-        if element:
-            if isinstance(element, list):
-                for span in element:
-                    next_text = span.find_next_sibling(text=True)
-                    if next_text and next_text.strip():
-                        author = next_text.strip()
-                        break
-            else:
-                next_element = next_step(element)
-                if next_element:
-                    if tag == "table":
-                        author = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Unknown Author"
-                    else:
-                        author = next_element.text.strip()
-                    if author and author != "Unknown Author":
-                        break
-                elif element.find_next_sibling(text=True):
-                    author = element.find_next_sibling(text=True).strip()
-                    if author and author != "Unknown Author":
-                        break
-    author = author.replace("~", "").strip() if author else "Unknown Author"
-    logging.info(f"Author ditemukan: {author}")
-    genre = "Fantasy"
-    genre_selectors = [
-        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: "Konsep Cerita" in t if t else False)),
-        (soup.find, "span", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("span")),
-        (soup.find, "td", {"string": lambda x: "Genre" in x if x else False}, lambda x: x.find_next("td")),
-        (soup.find, "div", {"class": "komik_info-content-genre"}, lambda x: x)
-    ]
-    for find_method, tag, attrs, next_step in genre_selectors:
-        element = find_method(tag, **attrs)
-        if element:
-            next_element = next_step(element)
-            if next_element:
-                if tag == "table":
-                    genre = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Fantasy"
-                else:
-                    genre = next_element.text.strip()
-                if genre:
-                    break
-    logging.info(f"Genre ditemukan: {genre}")
-    comic_type = "Unknown Type"
-    type_selectors = [
-        (soup.find, "table", {"class": "inftable"}, lambda x: x.find("td", string=lambda t: t and "Jenis Komik" in t)),
-        (soup.find, "span", {"string": lambda x: x and "Type" in x}, lambda x: x.find_next("span")),
-        (soup.find, "td", {"string": lambda x: x and "Type" in x}, lambda x: x.find_next("td")),
-        (soup.find, "div", {"class": "komik_info-content-meta"}, lambda x: x.find("span", string=lambda t: t and "Type" in t)),
-        (soup.find, "span", {"class": "komik_info-content-type"}, lambda x: x)
-    ]
-    for find_method, tag, attrs, next_step in type_selectors:
-        element = find_method(tag, **attrs)
-        if element:
-            next_element = next_step(element) if next_step else element
-            if next_element:
-                if tag == "table":
-                    comic_type = next_element.find_next("td").text.strip() if next_element.find_next("td") else "Unknown Type"
-                else:
-                    comic_type = next_element.text.strip()
-                if comic_type and comic_type != "Unknown Type":
-                    break
-            elif element.text.strip():
-                comic_type = element.text.strip()
-                if comic_type:
-                    break
-    logging.info(f"Tipe komik ditemukan: {comic_type}")
-    synopsis = "No synopsis available."
-    synopsis_header = soup.find("h2", string=lambda t: t and "Sinopsis Lengkap" in t)
-    if synopsis_header:
-        synopsis_element = synopsis_header.find_next("p")
-        if synopsis_element:
-            synopsis = synopsis_element.text.strip()
-            logging.info(f"Sinopsis ditemukan dari <p> setelah <h2>Sinopsis Lengkap</h2>: {synopsis[:100]}...")
-    if synopsis == "No synopsis available.":
-        logging.warning("Sinopsis tidak ditemukan di <p> setelah <h2>. Mencoba fallback ke div.desc.")
-        synopsis_element = soup.find("div", class_="desc")
-        if synopsis_element:
-            synopsis = synopsis_element.text.strip()
-        else:
-            meta_desc = soup.find("meta", attrs={"name": "description"})
-            if meta_desc and meta_desc.get("content"):
-                synopsis = meta_desc["content"].strip()
-    synopsis = paraphrase_synopsis(synopsis)
-    cover_url = ""
-    cover_selectors = [
-        'meta[property="og:image"]',
-        'meta[itemprop="image"]',
-        'img[itemprop="image"]',
-        'img.komik_info-cover-image'
-    ]
-    for selector in cover_selectors:
-        cover_element = soup.select_one(selector)
-        if cover_element:
-            cover_url = cover_element.get("content") or cover_element.get("src") or ""
-            if cover_url and cover_url.startswith('http'):
-                break
-    if not cover_url:
-        logging.warning("Cover image tidak ditemukan dengan selector utama. Mencoba fallback.")
-        cover_image = soup.find("img", class_=lambda x: x and "cover" in x.lower())
-        if cover_image:
-            cover_url = cover_image.get("src", "")
-    if not cover_url:
-        logging.error("Cover image tidak ditemukan.")
-    logging.info(f"Scraped data: title={title}, author={author}, genre={genre}, type={comic_type}, synopsis={synopsis}, cover={cover_url}")
-    return title, author, synopsis, cover_url, soup, genre, comic_type
-
-def scrape_comic_details(url: str) -> Tuple[Optional[str], Optional[str], Optional[str], Optional[str], Optional[BeautifulSoup], Optional[str], Optional[str]]:
-    """Fetch and scrape comic details from URL.
-    
-    Args:
-        url: Comic page URL.
-        
-    Returns:
-        Tuple of (title, author, synopsis, cover_url, soup, genre, comic_type) or Nones on error.
-    """
-    if not html:
-        return None, None, None, None, None, None, None
-    soup = BeautifulSoup(html, "html.parser")
-    return scrape_komiku_details(url, soup)
-
-def scrape_chapter_list(url: str, soup: BeautifulSoup) -> Dict[str, str]:
-    """Extract chapter list from page.
-    
-    Args:
-        url: Comic page URL.
-        soup: BeautifulSoup parsed HTML.
-        
-    Returns:
-        Dictionary of {chapter_num: chapter_url}.
-    """
-    logging.info(f"Mencari daftar chapter dari {url}...")
-    # Selector utama dan fallback
-    selectors = [
-        'td.judulseries a',
-        'table tr a:has(span)',
-        'a[href*="-chapter-"]',
-        'div.bxcl ul li a'
-    ]
-    for selector in selectors:
-        chapter_elements = soup.select(selector)
-        if chapter_elements:
-            logging.info(f"Chapter ditemukan dengan selector: {selector}")
-            for element in chapter_elements:
-                href = element.get("href", "").strip()
-                if not href or "chapter" not in href.lower():
-                    continue
-                if href.startswith('/'):
-                    href = urljoin(url, href)
-                chapter_text = element.find('span').text.strip() if element.find('span') else element.text.strip()
-                # Regex untuk tangkap integer atau desimal (misal 1, 1.1, 302.5)
-                match = re.search(r'Chapter\s+(\d+(\.\d+)?)', chapter_text, re.IGNORECASE)
-                if match:
-                    chapter_num = float(match.group(1))
-                    chapter_num = int(chapter_num) if chapter_num.is_integer() else chapter_num
-                    chapters[str(chapter_num)] = href
-                    logging.debug(f"Chapter {chapter_num}: {href}")
-            if chapters:
-                break
-    if not chapters:
-        logging.warning(f"Tidak ditemukan chapter di {url}. HTML mungkin berubah.")
-    return chapters
-
-def scrape_chapter_images(chapter_url: str) -> List[str]:
-    """Extract image URLs from chapter.
-    
-    Args:
-        chapter_url: Chapter page URL.
-        
-    Returns:
-        List of image URLs.
-    """
-    full_url = urljoin("https://komiku.org", chapter_url)
-    html = fetch_page(full_url, retries=3, delay=2)
-    if not html:
-        logging.error(f"Failed to fetch chapter: {chapter_url}")
-        return []
-    
-    try:
-        soup = BeautifulSoup(html, "html.parser")
-        title_element = soup.find("h1")
-        chapter_title = title_element.text.strip() if title_element else "Unknown Chapter"
-        logging.info(f"Judul chapter: {chapter_title}")
-        
-        image_urls = []
-        selectors = [
-            'img[itemprop="image"]',
-            '#readerarea img',
-            'div.komik img',
-            'img[src*="img.komiku.org"]'
+class KomikuScraper:
+    def __init__(self):
+        self.session = requests.Session()
+        self.user_agents = [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         ]
-        for selector in selectors:
-            image_elements = soup.select(selector)
-            if image_elements:
-                for img in image_elements:
-                    src = img.get("src", "")
-                    if src and src.startswith("http"):
-                        image_urls.append(src)
-                break
-        if not image_urls:
-            logging.error(f"Tidak ada gambar untuk chapter ini: {chapter_url}")
-        else:
-            logging.info(f"Extracted {len(image_urls)} images from {chapter_title}")
-        return image_urls
-    except Exception as e:
-        logging.error(f"Error parsing chapter images from {chapter_url}: {e}")
-        return []
+        self.base_url = "https://komiku.org"
+
+    def _get_headers(self):
+        """Get headers with random user agent"""
+        return {
+            "User-Agent": random.choice(self.user_agents),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Accept-Encoding": "gzip, deflate",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1"
+        }
+
+    def _human_delay(self):
+        """Add human-like delay between requests"""
+        time.sleep(random.uniform(2, 5))
+
+    def scrape_manga_list(self, manga_type="manga"):
+        """Scrape list of manga from komiku.org"""
+        manga_list = []
+        page = 1
+        max_pages = 50
+        
+        try:
+            while page <= max_pages:
+                url = f"{self.base_url}/daftar-komik/?tipe={manga_type}&page={page}"
+                logger.info(f"Scraping page {page}: {url}")
+                
+                response = self.session.get(url, headers=self._get_headers(), timeout=15)
+                response.raise_for_status()
+                
+                soup = BeautifulSoup(response.content, "html.parser")
+                
+                # Find manga items
+                found_on_page = False
+                
+                # Try multiple selectors
+                items = soup.find_all("a", class_=re.compile("komik|manga", re.I))
+                
+                for item in items:
+                    href = item.get("href")
+                    if not href or "/manga/" not in href:
+                        continue
+                    
+                    # Get title
+                    title_elem = item.find(["h3", "h2", "p"])
+                    if title_elem:
+                        title = title_elem.text.strip()
+                    else:
+                        title = item.get("title", item.get("alt", "Unknown"))
+                    
+                    if title and href:
+                        slug = href.rstrip("/").split("/")[-1]
+                        manga_list.append({
+                            "title": title,
+                            "url": urljoin(self.base_url, href),
+                            "slug": slug
+                        })
+                        found_on_page = True
+                
+                if not found_on_page:
+                    logger.info(f"No manga found on page {page}. Stopping.")
+                    break
+                
+                self._human_delay()
+                page += 1
+            
+            # Remove duplicates
+            seen = set()
+            unique_manga = []
+            for manga in manga_list:
+                if manga["slug"] not in seen:
+                    seen.add(manga["slug"])
+                    unique_manga.append(manga)
+            
+            logger.info(f"Found {len(unique_manga)} unique manga")
+            return unique_manga
+            
+        except Exception as e:
+            logger.error(f"Error scraping manga list: {e}")
+            return manga_list
+
+    def scrape_manga_detail(self, url):
+        """Scrape manga detail page"""
+        try:
+            logger.info(f"Scraping detail: {url}")
+            
+            response = self.session.get(url, headers=self._get_headers(), timeout=15)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.content, "html.parser")
+            
+            # Extract title
+            title = "Unknown"
+            title_elem = soup.find("h1") or soup.find(["h2", "h3"])
+            if title_elem:
+                title = title_elem.text.strip()
+            
+            # Extract author, genre, type - find in table rows
+            author = "Unknown"
+            genre = ""
+            manga_type = "Manga"
+            
+            # Find info section
+            for tr in soup.find_all("tr"):
+                tds = tr.find_all("td")
+                if len(tds) >= 2:
+                    label = tds[0].text.strip().lower()
+                    value = tds[1]
+                    
+                    if "penulis" in label or "author" in label or "pengarang" in label:
+                        author = value.text.strip()
+                    elif "genre" in label:
+                        genre_links = value.find_all("a")
+                        genre = ", ".join([link.text.strip() for link in genre_links])
+                    elif "tipe" in label or "type" in label:
+                        manga_type = value.text.strip()
+            
+            # Extract cover image - look for image with specific class patterns
+            cover = ""
+            for img in soup.find_all("img"):
+                src = img.get("data-src") or img.get("src") or ""
+                alt = img.get("alt", "").lower()
+                if src and ("thumbnail" in src or "cover" in alt or "manga" in alt):
+                    cover = src
+                    break
+            
+            cover = urljoin(self.base_url, cover) if cover and not cover.startswith("http") else cover
+            
+            # Extract synopsis - look specifically in main content area
+            synopsis = ""
+            
+            # First try: look for div with specific class patterns
+            for div in soup.find_all("div"):
+                classes = " ".join(div.get("class", []))
+                if "sinopsis" in classes.lower() or "descript" in classes.lower() or "konten" in classes.lower():
+                    text = div.text.strip()
+                    if len(text) > 100:
+                        synopsis = text
+                        break
+            
+            # Second try: find text after synopsis label
+            if not synopsis:
+                text_found = False
+                for elem in soup.find_all(["p", "div", "span"]):
+                    if "sinopsis" in elem.text.lower() and not text_found:
+                        text_found = True
+                        continue
+                    if text_found:
+                        text = elem.text.strip()
+                        if len(text) > 50 and "login" not in text.lower():
+                            synopsis = text
+                            break
+            
+            # Fallback: find longest text paragraph that doesn't look like UI
+            if not synopsis:
+                candidates = []
+                for elem in soup.find_all(["p", "div"]):
+                    text = elem.text.strip()
+                    if len(text) > 100 and "login" not in text.lower() and "google" not in text.lower():
+                        candidates.append(text)
+                if candidates:
+                    # Sort by length and take the longest
+                    candidates.sort(key=len, reverse=True)
+                    synopsis = candidates[0]
+            
+            # Get chapter links
+            chapter_links = {}
+            
+            # Find all links that look like chapters
+            for link in soup.find_all("a"):
+                href = link.get("href", "")
+                text = link.text.strip()
+                
+                if href and ("/chapter-" in href or "-chapter-" in href.lower() or re.search(r"ch[ap].*\d+", text, re.I)):
+                    full_url = urljoin(self.base_url, href)
+                    # Avoid duplicates
+                    if full_url not in chapter_links.values():
+                        chapter_links[text] = full_url
+            
+            return {
+                "title": title,
+                "author": author,
+                "genre": genre,
+                "type": manga_type,
+                "cover": cover,
+                "synopsis": synopsis if synopsis else "No synopsis available",
+                "chapter_links": chapter_links,
+                "total_chapters": len(chapter_links)
+            }
+            
+        except Exception as e:
+            logger.error(f"Error scraping detail: {e}")
+            return {
+                "title": "Unknown",
+                "author": "Unknown",
+                "genre": "",
+                "type": "Manga",
+                "cover": "",
+                "synopsis": "Failed to load synopsis",
+                "chapter_links": {},
+                "total_chapters": 0
+            }
+
+    def scrape_chapter_images(self, chapter_url):
+        """Scrape image URLs from chapter page"""
+        images = []
+        
+        try:
+            logger.info(f"Scraping chapter: {chapter_url}")
+            
+            response = self.session.get(chapter_url, headers=self._get_headers(), timeout=15)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.content, "html.parser")
+            
+            # Find Baca_Komik div
+            baca_komik = soup.find("div", id="Baca_Komik")
+            
+            if baca_komik:
+                img_tags = baca_komik.find_all("img")
+                for img in img_tags:
+                    img_url = img.get("src") or img.get("data-src") or img.get("data-lazy-src")
+                    
+                    if img_url:
+                        # Make full URL if relative
+                        if not img_url.startswith("http"):
+                            img_url = urljoin(self.base_url, img_url)
+                        
+                        # Skip placeholder or tracking pixels
+                        if not any(skip in img_url.lower() for skip in ["1x1", "placeholder", "ads", "banner"]):
+                            images.append(img_url)
+            
+            logger.info(f"Found {len(images)} image URLs in chapter")
+            return images
+            
+        except Exception as e:
+            logger.warning(f"Error loading chapter: {e}")
+            return []
+
+    def paraphrase_synopsis(self, text):
+        """Paraphrase synopsis to casual Indonesian (gaul) style"""
+        if not text or len(text) < 10:
+            return text
+        
+        # Remove multiple spaces and clean up
+        text = " ".join(text.split())
+        
+        # Dictionary of replacements to make text more casual
+        replacements = {
+            r"\bmengikuti kisah\b": "mengikutin cerita",
+            r"\bcerita tentang\b": "cerita yang menceritain",
+            r"\bberjuang\b": "berusaha keras",
+            r"\bmenghadapi\b": "ngedepain",
+            r"\bberusaha untuk\b": "nyoba untuk",
+            r"\bberusaha\b": "nyoba",
+            r"\bmemahami\b": "ngerti",
+            r"\bmengerti\b": "ngerti",
+            r"\bmencari\b": "nyari",
+            r"\bberubah\b": "berubah total",
+            r"\bsisi gelap\b": "hal-hal kelam",
+            r"\bmemengaruhi\b": "ngasih pengaruh ke",
+            r"\bhubungan\b": "hubungan sama",
+            r"\bperjalanan\b": "petualangan seru",
+            r"\bkarakter\b": "tokoh",
+            r"\bkonflik\b": "pertarungan",
+            r"\bperilaku\b": "tingkah laku",
+            r"\bakar\b": "asal-usul",
+            r"\bkebaikan\b": "kebaikan hati",
+            r"\bkomik\b": "manga",
+        }
+        
+        for pattern, replacement in replacements.items():
+            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+        
+        # Split into sentences
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        
+        # Add casual markers to some sentences
+        result = []
+        for i, sent in enumerate(sentences):
+            sent = sent.strip()
+            if sent:
+                # Remove trailing punctuation for manipulation
+                punct = ""
+                if sent and sent[-1] in ".!?":
+                    punct = sent[-1]
+                    sent = sent[:-1]
+                
+                # Add casual marker to some sentences
+                if i > 0 and random.random() > 0.6:  # Add to ~40% of sentences
+                    casual_ends = [" gitu, bro!", " deh!", " lah!", ", gitu aja.", " sih.", " nih!"]
+                    sent = sent + random.choice(casual_ends)
+                else:
+                    sent = sent + (punct or ".")
+                
+                result.append(sent)
+        
+        final_text = " ".join(result)
+        
+        # Ensure it doesn't end with multiple punctuation
+        final_text = re.sub(r'[.!?]{2,}', '.', final_text)
+        
+        return final_text
